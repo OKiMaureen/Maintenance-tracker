@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: 'Skranji', sans-serif, cursive;
+  font-family: 'Roboto+Slab', sans-serif, cursive;
 }
 
 /*header Section*/
@@ -75,7 +75,7 @@ nav ul a:active {
 
 .header {
   min-height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(images/head-background.jpg)center/cover fixed no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(images/head-background.png)center/cover fixed no-repeat;
   display: flex;
   width: 100%;
   height: auto;
@@ -99,6 +99,8 @@ nav {
   margin-top: 100px;
   color: #f8f7f5;
   font-size: 180%;
+  background:rgb(0, 0, 0,0.8);
+  border-radius: 25%;
   
 }
 
@@ -133,7 +135,7 @@ nav {
   padding: 10px 15px;
   margin: 0 10px;
   border-radius: 50%;
-  color: #f8f7f5;
+  color: #020500;
   transition: color 1s ease, transform 1s ease;
 }
 
@@ -213,6 +215,7 @@ nav {
   }
   .banner-icons {
     padding: 20px;
+    font-size: 40px;
   }
 }
 
@@ -328,11 +331,12 @@ footer {
   background: black;
   padding: 20px;
   text-align: center;
+  justify-content: center;
 }
 
 footer p {
   color: #046d4d;
-  font-size: 8px;
+  font-size: 10px;
   
 }
 /* footer Section big screen */
