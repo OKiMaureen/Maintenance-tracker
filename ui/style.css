@@ -18,7 +18,7 @@ nav ul {
 
 nav ul a {
   display: block;
-  background: rgba(3, 8, 0, 0.5);
+  background: rgba(3, 8, 0, 0.9);
   padding: 10px;
   font-size: 12px;
   text-decoration: none;
@@ -215,7 +215,7 @@ nav {
   }
   .banner-icons {
     padding: 20px;
-    font-size: 40px;
+    font-size: 100%;
   }
 }
 
