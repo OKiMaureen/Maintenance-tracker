@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: 'Gugi', sans-serif, cursive;
+  font-family: 'Skranji', sans-serif, cursive;
 }
 
 /*header Section*/
@@ -206,8 +206,8 @@ nav {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 50px 2px;
+    font-size: 30px;
+    margin: 50px 10px;
     cursor: pointer;
     border-radius: 12px;
   }
