@@ -18,18 +18,18 @@ nav ul {
 
 nav ul a {
   display: block;
-  background: rgba(3, 8, 0, 0.9);
+  background:rgb(0, 0, 0, 0.8);
   padding: 10px;
   font-size: 12px;
   text-decoration: none;
   text-transform: uppercase;
-  color: #07d8b5;
+  color: #fdf2f2;
   transition: color 1s ease, background 1s ease, padding 1s ease;
 }
 
 nav ul a:hover {
   background: #f8f7f5;
-  color: #020500;
+  color: #000000;
   padding-left: 20px;
 }
 
@@ -45,15 +45,15 @@ nav ul a:active {
 }
 
 .logo {
-  color: #07d8b5;
+  color: #fdf2f2;
   align-self: center;
   text-transform: uppercase;
 }
 
 .nav-container {
   padding: 0 20px;
-  background: rgb(0, 22, 0);
-  border-bottom: 4px solid #046d4d;
+  background: rgb(0, 0, 0);
+  border-bottom: 4px soli #fdf2f2;
   display: flex;
   justify-content: space-between;
 }
@@ -62,22 +62,23 @@ nav ul a:active {
   width: 20px;
   height: 3px;
   margin: 5px;
-  background: #046d4d;
+  background: #fdf2f2;
 }
 
 .btn {
   padding: 8px;
   display: inline-block;
-  border: 1px solid #046d4d;
+  border: 1px solid #fdf2f2;
   margin: 3px;
   height: 25px;
 }
 
 .header {
   min-height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(images/head-background.png)center/cover fixed no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(images/head-background.jpeg)center center/cover fixed no-repeat;
   display: flex;
   width: 100%;
+  background-size: 100% 100%;
   height: auto;
   flex-direction: column;
 }
@@ -97,11 +98,8 @@ nav {
 
 .banner h1 {
   margin-top: 100px;
-  color: #f8f7f5;
+  color:  #fdf2f2;
   font-size: 180%;
-  background:rgb(0, 0, 0,0.8);
-  border-radius: 25%;
-  
 }
 
 .banner h3 {
@@ -110,7 +108,7 @@ nav {
 }
 
 .button {
-  background-color: #046d4d;
+  background-color:#000000;
   border:solid 1px;
   border-color: #f8f7f5;
   color: white;
@@ -118,11 +116,16 @@ nav {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 10px;
+  font-size: 12px;
   margin: 30px 2px;
   cursor: pointer;
   border-radius: 10px;
 }
+.button:hover {
+  background-color:#f8f7f5;
+  color: #000000;
+}
+
 
 .banner-icons {
   padding: 5px 0 2px;
@@ -135,12 +138,12 @@ nav {
   padding: 10px 15px;
   margin: 0 10px;
   border-radius: 50%;
-  color: #020500;
+  color: #000000;
   transition: color 1s ease, transform 1s ease;
 }
 
 .banner-icons a:hover {
-  color: #07d8b5;
+  color:#000000;
   transform: translateY(-10px);
 }
 
@@ -160,30 +163,35 @@ nav {
     display: flex !important;
     flex-wrap: wrap;
     justify-content: center;
-    background: rgb(0, 22, 0);
+    height: 80px;
+    background: #000000;
+  }
+  nav ul li{
+    justify-content:space-around;
+    align-self: center;  
   }
   nav ul a {
     font-size: 15px;
+    align-self: center;
+    text-align:center;
+    background: transparent;
   }
   .logo {
-    color: #07d8b5;
+    color: #fdf2f2;
     align-self: center;
     margin-right: 150px;
   }
-  nav ul a {
-    background: transparent;
-  }
   nav ul a:hover {
-    background: transparent;
+    background: #f8f7f5;
+    color: #000000;
     padding-left: 20px;
-    color: #f8f7f5;
   }
   nav ul a:active {
     background: transparent;
     color: #f8f7f5;
     padding-left: 20px;
   }
-  .banner {
+ .banner {
     flex: 1 0 auto;
     display: flex;
     justify-content: center;
@@ -192,7 +200,7 @@ nav {
   }
   .banner h1 {
     margin-top: 100px;
-    color: #f8f7f5;
+    color:  #fdf2f2;
     font-size: 50px;
   }
   .banner h3 {
@@ -200,15 +208,14 @@ nav {
     color: #f8f7f5;
   }
   .button {
-    background-color: #046d4d;
-    border:solid 1px;
+    background-color: #000000;
     border-color: #f8f7f5;
     color: white;
     padding: 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 30px;
+    font-size: 24px;
     margin: 50px 10px;
     cursor: pointer;
     border-radius: 12px;
@@ -229,7 +236,7 @@ nav {
 }
 
 .about-heading h2 {
-  color: #07d8b5;
+  color: #fdf2f2;
   text-transform: uppercase;
   font-size: 20px;
   text-align: center;
@@ -245,7 +252,7 @@ nav {
 }
 
 .about-article {
-  color: #07d8b5;
+  color: #fdf2f2;
   display: flex;
   flex-direction: row;
   margin: 10px;
@@ -257,16 +264,16 @@ nav {
   margin-right: 10px;
   margin-left: 10px;
   padding: 10px;
-  border: 2px solid #07d8b5;
+  border: 2px solid #fdf2f2;
   border-radius: 15px;
-  color:#07d8b5;  
+  color: #fdf2f2;
 }
 
 .about-text h3 {
   text-align: justify;
   text-justify: inter-word;
   text-transform: uppercase;
-  color: #07d8b5;
+  color: #fdf2f2;
 }
 
 .about-text p {
@@ -300,7 +307,7 @@ nav {
     display: none;
   }
   .about-article {
-    color: #07d8b5;
+    color:  #fdf2f2;
     display: flex;
     flex-direction: row;
     margin: 25px;
@@ -311,14 +318,14 @@ nav {
     margin-right: 20px;
     margin-left: 20px;
     padding: 25px;
-    border: 4px solid #07d8b5;
+    border: 4px solid  #fdf2f2;
   }
   .about-text h3 {
     font-size: 100%;
     text-align: justify;
     text-justify: inter-word;
     text-transform: uppercase;
-    color: #07d8b5;
+    color:  #fdf2f2;
   }
   .about-text p {
     line-height: 1.5;
@@ -335,7 +342,7 @@ footer {
 }
 
 footer p {
-  color: #046d4d;
+  color: #f8f7f5;
   font-size: 10px;
   
 }
@@ -348,7 +355,7 @@ footer p {
   }
   
   footer p {
-    color: #046d4d;
+    color: #f8f7f5;
     font-size: 20px;
   }
 }
