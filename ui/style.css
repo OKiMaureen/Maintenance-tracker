@@ -421,7 +421,7 @@ form p a{
     flex: 0 0 80%;
    
 }
-form input {
+form input,select, textarea {
     padding: 10px;
     border: 1px solid #000000;
   }
