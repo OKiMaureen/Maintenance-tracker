@@ -112,7 +112,7 @@ nav {
   border:solid 1px;
   border-color: #f8f7f5;
   color: white;
-  padding: 3px;
+  padding: 4px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -218,7 +218,7 @@ nav {
     font-size: 24px;
     margin: 50px 10px;
     cursor: pointer;
-    border-radius: 12px;
+    border-radius: 20px;
   }
   .banner-icons {
     padding: 20px;
@@ -381,6 +381,10 @@ form {
   display: flex;
   flex-direction: column;
 }
+form input,select, textarea {
+  padding: 10px;
+  border: 1px solid #000000;
+}
 form h3 {
   text-align: center;
   text-transform: capitalize;
@@ -421,7 +425,7 @@ form p a{
     flex: 0 0 80%;
    
 }
-form input {
+form input,select, textarea {
     padding: 10px;
     border: 1px solid #000000;
   }
@@ -442,7 +446,107 @@ form input {
   form p a{
     text-decoration: none;
     color:#f8f7f5;
-    font-size: 18px;
   }
 }
-
+/* create-requeust-section */
+.request{
+  min-height: 80vh;
+  padding: 40px;
+  background: linear-gradient(rgb(252, 251, 251,0.2), rgba(252, 251, 251, 0.2)), url(images/request-background.jpeg)center/cover fixed no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+}
+.request-card {
+  flex: 0 0 50%;
+  padding: 20px;
+  margin-top:50px;
+  background: rgba(15, 15, 15, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  border: 2px solid #000000;
+  border-radius:5%;
+  
+}
+.request-form {
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  width:100%;
+ 
+}
+.request-form h3 {
+  text-align: center;
+  text-transform: capitalize;
+  color:#f8f7f5;
+  font-size: 15px;
+}
+.request form p {
+  text-align: center;
+  color:#f8f7f5;
+  font-size: 10px;
+}
+.request form p a{
+  text-decoration: none;
+  color:#f8f7f5;
+}
+.request-form input,select, textarea {
+  padding: 10px;
+  border: 1px solid #000000;
+}
+/* big-screen create-request */
+@media screen and (min-width:750px) {
+  .request {
+    min-height: 80vh;
+    display: flex;
+    padding: 40px;
+    justify-content: center;
+    align-items: center;
+  }
+  .request-card {
+    flex: 0 0 50%;
+    padding: 20px;
+    margin-top:70px;
+    background: rgba(15, 15, 15, 0.5);
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #000000;
+    border-radius:5%;
+  }
+  .request-form {
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    
+   }
+.request-form input,select, textarea {
+    padding: 10px;
+    border: 1px solid #000000;
+  }
+  
+  .request-form h3 {
+    text-align: center;
+    text-transform: capitalize;
+    color: #f8f7f5;
+    font-size: 40px;
+  }
+  
+  .request form p {
+    text-align: center;
+    color:#f8f7f5;
+    font-size: 15px;
+  }
+  .request-form p a{
+    text-decoration: none;
+    color:#f8f7f5;
+    font-size: 15px;
+  }
+}
