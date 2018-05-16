@@ -34,10 +34,10 @@ nav ul a:hover {
 }
 
 nav ul a:active {
-  background: #474747;
-  color: #f8f7f5;
-  padding-left: 20px;
+  background: #f8f7f5;
+  color: #000000;
 }
+
 
 .nav-container img {
   width: 50px;
@@ -176,6 +176,11 @@ nav {
     text-align:center;
     background: transparent;
   }
+  nav ul a.current:link, a.current:visited {
+    color: #000000;
+    background-color: #fdf2f2;
+  }
+  
   .logo {
     color: #fdf2f2;
     align-self: center;
@@ -549,4 +554,148 @@ form input,select, textarea {
     color:#f8f7f5;
     font-size: 15px;
   }
+}
+/* All requests section */
+.allrequests{
+  min-height: 80vh;
+  padding: 20px;
+  background: linear-gradient(rgb(252, 251, 251,0.2), rgba(252, 251, 251, 0.2)), url(images/request-background.jpeg)center/cover fixed no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+ }
+ .requests-card{
+  margin-top:50px;
+  margin-left: 20px;
+  margin-right:20px;
+  margin-bottom: 0px;
+  padding:2px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+	flex:50%;
+	background-color: #FFF;
+  box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.95);
+  
+}
+label{
+  color: #000000;
+  font-weight: bold;
+  display: block;
+  width: 100px;
+  float: left;
+  }
+.status{
+  margin-top:10px;
+  align-self:center;
+}
+.current-button{
+  background-color:#000000;
+  border:solid 1px;
+  border-color: #f8f7f5;
+  color: white;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 10px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.status-button{
+  background-color:#b9b4b4;
+  border:solid 1px;
+  border-color: #f8f7f5;
+  color:#000000;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 10px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+/* Big screen all request section */
+@media screen and (min-width:750px) {
+  
+.allrequests{
+  min-height: 80vh;
+  padding: 20px;
+  background: linear-gradient(rgb(252, 251, 251,0.2), rgba(252, 251, 251, 0.2)), url(images/request-background.jpeg)center/cover fixed no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+ }
+ .title h2  {
+  font-size: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000000;
+  display:flex;
+  justify-content: center;
+  flex-direction: row
+
+}
+ .requests-card{
+  margin-top:100px;
+  margin-left: 20px;
+  margin-right:20px;
+  margin-bottom: 0px;
+  padding:30px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+	flex:20%;
+	background-color: #FFF;
+  box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.95);
+  width: 100%;
+  height: auto;
+}
+label{
+  color: #000000;
+  font-weight: bold;
+  display: block;
+  width: 200px;
+  float: left;
+  }
+.status{
+  margin-top:10px;
+  align-self:center;
+}
+.current-button{
+  background-color:#000000;
+  border:solid 1px;
+  border-color: #f8f7f5;
+  color: white;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 10px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.status-button{
+  background-color:#b9b4b4;
+  border:solid 1px;
+  border-color: #f8f7f5;
+  color:#000000;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 10px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
 }
