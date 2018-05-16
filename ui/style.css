@@ -648,7 +648,7 @@ label{
   flex-wrap: wrap;
  }
  .requests-card{
-  margin-top:5px;
+  margin-top:50px;
   margin-left: 10px;
   margin-right:20px;
   margin-bottom: 0px;
@@ -783,6 +783,171 @@ label{
     width: 100%;
     height: auto;
   }
- 
+ }
+ /* admin request section */
+ .approverequests{
+  min-height: 80vh;
+  padding: 40px;
+  background: linear-gradient(rgb(252, 251, 251,0.2), rgba(252, 251, 251, 0.2)), url(images/request-background.jpeg)center/cover fixed no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+ }
+
+ .approverequests-card{
+  margin-top:50px;
+  margin-left: 15px;
+  margin-right:15px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  padding: 4%;
+	flex:50%;
+	background-color: #FFF;
+  box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.95);
+  width: 100%;
+  height: auto;
+}
+label{
+  color: #000000;
+  font-weight: bold;
+  
   }
+.status{
+  margin-top:10px;
+  align-self:center;
+}
+
+.red {
+  background-color:#a51b26;
+  border:solid 2px;
+  border-color: #000000;
+  color: white;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 10px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.green {
+  background-color:green;
+  border:solid 2px;
+  border-color: #000000;
+  color: white;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 10px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.yellow {
+  background-color:yellow;
+  border:solid 2px;
+  border-color: #000000;
+  color: #000000;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 10px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+/* Big screen all request section */
+@media screen and (min-width:750px) {
+  
+.approverequests{
+  min-height: 80vh;
+  display: flex;
+  padding: 40px;
+  justify-content: center;
+  align-items: center;
+  
+ }
+ .approverequests-card{
+  margin-top:50px;
+  margin-left: 10px;
+  margin-right:10px;
+  margin-bottom: 0px;
+  padding:10px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+	flex: 1 10%;
+	background-color: #FFF;
+  box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.95);
+  width: 50%;
+  height: auto;
+}
+label{
+  color: #000000;
+  font-weight: bold;
+  margin-right:15px;
+  }
+.status{
+  margin-top:10px;
+  align-self:center;
+}
+.red {
+  background-color:#a51b26;
+  border:solid 2px;
+  border-color: #000000;
+  color: white;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 10px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.green {
+  background-color:green;
+  border:solid 2px;
+  border-color: #000000;
+  color: white;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 10px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.yellow {
+  background-color:yellow;
+  border:solid 2px;
+  border-color: #000000;
+  color: #000000;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 10px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+}
+
+
+
+
 
