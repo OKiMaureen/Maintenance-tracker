@@ -11,65 +11,78 @@
   <!--font awesome -->
   <script src="fontawesome-all.js"></script>
 </head>
+
 <body>
   <!--navigation section-->
   <header>
-      <nav>
-        <div class="nav-container">
-          <div class="btn">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-          </div>
+    <nav>
+      <div class="nav-container">
+        <div class="btn">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
         </div>
-        <ul>
-          <li class="logo">
-            <a href="#">Maintenance Tracker</a>
-          </li>
-          <li>
-            <a href="index.html">home</a>
-          </li>
-          <li>
-            <a href="allrequests.html">my requests</a>
-          </li>
-          <li>
-            <a href="#">sign out</a>
-          </li>
-         </ul>
-      </nav>
-    </header>
-    <!--End navigation section-->
-    <!-- create request Form  -->
-  <section class="form">
-      <article class="card">
-        <form>
-          <h3>Create Request</h3>
-          <p>Fill the form below to indicate equipments in need of repair or maintenance</p>
-          <br/>
-          <select>
-              <option value="department">Department</option>
-              <option value="finance">Finance Department</option>
-              <option value="technical">Technical Department</option>
-              <option value="human resource">Human Resource Department</option>
-          </select>
-          <br/>
-          <select>
-              <option value="equipment">Equipment</option>
-              <option value="computer">Computer</option>
-              <option value="furniture">Furniture</option>
-              <option value="electricity">Electricity</option>
-          </select>
-          <br/>
-          <input type="text" id="serial number" placeholder="Serial Number" required>
-          <br/>
-          <textarea name="description" cols="40" rows="5" placeholder="Issue Description" required></textarea>
-          <br/>
-          <a class="button">Submit</a>
-        </form>
-      </article>
-    </section>
-    <!--End create form-->
+      </div>
+      <ul>
+        <li class="logo">
+          <a href="#">Maintenance Tracker</a>
+        </li>
+        <li>
+          <a href="index.html">home</a>
+        </li>
+        <li>
+          <a href="createrequest.html">Create requests</a>
+        </li>
+        <li>
+          <a href="allrequests.html">my requests</a>
+        </li>
+        <li>
+          <a href="#">sign out</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <!--End navigation section-->
+  <!-- create request Form  -->
+  <section class="request">
+    <article class="request-card">
+      <form class="request-form">
+        <h3>Create Request</h3>
+        <p>Fill the form below to indicate equipments in need of repair or maintenance</p>
+        <br/>
+        <select>
+          <option value="department">Department</option>
+          <option value="finance">Finance Department</option>
+          <option value="technical">Technical Department</option>
+          <option value="human resource">Human Resource Department</option>
+        </select>
+        <br/>
+        <select>
+          <option value="equipment">Equipment</option>
+          <option value="computer">Computer</option>
+          <option value="furniture">Furniture</option>
+          <option value="electricity">Electricity</option>
+        </select>
+        <br/>
+        <input type="text" id="serialNumber" placeholder="Serial Number" required>
+        <br/>
+        <input type="text" id="requestTitle" placeholder="Request Title" required>
+        <br/>
+        <textarea name="requestDescription" cols="20" rows="5" placeholder="Request Description" required></textarea>
+        <br/>
+        <a class="button">Submit</a>
+      </form>
+    </article>
+  </section>
+  <!--End create request form-->
+
+  <!--Footer Section -->
+  <footer>
+    <p>Copyright &copy;Maintenance Tracker 2018. All rights reserved.</p>
+  </footer>
+  <!--Footer Section End -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="script.js"></script>
 </body>
-
-
 </html>
