@@ -116,7 +116,7 @@ nav {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 12px;
+  font-size: 10px;
   margin: 30px 2px;
   cursor: pointer;
   border-radius: 10px;
@@ -446,7 +446,6 @@ form input,select, textarea {
   form p a{
     text-decoration: none;
     color:#f8f7f5;
-    font-size: 18px;
   }
 }
 /* create-requeust-section */
