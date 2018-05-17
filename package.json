@@ -4,16 +4,22 @@
   "description": "a maintenance tracker app",
   "main": "app.js",
   "dependencies": {
-    "eslint": "^4.19.1"
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "eslint": "^4.19.1",
+    "mocha": "^5.1.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.8.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel server -d server/dist",
+    "test": "mocha ./server/test/ --exit --compilers js:babel-register"
   },
   "repository": {
     "type": "git",
