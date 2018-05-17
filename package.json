@@ -10,7 +10,8 @@
     "chai-http": "^4.0.0",
     "eslint": "^4.19.1",
     "express": "^4.16.3",
-    "mocha": "^5.1.1"
+    "mocha": "^5.1.1",
+    "nyc": "^11.8.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -18,12 +19,15 @@
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.8.2"
+    "eslint-plugin-react": "^7.8.2",
+    "nodemon": "^1.17.4"
   },
   "scripts": {
-    "start": "nodemon --watch server --exec babel-node app.js",
+    "start": "babel-node server/app.js",
+    "start:dev": "nodemon --watch server --exec babel-node server/app.js",
     "build": "babel server -d server/dist",
-    "test": "mocha ./server/test/ --exit --compilers js:babel-register"
+    "test": "mocha ./server/test/ --exit --compilers js:babel-register",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
