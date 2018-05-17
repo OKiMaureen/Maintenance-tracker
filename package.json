@@ -1,0 +1,28 @@
+{
+  "name": "maintenance-tracker",
+  "version": "1.0.0",
+  "description": "a maintenance tracker app",
+  "main": "app.js",
+  "dependencies": {
+    "eslint": "^4.19.1"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.8.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OKiMaureen/Maintenance-tracker.git"
+  },
+  "author": "maureen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OKiMaureen/Maintenance-tracker/issues"
+  },
+  "homepage": "https://github.com/OKiMaureen/Maintenance-tracker#readme"
+}
