@@ -1,6 +1,15 @@
-language: node_js
-node_js:
-- "8"
+env:
+  global:
+    - CC_TEST_REPORTER_ID=51b41ffe4fae912bb50a992955b7c5ae6a1d142117189a842ca123ce8f987cb5
+language : node_js
+node_js: '8'
 
-script: 
-- npm test
+before_script:
+  - npm install -g codeclimate-test-reporter
+  
+
+script:
+  - npm test
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

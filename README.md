@@ -1,4 +1,5 @@
 # Maintenance-tracker
+[![Build Status](https://travis-ci.org/OKiMaureen/Maintenance-tracker.svg?branch=develop)](https://travis-ci.org/OKiMaureen/Maintenance-tracker)
 <a href="https://codeclimate.com/github/OKiMaureen/Maintenance-tracker/maintainability"><img src="https://api.codeclimate.com/v1/badges/225b5d371a7731f835b7/maintainability" /></a>
 <a href="https://codeclimate.com/github/OKiMaureen/Maintenance-tracker/test_coverage"><img src="https://api.codeclimate.com/v1/badges/225b5d371a7731f835b7/test_coverage" /></a>
 <a href='https://coveralls.io/github/OKiMaureen/Maintenance-tracker'><img src='https://coveralls.io/repos/github/OKiMaureen/Maintenance-tracker/badge.svg' alt='Coverage Status' /></a>
