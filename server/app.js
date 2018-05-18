@@ -1,20 +1,23 @@
 // Importing express
-import express from 'express';
+import Express from 'express';
 // importing bodyparser
 import bodyParser from 'body-parser';
 // importring routes module
 import routes from './routes/index';
 
-// Defining the Port Variable
-const port = process.env.PORT || 8020;
 
 // Instantiating express
-const app = new express();
+const app = new Express();
+
+// Defining the Port Variable
+const port = process.env.PORT || 8020;
 
 // Registering middlewear bodyparser
 app.use(bodyParser.json());
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false,
+}));
 routes(app);
 
 // Starting up the server
