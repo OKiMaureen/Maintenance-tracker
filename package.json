@@ -10,8 +10,10 @@
     "chai-http": "^4.0.0",
     "eslint": "^4.19.1",
     "express": "^4.16.3",
+    "lodash.isempty": "^4.4.0",
     "mocha": "^5.1.1",
-    "nyc": "^11.8.0"
+    "nyc": "^11.8.0",
+    "validator": "^10.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
