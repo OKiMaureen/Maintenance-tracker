@@ -54,7 +54,9 @@ export default class validateRequest {
     if (description && Validator.isEmpty(description.trim() || '')) {
       error.description = 'description is required';
     }
-    if (isEmpty(error)) return next();
+    if (isEmpty(error)) {
+      return next();
+    }
     return res.status(406).json({
       error,
     });
