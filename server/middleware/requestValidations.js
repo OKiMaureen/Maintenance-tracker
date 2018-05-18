@@ -1,4 +1,6 @@
+import isEmpty from 'lodash.isempty';
 import Validator from 'validator';
+
 
 /**
  * @class Validate Request
@@ -7,12 +9,12 @@ export default class validateRequest {
 	/**
 	 * validate Request input string
 	 *
-	 * @param {object} req
-	 * @param {object} res
-	 * @param {function} next
-	 * @return {void}
+	 * @param {Object} req
+	 * @param {Object} res
+	 * @param {Function} next
+	 * @return {Object}
 	 */
-	static validateRequest = (req, res, next) => {
+	static validateString(req, res, next){
 		const {
 			title,
 			department,
@@ -59,12 +61,12 @@ export default class validateRequest {
 	}
 	/**
 	 * validate Request input length
-	 * @param {object} req
-	 * @param {object} res
-	 * @param {function} next
-	 * @return {void}
+	 * @param {Object} req
+	 * @param {Object} res
+	 * @param {Function} next
+	 * @return {Object}
 	 */
-	static checkLength = (req, res, next) => {
+	static checkLength(req, res, next){
 		const {
 			title,
 			serialNumber,
@@ -76,41 +78,41 @@ export default class validateRequest {
 				max: 20
 			})) {
 			return res.status(406)
-				.json({
-					status: 'Fail',
-					message: 'Title must be between 5 and 20 characters',
-				});
+			.json({
+        message: 'Title must be between 5 and 20 characters',
+        status: "fail"
+     });
 		}
 		if (!Validator.isLength(serialNumber, {
 				min: 8,
 				max: 8
 			})) {
 			return res.status(406)
-				.json({
-					status: 'Fail',
-					message: 'SerialNumber must be only 8 characters',
-				});
+      .json({
+        message: 'SerialNumber must be only 8 characters',
+        status: "fail"
+     });
 		}
 		if (!Validator.isLength(description, {
-				min: 10,
+				min: 3,
 				max: 50
 			})) {
 			res.status(406)
-				.json({
-					status: 'Fail',
-					message: 'Description must be between 10 and 50 characters',
-				});
+      .json({
+        message: 'Description must be between 3 and 50 characters',
+        status: "fail"
+     });
 		}
 		next();
 	}
 	/**
 	 * validate Request id parameter
-	 * @param {object} req
-	 * @param {object} res
-	 * @param {function} next
-	 * @return {void}
+	 * @param {Object} req
+	 * @param {Object} res
+	 * @param {Function} next
+	 * @return {Object}
 	 */
-	static idIsNumber = (req, res, next) => {
+	static idIsNumber(req, res, next){
 		const {
 			id
 		} = req.params;
@@ -118,7 +120,7 @@ export default class validateRequest {
 		if (!id) {
 			error.id = 'id is required'
 		}
-		if (!id < 0) {
+		if (id < 0) {
 			error.id = 'id is required'
 		}
 		if (id && Validator.isEmpty(id.trim() || '')) {

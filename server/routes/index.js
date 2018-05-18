@@ -1,4 +1,4 @@
-import requestsController from '../controllers/requestsController';
+import requestsController from '../controllers/requestController';
 import validations from '../middleware/requestValidations';
 
 
@@ -10,7 +10,7 @@ const routes = (app) => {
 			.send('Welcome to Maintenance Tracker API');
 	});
 
-  app.use('*', validations.validateRequest, validations.checkLength)
-	app.post('/api/v1/users/request', requestsController.addRequest);
+  app.use('*', validations.validateString, validations.checkLength)
+	app.post('/api/v1/users/requests', requestsController.addRequest);
 }
 export default routes;

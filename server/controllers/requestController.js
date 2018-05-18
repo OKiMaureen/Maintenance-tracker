@@ -1,4 +1,4 @@
-import requestsDb from '../dummyModel/requests';
+import requestsDb from '../dummyModel/request';
 /**
  * class Request controls all request methods
  * @class request
@@ -6,27 +6,28 @@ import requestsDb from '../dummyModel/requests';
 export default class Requests {
 	/**
 	 * adds a new request
-	 * @param {object} req
-	 * @param {object} res
-	 * @returns {json} adds new request
+	 * @param {Object} req
+	 * @param {Object} res
+	 * @returns {Object} adds new request
 	 * @memberof Request
 	 */
 	static addRequest(req, res) {
     const { title, department, equipment,serialNumber,description } = req.body;
-    const id = requestsDb.length;
+    const requestSize = requestsDb.length;
     const request = {
+      id:requestSize,
       title,
       department,
       equipment,
       serialNumber,
-      decription
+      description
     };
     requestsDb.push(request);
     return res.status(201)
       .json({
-        status: 'sucessfully created',
-        message: 'request added',
-        request
-      });
+        data: {request},
+        message: 'Request Added',
+        status: "success"
+     });
   }
 }
