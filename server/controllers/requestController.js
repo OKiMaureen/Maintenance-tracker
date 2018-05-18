@@ -38,4 +38,21 @@ export default class Requests {
         status: 'success',
       });
   }
+  /**
+   * gets all request
+   * @param {Object} req
+   * @param {Object} res
+   * @returns {Object} gets all request
+   * @memberof Request
+   */
+  static getAllRequests(req, res) {
+    return res.status(200)
+      .json({
+        data: {
+          request: requestsDb,
+        },
+        message: 'request gotten',
+        status: 'success',
+      });
+  }
 }

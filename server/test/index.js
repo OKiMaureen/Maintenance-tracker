@@ -6,7 +6,7 @@ const {
   expect,
 } = chai;
 chai.use(chaiHttp);
-const requestURL = '/api/v1/users/request';
+const requestURL = '/api/v1/users/requests';
 
 // test default route
 describe('Test default route', () => {
@@ -21,7 +21,7 @@ describe('Test default route', () => {
   });
 });
 // Test Request Controller
-describe('POST /api/v1/users/request', () => {
+describe('POST /api/v1/users/requests', () => {
   it('should not add request with an empty title field', (done) => {
     chai.request(app)
       .post(`${requestURL}`)
@@ -236,3 +236,17 @@ describe('POST /api/v1/users/request', () => {
       });
   });
 });
+describe('GET /api/v1/users/request', () => {
+  it('Should return 200 for succesfully getting all requests', (done) => {
+    chai.request(app)
+      .get(`${requestURL}`)
+      .end((err, res) => {
+        expect(res.status).to.equal(200);
+        expect(res.body).to.be.an('object');
+        expect(res.body.status).to.equal('success');
+        expect(res.body.message).to.equal('request gotten');
+        done();
+      });
+  });
+});
+

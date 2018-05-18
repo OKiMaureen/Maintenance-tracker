@@ -9,7 +9,8 @@ const routes = (app) => {
       .send('Welcome to Maintenance Tracker API');
   });
 
-  app.use('*', validations.validateString, validations.checkLength);
-  app.post('/api/v1/users/requests', requestsController.addRequest);
+  app.post('/api/v1/users/requests', validations.validateString, validations.checkLength, requestsController.addRequest);
+  app.get('/api/v1/users/requests', requestsController.getAllRequests);
 };
 export default routes;
+
