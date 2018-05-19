@@ -5,6 +5,25 @@ import requestsDb from '../dummyModel/request';
  */
 export default class Requests {
   /**
+   * gets all request
+   * @param {Object} req
+   * @param {Object} res
+   *
+   * @returns {Object} gets all request
+   *
+   * @memberof Request
+   */
+  static getAllRequests(req, res) {
+    return res.status(200)
+      .json({
+        data: {
+          request: requestsDb,
+        },
+        message: 'request gotten',
+        status: 'success',
+      });
+  }
+  /**
    * adds a new request
    * @param {Object} req
    * @param {Object} res
@@ -41,54 +60,6 @@ export default class Requests {
       });
   }
   /**
-   * gets all request
-   * @param {Object} req
-   * @param {Object} res
-   *
-   * @returns {Object} gets all request
-   *
-   * @memberof Request
-   */
-  static getAllRequests(req, res) {
-    return res.status(200)
-      .json({
-        data: {
-          request: requestsDb,
-        },
-        message: 'request gotten',
-        status: 'success',
-      });
-  }
-  /**
-   * gets request by id
-   * @param {Object} req
-   * @param {Object} res
-   *
-   * @returns {Object} gets request by id
-   *
-   * @memberof Request
-   */
-  static getRequestById(req, res) {
-    const {
-      id,
-    } = req.params;
-    requestsDb.forEach((request) => {
-      if (request.id === parseInt(id, 10)) {
-        return res.status(200).json({
-          data: {
-            request,
-          },
-          message: `request with id ${id}`,
-          status: 'success',
-        });
-      }
-      return res.status(404).json({
-        message: `request with id ${id} cannot be found`,
-        status: 'fail',
-      });
-    });
-  }
-  /**
    * modify/update requests
    * @param {Object} req
    * @param {Object} res
@@ -121,6 +92,33 @@ export default class Requests {
     }
     return res.status(404).json({
       message: 'request id does not exist',
+      status: 'fail',
+    });
+  }
+  /**
+   * gets request by id
+   * @param {Object} req
+   * @param {Object} res
+   *
+   * @returns {Object} gets request by id
+   *
+   * @memberof Request
+   */
+  static getRequestById(req, res) {
+    const { id } = req.params;
+    requestsDb.forEach((request) => {
+      if (request.id === parseInt(id, 10)) {
+        res.status(200).json({
+          data: {
+            request,
+          },
+          message: `request with id ${id}`,
+          status: 'success',
+        });
+      }
+    });
+    return res.status(404).json({
+      message: `request with id ${id} cannot be found`,
       status: 'fail',
     });
   }
