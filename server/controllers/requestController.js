@@ -69,7 +69,9 @@ export default class Requests {
    * @memberof Request
    */
   static getRequestById(req, res) {
-    const { id } = req.params;
+    const {
+      id,
+    } = req.params;
     requestsDb.forEach((request) => {
       if (request.id === parseInt(id, 10)) {
         return res.status(200).json({
@@ -84,6 +86,42 @@ export default class Requests {
         message: `request with id ${id} cannot be found`,
         status: 'fail',
       });
+    });
+  }
+  /**
+   * modify/update requests
+   * @param {Object} req
+   * @param {Object} res
+   *
+   * @returns {Object} updated requests
+   *
+   * @memberof Request
+   */
+  static updateRequest(req, res) {
+    const { id } = req.params;
+    let putRequest;
+    requestsDb.forEach((request) => {
+      if (request.id === parseInt(id, 10)) {
+        request.title = req.body.title || request.title;
+        request.department = req.body.department || request.department;
+        request.equipment = req.body.equipment || request.equipment;
+        request.serialNumber = req.body.serialNumber || request.serialNumber;
+        request.description = req.body.description || request.description;
+        putRequest = request;
+      }
+    });
+    if (putRequest) {
+      return res.status(200).json({
+        data: {
+          putRequest,
+        },
+        message: 'request succesfully updated',
+        status: 'success',
+      });
+    }
+    return res.status(404).json({
+      message: 'request id does not exist',
+      status: 'fail',
     });
   }
 }
