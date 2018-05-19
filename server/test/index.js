@@ -8,6 +8,7 @@ const {
 chai.use(chaiHttp);
 const requestURL = '/api/v1/users/requests';
 
+
 // test default route
 describe('Test default route', () => {
   // Test for default route
@@ -245,6 +246,28 @@ describe('GET /api/v1/users/request', () => {
         expect(res.body).to.be.an('object');
         expect(res.body.status).to.equal('success');
         expect(res.body.message).to.equal('request gotten');
+        done();
+      });
+  });
+});
+describe('GET /api/v1/users/request/:id', () => {
+  it('should return 200 for succesfully getting a single request', (done) => {
+    chai.request(app)
+      .get('/api/v1/users/requests/1')
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        expect(res.body).to.be.an('object');
+        expect(res.body.status).to.equal('success');
+        done();
+      });
+  });
+  it('should return 404 if id is not available', (done) => {
+    chai.request(app)
+      .get('/api/v1/users/requests/10')
+      .end((err, res) => {
+        expect(res).to.have.status(404);
+        expect(res.body).to.be.an('object');
+        expect(res.body.status).to.equal('fail');
         done();
       });
   });
