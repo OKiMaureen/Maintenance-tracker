@@ -4,7 +4,6 @@
   "description": "a maintenance tracker app",
   "main": "app.js",
   "dependencies": {
-    "babel-preset-env": "^1.7.0",
     "body-parser": "^1.18.3",
     "chai": "^4.1.2",
     "chai-http": "^4.0.0",

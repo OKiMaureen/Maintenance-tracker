@@ -22,7 +22,6 @@ routes(app);
 
 // Starting up the server
 app.listen(port);
-
 // Console message
 console.log(`server is running at http://localhost:${port}`);
 

@@ -1,5 +1,5 @@
 const requestsDb = [{
-  id: 1,
+  id: 2,
   title: 'Laptop repair',
   department: 'Technical',
   equipment: 'Laptop',
@@ -7,7 +7,7 @@ const requestsDb = [{
   description: 'laptop battery is faulty',
 },
 {
-  id: 2,
+  id: 1,
   title: 'Furniture repair',
   department: 'Human Resource',
   equipment: 'Table',
