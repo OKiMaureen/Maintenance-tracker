@@ -9,14 +9,29 @@ chai.use(chaiHttp);
 const requestURL = '/api/v1/users/requests';
 
 
-// test default route
 describe('Test default route', () => {
-  // Test for default route
   it('Should return 200 for the default route', (done) => {
     chai.request(app)
       .get('/')
       .end((err, res) => {
         expect(res.status).to.equal(200);
+        done();
+      });
+  });
+  it('Should return 404 for routes not specified', (done) => {
+    chai.request(app)
+      .get('/another/undefined/route')
+      .end((err, res) => {
+        expect(res.status).to.equal(404);
+        done();
+      });
+  });
+  it('Undefined Routes Should Return 404', (done) => {
+    chai.request(app)
+      .post('/another/undefined/route')
+      .send({ random: 'random' })
+      .end((err, res) => {
+        expect(res).to.have.status(404);
         done();
       });
   });
@@ -268,6 +283,64 @@ describe('GET /api/v1/users/request/:id', () => {
         expect(res).to.have.status(404);
         expect(res.body).to.be.an('object');
         expect(res.body.status).to.equal('fail');
+        done();
+      });
+  });
+});
+describe('PUT /api/v1/users/request/:id', () => {
+  it('should update a request with existing id', (done) => {
+    chai.request(app)
+      .put('/api/v1/users/requests/1')
+      .send({
+        title: 'Laptop repair',
+        department: 'Technical',
+        equipment: 'Laptop',
+        serialNumber: 'mt000002',
+        description: 'laptop battery is faulty',
+      })
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        expect(res.body).to.be.an('object');
+        expect(res.body.status).to.equal('success');
+        expect(res.body.message).to.equal('request succesfully updated');
+        done();
+      });
+  });
+  it('should not update a request with id that is not a number', (done) => {
+    chai.request(app);
+    chai.request(app)
+      .put('/api/v1/users/requests/ggog')
+      .send({
+        title: 'Laptop repair',
+        department: 'Technical',
+        equipment: 'Laptop',
+        serialNumber: 'mt000002',
+        description: 'laptop battery is faulty',
+      })
+      .end((err, res) => {
+        expect(res).to.have.status(406);
+        expect(res.body).to.be.an('object');
+        expect(res.body.error.id)
+          .to.include('id must be a number');
+        done();
+      });
+  });
+  it('should not update a request with id that is not existing', (done) => {
+    chai.request(app);
+    chai.request(app)
+      .put('/api/v1/users/requests/10')
+      .send({
+        title: 'Laptop repair',
+        department: 'Technical',
+        equipment: 'Laptop',
+        serialNumber: 'mt000002',
+        description: 'laptop battery is faulty',
+      })
+      .end((err, res) => {
+        expect(res).to.have.status(404);
+        expect(res.body).to.be.an('object');
+        expect(res.body.status).to.equal('fail');
+        expect(res.body.message).to.equal('request id does not exist');
         done();
       });
   });
