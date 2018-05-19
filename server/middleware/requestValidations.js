@@ -11,7 +11,9 @@ export default class validateRequest {
    *
    * @param {Object} req
    * @param {Object} res
+   *
    * @param {Function} next
+   *
    * @return {Object}
    */
   static validateString(req, res, next) {
@@ -65,8 +67,10 @@ export default class validateRequest {
    * validate Request input length
    * @param {Object} req
    * @param {Object} res
-   * @param {Function} next
-   * @return {Object}
+   *
+   *  @param {Function} next
+   *
+   *  @return {Object}
    */
   static checkLength(req, res, next) {
     const {
@@ -111,7 +115,9 @@ export default class validateRequest {
    * validate Request id parameter
    * @param {Object} req
    * @param {Object} res
+   *
    * @param {Function} next
+   *
    * @return {Object} json
    */
   static idIsNumber(req, res, next) {
