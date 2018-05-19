@@ -14,5 +14,6 @@ const routes = (app) => {
   );
   app.get('/api/v1/users/requests', requestsController.getAllRequests);
   app.get('/api/v1/users/requests/:id', validations.idIsNumber, requestsController.getRequestById);
+  app.put('/api/v1/users/requests/:id', validations.idIsNumber, requestsController.updateRequest);
 };
 export default routes;
