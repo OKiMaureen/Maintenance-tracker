@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: 'Roboto+Slab', sans-serif, cursive;
+  font-family: 'PT Sans Narrow', sans-serif;
 }
 
 /*header Section*/
@@ -45,6 +45,8 @@ nav ul a:active {
 }
 
 .logo {
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-family: 'Fugaz One', cursive;
   color: #fdf2f2;
   align-self: center;
   text-transform: uppercase;
@@ -97,9 +99,11 @@ nav {
 }
 
 .banner h1 {
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-family: 'Fugaz One', cursive;
   margin-top: 100px;
   color:  #fdf2f2;
-  font-size: 180%;
+  font-size: 27px;
 }
 
 .banner h3 {
@@ -109,17 +113,17 @@ nav {
 
 .button {
   background-color:#000000;
-  border:solid 1px;
-  border-color: #f8f7f5;
+  align-self: center;
+  width: 80px;
   color: white;
-  padding: 4px;
+  padding: 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 10px;
-  margin: 30px 2px;
+  font-size: 20px;
+  margin: 20px 5px;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 3px;
 }
 .button:hover {
   background-color:#f8f7f5;
@@ -182,6 +186,8 @@ nav {
   }
   
   .logo {
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-family: 'Fugaz One', cursive;
     color: #fdf2f2;
     align-self: center;
     margin-right: 150px;
@@ -204,6 +210,8 @@ nav {
     text-align: center;
   }
   .banner h1 {
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-family: 'Fugaz One', cursive;
     margin-top: 100px;
     color:  #fdf2f2;
     font-size: 50px;
@@ -214,7 +222,7 @@ nav {
   }
   .button {
     background-color: #000000;
-    border-color: #f8f7f5;
+    width: 130px;
     color: white;
     padding: 10px;
     text-align: center;
@@ -223,7 +231,8 @@ nav {
     font-size: 24px;
     margin: 50px 10px;
     cursor: pointer;
-    border-radius: 20px;
+    align-self: center;
+    border-radius: 10px;
   }
   .banner-icons {
     padding: 20px;
@@ -239,13 +248,19 @@ nav {
   display: flex;
   align-items: center;
 }
+.about-center {
+  margin-left: 10px;
+  margin-right: 10px;
+  }
 
 .about-heading h2 {
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-family: 'Fugaz One', cursive;
   color: #fdf2f2;
   text-transform: uppercase;
   font-size: 20px;
   text-align: center;
-  margin-top: 20px;
+  
 }
 
 .about-head {
@@ -261,11 +276,13 @@ nav {
   display: flex;
   flex-direction: row;
   margin: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .about-icon {
   align-self: center;
-  font-size: 20px;
+  font-size: 15px;
   margin-right: 10px;
   margin-left: 10px;
   padding: 10px;
@@ -275,16 +292,19 @@ nav {
 }
 
 .about-text h3 {
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-family: 'Fugaz One', cursive;
   text-align: justify;
   text-justify: inter-word;
   text-transform: uppercase;
   color: #fdf2f2;
+  font-size: 15px;
 }
 
 .about-text p {
   line-height: 1.5;
   margin-top: 3px;
-  font-size: 8px;
+  font-size: 12px;
 }
 
 .contact-details {
@@ -304,6 +324,8 @@ nav {
   .about-center {
     display: flex;
     width: 100%;
+    margin-left: 50px;
+    margin-right: 50px;
   }
   .about-article {
     width: 60%;
@@ -315,7 +337,6 @@ nav {
     color:  #fdf2f2;
     display: flex;
     flex-direction: row;
-    margin: 25px;
   }
   .about-icon {
     align-self: center;
@@ -326,7 +347,9 @@ nav {
     border: 4px solid  #fdf2f2;
   }
   .about-text h3 {
-    font-size: 100%;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-family: 'Fugaz One', cursive;
+    font-size: 25px;
     text-align: justify;
     text-justify: inter-word;
     text-transform: uppercase;
@@ -335,7 +358,7 @@ nav {
   .about-text p {
     line-height: 1.5;
     margin-top: 5px;
-    font-size:80%;
+    font-size:21px;
   }
 }
 /* footer Section small screen */
@@ -404,6 +427,10 @@ form p {
 }
 form p a{
   text-decoration: none;
+  color:#050379;
+}
+form p a:hover{
+  text-decoration: none;
   color:#f8f7f5;
 }
 /* form Section big  screen */
@@ -451,6 +478,10 @@ form input,select, textarea {
   }
   form p a{
     text-decoration: none;
+    color:#050379;
+  }
+  form p a:hover{
+    text-decoration: none;
     color:#f8f7f5;
   }
 }
@@ -475,8 +506,7 @@ form input,select, textarea {
   width: 100%;
   height: auto;
   flex-direction: column;
-  border: 2px solid #000000;
-  border-radius:5%;
+  border-radius:2%;
   
 }
 .request-form {
@@ -523,7 +553,6 @@ form input,select, textarea {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid #000000;
     border-radius:5%;
   }
   .request-form {
@@ -576,7 +605,8 @@ form input,select, textarea {
   flex-direction: column;
   padding: 4%;
 	flex:30%;
-	background-color: #FFF;
+	background-color: rgba(247, 239, 236, 0.5);
+  border-radius:10px;
   box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.95);
   width: 100%;
   height: auto;
@@ -590,97 +620,51 @@ label{
   margin-top:10px;
   align-self:center;
 }
+.status p a{
+  text-decoration: none;
+  color: #000000;
+}
+.status p a:hover{
+  text-decoration: none;
+  color: #a51b26;
+}
+.red {
+  background-color:#a51b26;
+  color: white;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 10px 2px;
+  border-radius: 5px;
+}
+.green {
+  background-color:green;
+  color: white;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 10px 2px;
+  border-radius: 5px;
+}
+.yellow {
+  background-color:yellow;
+  color: #000000;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 10px 2px;
+  border-radius: 5px;
+}
 
-.red {
-  background-color:#a51b26;
-  border:solid 2px;
-  border-color: #000000;
-  color: white;
-  padding: 4px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  font-weight: bold;
-  margin: 10px 2px;
-  cursor: pointer;
-  border-radius: 10px;
-}
-.green {
-  background-color:green;
-  border:solid 2px;
-  border-color: #000000;
-  color: white;
-  padding: 4px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  font-weight: bold;
-  margin: 10px 2px;
-  cursor: pointer;
-  border-radius: 10px;
-}
-.yellow {
-  background-color:yellow;
-  border:solid 2px;
-  border-color: #000000;
-  color: #000000;
-  padding: 4px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  font-weight: bold;
-  margin: 10px 2px;
-  cursor: pointer;
-  border-radius: 10px;
-}
-.red {
-  background-color:#a51b26;
-  border:solid 2px;
-  border-color: #000000;
-  color: white;
-  padding: 4px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  font-weight: bold;
-  margin: 10px 2px;
-  cursor: pointer;
-  border-radius: 10px;
-}
-.green {
-  background-color:green;
-  border:solid 2px;
-  border-color: #000000;
-  color: white;
-  padding: 4px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  font-weight: bold;
-  margin: 10px 2px;
-  cursor: pointer;
-  border-radius: 10px;
-}
-.yellow {
-  background-color:yellow;
-  border:solid 2px;
-  border-color: #000000;
-  color: #000000;
-  padding: 4px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  font-weight: bold;
-  margin: 10px 2px;
-  cursor: pointer;
-  border-radius: 10px;
-}
 /* Big screen all request section */
 @media screen and (min-width:750px) {
   
@@ -694,7 +678,6 @@ label{
   flex-wrap: wrap;
  }
  .requests-card{
-
   margin-top:50px;
   margin-left: 10px;
   margin-right:20px;
@@ -705,7 +688,8 @@ label{
   flex-direction: column;
   padding: 2%;
 	flex: 1 20%;
-	background-color: #FFF;
+  background-color: rgba(247, 239, 236, 0.5);
+  border-radius:10px;
   box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.95);
   width: 100%;
   height: auto;
@@ -721,8 +705,6 @@ label{
 }
 .red {
   background-color:#a51b26;
-  border:solid 2px;
-  border-color: #000000;
   color: white;
   padding: 4px;
   text-align: center;
@@ -731,13 +713,10 @@ label{
   font-size: 12px;
   font-weight: bold;
   margin: 10px 2px;
-  cursor: pointer;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 .green {
   background-color:green;
-  border:solid 2px;
-  border-color: #000000;
   color: white;
   padding: 4px;
   text-align: center;
@@ -746,13 +725,10 @@ label{
   font-size: 12px;
   font-weight: bold;
   margin: 10px 2px;
-  cursor: pointer;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 .yellow {
   background-color:yellow;
-  border:solid 2px;
-  border-color: #000000;
   color: #000000;
   padding: 4px;
   text-align: center;
@@ -761,8 +737,7 @@ label{
   font-size: 12px;
   font-weight: bold;
   margin: 10px 2px;
-  cursor: pointer;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 }
 /* admin request- section */
@@ -841,6 +816,11 @@ label{
   justify-content: center;
   flex-wrap: wrap;
  }
+ .approverequests p a{
+   text-decoration: none;
+   color:#000000;
+   text-align: center;
+ }
 
  .approverequests-card{
   margin-top:50px;
@@ -850,9 +830,9 @@ label{
   display: flex;
   flex-direction: column;
   padding: 4%;
-	flex:50%;
-
-	background-color: #FFF;
+	flex:30%;
+	background-color: rgba(247, 239, 236, 0.5);
+  border-radius:10px;
   box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.95);
   width: 100%;
   height: auto;
@@ -868,8 +848,6 @@ label{
 
 .red {
   background-color:#a51b26;
-  border:solid 2px;
-  border-color: #000000;
   color: white;
   padding: 4px;
   text-align: center;
@@ -879,12 +857,10 @@ label{
   font-weight: bold;
   margin: 10px 2px;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 .green {
   background-color:green;
-  border:solid 2px;
-  border-color: #000000;
   color: white;
   padding: 4px;
   text-align: center;
@@ -894,12 +870,10 @@ label{
   font-weight: bold;
   margin: 10px 2px;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 .yellow {
   background-color:yellow;
-  border:solid 2px;
-  border-color: #000000;
   color: #000000;
   padding: 4px;
   text-align: center;
@@ -909,31 +883,29 @@ label{
   font-weight: bold;
   margin: 10px 2px;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 5px;
 }
-/* Big screen all request section */
+/* Big screen approve all request section */
 @media screen and (min-width:750px) {
-  
-.approverequests{
+  .approverequests{
   min-height: 80vh;
   display: flex;
-  padding: 40px;
   justify-content: center;
-  align-items: center;
-  
- }
+  flex-wrap: wrap;
+  padding: 10%;
+  }
  .approverequests-card{
-  margin-top:50px;
+  margin-top:10px;
   margin-left: 10px;
-  margin-right:10px;
+  margin-right:20px;
   margin-bottom: 0px;
-  padding:10px;
   align-self: center;
   display: flex;
   flex-direction: column;
-  padding: 2%;
-	flex: 1 10%;
-	background-color: #FFF;
+  padding: 5%;
+	flex: 0 0 50%;
+  background-color: rgba(247, 239, 236, 0.5);
+  border-radius:10px;
   box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.95);
   width: 50%;
   height: auto;
@@ -949,8 +921,6 @@ label{
 }
 .red {
   background-color:#a51b26;
-  border:solid 2px;
-  border-color: #000000;
   color: white;
   padding: 4px;
   text-align: center;
@@ -960,12 +930,10 @@ label{
   font-weight: bold;
   margin: 10px 2px;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 .green {
   background-color:green;
-  border:solid 2px;
-  border-color: #000000;
   color: white;
   padding: 4px;
   text-align: center;
@@ -975,23 +943,121 @@ label{
   font-weight: bold;
   margin: 10px 2px;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 .yellow {
   background-color:yellow;
-  border:solid 2px;
-  border-color: #000000;
   color: #000000;
-
   padding: 4px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 12px;
   font-weight: bold;
-
   margin: 10px 2px;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 5px;
+}
+}
+
+/* user details page */
+.details-requests{
+  min-height: 80vh;
+  padding: 10px;
+  background: linear-gradient(rgb(252, 251, 251,0.2), rgba(252, 251, 251, 0.2)), url(images/request-background.jpeg)center/cover fixed no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+ }
+
+ .detailsrequest-card{
+  margin-top:30px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+	flex: 0 0 80%;
+	background-color: rgba(247, 239, 236, 0.5);
+  border-radius:10px;
+  box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.95);
+  width: 100%;
+  height: 100%;
+}
+label{
+  color: #000000;
+  font-weight: bold;
+  
+  }
+.status{
+  margin-top:10px;
+  align-self:center;
+}
+
+/* user details page big screen */
+@media screen and (min-width:750px) {
+  .details-requests{
+    min-height: 80vh;
+    padding: 10px;
+    background: linear-gradient(rgb(252, 251, 251,0.2), rgba(252, 251, 251, 0.2)), url(images/request-background.jpeg)center/cover fixed no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+   }
+  
+   .detailsrequest-card{
+    margin-top:30px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    flex: 0 0 45%;
+    background-color: rgba(247, 239, 236, 0.5);
+    border-radius:10px;
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.95);
+    width: 100%;
+    height: 100%;
+  }
+  .dropbtn {
+    background-color: grey;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    justify-content:space-around;
+    align-self: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #000000;
 }
 }
