@@ -1,8 +1,5 @@
 import { Client } from 'pg';
 import { configDevelopment, configTest } from '../config/config';
-import queries from './database';
-
-
 let config;
 if (process.env.NODE_ENV === 'development') {
   config = configDevelopment;
