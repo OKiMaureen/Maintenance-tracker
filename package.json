@@ -7,11 +7,13 @@
     "body-parser": "^1.18.3",
     "chai": "^4.1.2",
     "chai-http": "^4.0.0",
+    "dotenv": "^5.0.1",
     "eslint": "^4.19.1",
     "express": "^4.16.3",
     "lodash.isempty": "^4.4.0",
     "mocha": "^5.1.1",
     "nyc": "^11.8.0",
+    "pg": "^7.4.3",
     "validator": "^10.2.0"
   },
   "devDependencies": {
@@ -26,9 +28,9 @@
   "scripts": {
     "start": "babel-node server/app.js",
     "start:dev": "nodemon --watch server --exec babel-node server/app.js",
+    "migrate": "babel-node server/models/index.js",
     "build": "babel server -d server/dist",
-    "test": " nyc --reporter=html --reporter=text mocha ./server/test/ --exit --compilers js:babel-register",
-    
+    "test": "set NODE_ENV=test && nyc --reporter=html --reporter=text mocha ./server/test/ --exit --compilers js:babel-register",
     "coveralls": "jscoverage lib && YOURPACKAGE_COVERAGE=1 nodeunit --reporter=lcov test | coveralls",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
