@@ -1,10 +1,12 @@
 import dotenv from 'dotenv';
 
 dotenv.config();
-
-const config = {
-
+const configDevelopment = {
   database: process.env.DATABASE_URL,
-
 };
-export default config;
+
+const configTest = {
+  database: process.env.DATABASE_URL,
+};
+export default { configDevelopment, configTest };
+
