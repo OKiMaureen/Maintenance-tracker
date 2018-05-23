@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for server/controllers/requestController.js</title>
+    <title>Code coverage report for server/middleware/userValidations.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="..\..\prettify.css" />
     <link rel="stylesheet" href="..\..\base.css" />
@@ -16,35 +16,35 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="..\..\index.html">All files</a> / <a href="index.html">server/controllers</a> requestController.js
+      <a href="..\..\index.html">All files</a> / <a href="index.html">server/middleware</a> userValidations.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">3.85% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/26</span>
+        <span class='fraction'>43/43</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">98% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/16</span>
+        <span class='fraction'>49/50</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">3.85% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/26</span>
+        <span class='fraction'>43/43</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -171,7 +171,16 @@
 <a name='L123'></a><a href='#L123'>123</a>
 <a name='L124'></a><a href='#L124'>124</a>
 <a name='L125'></a><a href='#L125'>125</a>
-<a name='L126'></a><a href='#L126'>126</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -187,17 +196,30 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -205,33 +227,45 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">33x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -242,183 +276,173 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import requestsDb from '../dummyModel/request';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import isEmpty from 'lodash.isempty';
+import Validator from 'validator';
+&nbsp;
 /**
- * class Request controls all request methods
- * @class request
+ * @class Validate User SIgn In and Sign Up input
  */
-export default class Requests {
+export default class validateUser {
   /**
-   * gets all request
+   * validate user sign in input string
+   *
    * @param {Object} req
    * @param {Object} res
    *
-   * @returns {Object} gets all request
+   * @param {Function} next
    *
-   * @memberof Request
+   * @return {Object}
    */
-  static getAllRequests(req, res) {
-<span class="cstat-no" title="statement not covered" >    return res.status(200)</span>
-      .json({
-        data: {
-          request: requestsDb,
-        },
-        message: 'request gotten',
-        status: 'success',
-      });
-  }
-  /**
-   * adds a new request
-   * @param {Object} req
-   * @param {Object} res
-   *
-   * @returns {Object} adds new request
-   *
-   *  @memberof Request
-   */
-  static addRequest(req, res) <span class="cstat-no" title="statement not covered" >{</span>
+  static validateSigninInput(req, res, next) {
     const {
-      title,
-      department,
-      equipment,
-      serialNumber,
-      description,
-    } = <span class="cstat-no" title="statement not covered" >req.body;</span>
-    const requestSize = <span class="cstat-no" title="statement not covered" >requestsDb.length + 1;</span>
-    const request = <span class="cstat-no" title="statement not covered" >{</span>
-      id: requestSize,
-      title,
-      department,
-      equipment,
-      serialNumber,
-      description,
-    };
-<span class="cstat-no" title="statement not covered" >    requestsDb.push(request);</span>
-<span class="cstat-no" title="statement not covered" >    return res.status(201)</span>
-      .json({
-        data: {
-          request,
-        },
-        message: 'Request Added',
-        status: 'success',
-      });
-  }
-  /**
-   * modify/update requests
-   * @param {Object} req
-   * @param {Object} res
-   *
-   * @returns {Object} updated requests
-   *
-   * @memberof Request
-   */
-  static updateRequest(req, res) {
-    const { id } = <span class="cstat-no" title="statement not covered" >req.params;</span>
-    let <span class="cstat-no" title="statement not covered" >putRequest;</span>
-<span class="cstat-no" title="statement not covered" >    requestsDb.forEach(<span class="fstat-no" title="function not covered" >(</span>request) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      if (request.id === parseInt(id, 10)) {</span>
-<span class="cstat-no" title="statement not covered" >        request.title = req.body.title || request.title;</span>
-<span class="cstat-no" title="statement not covered" >        request.department = req.body.department || request.department;</span>
-<span class="cstat-no" title="statement not covered" >        request.equipment = req.body.equipment || request.equipment;</span>
-<span class="cstat-no" title="statement not covered" >        request.serialNumber = req.body.serialNumber || request.serialNumber;</span>
-<span class="cstat-no" title="statement not covered" >        request.description = req.body.description || request.description;</span>
-<span class="cstat-no" title="statement not covered" >        putRequest = request;</span>
-      }
-    });
-<span class="cstat-no" title="statement not covered" >    if (putRequest) {</span>
-<span class="cstat-no" title="statement not covered" >      return res.status(200).json({</span>
-        data: {
-          putRequest,
-        },
-        message: 'request succesfully updated',
-        status: 'success',
-      });
+      email,
+      password,
+    } = req.body;
+    const error = {};
+    if (!email) {
+      error.email = 'Email is required';
     }
-<span class="cstat-no" title="statement not covered" >    return res.status(404).json({</span>
-      message: 'request id does not exist',
-      status: 'fail',
+&nbsp;
+    if (email &amp;&amp; !Validator.isEmail(email.trim() || '')) {
+      error.email = 'Please provide a valid email address';
+    }
+    if (!password) {
+      error.password = 'Password is required';
+    }
+&nbsp;
+    if (password &amp;&amp; Validator.isEmpty(password.trim() || '')) {
+      error.password = 'Password is required';
+    }
+    if (isEmpty(error)) {
+      return next();
+    }
+    return res.status(406).json({
+      error,
+    });
+  }
+&nbsp;
+  /**
+   * validate user sign up input string
+   *
+   * @param {Object} req
+   * @param {Object} res
+   * @param {Function} next
+   *
+   * @return {Object}
+   */
+  static validateSignupInput(req, res, next) {
+    const {
+      email,
+      password,
+      name,
+    } = req.body;
+    const error = {};
+    if (!name) {
+      error.name = 'Name is required';
+    }
+&nbsp;
+    if (name &amp;&amp; Validator.isEmpty(name.trim() || '')) {
+      error.name = 'Name is required';
+    }
+    if (!password) {
+      error.password = 'Password is required';
+    }
+&nbsp;
+    if (password &amp;&amp; Validator.isEmpty(password.trim() || '')) {
+      error.password = 'Password is required';
+    }
+    if (!email) {
+      error.email = 'Email is required';
+    }
+&nbsp;
+    if (email &amp;&amp; !Validator.isEmail(email.trim() || <span class="branch-1 cbranch-no" title="branch not covered" >'')) {</span>
+      error.email = 'Email address is invalid';
+    }
+&nbsp;
+    if (isEmpty(error)) {
+      return next();
+    }
+    return res.status(406).json({
+      error,
     });
   }
   /**
-   * gets request by id
+   * validate password length
+   *
    * @param {Object} req
    * @param {Object} res
    *
-   * @returns {Object} gets request by id
+   * @param {Function} next
    *
-   * @memberof Request
+   * @return {Object}
    */
-  static getRequestById(req, res) {
-    const { id } = <span class="cstat-no" title="statement not covered" >req.params;</span>
-<span class="cstat-no" title="statement not covered" >    requestsDb.forEach(<span class="fstat-no" title="function not covered" >(</span>request) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      if (request.id === parseInt(id, 10)) {</span>
-<span class="cstat-no" title="statement not covered" >        res.status(200).json({</span>
-          data: {
-            request,
-          },
-          message: `request with id ${id}`,
-          status: 'success',
+&nbsp;
+  static inputLength(req, res, next) {
+    const {
+      name, password,
+    } = req.body;
+&nbsp;
+    // check for username characters
+    if (!Validator.isAlphanumeric(name)) {
+      return res.status(406)
+        .send({
+          status: 'Fail',
+          message: 'Only alphabets and numbers are allowed.',
         });
-      }
-    });
-<span class="cstat-no" title="statement not covered" >    return res.status(404).json({</span>
-      message: `request with id ${id} cannot be found`,
-      status: 'fail',
-    });
+    }
+    // Check for Username Lenght
+    if (!Validator.isLength(name, { min: 3, max: 15 })) {
+      return res.status(406)
+        .send({
+          status: 'Fail',
+          message: 'name can only be between 3 to 15 characters',
+        });
+    }
+    // Check for Password
+    if (!Validator.isLength(password, { min: 6, max: 50 })) {
+      return res.status(406)
+        .send({
+          status: 'Fail',
+          message: 'Password must be between 6 to 50 characters',
+        });
+    }
+    return next();
   }
 }
 &nbsp;</pre></td></tr>
@@ -427,7 +451,7 @@ export default class Requests {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed May 23 2018 11:36:36 GMT+0100 (W. Central Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu May 24 2018 09:16:13 GMT+0100 (W. Central Africa Standard Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>
