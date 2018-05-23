@@ -4,9 +4,9 @@ DROP TYPE IF EXISTS status;
 CREATE TYPE status AS ENUM('user','admin');
 CREATE TABLE users(
   id SERIAL PRIMARY KEY,
-  name VARCHAR(40) NOT NULL,
-  email VARCHAR(40) NOT NULL,
-  password VARCHAR(40) NOT NULL,
+  name VARCHAR(50) NOT NULL,
+  email VARCHAR(50) NOT NULL,
+  password VARCHAR(255) NOT NULL,
   role status DEFAULT 'user');
 INSERT INTO users(name,email,password)
 VALUES ('maureen','maureen@gmail.com','maureen123');`;
@@ -20,11 +20,11 @@ CREATE TYPE accepted_status AS ENUM('inProgress','resolved');
 CREATE TABLE requests(
   id SERIAL PRIMARY KEY,
   user_id INTEGER NOT NULL,
-  title VARCHAR(40) NOT NULL,
-  department VARCHAR(40) NOT NULL,
-  equipment VARCHAR(40) NOT NULL,
-  serialNumber VARCHAR(40) NOT NULL,
-  description VARCHAR(50) NOT NULL,
+  title VARCHAR(50) NOT NULL,
+  department VARCHAR(50) NOT NULL,
+  equipment VARCHAR(50) NOT NULL,
+  serialNumber VARCHAR(50) NOT NULL,
+  description VARCHAR(255) NOT NULL,
   requestStatus request_status DEFAULT 'disapproved',
   acceptedStatus accepted_status DEFAULT 'inProgress',
   FOREIGN KEY (user_id) REFERENCES users(id));
