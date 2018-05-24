@@ -9,5 +9,6 @@ const routes = (app) => {
       .send('Welcome to Maintenance Tracker API');
   });
   app.post('/api/v1/auth/signup', validateEmail.checkEmail, user.validateSignupInput, user.inputLength, usersController.signupUser);
+  app.post('/api/v1/auth/login', user.validateSigninInput, usersController.signinUser);
 };
 export default routes;

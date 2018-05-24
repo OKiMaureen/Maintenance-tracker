@@ -6,6 +6,7 @@ const { expect } = chai;
 chai.use(chaiHttp);
 
 const signupUrl = '/api/v1/auth/signup';
+const signinUrl = '/api/v1/auth/login';
 
 describe('Test default route', () => {
   it('Should return 200 for the default route', (done) => {
@@ -226,6 +227,124 @@ describe('POST /api/v1/auth/signup', () => {
         expect(res.body).to.be.an('object');
         expect(res.body.error.password)
           .to.include('Password is required');
+        done();
+      });
+  });
+});
+describe('POST /api/v1/auth/login', () => {
+  it('should login a user with the correct details', (done) => {
+    chai.request(app)
+      .post(`${signinUrl}`)
+      .send({
+        email: 'efe@gmail.com',
+        password: 'efe123',
+      })
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        expect(res.body).to.be.an('object');
+        expect(res.body).to.have.property('data');
+        expect(res.body.message).to.equal('user logged in successfully');
+        expect(res.body.status).to.be.equal('success');
+        done();
+      });
+  });
+  it('should not login user without password', (done) => {
+    chai.request(app)
+      .post(`${signinUrl}`)
+      .send({
+        email: 'maureen@mymail.com',
+        password: '',
+      })
+      .end((err, res) => {
+        expect(res).to.have.status(406);
+        expect(res.body).to.be.an('object');
+        expect(res.body.error.password).to.equal('Password is required');
+        done();
+      });
+  });
+  it('should not login user with empty password string', (done) => {
+    chai.request(app)
+      .post(`${signinUrl}`)
+      .send({
+        email: 'maureen@mymail.com',
+        password: '    ',
+      })
+      .end((err, res) => {
+        expect(res).to.have.status(406);
+        expect(res.body).to.be.an('object');
+        expect(res.body.error.password).to.equal('Password is required');
+        done();
+      });
+  });
+  it('should not login user without email address', (done) => {
+    chai.request(app)
+      .post(`${signinUrl}`)
+      .send({
+        email: '',
+        password: 'maureen123',
+      })
+      .end((err, res) => {
+        expect(res).to.have.status(406);
+        expect(res.body).to.be.an('object');
+        expect(res.body.error.email).to.equal('Email is required');
+        done();
+      });
+  });
+  it('should not login user with empty email address string', (done) => {
+    chai.request(app)
+      .post(`${signinUrl}`)
+      .send({
+        email: '    ',
+        password: 'maureen123',
+      })
+      .end((err, res) => {
+        expect(res).to.have.status(406);
+        expect(res.body).to.be.an('object');
+        expect(res.body.error.email).to.equal('Please provide a valid email address');
+        done();
+      });
+  });
+  it('should not login user with invalid email address', (done) => {
+    chai.request(app)
+      .post(`${signinUrl}`)
+      .send({
+        email: 'me.com',
+        password: 'maureen123',
+      })
+      .end((err, res) => {
+        expect(res).to.have.status(406);
+        expect(res.body).to.be.an('object');
+        expect(res.body.error.email).to.equal('Please provide a valid email address');
+        done();
+      });
+  });
+  it('should not sign in a user with an incorrect password', (done) => {
+    chai.request(app)
+      .post(`${signinUrl}`)
+      .send({
+        email: 'maureen@gmail.com',
+        password: 'wrongpassword',
+      })
+      .end((err, res) => {
+        expect(res).to.have.status(401);
+        expect(res.body).to.be.an('object');
+        expect(res.body.message)
+          .to.equal('please try again, you entered a wrong password');
+        done();
+      });
+  });
+  it('should not login user with an incorrect email address', (done) => {
+    chai.request(app)
+      .post(`${signinUrl}`)
+      .send({
+        email: 'wrong@mymail.com',
+        password: 'maureen123',
+      })
+      .end((err, res) => {
+        expect(res).to.have.status(404);
+        expect(res.body).to.be.an('object');
+        expect(res.body.message)
+          .to.equal('user does not exist');
         done();
       });
   });

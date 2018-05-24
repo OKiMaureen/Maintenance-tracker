@@ -66,5 +66,48 @@ export default class userController {
           });
       }).catch((err) => { res.status(500).send(err); });
   }
+  /**
+  * @description - logs in a user
+   * @static
+   *
+   * @param {object} req - HTTP Request
+   * @param {object} res - HTTP Response
+   *
+   * @memberof userController
+   *
+   */
+  static signinUser(req, res) {
+    const { email, password } = req.body;
+    const findUser = `SELECT * FROM users WHERE  email = '${email}'`;
+    client.query(findUser)
+      .then((foundUser) => {
+        if (!foundUser.rows[0]) {
+          return res.status(404)
+            .json({
+              message: 'user does not exist',
+              status: 'fail',
+            });
+        }
+        if (!bcrypt.compareSync(password, foundUser.rows[0].password)) {
+          return res.status(401)
+            .json({
+              message: 'please try again, you entered a wrong password',
+              status: 'fail',
+            });
+        }
+        const token = createToken(foundUser.rows[0].id);
+        return res.status(200)
+          .json({
+            data: {
+              foundUser: foundUser.rows[0],
+              token,
+            },
+            message: 'user logged in successfully',
+            status: 'success',
+          });
+      }).catch((err) => {
+        res.status(500).send(err);
+      });
+  }
 }
 
