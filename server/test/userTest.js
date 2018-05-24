@@ -4,9 +4,11 @@ import app from '../app';
 
 const { expect } = chai;
 chai.use(chaiHttp);
-
 const signupUrl = '/api/v1/auth/signup';
 const signinUrl = '/api/v1/auth/login';
+const requestUrl = '/api/v1/users/requests';
+let userToken;
+let Token;
 
 describe('Test default route', () => {
   it('Should return 200 for the default route', (done) => {
@@ -218,7 +220,7 @@ describe('POST /api/v1/auth/signup', () => {
     chai.request(app)
       .post(`${signupUrl}`)
       .send({
-        username: 'maureen',
+        name: 'maureen',
         email: 'maureen@email.com',
         password: '   ',
       })
@@ -245,6 +247,7 @@ describe('POST /api/v1/auth/login', () => {
         expect(res.body).to.have.property('data');
         expect(res.body.message).to.equal('user logged in successfully');
         expect(res.body.status).to.be.equal('success');
+        Token = res.body.data.token;
         done();
       });
   });
@@ -345,6 +348,16 @@ describe('POST /api/v1/auth/login', () => {
         expect(res.body).to.be.an('object');
         expect(res.body.message)
           .to.equal('user does not exist');
+        done();
+      });
+  });
+});
+describe('/api/v1/users/requests', () => {
+  it('should not allow users not authenticated to view all requests', (done) => {
+    chai.request(app)
+      .get(`${requestUrl}`)
+      .end((err, res) => {
+        expect(res).to.have.status(401);
         done();
       });
   });

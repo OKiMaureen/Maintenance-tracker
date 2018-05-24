@@ -7,12 +7,13 @@ import configurations from '../config/config';
 
 dotenv.config();
 
-
 let config;
 if (process.env.NODE_ENV === 'development') {
   config = configurations.development;
-} else {
+} else if (process.env.NODE_ENV === 'test') {
   config = configurations.test;
+} else {
+  config = configurations.production;
 }
 const client = new Client(config);
 client.connect();
@@ -54,7 +55,7 @@ export default class userController {
     ) RETURNING *;`;
     client.query(user)
       .then((newUser) => {
-        const token = createToken(newUser.rows[0].id);
+        const token = createToken(newUser.rows[0]);
         return res.status(201)
           .json({
             data: {
@@ -88,14 +89,14 @@ export default class userController {
               status: 'fail',
             });
         }
-        if (!bcrypt.compareSync(password, foundUser.rows[0].password)) {
+        if (!bcrypt.compareSync(password.trim(), foundUser.rows[0].password)) {
           return res.status(401)
             .json({
               message: 'please try again, you entered a wrong password',
               status: 'fail',
             });
         }
-        const token = createToken(foundUser.rows[0].id);
+        const token = createToken(foundUser.rows[0]);
         return res.status(200)
           .json({
             data: {
