@@ -16,5 +16,6 @@ const routes = (app) => {
   app.get('/api/v1/users/requests', userAuthentication.authenticateUser, requestsController.getAllRequests);
   app.get('/api/v1/users/requests/:id', userAuthentication.authenticateUser, request.checkLength, requestsController.getRequestById);
   app.post('/api/v1/users/requests', userAuthentication.authenticateUser, request.validateString, request.checkLength, requestsController.createRequest);
+  app.put('/api/v1/users/requests/:id', userAuthentication.authenticateUser, request.idIsNumber, request.checkLength, requestsController.updateRequest);
 };
 export default routes;
