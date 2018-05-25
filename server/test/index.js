@@ -88,6 +88,19 @@ describe('POST /api/v1/auth/signup', () => {
         done();
       });
   });
+  it('should take required character format error', (done) => {
+    chai.request(app)
+      .post(`${signupUrl}`)
+      .send({
+        name: 'hhhjjjjjjjjjjjjjjjjjjjjjjjjjjjjjhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',
+        email: 'maureen@gmailcom',
+        password: 'maureen123',
+      })
+      .end((err, res) => {
+        expect(res).to.have.status(406);
+        done();
+      });
+  });
   it('should not register user with an empty name field ', (done) => {
     chai.request(app)
       .post(`${signupUrl}`)
@@ -551,6 +564,52 @@ describe('POST /api/v1/users/requests', () => {
         expect(res.body).to.be.an('object');
         expect(res.body.message).to.equal('user authentication invalid');
         expect(res.body.status).to.be.equal('fail');
+        done();
+      });
+  });
+});
+describe('/api/v1/users/requests/:id', () => {
+  it('should not allow non-user to update a request', (done) => {
+    chai.request(app)
+      .put('/api/v1/users/request/10')
+      .set('token', userToken)
+      .send({
+        email: 'maureen@gmail.com',
+        password: 'maureen123',
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(404);
+        expect(res.body).to.be.an('object');
+        done();
+      });
+  });
+  it('should not allow non auth user to update request', (done) => {
+    chai.request(app)
+      .put('/api/v1/users/requests/1')
+      .send({
+        email: 'maureen@gmail.com',
+        password: 'maureen123',
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(401);
+        expect(res.body).to.be.an('object');
+        expect(res.body.message).to.equal('user authentication invalid');
+        done();
+      });
+  });
+  it('should not update a particular id that is not a number', (done) => {
+    chai.request(app)
+      .put('/api/v1/users/requests/abcdefgh')
+      .set('token', userToken)
+      .send({
+        email: 'maureen@gmail.com',
+        password: 'maureen123',
+      })
+      .end((err, res) => {
+        expect(res).to.have.status(406);
+        expect(res.body).to.be.an('object');
+        expect(res.body.error.id)
+          .to.include('id must be a number');
         done();
       });
   });
