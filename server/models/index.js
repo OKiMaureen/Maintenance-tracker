@@ -13,7 +13,9 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   config = configurations.development;
 }
+
 const client = new Client(config);
+console.log(config);
 client.connect();
 client.query(queries, () => {
   client.end();

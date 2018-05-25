@@ -52,7 +52,7 @@ export default class requestController {
             message: 'request gotten successfully',
             status: 'success',
           });
-      });
+      }).catch((err) => { res.status(500).send(err.message); });
   }
   /**
    * @description - get a single request
@@ -91,7 +91,7 @@ export default class requestController {
           message: 'request cannot be viewed by you',
           status: 'fail',
         });
-      });
+      }).catch((err) => { res.status(500).send(err.message); });
   }
   /**
    * @description - create a  request
@@ -137,6 +137,44 @@ export default class requestController {
               newRequest: newRequest.rows[0],
             },
             message: 'request created successfully',
+            status: 'success',
+          });
+      }).catch((err) => { res.status(500).send(err.message); });
+  }
+  /**
+   * @description - update a request
+   * @static
+   *
+   * @param {object} req - HTTP Request
+   * @param {object} res - HTTP Response
+   *
+   * @memberof requestController
+   *
+   */
+  static updateRequest(req, res) {
+    const requestId = parseInt(req.params.id, 10);
+    const { id } = req.token.id;
+    const {
+      title,
+      department,
+      equipment,
+      serialNumber,
+      description,
+    } = req.body;
+
+    const requestUpdate = {
+
+      text: 'UPDATE requests SET title=$1, department=$2, equipment=$3, serialNumber=$4,description=$5 WHERE id= $6 AND user_id =$7 RETURNING *',
+      values: [title, department, equipment, serialNumber, description, requestId, id],
+    };
+    client.query(requestUpdate)
+      .then((newRequestUpdated) => {
+        res.status(200)
+          .json({
+            data: {
+              updatedRequest: newRequestUpdated.rows[0],
+            },
+            message: 'request updated successfully',
             status: 'success',
           });
       }).catch((err) => { res.status(500).send(err.message); });
