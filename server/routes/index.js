@@ -13,5 +13,6 @@ const routes = (app) => {
   app.post('/api/v1/auth/signup', validateEmail.checkEmail, user.validateSignupInput, user.inputLength, usersController.signupUser);
   app.post('/api/v1/auth/login', user.validateSigninInput, usersController.signinUser);
   app.get('/api/v1/users/requests', userAuthentication.authenticateUser, requestsController.getAllRequests);
+  app.get('/api/v1/users/requests/:id', userAuthentication.authenticateUser, requestsController.getRequestById);
 };
 export default routes;

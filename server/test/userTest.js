@@ -358,6 +358,18 @@ describe('/api/v1/users/requests', () => {
       .get(`${requestUrl}`)
       .end((err, res) => {
         expect(res).to.have.status(401);
+        expect(res.body).to.be.an('object');
+        done();
+      });
+  });
+});
+describe('/api/v1/users/requests/1', () => {
+  it('should not allow users not authenticated to view a single requests', (done) => {
+    chai.request(app)
+      .get(`${requestUrl}`)
+      .end((err, res) => {
+        expect(res).to.have.status(401);
+        expect(res.body).to.be.an('object');
         done();
       });
   });
