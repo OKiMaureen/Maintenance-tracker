@@ -33,7 +33,7 @@ export default class userController {
    *
    */
   static getAllRequests(req, res) {
-    const { id } = req.token;
+    const { id } = req.token.id;
     const findRequest = `SELECT * FROM requests WHERE id = ${id}`;
     client.query(findRequest)
       .then((foundRequest) => {
@@ -52,6 +52,45 @@ export default class userController {
             message: 'request gotten successfully',
             status: 'success',
           });
+      });
+  }
+  /**
+   * @description - Creates a new user
+   * @static
+   *
+   * @param {object} req - HTTP Request
+   * @param {object} res - HTTP Response
+   *
+   * @memberof userController
+   *
+   */
+  static getRequestById(req, res) {
+    const { id } = req.token.id;
+    const requestId = parseInt(req.params.id, 10);
+    const findRequestById = `SELECT * FROM requests WHERE requests.id = ${requestId}`;
+
+    client.query(findRequestById)
+      .then((foundRequestById) => {
+        if (!foundRequestById.rows[0]) {
+          return res.status(404)
+            .json({
+              message: 'no request available with given id',
+              status: 'fail',
+            });
+        }
+        if (foundRequestById.rows[0].user_id === id) {
+          return res.status(200).json({
+            data: {
+              foundRequest: foundRequestById.rows[0],
+            },
+            message: 'single request gotten successfully',
+            status: 'success',
+          });
+        }
+        return res.status(403).json({
+          message: 'request cannot be viewed by you',
+          status: 'fail',
+        });
       });
   }
 }

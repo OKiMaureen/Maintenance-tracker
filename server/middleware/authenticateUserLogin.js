@@ -20,7 +20,7 @@ export default class authenticateUserLogin {
      */
   static authenticateUser(req, res, next) {
     try {
-      const token = req.headers['x-access'] || req.body.token || req.query.token;
+      const token = req.headers['x-access'] || req.headers.token || req.query.token;
       const verifiedToken = jwt.verify(token, secretKey);
       req.token = verifiedToken;
       return next();
