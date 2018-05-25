@@ -1,21 +1,9 @@
-import dotenv from 'dotenv';
-import { Client } from 'pg';
 import bcrypt from 'bcrypt';
-import createToken from '../helper/token';
-import configurations from '../config/config';
+import createToken from '../helpers/createToken';
+import connection from '../helpers/connection';
 
 
-dotenv.config();
-
-let config;
-if (process.env.NODE_ENV === 'development') {
-  config = configurations.development;
-} else if (process.env.NODE_ENV === 'test') {
-  config = configurations.test;
-} else {
-  config = configurations.production;
-}
-const client = new Client(config);
+const client = connection();
 client.connect();
 
 /**
@@ -24,7 +12,7 @@ client.connect();
  * @export
  *
  */
-export default class userController {
+export default class UserController {
   /**
    * @description - Creates a new user
    * @static
@@ -100,7 +88,7 @@ export default class userController {
         return res.status(200)
           .json({
             data: {
-              foundUser: foundUser.rows[0],
+              user: foundUser.rows[0],
               token,
             },
             message: 'user logged in successfully',

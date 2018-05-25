@@ -4,7 +4,7 @@ import Validator from 'validator';
 /**
  * @class Validate User SIgn In and Sign Up input
  */
-export default class validateUser {
+export default class ValidateUser {
   /**
    * validate user sign in input string
    *
@@ -22,18 +22,18 @@ export default class validateUser {
     } = req.body;
     const error = {};
     if (!email) {
-      error.email = 'Email is required';
+      error.email = 'email is required';
     }
 
     if (email && !Validator.isEmail(email.trim() || '')) {
-      error.email = 'Please provide a valid email address';
+      error.email = 'please provide a valid email address';
     }
     if (!password) {
-      error.password = 'Password is required';
+      error.password = 'password is required';
     }
 
     if (password && Validator.isEmpty(password.trim() || '')) {
-      error.password = 'Password is required';
+      error.password = 'password is required';
     }
     if (isEmpty(error)) {
       return next();
@@ -60,25 +60,25 @@ export default class validateUser {
     } = req.body;
     const error = {};
     if (!name) {
-      error.name = 'Name is required';
+      error.name = 'name is required';
     }
 
     if (name && Validator.isEmpty(name.trim() || '')) {
-      error.name = 'Name is required';
+      error.name = 'name is required';
     }
     if (!password) {
-      error.password = 'Password is required';
+      error.password = 'password is required';
     }
 
     if (password && Validator.isEmpty(password.trim() || '')) {
-      error.password = 'Password is required';
+      error.password = 'password is required';
     }
     if (!email) {
-      error.email = 'Email is required';
+      error.email = 'email is required';
     }
 
     if (email && !Validator.isEmail(email.trim() || '')) {
-      error.email = 'Email address is invalid';
+      error.email = 'email address is invalid';
     }
 
     if (isEmpty(error)) {
@@ -108,15 +108,15 @@ export default class validateUser {
     if (!Validator.isAlphanumeric(name)) {
       return res.status(406)
         .send({
-          status: 'Fail',
-          message: 'Only alphabets and numbers are allowed.',
+          status: 'fail',
+          message: 'only alphabets and numbers are allowed.',
         });
     }
-    // Check for Username Lenght
+    // Check for name Length
     if (!Validator.isLength(name, { min: 3, max: 15 })) {
       return res.status(406)
         .send({
-          status: 'Fail',
+          status: 'fail',
           message: 'name can only be between 3 to 15 characters',
         });
     }
@@ -124,8 +124,8 @@ export default class validateUser {
     if (!Validator.isLength(password, { min: 6, max: 50 })) {
       return res.status(406)
         .send({
-          status: 'Fail',
-          message: 'Password must be between 6 to 50 characters',
+          status: 'fail',
+          message: 'password must be between 6 to 50 characters',
         });
     }
     return next();

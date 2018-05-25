@@ -1,4 +1,7 @@
+import dotenv from 'dotenv';
 import bcrypt from 'bcrypt';
+
+dotenv.config();
 
 const hashedPassword = bcrypt.hashSync(process.env.H_PASSWORD, 10);
 const userSeed = `

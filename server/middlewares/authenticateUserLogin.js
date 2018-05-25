@@ -7,7 +7,7 @@ const secretKey = process.env.JWT_SECRET;
 /**
  * @class Authenticate User
  */
-export default class authenticateUserLogin {
+export default class AuthenticateUserLogin {
   /**
      * Authenticate Get All Requests
      *

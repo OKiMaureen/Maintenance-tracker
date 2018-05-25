@@ -1,23 +1,12 @@
-import dotenv from 'dotenv';
-import { Client } from 'pg';
-import configurations from '../config/config';
+import connection from '../helpers/connection';
 
-dotenv.config();
-
-
-let config;
-if (process.env.NODE_ENV === 'development') {
-  config = configurations.development;
-} else {
-  config = configurations.test;
-}
-const client = new Client(config);
+const client = connection();
 client.connect();
 
 /**
  * @class Validate User
  */
-export default class validateUserEmail {
+export default class ValidateUserEmail {
 /**
    * validate Request input string
    *

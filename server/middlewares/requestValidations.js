@@ -5,7 +5,7 @@ import Validator from 'validator';
 /**
  * @class Validate Request
  */
-export default class validateRequest {
+export default class ValidateRequest {
   /**
    * validate Request input string
    *
@@ -21,7 +21,7 @@ export default class validateRequest {
       title,
       department,
       equipment,
-      serialNumber,
+      serialnumber,
       description,
     } = req.body;
     const error = {};
@@ -44,11 +44,11 @@ export default class validateRequest {
     if (equipment && Validator.isEmpty(equipment.trim() || '')) {
       error.equipment = 'equipment is required';
     }
-    if (!serialNumber) {
-      error.serialNumber = 'serialNumber is required';
+    if (!serialnumber) {
+      error.serialNumber = 'serialnumber is required';
     }
-    if (serialNumber && Validator.isEmpty(serialNumber.trim() || '')) {
-      error.serialNumber = 'serialNumber is required';
+    if (serialnumber && Validator.isEmpty(serialnumber.trim() || '')) {
+      error.serialnumber = 'serialnumber is required';
     }
     if (!description) {
       error.description = 'description is required';
@@ -75,7 +75,7 @@ export default class validateRequest {
   static checkLength(req, res, next) {
     const {
       title,
-      serialNumber,
+      serialnumber,
       description,
     } = req.body;
 
@@ -85,17 +85,17 @@ export default class validateRequest {
     })) {
       return res.status(406)
         .json({
-          message: 'Title must be between 5 and 20 characters',
+          message: 'title must be between 5 and 20 characters',
           status: 'fail',
         });
     }
-    if (!Validator.isLength(serialNumber, {
+    if (!Validator.isLength(serialnumber, {
       min: 8,
       max: 8,
     })) {
       return res.status(406)
         .json({
-          message: 'SerialNumber must be only 8 characters',
+          message: 'serialnumber must be only 8 characters',
           status: 'fail',
         });
     }
@@ -105,7 +105,7 @@ export default class validateRequest {
     })) {
       return res.status(406)
         .json({
-          message: 'Description must be between 3 and 50 characters',
+          message: 'description must be between 3 and 50 characters',
           status: 'fail',
         });
     }

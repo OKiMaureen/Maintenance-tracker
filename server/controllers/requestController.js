@@ -1,18 +1,7 @@
-import dotenv from 'dotenv';
-import { Client } from 'pg';
-import configurations from '../config/config';
+import connection from '../helpers/connection';
 
 
-dotenv.config();
-
-
-let config;
-if (process.env.NODE_ENV === 'development') {
-  config = configurations.development;
-} else {
-  config = configurations.test;
-}
-const client = new Client(config);
+const client = connection();
 client.connect();
 
 /**
@@ -21,7 +10,7 @@ client.connect();
  * @export
  *
  */
-export default class requestController {
+export default class RequestController {
   /**
    * @description - gets all requests
    * @static
@@ -33,8 +22,10 @@ export default class requestController {
    *
    */
   static getAllRequests(req, res) {
-    const { id } = req.token.id;
-    const findRequest = `SELECT * FROM requests WHERE id = ${id}`;
+    const {
+      id,
+    } = req.token.id;
+    const findRequest = `SELECT * FROM requests WHERE user_id=${id}`;
     client.query(findRequest)
       .then((foundRequest) => {
         if (!foundRequest.rows[0]) {
@@ -47,11 +38,13 @@ export default class requestController {
         return res.status(200)
           .json({
             data: {
-              foundRequest: foundRequest.rows[0],
+              request: foundRequest.rows,
             },
             message: 'request gotten successfully',
             status: 'success',
           });
+      }).catch((err) => {
+        res.status(500).send(err.message);
       });
   }
   /**
@@ -65,9 +58,11 @@ export default class requestController {
    *
    */
   static getRequestById(req, res) {
-    const { id } = req.token.id;
+    const {
+      id,
+    } = req.token.id;
     const requestId = parseInt(req.params.id, 10);
-    const findRequestById = `SELECT * FROM requests WHERE requests.id = ${requestId}`;
+    const findRequestById = `SELECT * FROM requests WHERE id = ${requestId} AND user_id =${id}`;
 
     client.query(findRequestById)
       .then((foundRequestById) => {
@@ -81,7 +76,7 @@ export default class requestController {
         if (foundRequestById.rows[0].user_id === id) {
           return res.status(200).json({
             data: {
-              foundRequest: foundRequestById.rows[0],
+              request: foundRequestById.rows[0],
             },
             message: 'single request gotten successfully',
             status: 'success',
@@ -91,6 +86,8 @@ export default class requestController {
           message: 'request cannot be viewed by you',
           status: 'fail',
         });
+      }).catch((err) => {
+        res.status(500).send(err.message);
       });
   }
   /**
@@ -104,7 +101,9 @@ export default class requestController {
    *
    */
   static createRequest(req, res) {
-    const { id } = req.token.id;
+    const {
+      id,
+    } = req.token.id;
     const {
       title,
       department,
@@ -112,7 +111,8 @@ export default class requestController {
       serialNumber,
       description,
     } = req.body;
-    const requests = `
+    const requests =
+      `
     INSERT INTO requests (
       user_id,
       title,
@@ -129,6 +129,7 @@ export default class requestController {
       '${serialNumber}',
       '${description}'
     ) RETURNING *;`;
+
     client.query(requests)
       .then((newRequest) => {
         res.status(201)
@@ -139,7 +140,66 @@ export default class requestController {
             message: 'request created successfully',
             status: 'success',
           });
-      }).catch((err) => { res.status(500).send(err.message); });
+      }).catch((err) => {
+        res.status(500).send(err.message);
+      });
+  }
+
+  /**
+   * @description - update a request
+   * @static
+   *
+   * @param {object} req - HTTP Request
+   * @param {object} res - HTTP Response
+   *
+   * @memberof requestController
+   *
+   */
+  static updateRequest(req, res) {
+    const requestId = parseInt(req.params.id, 10);
+    const {
+      id,
+    } = req.token.id;
+    const findRequestById = `SELECT * FROM requests WHERE id = ${requestId} AND user_id =${id}`;
+    client.query(findRequestById)
+      .then((foundRequestById) => {
+        if (!foundRequestById.rows[0]) {
+          return res.status(404)
+            .json({
+              message: 'request with id not available',
+              status: 'fail',
+            });
+        }
+
+        const mergeRequestUpdateAndRequest =
+        Object.assign(foundRequestById.rows[0], req.body);
+        const {
+          title,
+          department,
+          equipment,
+          serialnumber,
+          description,
+        } = mergeRequestUpdateAndRequest;
+        const requestUpdate = {
+
+          text: 'UPDATE requests SET title=$1, department=$2, equipment=$3, serialNumber=$4,description=$5 WHERE id= $6 AND user_id =$7 RETURNING *',
+          values: [title, department, equipment, serialnumber,
+            description, requestId, id,
+          ],
+        };
+        return client.query(requestUpdate)
+          .then((newRequestUpdated) => {
+            res.status(200)
+              .json({
+                data: {
+                  updatedRequest: newRequestUpdated.rows[0],
+                },
+                message: 'request updated successfully',
+                status: 'success',
+              });
+          });
+      }).catch((err) => {
+        res.status(500).send(err.message);
+      });
   }
 }
-
