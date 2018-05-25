@@ -52,7 +52,7 @@ export default class requestController {
             message: 'request gotten successfully',
             status: 'success',
           });
-      });
+      }).catch((err) => { res.status(500).send(err.message); });
   }
   /**
    * @description - get a single request
@@ -91,7 +91,7 @@ export default class requestController {
           message: 'request cannot be viewed by you',
           status: 'fail',
         });
-      });
+      }).catch((err) => { res.status(500).send(err.message); });
   }
   /**
    * @description - create a  request
