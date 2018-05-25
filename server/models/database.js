@@ -1,3 +1,6 @@
+import bcrypt from 'bcrypt';
+
+const hashedPassword = bcrypt.hashSync(process.env.H_PASSWORD, 10);
 const userSeed = `
 DROP TABLE IF EXISTS users CASCADE;
 DROP TYPE IF EXISTS status;
@@ -9,7 +12,8 @@ CREATE TABLE users(
   password VARCHAR(255) NOT NULL,
   role status DEFAULT 'user');
 INSERT INTO users(name,email,password)
-VALUES ('maureen','maureen@gmail.com','maureen123');`;
+VALUES ('maureen','maureen@gmail.com','${hashedPassword}');`;
+
 
 const requestSeed = `
 DROP TABLE IF EXISTS requests CASCADE;

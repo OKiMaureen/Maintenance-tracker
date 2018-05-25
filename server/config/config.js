@@ -17,4 +17,8 @@ export default {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
   },
+  production: {
+    database: process.env.DATABASE_URL,
+
+  },
 };

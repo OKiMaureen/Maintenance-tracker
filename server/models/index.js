@@ -5,13 +5,16 @@ import queries from './database';
 
 dotenv.config();
 
-
 let config;
-if (process.env.NODE_ENV === 'development') {
-  config = configurations.development;
-} else {
+if (process.env.NODE_ENV === 'production') {
+  config = configurations.production;
+} else if (process.env.NODE_ENV === 'test') {
   config = configurations.test;
+} else {
+  config = configurations.development;
 }
+
+console.log(config, process.env.NODE_ENV);
 const client = new Client(config);
 client.connect();
 client.query(queries, () => {
