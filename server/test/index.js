@@ -8,8 +8,6 @@ const signupUrl = '/api/v1/auth/signup';
 const signinUrl = '/api/v1/auth/login';
 const requestUrl = '/api/v1/users/requests';
 let userToken;
-let Token;
-
 describe('Test default route', () => {
   it('Should return 200 for the default route', (done) => {
     chai.request(app)
@@ -30,7 +28,9 @@ describe('Test default route', () => {
   it('Undefined Routes Should Return 404', (done) => {
     chai.request(app)
       .post('/another/undefined/route')
-      .send({ random: 'random' })
+      .send({
+        random: 'random',
+      })
       .end((err, res) => {
         expect(res).to.have.status(404);
         done();
@@ -247,7 +247,7 @@ describe('POST /api/v1/auth/login', () => {
         expect(res.body).to.have.property('data');
         expect(res.body.message).to.equal('user logged in successfully');
         expect(res.body.status).to.be.equal('success');
-        Token = res.body.data.token;
+        userToken = res.body.data.token;
         done();
       });
   });
@@ -364,12 +364,193 @@ describe('/api/v1/users/requests', () => {
   });
 });
 describe('/api/v1/users/requests/1', () => {
-  it('should not allow users not authenticated to view a single requests', (done) => {
+  it(
+    'should not allow users not authenticated to view a single requests',
+    (done) => {
+      chai.request(app)
+        .get(`${requestUrl}`)
+        .end((err, res) => {
+          expect(res).to.have.status(401);
+          expect(res.body).to.be.an('object');
+          done();
+        });
+    },
+  );
+});
+
+describe('POST /api/v1/users/requests', () => {
+  it('should not add request with an empty title field', (done) => {
     chai.request(app)
-      .get(`${requestUrl}`)
+      .post(`${requestUrl}`)
+      .set('token', userToken)
+      .send({
+        title: ' ',
+        department: 'Technical',
+        equipment: 'computer',
+        serialNumber: 'MT000001',
+        description: 'faulty battery',
+        token: userToken,
+      })
       .end((err, res) => {
-        expect(res).to.have.status(401);
+        expect(res.status).to.equal(406);
         expect(res.body).to.be.an('object');
+        expect(res.body.error.title)
+          .to.include('title is required');
+        done();
+      });
+  });
+  it('should not add request title with less than 5 characters', (done) => {
+    chai.request(app)
+      .post(`${requestUrl}`)
+      .set('token', userToken)
+      .send({
+        title: 'bad',
+        department: 'Technical',
+        equipment: 'computer',
+        serialNumber: 'MT000001',
+        description: 'faulty battery',
+        token: userToken,
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(406);
+        expect(res.body).to.be.an('object');
+        expect(res.body.message)
+          .to.include('Title must be between 5 and 20 characters');
+        done();
+      });
+  });
+  it('should not add request with an empty department', (done) => {
+    chai.request(app)
+      .post(`${requestUrl}`)
+      .set('token', userToken)
+      .send({
+        title: 'computer repair',
+        department: ' ',
+        equipment: 'computer',
+        serialNumber: 'MT000001',
+        description: 'faulty battery',
+        token: userToken,
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(406);
+        expect(res.body).to.be.an('object');
+        expect(res.body.error.department)
+          .to.include('department is required');
+        done();
+      });
+  });
+  it('should not add request with an empty equipment field', (done) => {
+    chai.request(app)
+      .post(`${requestUrl}`)
+      .set('token', userToken)
+      .send({
+        title: 'computer repair',
+        department: 'Technical ',
+        equipment: ' ',
+        serialNumber: 'MT000001',
+        description: 'faulty computer ',
+        token: userToken,
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(406);
+        expect(res.body).to.be.an('object');
+        expect(res.body.error.equipment)
+          .to.include('equipment is required');
+        done();
+      });
+  });
+  it('should not add request with an empty serialNumber field', (done) => {
+    chai.request(app)
+      .post(`${requestUrl}`)
+      .set('token', userToken)
+      .send({
+        title: 'computer repair',
+        department: 'Technical ',
+        equipment: 'computer ',
+        serialNumber: ' ',
+        description: 'faulty computer ',
+        token: userToken,
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(406);
+        expect(res.body).to.be.an('object');
+        expect(res.body.error.serialNumber)
+          .to.include('serialNumber is required');
+        done();
+      });
+  });
+  it('should not add request with an empty description field', (done) => {
+    chai.request(app)
+      .post(`${requestUrl}`)
+      .set('token', userToken)
+      .send({
+        title: 'computer repair',
+        department: 'Technical ',
+        equipment: 'computer ',
+        serialNumber: 'MT000001',
+        description: ' ',
+        token: userToken,
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(406);
+        expect(res.body).to.be.an('object');
+        expect(res.body.error.description)
+          .to.include('description is required');
+        done();
+      });
+  });
+  it('should not add serialNumber with less than 8 characters', (done) => {
+    chai.request(app)
+      .post(`${requestUrl}`)
+      .set('token', userToken)
+      .send({
+        title: 'computer repair',
+        department: 'Technical ',
+        equipment: 'computer ',
+        serialNumber: 'MT000',
+        description: 'faulty computer',
+        token: userToken,
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(406);
+        expect(res.body).to.be.an('object');
+        expect(res.body.message)
+          .to.include('SerialNumber must be only 8 characters');
+        done();
+      });
+  });
+  it('should not add desription with less than 3 characters', (done) => {
+    chai.request(app)
+      .post(`${requestUrl}`)
+      .set('token', userToken)
+      .send({
+        title: 'computer repair',
+        department: 'Technical ',
+        equipment: 'computer ',
+        serialNumber: 'MT000001',
+        description: 'ba',
+        token: userToken,
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(406);
+        expect(res.body).to.be.an('object');
+        expect(res.body.message)
+          .to.include('Description must be between 3 and 50 characters');
+        done();
+      });
+  });
+  it('should not allow  non auth users to add requests', (done) => {
+    chai.request(app)
+      .post(`${requestUrl}`)
+      .send({
+        email: 'maureen@gmail.com',
+        password: 'maureen123',
+      })
+      .end((err, res) => {
+        expect(res.status).to.equal(401);
+        expect(res.body).to.be.an('object');
+        expect(res.body.message).to.equal('user authentication invalid');
+        expect(res.body.status).to.be.equal('fail');
         done();
       });
   });

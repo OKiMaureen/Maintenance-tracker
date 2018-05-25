@@ -21,15 +21,15 @@ client.connect();
  * @export
  *
  */
-export default class userController {
+export default class requestController {
   /**
-   * @description - Creates a new user
+   * @description - gets all requests
    * @static
    *
    * @param {object} req - HTTP Request
    * @param {object} res - HTTP Response
    *
-   * @memberof userController
+   * @memberof requestController
    *
    */
   static getAllRequests(req, res) {
@@ -55,13 +55,13 @@ export default class userController {
       });
   }
   /**
-   * @description - Creates a new user
+   * @description - get a single request
    * @static
    *
    * @param {object} req - HTTP Request
    * @param {object} res - HTTP Response
    *
-   * @memberof userController
+   * @memberof requestController
    *
    */
   static getRequestById(req, res) {
@@ -92,6 +92,54 @@ export default class userController {
           status: 'fail',
         });
       });
+  }
+  /**
+   * @description - create a  request
+   * @static
+   *
+   * @param {object} req - HTTP Request
+   * @param {object} res - HTTP Response
+   *
+   * @memberof requestController
+   *
+   */
+  static createRequest(req, res) {
+    const { id } = req.token.id;
+    const {
+      title,
+      department,
+      equipment,
+      serialNumber,
+      description,
+    } = req.body;
+    const requests = `
+    INSERT INTO requests (
+      user_id,
+      title,
+      department,
+      equipment,
+      serialNumber,
+      description
+    )
+    VALUES (
+      '${id}',
+      '${title}',
+      '${department}',
+      '${equipment}',
+      '${serialNumber}',
+      '${description}'
+    ) RETURNING *;`;
+    client.query(requests)
+      .then((newRequest) => {
+        res.status(201)
+          .json({
+            data: {
+              newRequest: newRequest.rows[0],
+            },
+            message: 'request created successfully',
+            status: 'success',
+          });
+      }).catch((err) => { res.status(500).send(err.message); });
   }
 }
 
