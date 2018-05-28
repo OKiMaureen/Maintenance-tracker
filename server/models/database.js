@@ -14,8 +14,8 @@ CREATE TABLE users(
   email VARCHAR(50) NOT NULL,
   password VARCHAR(255) NOT NULL,
   role status DEFAULT 'user');
-INSERT INTO users(name,email,password)
-VALUES ('maureen','maureen@gmail.com','${hashedPassword}');`;
+INSERT INTO users(name,email,password,role)
+VALUES ('mena','mena@gmail.com','${hashedPassword}','admin');`;
 
 
 const requestSeed = `

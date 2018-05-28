@@ -31,4 +31,32 @@ export default class AuthenticateUserLogin {
       });
     }
   }
+  /**
+     * check Admin role
+     *
+     * @param {Object} req
+     * @param {Object} res
+     *
+     * @param {Function} next
+     *
+     * @return {Object}
+     */
+  static authenticateAdmin(req, res, next) {
+    try {
+      const token = req.headers['x-access'] || req.headers.token || req.query.token;
+      const verifiedToken = jwt.verify(token, secretKey);
+      req.token = verifiedToken;
+      if (req.token.id.role !== 'admin') {
+        return res.status(403).json({
+          message: 'user not authenticated to view this resource ',
+          status: 'fail',
+        });
+      } return next();
+    } catch (error) {
+      return res.status(401).json({
+        status: 'fail',
+        message: 'user authentication invalid',
+      });
+    }
+  }
 }
