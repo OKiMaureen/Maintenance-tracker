@@ -43,9 +43,7 @@ export default class RequestController {
             message: 'request gotten successfully',
             status: 'success',
           });
-      }).catch((err) => {
-        res.status(500).send(err.message);
-      });
+      }).catch((err) => { res.status(500).send(err.message); });
   }
   /**
    * @description - get a single request
@@ -86,9 +84,7 @@ export default class RequestController {
           message: 'request cannot be viewed by you',
           status: 'fail',
         });
-      }).catch((err) => {
-        res.status(500).send(err.message);
-      });
+      }).catch((err) => { res.status(500).send(err.message); });
   }
   /**
    * @description - create a  request

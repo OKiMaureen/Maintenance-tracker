@@ -10,7 +10,9 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   config = configurations.test;
 }
+
 const client = new Client(config);
+console.log(config);
 client.connect();
 
 client.connect();

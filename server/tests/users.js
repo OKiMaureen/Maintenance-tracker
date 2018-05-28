@@ -97,6 +97,19 @@ describe('POST /api/v1/auth/signup', () => {
     chai.request(app)
       .post(`${signupUrl}`)
       .send({
+        name: 'hhhjjjjjjjjjjjjjjjjjjjjjjjjjjjjjhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',
+        email: 'maureen@gmailcom',
+        password: 'maureen123',
+      })
+      .end((err, res) => {
+        expect(res).to.have.status(406);
+        done();
+      });
+  });
+  it('should not register user with an empty name field ', (done) => {
+    chai.request(app)
+      .post(`${signupUrl}`)
+      .send({
         name: '',
         email: 'eloho@mymail.com',
         password: 'eloho123',
