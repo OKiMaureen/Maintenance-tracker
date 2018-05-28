@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
-import createToken from '../helpers/createToken';
 import connection from '../helpers/connection';
+
+import createToken from '../helpers/createToken';
 
 
 const client = connection();
@@ -17,8 +18,8 @@ export default class UserController {
    * @description - Creates a new user
    * @static
    *
-   * @param {object} req - HTTP Request
-   * @param {object} res - HTTP Response
+   * @param {object} request - HTTP Request
+   * @param {object} response- HTTP Response
    *
    * @memberof userController
    *
@@ -59,8 +60,8 @@ export default class UserController {
   * @description - logs in a user
    * @static
    *
-   * @param {object} req - HTTP Request
-   * @param {object} res - HTTP Response
+   * @param {object} request - HTTP Request
+   * @param {object} response - HTTP Response
    *
    * @memberof userController
    *

@@ -10,8 +10,8 @@ export default class ValidateUserEmail {
 /**
    * validate Request input string
    *
-   * @param {Object} req
-   * @param {Object} res
+   * @param {Object} request
+   * @param {Object} response
    *
    * @param {Function} next
    *

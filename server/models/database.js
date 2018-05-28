@@ -1,5 +1,6 @@
-import dotenv from 'dotenv';
 import bcrypt from 'bcrypt';
+import dotenv from 'dotenv';
+
 
 dotenv.config();
 
@@ -21,9 +22,7 @@ VALUES ('mena','mena@gmail.com','${hashedPassword}','admin');`;
 const requestSeed = `
 DROP TABLE IF EXISTS requests CASCADE;
 DROP TYPE IF EXISTS request_status;
-DROP TYPE IF EXISTS accepted_status;
-CREATE TYPE request_status AS ENUM('approved','disapproved');
-CREATE TYPE accepted_status AS ENUM('inProgress','resolved');
+CREATE TYPE request_status AS ENUM('pending','approved','disapproved','resolved');
 CREATE TABLE requests(
   id SERIAL PRIMARY KEY,
   user_id INTEGER NOT NULL,
@@ -32,8 +31,7 @@ CREATE TABLE requests(
   equipment VARCHAR(50) NOT NULL,
   serialNumber VARCHAR(50) NOT NULL,
   description VARCHAR(255) NOT NULL,
-  requestStatus request_status DEFAULT 'disapproved',
-  acceptedStatus accepted_status DEFAULT 'inProgress',
+  requestStatus request_status DEFAULT 'pending',
   FOREIGN KEY (user_id) REFERENCES users(id));
 INSERT INTO requests(
   user_id,

@@ -1,9 +1,8 @@
-import 'babel-polyfill';
-import Express from 'express';
-// importing bodyparser
+import winston from 'winston';
 import bodyParser from 'body-parser';
-// importring routes module
+import Express from 'express';
 import routes from './routes/index';
+
 
 const app = new Express();
 
@@ -16,9 +15,8 @@ app.use(bodyParser.urlencoded({
   extended: false,
 }));
 routes(app);
-
 app.listen(port);
-// Console message
-console.log(`server is running at http://localhost:${port}`);
+
+winston.log(`server is running at http://localhost:${port}`);
 
 export default app;
