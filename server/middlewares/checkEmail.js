@@ -27,7 +27,7 @@ export default class ValidateUserEmail {
           return res.status(409)
             .json({
               message: 'email already exists',
-              status: 'error',
+              status: 'fail',
             });
         }
         return done();

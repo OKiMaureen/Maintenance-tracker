@@ -60,7 +60,7 @@ describe('POST /api/v1/auth/signup', () => {
         expect(res).to.have.status(409);
         expect(res.body).to.be.an('object');
         expect(res.body.message).to.equal('email already exists');
-        expect(res.body.status).to.equal('error');
+        expect(res.body.status).to.equal('fail');
         done();
       });
   });
@@ -323,7 +323,7 @@ describe('POST /api/v1/auth/login', () => {
     chai.request(app)
       .post(`${signinUrl}`)
       .send({
-        email: 'maureen@gmail.com',
+        email: 'mena@gmail.com',
         password: 'wrongpassword',
       })
       .end((err, res) => {
