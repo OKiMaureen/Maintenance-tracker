@@ -104,7 +104,7 @@ export default class RequestController {
       title,
       department,
       equipment,
-      serialNumber,
+      serialnumber,
       description,
     } = req.body;
     const requests =
@@ -114,7 +114,7 @@ export default class RequestController {
       title,
       department,
       equipment,
-      serialNumber,
+      serialnumber,
       description
     )
     VALUES (
@@ -122,7 +122,7 @@ export default class RequestController {
       '${title}',
       '${department}',
       '${equipment}',
-      '${serialNumber}',
+      '${serialnumber}',
       '${description}'
     ) RETURNING *;`;
 

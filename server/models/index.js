@@ -10,10 +10,12 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   config = configurations.test;
 }
+console.log(config);
 const client = new Client(config);
 client.connect();
 
 client.connect();
-client.query(queries, () => {
+client.query(queries, (error) => {
+  console.log(error);
   client.end();
 });

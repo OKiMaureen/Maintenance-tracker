@@ -1,5 +1,6 @@
 import AdminController from '../controllers/adminController';
 import AuthenticateUserLogin from '../middlewares/authenticateLogin';
+import findRequestById from '../middlewares/checkForId';
 import RequestsController from '../controllers/requestController';
 import UsersController from '../controllers/userController';
 import ValidateUserEmail from '../middlewares/checkEmail';
@@ -18,6 +19,7 @@ const routes = (app) => {
   app.post('/api/v1/users/requests', AuthenticateUserLogin.authenticateUser, ValidateRequest.validateString, ValidateRequest.checkLength, RequestsController.createRequest);
   app.put('/api/v1/users/requests/:id', AuthenticateUserLogin.authenticateUser, ValidateRequest.idIsNumber, RequestsController.updateRequest);
   app.get('/api/v1/requests/', AuthenticateUserLogin.authenticateAdmin, AdminController.adminGetAllRequests);
-  app.put('/api/v1/requests/:id/approve', AuthenticateUserLogin.authenticateAdmin, ValidateRequest.idIsNumber, AdminController.approveRequests);
+  app.put('/api/v1/requests/:id/approve', AuthenticateUserLogin.authenticateAdmin, ValidateRequest.idIsNumber, findRequestById, AdminController.approveRequests);
+  app.put('/api/v1/requests/:id/disapprove', AuthenticateUserLogin.authenticateAdmin, ValidateRequest.idIsNumber, findRequestById, AdminController.disapproveRequests);
 };
 export default routes;
