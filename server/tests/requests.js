@@ -225,7 +225,7 @@ describe('REQUEST CONTROLLER', () => {
   describe('PUT /api/v1/users/requests/:id', () => {
     it('should allow an authenticated user to update a request', (done) => {
       chai.request(app)
-        .put('/api/v1/users/requests/2')
+        .put('/api/v1/users/requests/3')
         .set('token', userToken)
         .send({
           title: 'computer repair',
@@ -303,7 +303,7 @@ describe('REQUEST CONTROLLER', () => {
   describe('GET /api/v1/users/requests/1', () => {
     it('should allow users authenticated to view a single request', (done) => {
       chai.request(app)
-        .get('/api/v1/users/requests/2')
+        .get('/api/v1/users/requests/3')
         .set('token', userToken)
         .end((err, res) => {
           expect(res).to.have.status(200);

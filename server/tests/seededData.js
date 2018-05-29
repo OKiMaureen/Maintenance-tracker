@@ -12,7 +12,7 @@ const users = [{
   id: 3,
   name: 'efe',
   email: 'efe@mymail.com',
-  password: 'efe123',
+  password: 'mena1234',
 },
 {
   id: 4,

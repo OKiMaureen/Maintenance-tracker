@@ -29,7 +29,7 @@ CREATE TABLE requests(
   title VARCHAR(50) NOT NULL,
   department VARCHAR(50) NOT NULL,
   equipment VARCHAR(50) NOT NULL,
-  serialNumber VARCHAR(50) NOT NULL,
+  serialnumber VARCHAR(50) NOT NULL,
   description VARCHAR(255) NOT NULL,
   requestStatus request_status DEFAULT 'pending',
   FOREIGN KEY (user_id) REFERENCES users(id));
@@ -38,9 +38,17 @@ INSERT INTO requests(
   title,
   department,
   equipment,
-  serialNumber,
+  serialnumber,
   description)
-VALUES (1, 'bad computer', 'technical', 'computer', 00000006, 'faulty battery');`;
+VALUES (1, 'bad computer', 'technical', 'computer', 00000006, 'faulty battery');
+INSERT INTO requests(
+  user_id,
+  title,
+  department,
+  equipment,
+  serialnumber,
+  description)
+VALUES (1, 'bad computer', 'technical', 'computer', 00000007, 'faulty battery');`;
 
 const queries = `${userSeed}${requestSeed}`;
 
