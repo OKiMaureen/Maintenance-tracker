@@ -15,8 +15,8 @@ export default class RequestController {
    * @description - gets all requests
    * @static
    *
-   * @param {object} req - HTTP Request
-   * @param {object} res - HTTP Response
+   * @param {object} request - HTTP Request
+   * @param {object} response - HTTP Response
    *
    * @memberof requestController
    *
@@ -49,8 +49,8 @@ export default class RequestController {
    * @description - get a single request
    * @static
    *
-   * @param {object} req - HTTP Request
-   * @param {object} res - HTTP Response
+   * @param {object} request - HTTP Request
+   * @param {object} response - HTTP Response
    *
    * @memberof requestController
    *
@@ -145,8 +145,8 @@ export default class RequestController {
    * @description - update a request
    * @static
    *
-   * @param {object} req - HTTP Request
-   * @param {object} res - HTTP Response
+   * @param {object} request - HTTP Request
+   * @param {object} response - HTTP Response
    *
    * @memberof requestController
    *
@@ -166,7 +166,6 @@ export default class RequestController {
               status: 'fail',
             });
         }
-
         const mergeRequestUpdateAndRequest =
         Object.assign(foundRequestById.rows[0], req.body);
         const {

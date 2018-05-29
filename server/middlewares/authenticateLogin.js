@@ -11,8 +11,8 @@ export default class AuthenticateUserLogin {
   /**
      * Authenticate Get All Requests
      *
-     * @param {Object} req
-     * @param {Object} res
+     * @param {Object} request
+     * @param {Object} response
      *
      * @param {Function} next
      *
@@ -34,8 +34,8 @@ export default class AuthenticateUserLogin {
   /**
      * check Admin role
      *
-     * @param {Object} req
-     * @param {Object} res
+     * @param {Object} request
+     * @param {Object} response
      *
      * @param {Function} next
      *

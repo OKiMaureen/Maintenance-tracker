@@ -8,8 +8,8 @@ export default class ValidateUser {
   /**
    * validate user sign in input string
    *
-   * @param {Object} req
-   * @param {Object} res
+   * @param {Object} request
+   * @param {Object} response
    *
    * @param {Function} next
    *
@@ -46,8 +46,8 @@ export default class ValidateUser {
   /**
    * validate user sign up input string
    *
-   * @param {Object} req
-   * @param {Object} res
+   * @param {Object} request
+   * @param {Object} response
    * @param {Function} next
    *
    * @return {Object}
@@ -91,8 +91,8 @@ export default class ValidateUser {
   /**
    * validate password length
    *
-   * @param {Object} req
-   * @param {Object} res
+   * @param {Object} request
+   * @param {Object} response
    *
    * @param {Function} next
    *

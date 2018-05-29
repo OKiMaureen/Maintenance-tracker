@@ -65,8 +65,8 @@ export default class ValidateRequest {
   }
   /**
    * validate Request input length
-   * @param {Object} req
-   * @param {Object} res
+   * @param {Object} request
+   * @param {Object} response
    *
    *  @param {Function} next
    *
