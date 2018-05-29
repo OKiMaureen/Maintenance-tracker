@@ -106,6 +106,19 @@ describe('POST /api/v1/auth/signup', () => {
         done();
       });
   });
+  it('should not register user with an name field that is not letters ', (done) => {
+    chai.request(app)
+      .post(`${signupUrl}`)
+      .send({
+        name: '123h99902%^*()',
+        email: 'maureen@gmailcom',
+        password: 'maureen123',
+      })
+      .end((err, res) => {
+        expect(res).to.have.status(406);
+        done();
+      });
+  });
   it('should not register user with an empty name field ', (done) => {
     chai.request(app)
       .post(`${signupUrl}`)

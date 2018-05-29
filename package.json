@@ -5,6 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "babel-core": "^6.26.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.3",
@@ -16,10 +17,11 @@
     "express": "^4.16.3",
     "jsonwebtoken": "^8.2.1",
     "lodash.isempty": "^4.4.0",
-    "mocha": "^5.1.1",
+    "mocha": "^5.2.0",
     "nyc": "^11.8.0",
     "pg": "^7.4.3",
     "validator": "^10.2.0",
+    "validatorjs": "^3.14.2",
     "winston": "^2.4.2"
   },
   "devDependencies": {
@@ -35,7 +37,7 @@
     "start": "babel-node server/app.js",
     "start:dev": "set NODE_ENV=development&& nodemon --watch server --exec babel-node server/app.js",
     "migrate": "set NODE_ENV=development&& babel-node server/models/index.js",
-    "db-migrate": "set NODE_ENV=development &&babel-node server/models/index.js",
+    "db-migrate": "set NODE_ENV=test&&babel-node server/models/index.js",
     "heroku-postbuild": "npm run migrate --env production",
     "build": "babel server -d server/dist",
     "test": "set NODE_ENV=test&& babel-node server/models/index.js && nyc --reporter=html --reporter=text mocha --compilers js:babel-register ./server/tests/ --timeout 10000 --exit",

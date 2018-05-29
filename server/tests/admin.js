@@ -51,7 +51,7 @@ describe('ADMIN CONTROLLER', () => {
     });
   });
   describe('PUT /api/v1/requests/:id/approve', () => {
-    it('should allow an authenticated admin to update a request', (done) => {
+    it('should allow an authenticated admin to approve a request', (done) => {
       chai.request(app)
         .put('/api/v1/requests/1/approve')
         .set('token', userToken)
@@ -59,15 +59,15 @@ describe('ADMIN CONTROLLER', () => {
           expect(res.status).to.equal(200);
           expect(res.body).to.be.an('object');
           expect(res.body).to.have.property('data');
-          expect(res.body.data).to.have.property('Request');
+          expect(res.body.data).to.have.property('request');
           expect(res.body.message).to.equal('request approved successfully');
           expect(res.body.status).to.be.equal('success');
           done();
         });
     });
-    it('should not allow non authenticated user to update request', (done) => {
+    it('should not allow non admin to approve request', (done) => {
       chai.request(app)
-        .put('/api/v1/requests/2/approve')
+        .put('/api/v1/requests/1/approve')
         .end((err, res) => {
           expect(res.status).to.equal(401);
           expect(res.body).to.be.an('object');
@@ -85,6 +85,45 @@ describe('ADMIN CONTROLLER', () => {
           expect(res.body).to.be.an('object');
           expect(res.body.error.id)
             .to.include('id must be a number');
+          done();
+        });
+    });
+  });
+  describe('PUT /api/v1/requests/:id/disapprove', () => {
+    it('should not allow non admin to disapprove request', (done) => {
+      chai.request(app)
+        .put('/api/v1/requests/1/disapprove')
+        .end((err, res) => {
+          expect(res.status).to.equal(401);
+          expect(res.body).to.be.an('object');
+          expect(res.body.message).to.equal('user authentication invalid');
+          expect(res.body.status).to.be.equal('fail');
+          done();
+        });
+    });
+    it('should not disapprove a particular id that is not a number', (done) => {
+      chai.request(app)
+        .put('/api/v1/requests/nki/approve')
+        .set('token', userToken)
+        .end((err, res) => {
+          expect(res).to.have.status(406);
+          expect(res.body).to.be.an('object');
+          expect(res.body.error.id)
+            .to.include('id must be a number');
+          done();
+        });
+    });
+    it('should allow an authenticated admin to disapprove a request', (done) => {
+      chai.request(app)
+        .put('/api/v1/requests/2/disapprove')
+        .set('token', userToken)
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('data');
+          expect(res.body.data).to.have.property('request');
+          expect(res.body.message).to.equal('request disapproved successfully');
+          expect(res.body.status).to.be.equal('success');
           done();
         });
     });

@@ -11,7 +11,6 @@ if (process.env.NODE_ENV === 'development') {
   config = configurations.test;
 }
 const client = new Client(config);
-client.connect();
 
 client.connect();
 client.query(queries, () => {

@@ -49,42 +49,71 @@ export default class AdminController {
    */
   static approveRequests(req, res) {
     const requestId = parseInt(req.params.id, 10);
-    const findRequestById = `SELECT * FROM requests WHERE id = '${requestId}'`;
-    client.query(findRequestById)
-      .then((foundRequestById) => {
-        if (!foundRequestById.rows[0]) {
-          return res.status(404)
-            .json({
-              message: 'request with id not available',
-              status: 'fail',
-            });
-        }
-        if (foundRequestById.rows[0].requeststatus !== 'pending') {
-          res.status(403)
-            .json({
-              message: 'request must have a status of pending',
-              status: 'fail',
-            });
-        }
-        const approveRequests = {
-          text: 'UPDATE requests SET requeststatus=$1 WHERE id =$2 RETURNING *',
-          values: ['approved', requestId,
-          ],
-        };
+    const request = req.foundRequest;
+    if (request.foundRequest.requeststatus !== 'pending') {
+      res.status(403).json({
+        message: 'request is no longer pending',
+        status: 'fail',
+      });
+    }
+    const approveRequests = {
+      text: 'UPDATE requests SET requeststatus=$1 WHERE id =$2 RETURNING *',
+      values: ['approved', requestId,
+      ],
+    };
 
-        return client.query(approveRequests)
-          .then((approvedRequest) => {
-            res.status(200)
-              .json({
-                data: {
-                  Request: approvedRequest.rows[0],
-                },
-                message: 'request approved successfully',
-                status: 'success',
-              });
-          }).catch((err) => {
-            res.status(500).send(err.message);
+    return client.query(approveRequests)
+      .then((approvedRequest) => {
+        res.status(200)
+          .json({
+            data: {
+              request: approvedRequest.rows[0],
+            },
+            message: 'request approved successfully',
+            status: 'success',
           });
+      }).catch((err) => {
+        res.status(500).send(err.message);
+      });
+  }
+  /**
+   * @description -  admin disapprove requests
+   * @static
+   *
+   * @param {object} request - HTTP Request
+   * @param {object} response - HTTP Response
+   *
+   * @memberof requestController
+   *
+   */
+  static disapproveRequests(req, res) {
+    const requestId = parseInt(req.params.id, 10);
+    const request = req.foundRequest;
+    if (request.foundRequest.requeststatus !== 'pending') {
+      res.status(403)
+        .json({
+          message: 'request is no longer pending',
+          status: 'fail',
+        });
+    }
+    const disapproveRequest = {
+      text: 'UPDATE requests SET requeststatus=$1 WHERE id =$2 RETURNING *',
+      values: ['disapproved', requestId,
+      ],
+    };
+
+    return client.query(disapproveRequest)
+      .then((disapprovedRequest) => {
+        res.status(200)
+          .json({
+            data: {
+              request: disapprovedRequest.rows[0],
+            },
+            message: 'request disapproved successfully',
+            status: 'success',
+          });
+      }).catch((err) => {
+        res.status(500).send(err.message);
       });
   }
 }
