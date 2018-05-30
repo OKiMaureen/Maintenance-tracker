@@ -128,4 +128,43 @@ describe('ADMIN CONTROLLER', () => {
         });
     });
   });
+  describe('PUT /api/v1/requests/:id/disapprove', () => {
+    it('should not allow non admin to resolve request', (done) => {
+      chai.request(app)
+        .put('/api/v1/requests/1/resolve')
+        .end((err, res) => {
+          expect(res.status).to.equal(401);
+          expect(res.body).to.be.an('object');
+          expect(res.body.message).to.equal('user authentication invalid');
+          expect(res.body.status).to.be.equal('fail');
+          done();
+        });
+    });
+    it('should not reslove a particular id that is not a number', (done) => {
+      chai.request(app)
+        .put('/api/v1/requests/nki/resolve')
+        .set('token', userToken)
+        .end((err, res) => {
+          expect(res).to.have.status(406);
+          expect(res.body).to.be.an('object');
+          expect(res.body.error.id)
+            .to.include('id must be a number');
+          done();
+        });
+    });
+    it('should allow an authenticated admin to resolve a request', (done) => {
+      chai.request(app)
+        .put('/api/v1/requests/1/resolve')
+        .set('token', userToken)
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('data');
+          expect(res.body.data).to.have.property('request');
+          expect(res.body.message).to.equal('request resolved successfully');
+          expect(res.body.status).to.be.equal('success');
+          done();
+        });
+    });
+  });
 });
