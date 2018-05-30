@@ -116,5 +116,45 @@ export default class AdminController {
         res.status(500).send(err.message);
       });
   }
+  /**
+   * @description -  admin resolve requests
+   * @static
+   *
+   * @param {object} request - HTTP Request
+   * @param {object} response - HTTP Response
+   *
+   * @memberof requestController
+   *
+   */
+  static resolveRequests(req, res) {
+    const requestId = parseInt(req.params.id, 10);
+    const request = req.foundRequest;
+    if (request.foundRequest.requeststatus !== 'approved') {
+      res.status(403)
+        .json({
+          message: 'Unapproved request cannot be resolved',
+          status: 'fail',
+        });
+    }
+    const resolvedRequest = {
+      text: 'UPDATE requests SET requeststatus=$1 WHERE id =$2 RETURNING *',
+      values: ['resolved', requestId,
+      ],
+    };
+
+    return client.query(resolvedRequest)
+      .then((resolvedRequests) => {
+        res.status(200)
+          .json({
+            data: {
+              request: resolvedRequests.rows[0],
+            },
+            message: 'request resolved successfully',
+            status: 'success',
+          });
+      }).catch((err) => {
+        res.status(500).send(err.message);
+      });
+  }
 }
 
