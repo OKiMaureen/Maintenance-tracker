@@ -6,6 +6,7 @@ client.connect();
 const checkDuplicate = (req, res, next) => {
   const
     userId = req.token.id.id;
+
   const {
     title,
     department,
@@ -13,7 +14,6 @@ const checkDuplicate = (req, res, next) => {
     serialnumber,
     description,
   } = req.body;
-
   const checkRequestDuplicate = {
     text: 'SELECT * FROM requests WHERE title = $1 AND department =$2  AND equipment =$3 AND serialnumber = $4 AND description = $5 AND user_id = $6',
     values: [title, department, equipment, serialnumber, description, userId],
