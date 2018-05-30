@@ -1,6 +1,6 @@
 import isEmpty from 'lodash.isempty';
 import Validator from 'validator';
-
+import Validate from 'validatorjs';
 
 /**
  * @class Validate Request
@@ -37,7 +37,7 @@ export default class ValidateRequest {
     if (department && Validator.isEmpty(department.trim() || '')) {
       error.department = 'department is required';
     }
-   
+
     if (!equipment) {
       error.equipment = 'equipment is required';
     }
@@ -63,6 +63,53 @@ export default class ValidateRequest {
       error,
     });
   }
+  /**
+   * validate Request input length
+   * @param {Object} request
+   * @param {Object} response
+   *
+   *  @param {Function} next
+   *
+   *  @return {Object}
+   */
+  static checkAlphaNumeric(req, res, next) {
+    const {
+      title,
+      department,
+      equipment,
+      serialnumber,
+      description,
+    } = req.body;
+    const data = {
+      title,
+      department,
+      equipment,
+      serialnumber,
+      description,
+    };
+
+    const rules = {
+      title: ['required', 'regex:/^[a-z\\d\\-_,.*()!\\s]+$/i'],
+      department: ['required', 'regex:/^[a-z\\d\\-_,.*()!\\s]+$/i'],
+      equipment: ['required', 'regex:/^[a-z\\d\\-_,.*()!\\s]+$/i'],
+      serialnumber: ['required', 'regex:/^[a-z\\d\\-_,.*()!\\s]+$/i'],
+      description: ['required', 'regex:/^[a-z\\d\\-_,.*()!\\s]+$/i'],
+    };
+
+    const validations = new Validate(data, rules);
+
+    if (validations.passes()) {
+      return next();
+    }
+
+    return res.status(406).json({
+      status: 'fail',
+      data: {
+        errors: validations.errors.all(),
+      },
+    });
+  }
+
   /**
    * validate Request input length
    * @param {Object} request
