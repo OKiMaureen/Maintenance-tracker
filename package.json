@@ -36,7 +36,7 @@
   "scripts": {
     "start": "babel-node server/app.js",
     "start:dev": "set NODE_ENV=development&& nodemon --watch server --exec babel-node server/app.js",
-    "migrate": "set NODE_ENV=development&& babel-node server/models/index.js",
+    "migrate":"babel-node server/models/index.js",
     "db-migrate": "set NODE_ENV=test&&babel-node server/models/index.js",
     "heroku-postbuild": "npm run migrate --env production",
     "build": "babel server -d server/dist",
