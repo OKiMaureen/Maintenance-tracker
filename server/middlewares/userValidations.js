@@ -31,7 +31,6 @@ export default class ValidateUser {
     if (!password) {
       error.password = 'password is required';
     }
-
     if (password && Validator.isEmpty(password.trim() || '')) {
       error.password = 'password is required';
     }
@@ -62,7 +61,6 @@ export default class ValidateUser {
     if (!name) {
       error.name = 'name is required';
     }
-
     if (name && Validator.isEmpty(name.trim() || '')) {
       error.name = 'name is required';
     }

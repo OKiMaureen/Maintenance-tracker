@@ -166,8 +166,7 @@ export default class RequestController {
               status: 'fail',
             });
         }
-        const mergeRequestUpdateAndRequest =
-        Object.assign(foundRequestById.rows[0], req.body);
+        const mergeRequestUpdateAndRequest = { ...foundRequestById.rows[0], ...req.body };
         const {
           title,
           department,
@@ -184,13 +183,20 @@ export default class RequestController {
         };
         return client.query(requestUpdate)
           .then((newRequestUpdated) => {
-            res.status(200)
+            if (newRequestUpdated.rows[0].requeststatus === 'pending') {
+              res.status(200)
+                .json({
+                  data: {
+                    updatedRequest: newRequestUpdated.rows[0],
+                  },
+                  message: 'request updated successfully',
+                  status: 'success',
+                });
+            }
+            res.status(403)
               .json({
-                data: {
-                  updatedRequest: newRequestUpdated.rows[0],
-                },
-                message: 'request updated successfully',
-                status: 'success',
+                message: 'cannot update, request is no longer pending',
+                status: 'fail',
               });
           });
       }).catch((err) => {
@@ -198,3 +204,4 @@ export default class RequestController {
       });
   }
 }
+

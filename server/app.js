@@ -15,7 +15,9 @@ app.use(bodyParser.urlencoded({
   extended: false,
 }));
 routes(app);
-app.listen(port);
+if (!module.parent) {
+  app.listen(port);
+}
 
 winston.log(`server is running at http://localhost:${port}`);
 

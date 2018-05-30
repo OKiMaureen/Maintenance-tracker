@@ -34,10 +34,10 @@ export default class ValidateRequest {
     if (!department) {
       error.department = 'department is required';
     }
-
     if (department && Validator.isEmpty(department.trim() || '')) {
       error.department = 'department is required';
     }
+   
     if (!equipment) {
       error.equipment = 'equipment is required';
     }
@@ -45,7 +45,7 @@ export default class ValidateRequest {
       error.equipment = 'equipment is required';
     }
     if (!serialnumber) {
-      error.serialNumber = 'serialnumber is required';
+      error.serialnumber = 'serialnumber is required';
     }
     if (serialnumber && Validator.isEmpty(serialnumber.trim() || '')) {
       error.serialnumber = 'serialnumber is required';
@@ -144,3 +144,4 @@ export default class ValidateRequest {
     return next();
   }
 }
+

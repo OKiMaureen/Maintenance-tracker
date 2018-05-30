@@ -223,27 +223,9 @@ describe('REQUEST CONTROLLER', () => {
     });
   });
   describe('PUT /api/v1/users/requests/:id', () => {
-    it('should allow an authenticated user to update a request', (done) => {
-      chai.request(app)
-        .put('/api/v1/users/requests/3')
-        .set('token', userToken)
-        .send({
-          title: 'computer repair',
-          department: 'Technical ',
-          equipment: 'computer ',
-          serialnumber: 'MT000001',
-          description: 'bad battery',
-          token: userToken,
-        })
-        .end((err, res) => {
-          expect(res.status).to.equal(200);
-          expect(res.body).to.be.an('object');
-          done();
-        });
-    });
     it('should not allow non authenticated user to update request', (done) => {
       chai.request(app)
-        .put('/api/v1/users/requests/1')
+        .put('/api/v1/users/requests/4')
         .send({
           title: 'computer repair',
           department: 'Technical ',
@@ -275,6 +257,27 @@ describe('REQUEST CONTROLLER', () => {
           done();
         });
     });
+    it('should allow an authenticated user to update a request', (done) => {
+      chai.request(app)
+        .put('/api/v1/users/requests/3')
+        .set('token', userToken)
+        .send({
+          title: 'computer repair',
+          department: 'Technical ',
+          equipment: 'computer ',
+          serialnumber: 'MT000001',
+          description: 'bad battery',
+          token: userToken,
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('data');
+          expect(res.body.message).to.equal('request updated successfully');
+          expect(res.body.status).to.be.equal('success');
+          done();
+        });
+    });
   });
   describe('GET /api/v1/users/requests', () => {
     it('should allow users authenticated to view all requests', (done) => {
@@ -296,6 +299,8 @@ describe('REQUEST CONTROLLER', () => {
         .end((err, res) => {
           expect(res).to.have.status(401);
           expect(res.body).to.be.an('object');
+          expect(res.body.message).to.equal('user authentication invalid');
+          expect(res.body.status).to.be.equal('fail');
           done();
         });
     });
@@ -316,10 +321,12 @@ describe('REQUEST CONTROLLER', () => {
     });
     it('should not allow users not authenticated to view a single request', (done) => {
       chai.request(app)
-        .get('/api/v1/users/requests/1')
+        .get('/api/v1/users/requests/3')
         .end((err, res) => {
           expect(res).to.have.status(401);
           expect(res.body).to.be.an('object');
+          expect(res.body.message).to.equal('user authentication invalid');
+          expect(res.body.status).to.be.equal('fail');
           done();
         });
     });
