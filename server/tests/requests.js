@@ -36,8 +36,8 @@ describe('REQUEST CONTROLLER', () => {
         .end((err, res) => {
           expect(res.status).to.equal(406);
           expect(res.body).to.be.an('object');
-          expect(res.body.error.title)
-            .to.include('title is required');
+          expect(res.body.data.errors.title)
+            .to.include('The title field is required.');
           done();
         });
     });
@@ -76,8 +76,8 @@ describe('REQUEST CONTROLLER', () => {
         .end((err, res) => {
           expect(res.status).to.equal(406);
           expect(res.body).to.be.an('object');
-          expect(res.body.error.department)
-            .to.include('department is required');
+          expect(res.body.data.errors.department)
+            .to.include('The department field is required.');
           done();
         });
     });
@@ -96,8 +96,8 @@ describe('REQUEST CONTROLLER', () => {
         .end((err, res) => {
           expect(res.status).to.equal(406);
           expect(res.body).to.be.an('object');
-          expect(res.body.error.equipment)
-            .to.include('equipment is required');
+          expect(res.body.data.errors.equipment)
+            .to.include('The equipment field is required.');
           done();
         });
     });
@@ -116,8 +116,8 @@ describe('REQUEST CONTROLLER', () => {
         .end((err, res) => {
           expect(res.status).to.equal(406);
           expect(res.body).to.be.an('object');
-          expect(res.body.error.serialnumber)
-            .to.include('serialnumber is required');
+          expect(res.body.data.errors.serialnumber)
+            .to.include('The serialnumber field is required.');
           done();
         });
     });
@@ -136,8 +136,8 @@ describe('REQUEST CONTROLLER', () => {
         .end((err, res) => {
           expect(res.status).to.equal(406);
           expect(res.body).to.be.an('object');
-          expect(res.body.error.description)
-            .to.include('description is required');
+          expect(res.body.data.errors.description)
+            .to.include('The description field is required.');
           done();
         });
     });

@@ -17,7 +17,7 @@ const routes = (app) => {
   app.post('/api/v1/auth/login', ValidateUser.validateSigninInput, UsersController.signinUser);
   app.get('/api/v1/users/requests', AuthenticateUserLogin.authenticateUser, RequestsController.getAllRequests);
   app.get('/api/v1/users/requests/:id', AuthenticateUserLogin.authenticateUser, ValidateRequest.idIsNumber, RequestsController.getRequestById);
-  app.post('/api/v1/users/requests', AuthenticateUserLogin.authenticateUser, checkDuplicate, ValidateRequest.validateString, ValidateRequest.checkLength, RequestsController.createRequest);
+  app.post('/api/v1/users/requests', AuthenticateUserLogin.authenticateUser, checkDuplicate, ValidateRequest.checkAlphaNumeric, ValidateRequest.validateString, ValidateRequest.checkLength, RequestsController.createRequest);
   app.put('/api/v1/users/requests/:id', AuthenticateUserLogin.authenticateUser, ValidateRequest.idIsNumber, RequestsController.updateRequest);
   app.get('/api/v1/requests/', AuthenticateUserLogin.authenticateAdmin, AdminController.adminGetAllRequests);
   app.put('/api/v1/requests/:id/approve', AuthenticateUserLogin.authenticateAdmin, ValidateRequest.idIsNumber, findRequestById, AdminController.approveRequests);
