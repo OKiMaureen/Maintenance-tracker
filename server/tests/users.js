@@ -75,8 +75,8 @@ describe('POST /api/v1/auth/signup', () => {
       .end((err, res) => {
         expect(res).to.have.status(406);
         expect(res.body).to.be.an('object');
-        expect(res.body.error.email)
-          .to.include('email address is invalid');
+        expect(res.body.data.errors.email)
+          .to.include('The email format is invalid.');
         done();
       });
   });
@@ -116,6 +116,9 @@ describe('POST /api/v1/auth/signup', () => {
       })
       .end((err, res) => {
         expect(res).to.have.status(406);
+        expect(res.body).to.be.an('object');
+        expect(res.body.data.errors.name)
+          .to.include('The name format is invalid.');
         done();
       });
   });
@@ -130,8 +133,8 @@ describe('POST /api/v1/auth/signup', () => {
       .end((err, res) => {
         expect(res).to.have.status(406);
         expect(res.body).to.be.an('object');
-        expect(res.body.error.name)
-          .to.include('name is required');
+        expect(res.body.data.errors.name)
+          .to.include('The name field is required.');
         done();
       });
   });
@@ -146,12 +149,12 @@ describe('POST /api/v1/auth/signup', () => {
       .end((err, res) => {
         expect(res).to.have.status(406);
         expect(res.body).to.be.an('object');
-        expect(res.body.message)
-          .to.include('name can only be between 3 to 15 characters');
+        expect(res.body.data.errors.name)
+          .to.include('The name must be at least 3 characters.');
         done();
       });
   });
-  it('should not register with more than 15 characters', (done) => {
+  it('should not register a name with more than 15 characters', (done) => {
     chai.request(app)
       .post(`${signupUrl}`)
       .send({
@@ -162,12 +165,12 @@ describe('POST /api/v1/auth/signup', () => {
       .end((err, res) => {
         expect(res).to.have.status(406);
         expect(res.body).to.be.an('object');
-        expect(res.body.message)
-          .to.include('name can only be between 3 to 15 characters');
+        expect(res.body.data.errors.name)
+          .to.include('The name may not be greater than 15 characters.');
         done();
       });
   });
-  it('should not register with wierd characters', (done) => {
+  it('should not register a name with wierd characters', (done) => {
     chai.request(app)
       .post(`${signupUrl}`)
       .send({
@@ -178,8 +181,8 @@ describe('POST /api/v1/auth/signup', () => {
       .end((err, res) => {
         expect(res).to.have.status(406);
         expect(res.body).to.be.an('object');
-        expect(res.body.message)
-          .to.include('only alphabets and numbers are allowed.');
+        expect(res.body.data.errors.name)
+          .to.include('The name format is invalid.');
         done();
       });
   });
@@ -194,8 +197,8 @@ describe('POST /api/v1/auth/signup', () => {
       .end((err, res) => {
         expect(res).to.have.status(406);
         expect(res.body).to.be.an('object');
-        expect(res.body.message)
-          .to.include('password must be between 6 to 50 characters');
+        expect(res.body.data.errors.password)
+          .to.include('The password must be at least 8 characters.');
         done();
       });
   });
@@ -210,8 +213,8 @@ describe('POST /api/v1/auth/signup', () => {
       .end((err, res) => {
         expect(res).to.have.status(406);
         expect(res.body).to.be.an('object');
-        expect(res.body.error.email)
-          .to.include('email is required');
+        expect(res.body.data.errors.email)
+          .to.include('The email field is required.');
         done();
       });
   });
@@ -226,8 +229,8 @@ describe('POST /api/v1/auth/signup', () => {
       .end((err, res) => {
         expect(res).to.have.status(406);
         expect(res.body).to.be.an('object');
-        expect(res.body.error.password)
-          .to.include('password is required');
+        expect(res.body.data.errors.password)
+          .to.include('The password field is required.');
         done();
       });
   });
@@ -242,8 +245,8 @@ describe('POST /api/v1/auth/signup', () => {
       .end((err, res) => {
         expect(res).to.have.status(406);
         expect(res.body).to.be.an('object');
-        expect(res.body.error.password)
-          .to.include('password is required');
+        expect(res.body.data.errors.password)
+          .to.include('The password field is required.');
         done();
       });
   });
@@ -272,7 +275,8 @@ describe('POST /api/v1/auth/login', () => {
       .end((err, res) => {
         expect(res).to.have.status(406);
         expect(res.body).to.be.an('object');
-        expect(res.body.error.password).to.equal('password is required');
+        expect(res.body.data.errors.password)
+          .to.include('The password field is required.');
         done();
       });
   });
@@ -286,7 +290,8 @@ describe('POST /api/v1/auth/login', () => {
       .end((err, res) => {
         expect(res).to.have.status(406);
         expect(res.body).to.be.an('object');
-        expect(res.body.error.password).to.equal('password is required');
+        expect(res.body.data.errors.password)
+          .to.include('The password field is required.');
         done();
       });
   });
@@ -300,7 +305,8 @@ describe('POST /api/v1/auth/login', () => {
       .end((err, res) => {
         expect(res).to.have.status(406);
         expect(res.body).to.be.an('object');
-        expect(res.body.error.email).to.equal('email is required');
+        expect(res.body.data.errors.email)
+          .to.include('The email field is required.');
         done();
       });
   });
@@ -314,7 +320,8 @@ describe('POST /api/v1/auth/login', () => {
       .end((err, res) => {
         expect(res).to.have.status(406);
         expect(res.body).to.be.an('object');
-        expect(res.body.error.email).to.equal('please provide a valid email address');
+        expect(res.body.data.errors.email)
+          .to.include('The email field is required.');
         done();
       });
   });
@@ -328,7 +335,8 @@ describe('POST /api/v1/auth/login', () => {
       .end((err, res) => {
         expect(res).to.have.status(406);
         expect(res.body).to.be.an('object');
-        expect(res.body.error.email).to.equal('please provide a valid email address');
+        expect(res.body.data.errors.email)
+          .to.include('The email format is invalid.');
         done();
       });
   });
@@ -343,7 +351,7 @@ describe('POST /api/v1/auth/login', () => {
         expect(res).to.have.status(401);
         expect(res.body).to.be.an('object');
         expect(res.body.message)
-          .to.equal('please try again, you entered a wrong password');
+          .to.equal('please try again, password or email is incorrect');
         done();
       });
   });

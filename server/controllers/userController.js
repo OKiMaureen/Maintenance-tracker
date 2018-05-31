@@ -48,7 +48,12 @@ export default class UserController {
         return res.status(201)
           .json({
             data: {
-              newUser: newUser.rows[0],
+              user: {
+                id: newUser.rows[0].id,
+                name,
+                email,
+                role: newUser.rows[0].role,
+              },
               token,
             },
             message: 'user created successfully',
@@ -81,7 +86,7 @@ export default class UserController {
         if (!bcrypt.compareSync(password.trim(), foundUser.rows[0].password)) {
           return res.status(401)
             .json({
-              message: 'please try again, you entered a wrong password',
+              message: 'please try again, password or email is incorrect',
               status: 'fail',
             });
         }
@@ -89,7 +94,12 @@ export default class UserController {
         return res.status(200)
           .json({
             data: {
-              user: foundUser.rows[0],
+              user: {
+                id: foundUser.rows[0].id,
+                name: foundUser.rows[0].name,
+                email,
+                role: foundUser.rows[0].role,
+              },
               token,
             },
             message: 'user logged in successfully',
