@@ -125,10 +125,9 @@ export default class RequestController {
       '${serialnumber}',
       '${description}'
     ) RETURNING *;`;
-
     client.query(requests)
       .then((newRequest) => {
-        res.status(201)
+        return res.status(201)
           .json({
             data: {
               newRequest: newRequest.rows[0],

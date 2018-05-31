@@ -13,12 +13,12 @@ const routes = (app) => {
     res.status(200)
       .send('Welcome to Maintenance Tracker API');
   });
-  app.post('/api/v1/auth/signup', ValidateUserEmail.checkEmail, ValidateUser.validateSignupInput, ValidateUser.inputLength, UsersController.signupUser);
+  app.post('/api/v1/auth/signup', ValidateUserEmail.checkEmail, ValidateUser.validateSignupInput, UsersController.signupUser);
   app.post('/api/v1/auth/login', ValidateUser.validateSigninInput, UsersController.signinUser);
   app.get('/api/v1/users/requests', AuthenticateUserLogin.authenticateUser, RequestsController.getAllRequests);
   app.get('/api/v1/users/requests/:id', AuthenticateUserLogin.authenticateUser, ValidateRequest.idIsNumber, RequestsController.getRequestById);
-  app.post('/api/v1/users/requests', AuthenticateUserLogin.authenticateUser, checkDuplicate, ValidateRequest.checkAlphaNumeric, ValidateRequest.validateString, ValidateRequest.checkLength, RequestsController.createRequest);
-  app.put('/api/v1/users/requests/:id', AuthenticateUserLogin.authenticateUser, ValidateRequest.idIsNumber, RequestsController.updateRequest);
+  app.post('/api/v1/users/requests', AuthenticateUserLogin.authenticateUser, checkDuplicate.checkDuplicate, ValidateRequest.vallidateRequest, RequestsController.createRequest);
+  app.put('/api/v1/users/requests/:id', AuthenticateUserLogin.authenticateUser, ValidateRequest.idIsNumber, checkDuplicate.checkDuplicate, ValidateRequest.vallidateRequest, RequestsController.updateRequest);
   app.get('/api/v1/requests/', AuthenticateUserLogin.authenticateAdmin, AdminController.adminGetAllRequests);
   app.put('/api/v1/requests/:id/approve', AuthenticateUserLogin.authenticateAdmin, ValidateRequest.idIsNumber, findRequestById, AdminController.approveRequests);
   app.put('/api/v1/requests/:id/disapprove', AuthenticateUserLogin.authenticateAdmin, ValidateRequest.idIsNumber, findRequestById, AdminController.disapproveRequests);

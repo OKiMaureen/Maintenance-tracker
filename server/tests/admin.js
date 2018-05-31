@@ -83,8 +83,8 @@ describe('ADMIN CONTROLLER', () => {
         .end((err, res) => {
           expect(res).to.have.status(406);
           expect(res.body).to.be.an('object');
-          expect(res.body.error.id)
-            .to.include('id must be a number');
+          expect(res.body.data.errors.id)
+            .to.include('The id must be an integer.');
           done();
         });
     });
@@ -108,8 +108,8 @@ describe('ADMIN CONTROLLER', () => {
         .end((err, res) => {
           expect(res).to.have.status(406);
           expect(res.body).to.be.an('object');
-          expect(res.body.error.id)
-            .to.include('id must be a number');
+          expect(res.body.data.errors.id)
+            .to.include('The id must be an integer.');
           done();
         });
     });
@@ -147,8 +147,8 @@ describe('ADMIN CONTROLLER', () => {
         .end((err, res) => {
           expect(res).to.have.status(406);
           expect(res.body).to.be.an('object');
-          expect(res.body.error.id)
-            .to.include('id must be a number');
+          expect(res.body.data.errors.id)
+            .to.include('The id must be an integer.');
           done();
         });
     });

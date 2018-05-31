@@ -56,8 +56,8 @@ describe('REQUEST CONTROLLER', () => {
         .end((err, res) => {
           expect(res.status).to.equal(406);
           expect(res.body).to.be.an('object');
-          expect(res.body.message)
-            .to.include('title must be between 5 and 20 characters');
+          expect(res.body.data.errors.title)
+            .to.include('The title must be at least 5 characters.');
           done();
         });
     });
@@ -156,8 +156,8 @@ describe('REQUEST CONTROLLER', () => {
         .end((err, res) => {
           expect(res.status).to.equal(406);
           expect(res.body).to.be.an('object');
-          expect(res.body.message)
-            .to.include('serialnumber must be only 8 characters');
+          expect(res.body.data.errors.serialnumber)
+            .to.include('The serialnumber must be at least 8 characters.');
           done();
         });
     });
@@ -176,8 +176,8 @@ describe('REQUEST CONTROLLER', () => {
         .end((err, res) => {
           expect(res.status).to.equal(406);
           expect(res.body).to.be.an('object');
-          expect(res.body.message)
-            .to.include('description must be between 3 and 50 characters');
+          expect(res.body.data.errors.description)
+            .to.include('The description must be at least 3 characters.');
           done();
         });
     });
@@ -252,8 +252,8 @@ describe('REQUEST CONTROLLER', () => {
         .end((err, res) => {
           expect(res).to.have.status(406);
           expect(res.body).to.be.an('object');
-          expect(res.body.error.id)
-            .to.include('id must be a number');
+          expect(res.body.data.errors.id)
+            .to.include('The id must be an integer.');
           done();
         });
     });
@@ -263,7 +263,7 @@ describe('REQUEST CONTROLLER', () => {
         .set('token', userToken)
         .send({
           title: 'computer repair',
-          department: 'Technical ',
+          department: 'Business ',
           equipment: 'computer ',
           serialnumber: 'MT000001',
           description: 'bad battery',
