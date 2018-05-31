@@ -4,7 +4,7 @@ const client = connection();
 client.connect();
 
 /**
- * @class Validate User
+ * @class Validate User Email
  */
 export default class ValidateUserEmail {
 /**
@@ -13,7 +13,7 @@ export default class ValidateUserEmail {
    * @param {Object} request
    * @param {Object} response
    *
-   * @param {Function} next
+   * @param {Function} done
    *
    * @return {Object}
    */
