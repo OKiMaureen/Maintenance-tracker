@@ -172,7 +172,7 @@ nav {
   }
   nav ul li{
     justify-content:space-around;
-    align-self: center;  
+    align-self: center;
   }
   nav ul a {
     font-size: 15px;
@@ -184,7 +184,7 @@ nav {
     color: #000000;
     background-color: #fdf2f2;
   }
-  
+
   .logo {
     font-family: 'PT Sans Narrow', sans-serif;
     font-family: 'Fugaz One', cursive;
@@ -244,7 +244,7 @@ nav {
 
 .about {
   min-height: 80vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/about-img.jpg)center/cover fixed no-repeat;
+  background: linear-gradient(rgba(236, 39, 39, 0.2), rgba(0, 0, 0, 0.2)), url(images/about-img.jpg)center/cover fixed no-repeat;
   display: flex;
   align-items: center;
 }
@@ -260,7 +260,7 @@ nav {
   text-transform: uppercase;
   font-size: 20px;
   text-align: center;
-  
+
 }
 
 .about-head {
@@ -372,7 +372,7 @@ footer {
 footer p {
   color: #f8f7f5;
   font-size: 10px;
-  
+
 }
 /* footer Section big screen */
 @media screen and (min-width:750px) {
@@ -381,7 +381,7 @@ footer p {
     padding: 30px;
     text-align: center;
   }
-  
+
   footer p {
     color: #f8f7f5;
     font-size: 20px;
@@ -391,7 +391,7 @@ footer p {
 /* form section */
 .form {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(images/head-background.jpeg)center center/cover fixed no-repeat;
-  min-height: 100vh;
+  min-height: 80vh;
   background-color: #f8f7f5;
   display: flex;
   justify-content: center;
@@ -453,23 +453,23 @@ form p a:hover{
     justify-content: center;
     align-items: center;
   }
-  
+
   form {
     flex: 0 0 80%;
-   
+
 }
 form input,select, textarea {
     padding: 10px;
     border: 1px solid #000000;
   }
-  
+
   form h3 {
     text-align: center;
     text-transform: capitalize;
     color: #f8f7f5;
     font-size: 30px;
   }
-  
+
   form p {
     text-align: center;
     color: #e0e0ce;
@@ -488,8 +488,8 @@ form input,select, textarea {
 /* create-requeust-section */
 .request{
   min-height: 80vh;
-  padding: 40px;
-  background: linear-gradient(rgb(252, 251, 251,0.2), rgba(252, 251, 251, 0.2)), url(images/request-background.jpeg)center/cover fixed no-repeat;
+  padding: 100px;
+  background: linear-gradient(rgba(216, 10, 10, 0.2), rgba(252, 251, 251, 0.2)), url(images/request-background.jpeg)center/cover fixed no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -497,8 +497,8 @@ form input,select, textarea {
 }
 .request-card {
   flex: 0 0 50%;
-  padding: 20px;
-  margin-top:50px;
+  padding-top: 50px;
+  margin-top:200px;
   background: rgba(15, 15, 15, 0.5);
   display: flex;
   justify-content: center;
@@ -506,15 +506,15 @@ form input,select, textarea {
   width: 100%;
   height: auto;
   flex-direction: column;
-  border-radius:2%;
-  
+  border-radius:90%;
+
 }
 .request-form {
   flex: 0 0 50%;
   display: flex;
   flex-direction: column;
   width:100%;
- 
+
 }
 .request-form h3 {
   text-align: center;
@@ -560,20 +560,20 @@ form input,select, textarea {
     display: flex;
     flex-direction: column;
     width:100%;
-    
+
    }
 .request-form input,select, textarea {
     padding: 10px;
     border: 1px solid #000000;
   }
-  
+
   .request-form h3 {
     text-align: center;
     text-transform: capitalize;
     color: #f8f7f5;
     font-size: 40px;
   }
-  
+
   .request form p {
     text-align: center;
     color:#f8f7f5;
@@ -614,7 +614,7 @@ form input,select, textarea {
 label{
   color: #000000;
   font-weight: bold;
-  
+
   }
 .status{
   margin-top:10px;
@@ -667,9 +667,9 @@ label{
 
 /* Big screen all request section */
 @media screen and (min-width:750px) {
-  
+
 .allrequests{
-  
+
   min-height: 80vh;
   display: flex;
   padding: 40px;
@@ -839,7 +839,7 @@ label{
 }
 label{
   color: #000000;
-  font-weight: bold;  
+  font-weight: bold;
   }
 .status{
   margin-top:10px;
@@ -987,7 +987,7 @@ label{
 label{
   color: #000000;
   font-weight: bold;
-  
+
   }
 .status{
   margin-top:10px;
@@ -1005,7 +1005,7 @@ label{
     justify-content: center;
     flex-wrap: wrap;
    }
-  
+
    .detailsrequest-card{
     margin-top:30px;
     align-self: center;
@@ -1061,3 +1061,4 @@ label{
     background-color: #000000;
 }
 }
+
