@@ -126,16 +126,14 @@ export default class RequestController {
       '${description}'
     ) RETURNING *;`;
     client.query(requests)
-      .then((newRequest) => {
-        return res.status(201)
-          .json({
-            data: {
-              newRequest: newRequest.rows[0],
-            },
-            message: 'request created successfully',
-            status: 'success',
-          });
-      }).catch((err) => {
+      .then(newRequest => res.status(201)
+        .json({
+          data: {
+            request: newRequest.rows[0],
+          },
+          message: 'request created successfully',
+          status: 'success',
+        })).catch((err) => {
         res.status(500).send(err.message);
       });
   }
@@ -173,6 +171,7 @@ export default class RequestController {
           serialnumber,
           description,
         } = mergeRequestUpdateAndRequest;
+
         const requestUpdate = {
 
           text: 'UPDATE requests SET title=$1, department=$2, equipment=$3, serialNumber=$4,description=$5 WHERE id= $6 AND user_id =$7 RETURNING *',
