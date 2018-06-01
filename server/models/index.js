@@ -13,6 +13,7 @@ if (process.env.NODE_ENV === 'development') {
 
 const client = new Client(config);
 client.connect();
-client.query(queries, () => {
+client.query(queries, (error) => {
+  console.log(error);
   client.end();
 });

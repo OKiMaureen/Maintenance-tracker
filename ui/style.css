@@ -1,21 +1,4 @@
-Skip to content
 
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- @OKiMaureen
-Sign out
-0
-0 0 OKiMaureen/Maintenance-tracker
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights  Settings
-Maintenance-tracker/ui/style.css
-f921c60  11 days ago
-@OKiMaureen OKiMaureen Merge pull request #30 from OKiMaureen/ft-modify-requests-157653713
-
-1064 lines (990 sloc)  19.4 KB
 * {
   margin: 0;
   padding: 0;
@@ -239,7 +222,7 @@ nav {
     color: #f8f7f5;
   }
   .button {
-    background-color: blue;
+    background-color: #000000;
     width: 130px;
     color: white;
     padding: 10px;
@@ -262,7 +245,7 @@ nav {
 
 .about {
   min-height: 80vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/about-img.jpg)center/cover fixed no-repeat;
+  background: linear-gradient(rgba(236, 39, 39, 0.2), rgba(0, 0, 0, 0.2)), url(images/about-img.jpg)center/cover fixed no-repeat;
   display: flex;
   align-items: center;
 }
@@ -409,7 +392,7 @@ footer p {
 /* form section */
 .form {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(images/head-background.jpeg)center center/cover fixed no-repeat;
-  min-height: 100vh;
+  min-height: 80vh;
   background-color: #f8f7f5;
   display: flex;
   justify-content: center;
@@ -506,8 +489,8 @@ form input,select, textarea {
 /* create-requeust-section */
 .request{
   min-height: 80vh;
-  padding: 40px;
-  background: linear-gradient(rgb(252, 251, 251,0.2), rgba(252, 251, 251, 0.2)), url(images/request-background.jpeg)center/cover fixed no-repeat;
+  padding: 100px;
+  background: linear-gradient(rgba(216, 10, 10, 0.2), rgba(252, 251, 251, 0.2)), url(images/request-background.jpeg)center/cover fixed no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -515,8 +498,8 @@ form input,select, textarea {
 }
 .request-card {
   flex: 0 0 50%;
-  padding: 20px;
-  margin-top:50px;
+  padding-top: 50px;
+  margin-top:200px;
   background: rgba(15, 15, 15, 0.5);
   display: flex;
   justify-content: center;
@@ -524,7 +507,7 @@ form input,select, textarea {
   width: 100%;
   height: auto;
   flex-direction: column;
-  border-radius:2%;
+  border-radius:90%;
 
 }
 .request-form {

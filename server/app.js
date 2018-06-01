@@ -24,6 +24,10 @@ if (!module.parent) {
   app.listen(port);
 }
 
+app.all('*', (req, res) => res.status(404).json({
+  message: 'route is invalid, please put in valid route',
+  status: 'fail',
+}));
 
 winston.log(`server is running at http://localhost:${port}`);
 

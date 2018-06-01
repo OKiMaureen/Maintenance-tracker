@@ -88,6 +88,54 @@ describe('ADMIN CONTROLLER', () => {
           done();
         });
     });
+    it('should not aprrove a request that is already resolved', (done) => {
+      chai.request(app)
+        .put('/api/v1/requests/5/approve')
+        .set('token', userToken)
+        .end((err, res) => {
+          expect(res).to.have.status(403);
+          expect(res.body).to.be.an('object');
+          expect(res.body.message).to.equal('you cannot approve, request is already resolved.');
+          expect(res.body.status).to.equal('fail');
+          done();
+        });
+    });
+    it('should not aprrove a request that is already approved', (done) => {
+      chai.request(app)
+        .put('/api/v1/requests/3/approve')
+        .set('token', userToken)
+        .end((err, res) => {
+          expect(res).to.have.status(403);
+          expect(res.body).to.be.an('object');
+          expect(res.body.message).to.equal('you cannot approve, request is already approved.');
+          expect(res.body.status).to.equal('fail');
+          done();
+        });
+    });
+    it('should aprrove a request that is pending', (done) => {
+      chai.request(app)
+        .put('/api/v1/requests/2/approve')
+        .set('token', userToken)
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          expect(res.body).to.be.an('object');
+          expect(res.body.message).to.equal('request approved successfully');
+          expect(res.body.status).to.equal('success');
+          done();
+        });
+    });
+    it('should aprrove a request that is disapproved', (done) => {
+      chai.request(app)
+        .put('/api/v1/requests/4/approve')
+        .set('token', userToken)
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          expect(res.body).to.be.an('object');
+          expect(res.body.message).to.equal('request approved successfully');
+          expect(res.body.status).to.equal('success');
+          done();
+        });
+    });
   });
   describe('PUT /api/v1/requests/:id/disapprove', () => {
     it('should not allow non admin to disapprove request', (done) => {
@@ -127,8 +175,32 @@ describe('ADMIN CONTROLLER', () => {
           done();
         });
     });
+    it('should not disaprrove a request that is resolved', (done) => {
+      chai.request(app)
+        .put('/api/v1/requests/5/disapprove')
+        .set('token', userToken)
+        .end((err, res) => {
+          expect(res).to.have.status(403);
+          expect(res.body).to.be.an('object');
+          expect(res.body.message).to.equal('you cannot disapprove, request is already resolved');
+          expect(res.body.status).to.equal('fail');
+          done();
+        });
+    });
+    it('should disaprrove a request that is pending', (done) => {
+      chai.request(app)
+        .put('/api/v1/requests/3/disapprove')
+        .set('token', userToken)
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          expect(res.body).to.be.an('object');
+          expect(res.body.message).to.equal('request disapproved successfully');
+          expect(res.body.status).to.equal('success');
+          done();
+        });
+    });
   });
-  describe('PUT /api/v1/requests/:id/disapprove', () => {
+  describe('PUT /api/v1/requests/:id/resolve', () => {
     it('should not allow non admin to resolve request', (done) => {
       chai.request(app)
         .put('/api/v1/requests/1/resolve')
@@ -166,5 +238,29 @@ describe('ADMIN CONTROLLER', () => {
           done();
         });
     });
+  });
+  it('should not resolve a request that is disapproved', (done) => {
+    chai.request(app)
+      .put('/api/v1/requests/4/resolve')
+      .set('token', userToken)
+      .end((err, res) => {
+        expect(res).to.have.status(403);
+        expect(res.body).to.be.an('object');
+        expect(res.body.message).to.equal('Unapproved request cannot be resolved');
+        expect(res.body.status).to.equal('fail');
+        done();
+      });
+  });
+  it('should not resolve a request that is resolved', (done) => {
+    chai.request(app)
+      .put('/api/v1/requests/5/resolve')
+      .set('token', userToken)
+      .end((err, res) => {
+        expect(res).to.have.status(403);
+        expect(res.body).to.be.an('object');
+        expect(res.body.message).to.equal('Unapproved request cannot be resolved');
+        expect(res.body.status).to.equal('fail');
+        done();
+      });
   });
 });
