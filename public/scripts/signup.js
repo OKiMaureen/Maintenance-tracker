@@ -18,7 +18,6 @@ const signUp = (event) => {
 
   })
     .then((res) => {
-      console.log(res);
       return res.json();
     })
     .then((signupData) => {
