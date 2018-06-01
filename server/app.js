@@ -13,6 +13,8 @@ app.use(cors());
 app.use(logger('development'));
 app.use(bodyParser.json());
 
+app.get('/', (request, response) => response.redirect('https://app.swaggerhub.com/apis/maureen-api/Maintenance-tracker-api/1.0.0'));
+
 app.use(bodyParser.urlencoded({
   extended: false,
 }));
