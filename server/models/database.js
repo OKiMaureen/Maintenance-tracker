@@ -31,7 +31,7 @@ CREATE TABLE requests(
   equipment VARCHAR(50) NOT NULL,
   serialnumber VARCHAR(50) NOT NULL,
   description VARCHAR(255) NOT NULL,
-  requestStatus request_status DEFAULT 'pending',
+  requeststatus request_status DEFAULT 'pending',
   FOREIGN KEY (user_id) REFERENCES users(id));
 INSERT INTO requests(
   user_id,
@@ -40,7 +40,7 @@ INSERT INTO requests(
   equipment,
   serialnumber,
   description)
-VALUES (1, 'bad computer', 'technical', 'computer', 00000006, 'faulty battery');
+VALUES (1, 'bad computer', 'technical', 'computer', 00000004, 'faulty battery');
 INSERT INTO requests(
   user_id,
   title,
@@ -48,7 +48,35 @@ INSERT INTO requests(
   equipment,
   serialnumber,
   description)
-VALUES (1, 'bad computer', 'technical', 'computer', 00000007, 'faulty battery');`;
+VALUES (1, 'bad computer', 'technical', 'computer', 00000005, 'faulty battery');
+INSERT INTO requests(
+  user_id,
+  title,
+  department,
+  equipment,
+  serialnumber,
+  description,
+  requeststatus)
+VALUES (1, 'bad computer', 'technical', 'computer', 00000007, 'faulty battery', 'approved');
+INSERT INTO requests(
+  user_id,
+  title,
+  department,
+  equipment,
+  serialnumber,
+  description,
+  requeststatus)
+VALUES (1, 'bad computer', 'technical', 'computer', 00000008, 'faulty battery', 'disapproved');
+INSERT INTO requests(
+  user_id,
+  title,
+  department,
+  equipment,
+  serialnumber,
+  description,
+  requeststatus)
+VALUES (1, 'bad computer', 'technical', 'computer', 00000009, 'faulty battery', 'resolved');`;
+
 
 const queries = `${userSeed}${requestSeed}`;
 

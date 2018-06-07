@@ -47,14 +47,21 @@ export default class AdminController {
    * @memberof requestController
    *
    */
-  static approveRequests(req, res) {
+  static approveRequests(req, res, done) {
     const requestId = parseInt(req.params.id, 10);
     const request = req.foundRequest;
-    if (request.foundRequest.requeststatus !== 'pending') {
+    if (request.foundRequest.requeststatus === 'resolved') {
       res.status(403).json({
-        message: 'request is no longer pending',
+        message: 'you cannot approve, request is already resolved.',
         status: 'fail',
       });
+      return done();
+    } else if (request.foundRequest.requeststatus === 'approved') {
+      res.status(403).json({
+        message: 'you cannot approve, request is already approved.',
+        status: 'fail',
+      });
+      return done();
     }
     const approveRequests = {
       text: 'UPDATE requests SET requeststatus=$1 WHERE id =$2 RETURNING *',
@@ -92,7 +99,14 @@ export default class AdminController {
     if (request.foundRequest.requeststatus === 'disapproved') {
       res.status(403)
         .json({
-          message: 'request is already disapproved',
+          message: 'you cannot disapprove, request is already disapproved',
+          status: 'fail',
+        });
+      return done();
+    } else if (request.foundRequest.requeststatus === 'resolved') {
+      res.status(403)
+        .json({
+          message: 'you cannot disapprove, request is already resolved',
           status: 'fail',
         });
       return done();
