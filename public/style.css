@@ -430,10 +430,13 @@ form p a{
   color:#050379;
 }
 .message{
-  color:#ec0418;
+  color:#f9f9f9;
+}
+.messageSuccess{
+  color:green;
 }
 .existing{
-  color:#ec0418;
+  color:black;
   background: #b1a9a9;
 }
 form p a:hover{
