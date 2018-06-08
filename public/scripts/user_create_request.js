@@ -41,7 +41,8 @@ const newRequest = (event) => {
         document.getElementById('descriptionE').innerHTML = requestData.data.errors.description || '';
       } else {
         document.getElementById('createRequestS').innerHTML = 'request created successfully';
-        window.location.href = 'https://maintenance-tracker-ui.herokuapp.com/client/allrequests.html';
+        // window.location.href = 'https://maintenance-tracker-ui.herokuapp.com/client/allrequests.html';
+        window.location.href = './allrequests.html';
       }
     });
 };

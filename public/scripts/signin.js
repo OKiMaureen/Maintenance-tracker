@@ -6,12 +6,15 @@ const baseUrl = 'https://maintenance-tracker-app.herokuapp.com/api/v1/auth/login
 const signIn = (event) => {
   event.preventDefault();
 
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
+  const email = document.getElementById('emailL').value;
+  const password = document.getElementById('passwordL').value;
 
   const page = (role) => {
-    const userPage = 'https://maintenance-tracker-ui.herokuapp.com/client/allrequests.html';
-    const adminPage = 'https://maintenance-tracker-ui.herokuapp.com/client/adminquests.html';
+    // const userPage = 'https://maintenance-tracker-ui.herokuapp.com/client/allrequests.html';
+    const userPage = './allrequests.html';
+    // const adminPage = 'https://maintenance-tracker-ui.herokuapp.com/client/adminquests.html';
+    const adminPage = './adminrequests.html';
+
     switch (role) {
       case 'user':
         window.location.href = userPage;
@@ -32,8 +35,8 @@ const signIn = (event) => {
 
   })
     .then((response) => {
-      if (response.status === 409) {
-        document.getElementById('existingmsgL').innerHTML = 'Emai already exists';
+      if (response.status === 401) {
+        document.getElementById('existingmsg').innerHTML = 'Please check that your password or email is correct';
       }
       return response.json();
     })
