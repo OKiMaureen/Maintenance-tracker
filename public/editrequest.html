@@ -34,38 +34,34 @@
     </nav>
   </header>
   <!--End navigation section-->
-  <!-- create request Form  -->
+  <!-- edit request Form  -->
   <section class="request">
     <article class="request-card">
-      <form class="request-form">
-        <h3>Edit Request</h3>
-        <p>Fill the form below to indicate equipments in need of repair or maintenance</p>
-        <br/>
-        <select>
-          <option value="department">Department</option>
-          <option value="finance">Finance Department</option>
-          <option value="technical">Technical Department</option>
-          <option value="human resource">Human Resource Department</option>
-        </select>
-        <br/>
-        <select>
-          <option value="equipment">Equipment</option>
-          <option value="computer">Computer</option>
-          <option value="furniture">Furniture</option>
-          <option value="electricity">Electricity</option>
-        </select>
-        <br/>
-        <input type="text" id="serialNumber" placeholder="Serial Number" required>
-        <br/>
-        <input type="text" id="requestTitle" placeholder="Request Title" required>
-        <br/>
-        <textarea name="requestDescription" cols="20" rows="5" placeholder="Request Description" required></textarea>
-        <br/>
-        <a class="button">Submit</a>
-      </form>
+        <form class="request-form">
+            <h3>Edit Request</h3>
+            <br/>
+            <p class="messageSuccess" id ="createRequestE" ></p>
+            <p class="message" id ="createRequestS" ></p>
+            <input type="text" id="department" placeholder="Department" required>
+            <p class="message" id ="departmentE" ></p>
+            <br/>
+            <input type="text" id="equipment" placeholder="Equipment" required>
+            <p class="message" id ="equipmentE" ></p>
+            <br/>
+            <input type="text" id="serialNumber" placeholder="Serial Number" required>
+            <p class="message" id ="serialnumberE" ></p>
+            <br/>
+            <input type="text" id="requestTitle" placeholder="Request Title" required>
+            <p class="message" id ="titleE" ></p>
+            <br/>
+            <textarea name="requestDescription" id="requestDescription" cols="20" rows="5" placeholder="Request Description" required></textarea>
+            <p class="message" id ="descriptionE" ></p>
+            <br/>
+            <a class="button" id="editRequest">Submit</a>
+          </form>
     </article>
   </section>
-  <!--End create request form-->
+  <!--End edit request form-->
 
   <!--Footer Section -->
   <footer>
@@ -75,5 +71,6 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="script.js"></script>
+  <script src="scripts/user_edit_request.js"></script>
 </body>
 </html>
