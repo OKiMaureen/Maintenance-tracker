@@ -1,10 +1,11 @@
 /*  global document:true, fetch:true, window:true */
 /*  eslint no-undef: "error"  */
 const id = localStorage.getItem('id');
-// const baseUrl = `https://maintenance-tracker-app.herokuapp.com/api/v1/requests/${id}`;
-const baseUrl = `http://localhost:3000/api/v1/requests/${id}`;
+const baseUrl = `https://maintenance-tracker-app.herokuapp.com/api/v1/requests/${id}`;
 const singleRequest = document.getElementById('detailsRequest');
-// window.location.href = 'https://maintenance-tracker-ui.herokuapp.com/client/edit.html';
+const statusBtn1 = document.getElementById('approve');
+const statusBtn2 = document.getElementById('disapprove');
+const statusBtn3 = document.getElementById('resolve');
 const gottenToken = localStorage.getItem('token');
 
 const adminGetSingleRequest = (request) => {
@@ -57,8 +58,30 @@ const adminGetSingleRequest = (request) => {
     default:
   }
 
-
-  card.className = ('detailsrequest-card');
+switch (requeststatus) {
+    case 'pending':
+      statusBtn1.disabled = false;
+      statusBtn2.disabled = false;
+      statusBtn3.disabled = true;
+      break;
+    case 'approved':
+      statusBtn1.disabled = true;
+      statusBtn2.disabled = false;
+      statusBtn3.disabled = false;
+      break;
+    case 'disapproved':
+      statusBtn1.disabled = false;
+      statusBtn2.disabled = true;
+      statusBtn3.disabled = true;
+      break;
+    case 'resolved':
+      statusBtn1.disabled = false;
+      statusBtn2.disabled = false;
+      statusBtn3.disabled = false;
+      break;
+    default:
+  }
+  
   card.appendChild(title);
   title.appendChild(titleLabel);
   titleLabel.appendChild(titleText);
@@ -116,25 +139,19 @@ const addRequestStatus = (event) => {
     method: 'PUT',
     mode: 'cors',
     headers: {
-      Accept: 'application/json,*/*',
-      'Content-Type': 'application/json',
-      Token: gottenToken,
+    Accept: 'application/json,*/*',
+    'Content-Type': 'application/json',
+     Token: gottenToken,
     },
   })
     .then((response) => {
-      console.log(response);
-      response.json();
+    response.json();
     })
     .then((requestData) => {
-      console.log(requestData);
-      if (requestData.data.requeststatus === 'approved') {
-        document.getElementById('requestErr').innerHTML = requestData.message;
-      } else if (requestData.data.requeststatus === 'disapproved') {
-        document.getElementById('requestErr').innerHTML = requestData.message;
-      } else if (requestData.data.requeststatus === 'resolve') {
-        document.getElementById('requestErr').innerHTML = requestData.message;
-      }
-      if (requestData.status === 'fail') {
+      if (requestData.status === 200) {
+        document.getElementById('requestMsg').innerHTML = requestData.message;
+      } else {
+
         document.getElementById('requestErr').innerHTML = requestData.message;
       }
     }).catch(err => err.message);

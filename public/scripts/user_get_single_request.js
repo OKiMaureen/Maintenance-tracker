@@ -4,10 +4,8 @@ const id = localStorage.getItem('id');
 const baseUrl = `https://maintenance-tracker-app.herokuapp.com/api/v1/users/requests/${id}`;
 
 const singleRequest = document.getElementById('detailsRequest');
-// window.location.href = 'https://maintenance-tracker-ui.herokuapp.com/client/edit.html';
 const requestId = () => {
-  // window.location.href = 'https://maintenance-tracker-ui.herokuapp.com/client/userrequestdetails.html';
-  window.location.href = './editrequest.html';
+  window.location.href = 'https://maintenance-tracker-ui.herokuapp.com/client/editrequest.html';
 };
 
 const getSingleRequest = (request) => {
