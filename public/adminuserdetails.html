@@ -36,32 +36,14 @@
   <!--End navigation section-->
 
   <!--user details page -->
-  <section class="details-requests">
+  <section class="details-requests" id="datailsRequest">
+      <p id="requestMsg"></p>
       <div class="detailsrequest-card">
-        <p>
-          <label>Title:</label>Repair Computer</p>
-        <br/>
-          <p><label>Department:</label>Technical</p>
-          <br/>
-          <p><label>Equipment: </label>HP computer</p>
-          <br/>
-          <p><label>S/N: </label>HP000001</p>
-          <br/>
-          <p><label>Description: </label>Battery is faulty, and It fell down, and sice I fixed it, I have not been able to use it.
-            Battery is faulty, and It fell down, and sice I fixed it, I have not been able to use it.</p>
-            <div class="status">
-                <button class="green">Approve</button>
-                <button class="red">Disapprove</button>
-              </div>
-              <br/>
-              <label class="container">pending
-                  <input type="checkbox" checked="checked">
-                  <span class="checkmark"></span>
-                </label>
-                <label class="container">resolved
-                  <input type="checkbox">
-                  <span class="checkmark"></span>
-                </label>
+      <div class="status">
+          <button class="green" id ="approve" title="approve">Approve</button>
+          <button class="red" id="disapprove" title="dispprove">Disapprove</button>
+          <button class="green" id="resolve" title="resolve">Resolve</button>
+        </div>
       </div>
       </section>
   <!-- end of user details page -->
@@ -73,5 +55,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="script.js"></script>
+    <script src="scripts/admin_get_single_request.js"></script>
 </body>
 </html>

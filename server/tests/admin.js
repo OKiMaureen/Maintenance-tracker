@@ -50,6 +50,32 @@ describe('ADMIN CONTROLLER', () => {
         });
     });
   });
+  describe('GET /api/v1/users/requests/1', () => {
+    it('should allow authenticated admin to view a single request', (done) => {
+      chai.request(app)
+        .get('/api/v1/requests/1')
+        .set('token', userToken)
+        .end((err, res) => {
+          expect(res).to.have.status(200);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('data');
+          expect(res.body.message).to.equal('user request gotten successfully');
+          expect(res.body.status).to.be.equal('success');
+          done();
+        });
+    });
+    it('should not allow admin not authenticated to view a single request', (done) => {
+      chai.request(app)
+        .get('/api/v1/users/requests/1')
+        .end((err, res) => {
+          expect(res).to.have.status(401);
+          expect(res.body).to.be.an('object');
+          expect(res.body.message).to.equal('user authentication invalid');
+          expect(res.body.status).to.be.equal('fail');
+          done();
+        });
+    });
+  });
   describe('PUT /api/v1/requests/:id/approve', () => {
     it('should allow an authenticated admin to approve a request', (done) => {
       chai.request(app)
