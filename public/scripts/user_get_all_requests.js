@@ -6,8 +6,7 @@ const allRequests = document.getElementById('allRequests');
 const requestId = (e) => {
   const { id } = e.target;
   localStorage.setItem('id', `${parseInt(id, 10)}`);
-  // window.location.href = 'https://maintenance-tracker-ui.herokuapp.com/client/userrequestdetails.html';
-  window.location.href = './userrequestdetails.html';
+  window.location.href = 'https://maintenance-tracker-ui.herokuapp.com/client/userrequestdetails.html';
 };
 
 

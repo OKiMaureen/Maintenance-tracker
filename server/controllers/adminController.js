@@ -38,6 +38,47 @@ export default class AdminController {
       });
   }
   /**
+   * @description - get a single user request
+   * @static
+   *
+   * @param {object} request - HTTP Request
+   * @param {object} response - HTTP Response
+   *
+   * @memberof requestController
+   *
+   */
+  static getUserRequestById(req, res) {
+    const {
+      id,
+    } = req.token.id;
+    const requestId = parseInt(req.params.id, 10);
+    const findRequestById = `SELECT * FROM requests WHERE id = ${requestId}`;
+
+    client.query(findRequestById)
+      .then((foundRequestById) => {
+        if (!foundRequestById.rows[0]) {
+          return res.status(404)
+            .json({
+              message: 'no request available with given id',
+              status: 'fail',
+            });
+        }
+        if (foundRequestById.rows[0].user_id === id) {
+          return res.status(200).json({
+            data: {
+              request: foundRequestById.rows[0],
+            },
+            message: 'user request gotten successfully',
+            status: 'success',
+          });
+        }
+        return res.status(403).json({
+          message: 'request cannot be viewed by you',
+          status: 'fail',
+        });
+      }).catch((err) => { res.status(500).send(err.message); });
+  }
+  /**
    * @description -  admin approve requests
    * @static
    *

@@ -1013,6 +1013,10 @@ label{
   margin-top:10px;
   align-self:center;
 }
+.requestmsg{
+  background-color: #000000;
+  color: #f1f1f1;
+}
 
 /* user details page big screen */
 @media screen and (min-width:750px) {

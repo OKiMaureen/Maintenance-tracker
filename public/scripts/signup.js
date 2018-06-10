@@ -14,10 +14,10 @@ const signUp = (event) => {
   const password = document.getElementById('password').value;
 
   const page = (role) => {
-    // const userPage = 'https://maintenance-tracker-ui.herokuapp.com/client/allrequests.html';
-    const userPage = './createrequest.html';
-    // const adminPage = 'https://maintenance-tracker-ui.herokuapp.com/client/adminquests.html';
-    const adminPage = './adminrequests.html';
+    const userPage = 'https://maintenance-tracker-ui.herokuapp.com/client/allrequests.html';
+
+    const adminPage = 'https://maintenance-tracker-ui.herokuapp.com/client/adminrequests.html';
+
     switch (role) {
       case 'user':
         window.location.href = userPage;
