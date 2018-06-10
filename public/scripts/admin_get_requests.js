@@ -82,6 +82,7 @@ window.onload = () => {
       return response.json();
     })
     .then((requestData) => {
+      console.log(requestData.data);
       if (requestData.status === 'success') {
         requestData.data.request.forEach(request => getNewRequest(request));
       }

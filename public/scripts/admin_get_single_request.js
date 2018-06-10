@@ -28,8 +28,6 @@ const adminGetSingleRequest = (request) => {
   const statusLabelClass = document.createElement('div');
   const statusLabel = document.createElement('label');
 
-
-
   titleText.innerHTML = request.title;
   titleLabel.innerHTML = 'Title: ';
   departmentText.innerHTML = request.department;
@@ -60,8 +58,7 @@ const adminGetSingleRequest = (request) => {
     default:
   }
 
-
-  switch (requeststatus) {
+switch (requeststatus) {
     case 'pending':
       statusBtn1.disabled = false;
       statusBtn2.disabled = false;
@@ -84,8 +81,7 @@ const adminGetSingleRequest = (request) => {
       break;
     default:
   }
-
-
+  
   card.appendChild(title);
   title.appendChild(titleLabel);
   titleLabel.appendChild(titleText);
@@ -143,17 +139,19 @@ const addRequestStatus = (event) => {
     method: 'PUT',
     mode: 'cors',
     headers: {
-      'Content-Type': 'application/json',
-      Token: gottenToken,
+    Accept: 'application/json,*/*',
+    'Content-Type': 'application/json',
+     Token: gottenToken,
     },
   })
     .then((response) => {
-      response.json();
+    response.json();
     })
     .then((requestData) => {
       if (requestData.status === 200) {
         document.getElementById('requestMsg').innerHTML = requestData.message;
       } else {
+
         document.getElementById('requestErr').innerHTML = requestData.message;
       }
     }).catch(err => err.message);
