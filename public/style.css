@@ -423,11 +423,11 @@ form h3 {
 form p {
   text-align: center;
   color:#f8f7f5;
-  font-size: 10px;
+  font-size: 12px;
 }
 form p a{
   text-decoration: none;
-  color:#050379;
+  color:#d4190c;
 }
 .message{
   color:#f9f9f9;
@@ -488,7 +488,7 @@ form input,select, textarea {
   }
   form p a{
     text-decoration: none;
-    color:#050379;
+    color:#047251;
   }
   form p a:hover{
     text-decoration: none;
@@ -674,6 +674,9 @@ label{
   margin: 10px 2px;
   border-radius: 5px;
 }
+.hide{
+  display:none;
+}
 
 /* Big screen all request section */
 @media screen and (min-width:750px) {
@@ -851,11 +854,18 @@ label{
   color: #000000;
   font-weight: bold;
   }
+.edits{
+  margin-top:10px;
+  text-align: right;
+}
 .status{
   margin-top:10px;
-  align-self:center;
+  text-align: right;
 }
+.breaks{
+  margin-top:15px;
 
+}
 .red {
   background-color:#a51b26;
   color: white;
