@@ -5,9 +5,7 @@ const baseUrl = `https://maintenance-tracker-app.herokuapp.com/api/v1/users/requ
 
 const singleRequest = document.getElementById('detailsRequest');
 // window.location.href = 'https://maintenance-tracker-ui.herokuapp.com/client/edit.html';
-const requestId = (e) => {
-  const { reqId } = e.target;
-  localStorage.setItem('id', `${parseInt(reqId, 10)}`);
+const requestId = () => {
   // window.location.href = 'https://maintenance-tracker-ui.herokuapp.com/client/userrequestdetails.html';
   window.location.href = './editrequest.html';
 };
@@ -93,7 +91,7 @@ const getSingleRequest = (request) => {
   card.appendChild(statusClass);
   statusClass.appendChild(edit);
   edit.appendChild(editLink);
-  editLink.setAttribute('id', `${request.id}`);
+  editLink.setAttribute('reqId', `${request.id}`);
   singleRequest.appendChild(card);
 };
 
