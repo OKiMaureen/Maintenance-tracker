@@ -15,7 +15,7 @@ const signUp = (event) => {
 
   const page = (role) => {
     // const userPage = 'https://maintenance-tracker-ui.herokuapp.com/client/allrequests.html';
-    const userPage = './allrequests.html';
+    const userPage = './createrequest.html';
     // const adminPage = 'https://maintenance-tracker-ui.herokuapp.com/client/adminquests.html';
     const adminPage = './adminrequests.html';
     switch (role) {

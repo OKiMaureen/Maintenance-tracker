@@ -36,29 +36,9 @@
   <!--End navigation section-->
 
   <!--user details page -->
-  <section class="details-requests">
-      <div class="detailsrequest-card">
-        <p>
-          <label>Title:</label>Repair Computer</p>
-        <br/>
-          <p><label>Department:</label>Technical</p>
-          <br/>
-          <p><label>Equipment: </label>HP computer</p>
-          <br/>
-          <p><label>S/N: </label>HP000001</p>
-          <br/>
-          <p><label>Description: </label>Battery is faulty, and It fell down, and sice I fixed it, I have not been able to use it.
-            Battery is faulty, and It fell down, and sice I fixed it, I have not been able to use it.</p>
-            <div class="status">
-              <label class="green">Resolved</label>
-            </div>
-            <div class="status">
-            <p>
-              <a href="editrequest.html">Edit Request</a>
-            </p>
-            </div>
-          </div>
-      </section>
+  <section class="details-requests" id= "detailsRequest">
+      <p id="requestErr"></p>
+  </section>
   <!-- end of user details page -->
    <!--Footer Section -->
    <footer>
@@ -68,5 +48,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="script.js"></script>
+    <script src="scripts/user_get_single_request.js"></script>
 </body>
 </html>

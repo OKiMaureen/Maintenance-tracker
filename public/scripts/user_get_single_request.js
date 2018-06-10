@@ -1,17 +1,18 @@
 /*  global document:true, fetch:true, window:true */
 /*  eslint no-undef: "error"  */
-const baseUrl = 'https://maintenance-tracker-app.herokuapp.com/api/v1/users/requests';
-const allRequests = document.getElementById('allRequests');
+const id = localStorage.getItem('id');
+const baseUrl = `https://maintenance-tracker-app.herokuapp.com/api/v1/users/requests/${id}`;
 
+const singleRequest = document.getElementById('detailsRequest');
+// window.location.href = 'https://maintenance-tracker-ui.herokuapp.com/client/edit.html';
 const requestId = (e) => {
-  const { id } = e.target;
-  localStorage.setItem('id', `${parseInt(id, 10)}`);
+  const { reqId } = e.target;
+  localStorage.setItem('id', `${parseInt(reqId, 10)}`);
   // window.location.href = 'https://maintenance-tracker-ui.herokuapp.com/client/userrequestdetails.html';
-  window.location.href = './userrequestdetails.html';
+  window.location.href = './editrequest.html';
 };
 
-
-const getNewRequest = (request) => {
+const getSingleRequest = (request) => {
   const card = document.createElement('div');
   const title = document.createElement('p');
   const titleLabel = document.createElement('label');
@@ -25,12 +26,15 @@ const getNewRequest = (request) => {
   const sn = document.createElement('p');
   const snLabel = document.createElement('label');
   const snText = document.createElement('span');
+  const description = document.createElement('p');
+  const descriptionLabel = document.createElement('label');
+  const descriptionText = document.createElement('span');
   const statusClass = document.createElement('div');
   const statusLabel = document.createElement('label');
-  const details = document.createElement('p');
-  const detailsLink = document.createElement('a');
+  const edit = document.createElement('p');
+  const editLink = document.createElement('a');
 
-  details.addEventListener('click', requestId);
+  edit.addEventListener('click', requestId);
   titleText.innerHTML = request.title;
   titleLabel.innerHTML = 'Title: ';
   departmentText.innerHTML = request.department;
@@ -39,8 +43,10 @@ const getNewRequest = (request) => {
   equipmentLabel.innerHTML = 'Equipment: ';
   snText.innerHTML = request.serialnumber;
   snLabel.innerHTML = 'S/N: ';
+  descriptionText.innerHTML = request.description;
+  descriptionLabel.innerHTML = 'Description: ';
   statusLabel.innerHTML = request.requeststatus;
-  detailsLink.innerHTML = 'Details';
+  editLink.innerHTML = 'Edit';
 
   const { requeststatus } = request;
   switch (requeststatus) {
@@ -59,7 +65,8 @@ const getNewRequest = (request) => {
     default:
   }
 
-  card.className = ('requests-card');
+
+  card.className = ('detailsrequest-card');
   card.appendChild(title);
   title.appendChild(titleLabel);
   titleLabel.appendChild(titleText);
@@ -72,14 +79,22 @@ const getNewRequest = (request) => {
   card.appendChild(sn);
   sn.appendChild(titleLabel);
   snLabel.appendChild(snText);
-  statusClass.className = ('status');
+  card.appendChild(description);
+  description.appendChild(descriptionLabel);
+  descriptionLabel.appendChild(descriptionText);
+  edit.className = ('status');
+  title.className = ('breaks');
+  department.className = ('breaks');
+  description.className = ('breaks');
+  equipment.className = ('breaks');
+  sn.className = ('breaks');
   card.appendChild(statusClass);
   statusClass.appendChild(statusLabel);
   card.appendChild(statusClass);
-  statusClass.appendChild(details);
-  details.appendChild(detailsLink);
-  detailsLink.setAttribute('id', `${request.id}`);
-  allRequests.appendChild(card);
+  statusClass.appendChild(edit);
+  edit.appendChild(editLink);
+  editLink.setAttribute('id', `${request.id}`);
+  singleRequest.appendChild(card);
 };
 
 window.onload = () => {
@@ -102,7 +117,7 @@ window.onload = () => {
     })
     .then((requestData) => {
       if (requestData.status === 'success') {
-        requestData.data.request.forEach(request => getNewRequest(request));
+        getSingleRequest(requestData.data.request);
       }
     }).catch(err => err.message);
 };
