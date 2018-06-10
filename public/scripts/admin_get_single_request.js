@@ -1,16 +1,13 @@
 /*  global document:true, fetch:true, window:true */
 /*  eslint no-undef: "error"  */
 const id = localStorage.getItem('id');
-const baseUrl = `https://maintenance-tracker-app.herokuapp.com/api/v1/users/requests/${id}`;
-
+// const baseUrl = `https://maintenance-tracker-app.herokuapp.com/api/v1/requests/${id}`;
+const baseUrl = `http://localhost:3000/api/v1/requests/${id}`;
 const singleRequest = document.getElementById('detailsRequest');
 // window.location.href = 'https://maintenance-tracker-ui.herokuapp.com/client/edit.html';
-const requestId = () => {
-  // window.location.href = 'https://maintenance-tracker-ui.herokuapp.com/client/userrequestdetails.html';
-  window.location.href = './editrequest.html';
-};
+const gottenToken = localStorage.getItem('token');
 
-const getSingleRequest = (request) => {
+const adminGetSingleRequest = (request) => {
   const card = document.createElement('div');
   const title = document.createElement('p');
   const titleLabel = document.createElement('label');
@@ -27,12 +24,9 @@ const getSingleRequest = (request) => {
   const description = document.createElement('p');
   const descriptionLabel = document.createElement('label');
   const descriptionText = document.createElement('span');
-  const statusClass = document.createElement('div');
+  const statusLabelClass = document.createElement('div');
   const statusLabel = document.createElement('label');
-  const edit = document.createElement('p');
-  const editLink = document.createElement('a');
 
-  edit.addEventListener('click', requestId);
   titleText.innerHTML = request.title;
   titleLabel.innerHTML = 'Title: ';
   departmentText.innerHTML = request.department;
@@ -44,7 +38,7 @@ const getSingleRequest = (request) => {
   descriptionText.innerHTML = request.description;
   descriptionLabel.innerHTML = 'Description: ';
   statusLabel.innerHTML = request.requeststatus;
-  editLink.innerHTML = 'Edit';
+
 
   const { requeststatus } = request;
   switch (requeststatus) {
@@ -80,24 +74,19 @@ const getSingleRequest = (request) => {
   card.appendChild(description);
   description.appendChild(descriptionLabel);
   descriptionLabel.appendChild(descriptionText);
-  edit.className = ('status');
   title.className = ('breaks');
   department.className = ('breaks');
   description.className = ('breaks');
   equipment.className = ('breaks');
+  statusLabelClass.className = ('status');
   sn.className = ('breaks');
-  card.appendChild(statusClass);
-  statusClass.appendChild(statusLabel);
-  card.appendChild(statusClass);
-  statusClass.appendChild(edit);
-  edit.appendChild(editLink);
-  editLink.setAttribute('id', `${request.id}`);
+  card.appendChild(statusLabelClass);
+  statusLabelClass.appendChild(statusLabel);
   singleRequest.appendChild(card);
 };
 
-window.onload = () => {
-  const gottenToken = localStorage.getItem('token');
 
+window.onload = () => {
   fetch(baseUrl, {
     method: 'GET',
     mode: 'cors',
@@ -115,7 +104,42 @@ window.onload = () => {
     })
     .then((requestData) => {
       if (requestData.status === 'success') {
-        getSingleRequest(requestData.data.request);
+        adminGetSingleRequest(requestData.data.request);
       }
     }).catch(err => err.message);
 };
+const addRequestStatus = (event) => {
+  const status = event.target.title;
+  const url = `https://maintenance-tracker-app.herokuapp.com/api/v1/requests/${id}/${status}`;
+
+  fetch(url, {
+    method: 'PUT',
+    mode: 'cors',
+    headers: {
+      Accept: 'application/json,*/*',
+      'Content-Type': 'application/json',
+      Token: gottenToken,
+    },
+  })
+    .then((response) => {
+      console.log(response);
+      response.json();
+    })
+    .then((requestData) => {
+      console.log(requestData);
+      if (requestData.data.requeststatus === 'approved') {
+        document.getElementById('requestErr').innerHTML = requestData.message;
+      } else if (requestData.data.requeststatus === 'disapproved') {
+        document.getElementById('requestErr').innerHTML = requestData.message;
+      } else if (requestData.data.requeststatus === 'resolve') {
+        document.getElementById('requestErr').innerHTML = requestData.message;
+      }
+      if (requestData.status === 'fail') {
+        document.getElementById('requestErr').innerHTML = requestData.message;
+      }
+    }).catch(err => err.message);
+};
+document.getElementById('approve').addEventListener('click', addRequestStatus);
+document.getElementById('disapprove').addEventListener('click', addRequestStatus);
+document.getElementById('resolve').addEventListener('click', addRequestStatus);
+
