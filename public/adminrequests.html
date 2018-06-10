@@ -31,9 +31,9 @@
         <div class="dropdown">
           <button class="dropbtn">Filter By:</button>
           <div class="dropdown-content">
+            <a href="#">pending</a>
             <a href="#">Approved</a>
             <a href="#">Disapproved</a>
-            <a href="#">In Progress</a>
             <a href="#">Resolved</a>
           </div>
         </div>
@@ -51,81 +51,8 @@
   </header>
   <!--End navigation section-->
   <!--All Request Section -->
-  <section class="approverequests">
-
-    <div class="approverequests-card">
-      <p>
-        <label>Title:</label>Repair Computer</p>
-      <p>
-        <label>S/N: </label>HP000001</p>
-      <p>
-        <div class="status">
-          <p>
-            <a href="userdetails.html">More Details</a>
-          </p>
-        </div>
-    </div>
-    <div class="approverequests-card">
-      <p>
-        <label>Title:</label>Repair Computer</p>
-      <p>
-        <label>S/N: </label>HP000001</p>
-      <p>
-        <div class="status">
-          <p>
-            <a href="userdetails.html">More Details</a>
-          </p>
-        </div>
-    </div>
-    <div class="approverequests-card">
-      <p>
-        <label>Title:</label>Repair Computer</p>
-      <p>
-        <label>S/N: </label>HP000001</p>
-      <p>
-        <div class="status">
-          <p>
-            <a href="userdetails.html">More Details</a>
-          </p>
-        </div>
-    </div>
-    <div class="approverequests-card">
-      <p>
-        <label>Title:</label>Repair Computer</p>
-      <p>
-        <label>S/N: </label>HP000001</p>
-      <p>
-        <div class="status">
-          <p>
-            <a href="userdetails.html">More Details</a>
-          </p>
-        </div>
-    </div>
-    <div class="approverequests-card">
-      <p>
-        <label>Title:</label>Repair Computer</p>
-      <p>
-        <label>S/N: </label>HP000001</p>
-      <p>
-        <div class="status">
-          <p>
-            <a href="userdetails.html">More Details</a>
-          </p>
-        </div>
-    </div>
-    <div class="approverequests-card">
-      <p>
-        <label>Title:</label>Repair Computer</p>
-      <p>
-        <label>S/N: </label>HP000001</p>
-      <p>
-        <div class="status">
-          <p>
-            <a href="userdetails.html">More Details</a>
-          </p>
-        </div>
-    </div>
-
+  <section class="allrequests" id ="allRequests">
+      <p id="requestErr"></p>
   </section>
   <!--End of All Request Section -->
   <!--Footer Section -->
@@ -136,6 +63,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="script.js"></script>
+  <script src="scripts/admin_get_requests.js"></script>
 </body>
 
 </html>
