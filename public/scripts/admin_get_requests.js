@@ -2,11 +2,14 @@
 /*  eslint no-undef: "error"  */
 const baseUrl = 'https://maintenance-tracker-app.herokuapp.com/api/v1/requests';
 const allRequests = document.getElementById('allRequests');
+const filter = document.getElementById('filter');
+let requests;
 const requestId = (event) => {
   const { id } = event.target;
   localStorage.setItem('id', `${parseInt(id, 10)}`);
   window.location.href = 'https://maintenance-tracker-ui.herokuapp.com/client/adminuserdetails.html';
 };
+
 const getNewRequest = (request) => {
   const card = document.createElement('div');
   const title = document.createElement('p');
@@ -61,7 +64,17 @@ const getNewRequest = (request) => {
   detailsLink.setAttribute('id', `${request.requestid}`);
   allRequests.appendChild(card);
 };
-
+const filterReq = () => {
+  if (filter.value === 'all') {
+    allRequests.filter(req => getNewRequest(req));
+  } else {
+    const filterRequest = requests.filter(req => req.requeststatus === filter.value);
+    filterRequest.filter((req) => {
+      allRequests.innerHTML = '';
+      getNewRequest(req);
+    });
+  }
+};
 
 window.onload = () => {
   const gottenToken = localStorage.getItem('token');
@@ -82,10 +95,10 @@ window.onload = () => {
       return response.json();
     })
     .then((requestData) => {
-      console.log(requestData.data);
       if (requestData.status === 'success') {
-        requestData.data.request.forEach(request => getNewRequest(request));
+        requests = requestData.data.request;
+        requests.forEach(request => getNewRequest(request));
       }
     }).catch(err => err.message);
 };
-
+filter.addEventListener('change', filterReq);
