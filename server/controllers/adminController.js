@@ -63,7 +63,7 @@ export default class AdminController {
               status: 'fail',
             });
         }
-        if (foundRequestById.rows[0].user_id === id) {
+        if (foundRequestById.rows[0]) {
           return res.status(200).json({
             data: {
               request: foundRequestById.rows[0],
@@ -81,8 +81,6 @@ export default class AdminController {
   /**
    * @description -  admin approve requests
    * @static
-   *
-   * @param {object} request - HTTP Request
    * @param {object} response - HTTP Response
    *
    * @memberof requestController
