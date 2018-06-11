@@ -2,7 +2,6 @@
 /*  eslint no-undef: "error"  */
 const baseUrl = 'https://maintenance-tracker-app.herokuapp.com/api/v1/users/requests';
 const allRequests = document.getElementById('allRequests');
-
 const requestId = (e) => {
   const { id } = e.target;
   localStorage.setItem('id', `${parseInt(id, 10)}`);
