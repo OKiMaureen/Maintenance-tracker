@@ -73,7 +73,7 @@ const getSingleRequest = (request) => {
   equipment.appendChild(equipmentLabel);
   equipmentLabel.appendChild(equipmentText);
   card.appendChild(sn);
-  sn.appendChild(titleLabel);
+  sn.appendChild(snLabel);
   snLabel.appendChild(snText);
   card.appendChild(description);
   description.appendChild(descriptionLabel);

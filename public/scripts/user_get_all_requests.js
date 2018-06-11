@@ -2,7 +2,8 @@
 /*  eslint no-undef: "error"  */
 const baseUrl = 'https://maintenance-tracker-app.herokuapp.com/api/v1/users/requests';
 const allRequests = document.getElementById('allRequests');
-
+const filter = document.getElementById('filter');
+let requests;
 const requestId = (e) => {
   const { id } = e.target;
   localStorage.setItem('id', `${parseInt(id, 10)}`);
@@ -21,9 +22,6 @@ const getNewRequest = (request) => {
   const equipment = document.createElement('p');
   const equipmentLabel = document.createElement('label');
   const equipmentText = document.createElement('span');
-  const sn = document.createElement('p');
-  const snLabel = document.createElement('label');
-  const snText = document.createElement('span');
   const statusClass = document.createElement('div');
   const statusLabel = document.createElement('label');
   const details = document.createElement('p');
@@ -36,10 +34,8 @@ const getNewRequest = (request) => {
   departmentLabel.innerHTML = 'Department: ';
   equipmentText.innerHTML = request.equipment;
   equipmentLabel.innerHTML = 'Equipment: ';
-  snText.innerHTML = request.serialnumber;
-  snLabel.innerHTML = 'S/N: ';
   statusLabel.innerHTML = request.requeststatus;
-  detailsLink.innerHTML = 'Details';
+  detailsLink.innerHTML = 'More details';
 
   const { requeststatus } = request;
   switch (requeststatus) {
@@ -59,19 +55,16 @@ const getNewRequest = (request) => {
   }
 
   card.className = ('requests-card');
-  card.appendChild(title);
-  title.appendChild(titleLabel);
-  titleLabel.appendChild(titleText);
   card.appendChild(department);
   department.appendChild(departmentLabel);
   departmentLabel.appendChild(departmentText);
   card.appendChild(equipment);
   equipment.appendChild(equipmentLabel);
   equipmentLabel.appendChild(equipmentText);
-  card.appendChild(sn);
-  sn.appendChild(snLabel);
-  snLabel.appendChild(snText);
-  statusClass.className = ('status');
+  card.appendChild(title);
+  title.appendChild(titleLabel);
+  titleLabel.appendChild(titleText);
+  details.className = ('status');
   card.appendChild(statusClass);
   statusClass.appendChild(statusLabel);
   card.appendChild(statusClass);
@@ -79,6 +72,18 @@ const getNewRequest = (request) => {
   details.appendChild(detailsLink);
   detailsLink.setAttribute('id', `${request.id}`);
   allRequests.appendChild(card);
+};
+const filterReq = () => {
+  if (filter.value === 'all') {
+    allRequests.innerHTML = '';
+    requests.forEach(request => getNewRequest(request));
+  } else {
+    const filterRequest = requests.filter(req => filter.value === req.requeststatus);
+    allRequests.innerHTML = '';
+    filterRequest.forEach((req) => {
+      getNewRequest(req);
+    });
+  }
 };
 
 window.onload = () => {
@@ -101,7 +106,9 @@ window.onload = () => {
     })
     .then((requestData) => {
       if (requestData.status === 'success') {
-        requestData.data.request.forEach(request => getNewRequest(request));
+        requests = requestData.data.request;
+        requests.forEach(request => getNewRequest(request));
       }
     }).catch(err => err.message);
 };
+filter.addEventListener('change', filterReq);
