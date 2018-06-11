@@ -61,6 +61,10 @@ const editRequest = (event) => {
       if (response.status === 409) {
         document.getElementById('createRequestE').innerHTML = 'Request already exists';
       }
+      else if (response.status === 403) {
+        document.getElementById('createRequestE').innerHTML = 'You cannot edit, request no longer pending!';
+      }
+
       return response.json();
     })
     .then((requestData) => {
