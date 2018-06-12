@@ -65,11 +65,12 @@ const getNewRequest = (request) => {
   allRequests.appendChild(card);
 };
 const filterReq = () => {
-if (filter.value === 'all') {
-    allRequests.filter(req => getNewRequest(req));
+
+  if (filter.value === 'all') {
+    allRequests.forEach(req => getNewRequest(req));
   } else {
     const filterRequest = requests.filter(req => req.requeststatus === filter.value);
-    filterRequest.filter((req) => {
+    filterRequest.forEach((req) => {
       allRequests.innerHTML = '';
       getNewRequest(req);
     });
