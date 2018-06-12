@@ -65,11 +65,15 @@ const getNewRequest = (request) => {
   allRequests.appendChild(card);
 };
 const filterReq = () => {
-  const filterRequest = requests.filter(req => req.requeststatus === filter.value);
-  filterRequest.forEach((req) => {
-    allRequests.innerHTML = '';
-    getNewRequest(req);
-  });
+if (filter.value === 'all') {
+    allRequests.filter(req => getNewRequest(req));
+  } else {
+    const filterRequest = requests.filter(req => req.requeststatus === filter.value);
+    filterRequest.filter((req) => {
+      allRequests.innerHTML = '';
+      getNewRequest(req);
+    });
+  }
 };
 
 window.onload = () => {
