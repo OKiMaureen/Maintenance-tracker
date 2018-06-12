@@ -4,7 +4,8 @@ const baseUrl = 'https://maintenance-tracker-app.herokuapp.com/api/v1/requests';
 const allRequests = document.getElementById('allRequests');
 const filter = document.getElementById('filter');
 let requests;
-let createdRequests;
+
+
 const requestId = (event) => {
   const { id } = event.target;
   localStorage.setItem('id', `${parseInt(id, 10)}`);
@@ -73,7 +74,7 @@ const filterReq = () => {
     const filterRequest = requests.filter(req => filter.value === req.requeststatus);
     allRequests.innerHTML = '';
     filterRequest.forEach((req) => {
-      getNewRequest(req);
+    getNewRequest(req);
     });
   }
 };
@@ -99,7 +100,6 @@ window.onload = () => {
     .then((requestData) => {
       if (requestData.status === 'success') {
         requests = requestData.data.request;
-        createdRequests = requests.forEach(request => getNewRequest(request));
         requests.forEach(request => getNewRequest(request));
       }
     }).catch(err => err.message);
