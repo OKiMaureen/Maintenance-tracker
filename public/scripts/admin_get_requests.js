@@ -66,7 +66,10 @@ const getNewRequest = (request) => {
 };
 const filterReq = () => {
   const filterRequest = requests.filter(req => req.requeststatus === filter.value);
-  filterRequest.forEach(req => getNewRequest(req));
+  filterRequest.forEach((req) => {
+    allRequests.innerHTML = '';
+    getNewRequest(req);
+  });
 };
 
 window.onload = () => {
