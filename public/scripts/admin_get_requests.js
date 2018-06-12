@@ -65,6 +65,7 @@ const getNewRequest = (request) => {
   allRequests.appendChild(card);
 };
 const filterReq = () => {
+
   if (filter.value === 'all') {
     allRequests.forEach(req => getNewRequest(req));
   } else {
