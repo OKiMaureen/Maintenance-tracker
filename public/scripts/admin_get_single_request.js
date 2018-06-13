@@ -58,7 +58,7 @@ const adminGetSingleRequest = (request) => {
     default:
   }
 
-switch (requeststatus) {
+  switch (requeststatus) {
     case 'pending':
       statusBtn1.disabled = false;
       statusBtn2.disabled = false;
@@ -81,7 +81,7 @@ switch (requeststatus) {
       break;
     default:
   }
-  
+
   card.appendChild(title);
   title.appendChild(titleLabel);
   titleLabel.appendChild(titleText);
@@ -92,7 +92,7 @@ switch (requeststatus) {
   equipment.appendChild(equipmentLabel);
   equipmentLabel.appendChild(equipmentText);
   card.appendChild(sn);
-  sn.appendChild(titleLabel);
+  sn.appendChild(snLabel);
   snLabel.appendChild(snText);
   card.appendChild(description);
   description.appendChild(descriptionLabel);
@@ -101,8 +101,8 @@ switch (requeststatus) {
   department.className = ('breaks');
   description.className = ('breaks');
   equipment.className = ('breaks');
-  statusLabelClass.className = ('status');
   sn.className = ('breaks');
+  statusLabelClass.className = ('status');
   card.appendChild(statusLabelClass);
   statusLabelClass.appendChild(statusLabel);
   singleRequest.appendChild(card);
@@ -139,19 +139,18 @@ const addRequestStatus = (event) => {
     method: 'PUT',
     mode: 'cors',
     headers: {
-    Accept: 'application/json,*/*',
-    'Content-Type': 'application/json',
-     Token: gottenToken,
+      Accept: 'application/json,*/*',
+      'Content-Type': 'application/json',
+      Token: gottenToken,
     },
   })
     .then((response) => {
-    response.json();
+      response.json();
     })
     .then((requestData) => {
       if (requestData.status === 200) {
         document.getElementById('requestMsg').innerHTML = requestData.message;
       } else {
-
         document.getElementById('requestErr').innerHTML = requestData.message;
       }
     }).catch(err => err.message);
