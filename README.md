@@ -11,6 +11,9 @@ Maintenance Tracker App is an application that provides users with the ability t
 ## UI hosted on gh pages
 https://okimaureen.github.io/Maintenance-tracker/ui
 
+## Client sid ehosted on Heroku
+https://maintenance-tracker-ui.herokuapp.com/client/
+
 
 ## Client side hosted on Heroku
 https://maintenance-tracker-ui.herokuapp.com/client/
@@ -51,7 +54,6 @@ https://maintenance-tracker-ui.herokuapp.com/client/
 
 
 ### Installation
-
 1. Clone this repository into your local machine:
 ```
 e.g git clone https://github.com/OKiMaureen/Maintenance-tracker
@@ -110,6 +112,7 @@ run test using 'npm test'.
  * A user can edit a request. 
 
  ### Admin
+
  * An admin can view all maintenance/repairs requests on the application.
  * An admin can filter requests.
  * An admin can approve/reject a repair/maintenance request.    

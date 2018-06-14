@@ -159,7 +159,7 @@ describe('REQUEST CONTROLLER', () => {
           expect(res.body.data.errors.serialnumber)
             .to.include('The serialnumber must be only 8 characters.');
         done();
-        });
+      });
     });
     it('should not add desription with less than 3 characters', (done) => {
       chai.request(app)
