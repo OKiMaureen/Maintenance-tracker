@@ -40,14 +40,17 @@ https://maintenance-tracker-ui.herokuapp.com/client/
 
 ## Getting Started
 
-# Prerequisites for installation
+
+### Prerequisites for installation
 1. Node js
 
 2. Express
 
 3. Git
 
-# Installation
+
+### Installation
+
 1. Clone this repository into your local machine:
 ```
 e.g git clone https://github.com/OKiMaureen/Maintenance-tracker
@@ -62,10 +65,12 @@ e.g npm start
 
 4. Install postman to test all endpoints on port 3000.
 
-# Test
+
+### Test
 run test using 'npm test'.
 
-# API End Points Test Using Postman
+### API End Points Test Using Postman
+
 <table>
 <tr><th>HTTP VERB</th><th>ENDPOINT</th><th>FUNCTIONALITY</th></tr>
 
@@ -92,11 +97,13 @@ run test using 'npm test'.
 <tr><td>PUT</td> <td>/api/v1/requests/:requestId/disapprovep</td> <td>Resolve an approved request</td></tr>
 </table>
 
-# Coding Style
+
+### Coding Style
 * Airbnb style guide. 
 
 ## Features
-# Users
+
+### Users
  * A users can create an account and log in.
  * A user can create maintenance or repairs request.
  * A user can view all his/her requests.
@@ -104,11 +111,13 @@ run test using 'npm test'.
  * A user can edit a request. 
 
  
-# Admin
+
+### Admin
  * An admin can view all maintenance/repairs requests on the application.
  * An admin can filter requests.
  * An admin can approve/reject a repair/maintenance request.    
  * An admin can mark request as resolved once it is done.
+
 ## Built With
 
 * NodeJs-EXPRESS: It is a javascript runtime built on Chrome's V8 javascript engine.
@@ -129,7 +138,9 @@ run test using 'npm test'.
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
 
-## Acknolowledgement
+
+## Acknowledgement
+I acknowledge the individuals from the organisation and groups below. They were a great source of motivation in completing this project.
 * Andela.
 * Andela Learning Facilitators.
 * Andela cycle 32 Andela21.
