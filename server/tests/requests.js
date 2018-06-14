@@ -157,8 +157,8 @@ describe('REQUEST CONTROLLER', () => {
           expect(res.status).to.equal(406);
           expect(res.body).to.be.an('object');
           expect(res.body.data.errors.serialnumber)
-            .to.include('The serialnumber must not be only 8 characters.');
-          done();
+            .to.include('The serialnumber must be only 8 characters.');
+        done();
         });
     });
     it('should not add desription with less than 3 characters', (done) => {

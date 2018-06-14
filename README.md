@@ -11,6 +11,7 @@ Maintenance Tracker App is an application that provides users with the ability t
 ## UI hosted on gh pages
 https://okimaureen.github.io/Maintenance-tracker/ui
 
+
 ## Client side hosted on Heroku
 https://maintenance-tracker-ui.herokuapp.com/client/
 
@@ -65,7 +66,6 @@ e.g npm start
 
 4. Install postman to test all endpoints on port 3000.
 
-
 ### Test
 run test using 'npm test'.
 
@@ -97,7 +97,6 @@ run test using 'npm test'.
 <tr><td>PUT</td> <td>/api/v1/requests/:requestId/resolve</td> <td>Resolve an approved request</td></tr>
 </table>
 
-
 ### Coding Style
 * Airbnb style guide. 
 
@@ -110,9 +109,7 @@ run test using 'npm test'.
  * A user can view a sinle request
  * A user can edit a request. 
 
- 
-
-### Admin
+ ### Admin
  * An admin can view all maintenance/repairs requests on the application.
  * An admin can filter requests.
  * An admin can approve/reject a repair/maintenance request.    
@@ -137,7 +134,6 @@ run test using 'npm test'.
 
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
-
 
 ## Acknowledgement
 I acknowledge the individuals from the organisation and groups below. They were a great source of motivation in completing this project.
