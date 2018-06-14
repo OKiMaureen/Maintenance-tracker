@@ -40,6 +40,7 @@ https://maintenance-tracker-ui.herokuapp.com/client/
 
 ## Getting Started
 
+
 ### Prerequisites for installation
 1. Node js
 
@@ -47,7 +48,9 @@ https://maintenance-tracker-ui.herokuapp.com/client/
 
 3. Git
 
+
 ### Installation
+
 1. Clone this repository into your local machine:
 ```
 e.g git clone https://github.com/OKiMaureen/Maintenance-tracker
@@ -62,10 +65,12 @@ e.g npm start
 
 4. Install postman to test all endpoints on port 3000.
 
+
 ### Test
 run test using 'npm test'.
 
 ### API End Points Test Using Postman
+
 <table>
 <tr><th>HTTP VERB</th><th>ENDPOINT</th><th>FUNCTIONALITY</th></tr>
 
@@ -92,10 +97,12 @@ run test using 'npm test'.
 <tr><td>PUT</td> <td>/api/v1/requests/:requestId/disapprovep</td> <td>Resolve an approved request</td></tr>
 </table>
 
+
 ### Coding Style
 * Airbnb style guide. 
 
 ## Features
+
 ### Users
  * A users can create an account and log in.
  * A user can create maintenance or repairs request.
@@ -104,6 +111,7 @@ run test using 'npm test'.
  * A user can edit a request. 
 
  
+
 ### Admin
  * An admin can view all maintenance/repairs requests on the application.
  * An admin can filter requests.
@@ -129,6 +137,7 @@ run test using 'npm test'.
 
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
+
 
 ## Acknowledgement
 I acknowledge the individuals from the organisation and groups below. They were a great source of motivation in completing this project.
