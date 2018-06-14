@@ -88,9 +88,9 @@ run test using 'npm test'.
 
 <tr><td>GET</td> <td>/api/v1/requests</td> <td>Get all users request for an admin</td></tr>
 
-<tr><td>GET</td> <td>/api/v1/requests/:requestId</td> <td>Get details of a user request for admin<td></tr>
+<tr><td>GET</td> <td>/api/v1/requests/:requestId</td> <td>Get details of a user request for admin</td></tr>
 
-<tr><td>PUT</td> <td>/api/v1/requests/:requestId/approve</td> <td>Approve a pending or disapproved request<td></tr>
+<tr><td>PUT</td> <td>/api/v1/requests/:requestId/approve</td> <td>Approve a pending or disapproved request</td></tr>
 
 <tr><td>PUT</td> <td>/api/v1/requests/:requestId/disapprove</td> <td>Disapprove a pending or approved request</td></tr>
 
