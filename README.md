@@ -94,7 +94,7 @@ run test using 'npm test'.
 
 <tr><td>PUT</td> <td>/api/v1/requests/:requestId/disapprove</td> <td>Disapprove a pending or approved request</td></tr>
 
-<tr><td>PUT</td> <td>/api/v1/requests/:requestId/disapprovep</td> <td>Resolve an approved request</td></tr>
+<tr><td>PUT</td> <td>/api/v1/requests/:requestId/resolve</td> <td>Resolve an approved request</td></tr>
 </table>
 
 
