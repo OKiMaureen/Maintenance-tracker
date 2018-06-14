@@ -44,7 +44,7 @@ export default class ValidateRequest {
       'max.title': 'The :attribute must not be greater than 20 characters.',
       'min.serialnumber': 'The :attribute must be only 8 characters.',
       'max.serialnumber': 'The :attribute must be only 8 characters.',
-      'min.description': 'The :attribute must not be less than 3 characters.',
+       'min.description': 'The :attribute must not be less than 3 characters.',
       'max.description': 'The :attribute must not be greater than 50 characters.',
     });
 
