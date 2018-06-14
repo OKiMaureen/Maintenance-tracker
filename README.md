@@ -11,7 +11,7 @@ Maintenance Tracker App is an application that provides users with the ability t
 ## UI hosted on gh pages
 https://okimaureen.github.io/Maintenance-tracker/ui
 
-## Client sid ehosted on Heroku
+## Client side hosted on Heroku
 https://maintenance-tracker-ui.herokuapp.com/client/
 
 
