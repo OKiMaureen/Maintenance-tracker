@@ -39,7 +39,14 @@ export default class ValidateRequest {
       description: ['required', 'string', 'regex:/^[a-z\\d\\-_,.*()!\\s]+$/i', 'min:3', 'max:50'],
     };
 
-    const validations = new Validate(data, rules);
+    const validations = new Validate(data, rules, {
+      'min.title': 'The :attribute must not be less than 5 characters.',
+      'max.title': 'The :attribute must not be greater than 20 characters.',
+      'min.serialnumber': 'The :attribute must be only 8 characters.',
+      'max.serialnumber': 'The :attribute must be only 8 characters.',
+      'min.description': 'The :attribute must not be less than 3 characters.',
+      'max.description': 'The :attribute must not be greater than 50 characters.',
+    });
 
     if (validations.passes()) {
       return next();
