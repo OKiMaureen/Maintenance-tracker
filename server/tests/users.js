@@ -150,7 +150,7 @@ describe('POST /api/v1/auth/signup', () => {
         expect(res).to.have.status(406);
         expect(res.body).to.be.an('object');
         expect(res.body.data.errors.name)
-          .to.include('The name must be at least 3 characters.');
+          .to.include('The name must not be less than 3 characters.');
         done();
       });
   });
@@ -166,7 +166,7 @@ describe('POST /api/v1/auth/signup', () => {
         expect(res).to.have.status(406);
         expect(res.body).to.be.an('object');
         expect(res.body.data.errors.name)
-          .to.include('The name may not be greater than 15 characters.');
+          .to.include('The name must not be greater than 15 characters.');
         done();
       });
   });
@@ -186,7 +186,7 @@ describe('POST /api/v1/auth/signup', () => {
         done();
       });
   });
-  it('should not register with less than 6 password characters', (done) => {
+  it('should not register with less than 8 password characters', (done) => {
     chai.request(app)
       .post(`${signupUrl}`)
       .send({
@@ -198,7 +198,7 @@ describe('POST /api/v1/auth/signup', () => {
         expect(res).to.have.status(406);
         expect(res.body).to.be.an('object');
         expect(res.body.data.errors.password)
-          .to.include('The password must be at least 8 characters.');
+          .to.include('The password must not be less than 8 characters.');
         done();
       });
   });
@@ -345,7 +345,7 @@ describe('POST /api/v1/auth/login', () => {
       .post(`${signinUrl}`)
       .send({
         email: 'mena@gmail.com',
-        password: 'wrongpassword',
+        password: 'wrongpass',
       })
       .end((err, res) => {
         expect(res).to.have.status(401);

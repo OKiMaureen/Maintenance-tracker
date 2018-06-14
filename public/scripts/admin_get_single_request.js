@@ -75,9 +75,9 @@ const adminGetSingleRequest = (request) => {
       statusBtn3.disabled = true;
       break;
     case 'resolved':
-      statusBtn1.disabled = false;
-      statusBtn2.disabled = false;
-      statusBtn3.disabled = false;
+      statusBtn1.disabled = true;
+      statusBtn2.disabled = true;
+      statusBtn3.disabled = true;
       break;
     default:
   }
