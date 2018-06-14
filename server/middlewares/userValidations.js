@@ -27,10 +27,13 @@ export default class ValidateUser {
 
     const rules = {
       email: 'required|email|string',
-      password: 'required|min:8|max:30|string',
+      password: 'required|min:8|max:10|string',
     };
 
-    const validations = new Validate(data, rules);
+    const validations = new Validate(data, rules, {
+      'min.passowrd': 'The :attribute must not be less than 8 characters.',
+      'max.password': 'The :attribute must not be greater than 30 characters.',
+    });
 
     if (validations.passes()) {
       return next();
@@ -71,7 +74,12 @@ export default class ValidateUser {
       password: 'required|min:8|max:30|string',
     };
 
-    const validations = new Validate(data, rules);
+    const validations = new Validate(data, rules, {
+      'min.password': 'The :attribute must not be less than 8 characters.',
+      'max.password': 'The :attribute must not be greater than 30 characters.',
+      'min.name': 'The :attribute must not be less than 3 characters.',
+      'max.name': 'The :attribute must not be greater than 15 characters.',
+    });
 
     if (validations.passes()) {
       return next();
