@@ -5,6 +5,8 @@
 
 body {
   font-family: 'PT Sans Narrow', sans-serif;
+  font-family: 'Song Myung', serif;
+  font-family: 'Righteous', cursive;
 }
 
 /*header Section*/
@@ -129,12 +131,6 @@ nav {
   background-color:#f8f7f5;
   color: #000000;
 }
-button:disabled,
-button[disabled]{
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
-}
 
 
 .banner-icons {
@@ -240,6 +236,12 @@ nav {
     align-self: center;
     border-radius: 10px;
   }
+  button:disabled,
+  button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
   .banner-icons {
     padding: 20px;
     font-size: 100%;
@@ -635,14 +637,18 @@ label{
 .status{
   margin-top:10px;
   align-self:center;
+  cursor: pointer;
 }
 .status p a{
   text-decoration: none;
   color: #000000;
+  cursor: pointer;
 }
 .status p a:hover{
   text-decoration: none;
   color: #a51b26;
+  cursor: pointer;
+
 }
 .red {
   background-color:#a51b26;
@@ -1018,6 +1024,7 @@ label{
 .status{
   margin-top:10px;
   align-self:center;
+
 }
 .requestmsg{
   background-color: #000000;

@@ -57,7 +57,7 @@ describe('REQUEST CONTROLLER', () => {
           expect(res.status).to.equal(406);
           expect(res.body).to.be.an('object');
           expect(res.body.data.errors.title)
-            .to.include('The title must be at least 5 characters.');
+            .to.include('The title must not be less than 5 characters.');
           done();
         });
     });
@@ -157,7 +157,7 @@ describe('REQUEST CONTROLLER', () => {
           expect(res.status).to.equal(406);
           expect(res.body).to.be.an('object');
           expect(res.body.data.errors.serialnumber)
-            .to.include('The serialnumber must be at least 8 characters.');
+            .to.include('The serialnumber must be only 8 characters.');
           done();
         });
     });
@@ -177,7 +177,7 @@ describe('REQUEST CONTROLLER', () => {
           expect(res.status).to.equal(406);
           expect(res.body).to.be.an('object');
           expect(res.body.data.errors.description)
-            .to.include('The description must be at least 3 characters.');
+            .to.include('The description must not be less than 3 characters.');
           done();
         });
     });
