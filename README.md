@@ -15,6 +15,10 @@ https://okimaureen.github.io/Maintenance-tracker/ui
 https://maintenance-tracker-ui.herokuapp.com/client/
 
 
+## Client side hosted on Heroku
+https://maintenance-tracker-ui.herokuapp.com/client/
+
+
 ## Table of Content
  * [Getting Started](#getting-started)
 
@@ -40,12 +44,14 @@ https://maintenance-tracker-ui.herokuapp.com/client/
 
 ## Getting Started
 
+
 ### Prerequisites for installation
 1. Node js
 
 2. Express
 
 3. Git
+
 
 ### Installation
 1. Clone this repository into your local machine:
@@ -66,6 +72,7 @@ e.g npm start
 run test using 'npm test'.
 
 ### API End Points Test Using Postman
+
 <table>
 <tr><th>HTTP VERB</th><th>ENDPOINT</th><th>FUNCTIONALITY</th></tr>
 
@@ -81,21 +88,22 @@ run test using 'npm test'.
 
 <tr><td>PUT</td> <td>/api/v1/users/requests/:requestId</td> <td>Modify a user's pending request</td></tr>
 
-<tr><td>GET</td>/api/v1/requests</td> <td>Get all users request for an admin</td></tr>
+<tr><td>GET</td> <td>/api/v1/requests</td> <td>Gets all users request for an admin</td></tr>
 
-<tr><td>GET</td> <td>/api/v1/requests/:requestId</td> <td>Get details of a user request for admin<td></tr>
+<tr><td>GET</td> <td>/api/v1/requests/:requestId</td> <td>Gets details of a user request for admin</td></tr>
 
-<tr><td>PUT</td> <td>/api/v1/requests/:requestId/approve</td> <td>Approve a pending or disapproved request<td></tr>
+<tr><td>PUT</td> <td>/api/v1/requests/:requestId/approve</td> <td>Approve a pending or disapproved request</td></tr>
 
 <tr><td>PUT</td> <td>/api/v1/requests/:requestId/disapprove</td> <td>Disapprove a pending or approved request</td></tr>
 
-<tr><td>PUT</td> <td>/api/v1/requests/:requestId/disapprovep</td> <td>Resolve an approved request</td></tr>
+<tr><td>PUT</td> <td>/api/v1/requests/:requestId/resolve</td> <td>Resolve an approved request</td></tr>
 </table>
 
 ### Coding Style
 * Airbnb style guide. 
 
 ## Features
+
 ### Users
  * A users can create an account and log in.
  * A user can create maintenance or repairs request.
@@ -103,8 +111,8 @@ run test using 'npm test'.
  * A user can view a sinle request
  * A user can edit a request. 
 
- 
-### Admin
+ ### Admin
+
  * An admin can view all maintenance/repairs requests on the application.
  * An admin can filter requests.
  * An admin can approve/reject a repair/maintenance request.    
