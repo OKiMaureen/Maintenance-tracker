@@ -9,10 +9,6 @@ import ValidateUser from '../middlewares/userValidations';
 import ValidateRequest from '../middlewares/requestValidations';
 
 const routes = (app) => {
-  app.get('/', (req, res) => {
-    res.status(200)
-      .send('Welcome to Maintenance Tracker API');
-  });
   app.post('/api/v1/auth/signup', ValidateUserEmail.checkEmail, ValidateUser.validateSignupInput, UsersController.signupUser);
   app.post('/api/v1/auth/login', ValidateUser.validateSigninInput, UsersController.signinUser);
   app.get('/api/v1/users/requests', AuthenticateUserLogin.authenticateUser, RequestsController.getAllRequests);
