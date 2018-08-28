@@ -10,10 +10,8 @@ if (process.env.NODE_ENV === 'development') {
 } else if (process.env.NODE_ENV === 'test') {
   config = configurations.test;
 } else { config = process.env.DATABASE_URL; }
-
 const client = new Client(config);
 client.connect();
-client.query(queries, (error) => {
-  console.log(error);
+client.query(queries, () => {
   client.end();
 });
