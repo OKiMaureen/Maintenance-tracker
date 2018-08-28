@@ -8,6 +8,7 @@
     "babel-loader": "^7.1.5",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
+    "babel-watch": "^2.0.7",
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.3",
     "chai": "^4.1.2",
@@ -25,6 +26,8 @@
     "pg": "^7.4.3",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
@@ -36,11 +39,13 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "coveralls": "^3.0.1",
     "css-loader": "^1.0.0",
     "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-babel": "^5.1.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.8.2",
@@ -54,7 +59,7 @@
     "webpack-cli": "^3.1.0"
   },
   "scripts": {
-    "start": "babel-node server/app.js",
+    "start": "babel-watch server/app.js",
     "start:dev": "set NODE_ENV=development&& nodemon --watch server --exec babel-node server/app.js",
     "migrate": "set NODE_ENV=development&& babel-node server/models/index.js",
     "db-migrate": "set NODE_ENV=test&&babel-node server/models/index.js",
@@ -64,7 +69,7 @@
     "coveralls": "jscoverage lib && YOURPACKAGE_COVERAGE=1 nodeunit --reporter=lcov test | coveralls",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "build:client": "NODE_ENV=development  webpack --mode development",
-    "start:client": "webpack-dev-server --mode development"
+    "start:client": "webpack-dev-server --mode development --open --hot"
   },
   "repository": {
     "type": "git",

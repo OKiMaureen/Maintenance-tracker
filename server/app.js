@@ -23,7 +23,7 @@ routes(app);
 app.use(Express.static(path.join(__dirname, '..', 'client-dist')));
 
 if (!module.parent) {
-  app.listen(port);
+  app.listen(port, () => console.log(`Server running on port: ${port}`));
 }
 
 app.all('*', (req, res) => res.sendFile(path.resolve(__dirname, '..', 'client-dist', 'index.html')));

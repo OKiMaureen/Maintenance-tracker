@@ -18,12 +18,13 @@ module.exports = {
       exclude: /node_modules/,
       use: ['style-loader', 'css-loader'],
     }, {
-      test: /\.(png|jpg)$/,
+      test: /\.(png|jpg|jpeg)$/,
       loader: 'file-loader',
     }],
   },
   devServer: {
     contentBase: path.join(__dirname, 'client/public'),
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -34,5 +35,9 @@ module.exports = {
     extensions: [
       '.js', '.jsx',
     ],
+    alias: {
+      components: path.resolve(__dirname, 'client/components'),
+      pages: path.resolve(__dirname, 'client/pages'),
+    },
   },
 };
