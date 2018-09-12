@@ -35,9 +35,5 @@ module.exports = {
     extensions: [
       '.js', '.jsx',
     ],
-    alias: {
-      components: path.resolve(__dirname, 'client/components'),
-      pages: path.resolve(__dirname, 'client/pages'),
-    },
   },
 };
