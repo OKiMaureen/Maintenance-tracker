@@ -1,10 +1,11 @@
+import PropTypes from 'prop-types';
 import Validator from 'validatorjs';
 import { bindActionCreators } from 'redux';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import signUp from '../actions/signUpAction';
-
+import signUpAction from '../actions/signUpAction';
+import loader from '../assets/images/spinloader.gif';
 
 export class Signup extends Component {
     /**
@@ -62,6 +63,7 @@ export class Signup extends Component {
         });
       }
       this.setState({ [e.target.name]: e.target.value });
+      return true;
     }
     handleSubmit = (event) => {
       event.preventDefault();
@@ -74,8 +76,9 @@ export class Signup extends Component {
       }
 
       if (this.validate()) {
-        this.props.signUp(this.state, this.props.history);
+        this.props.signUpAction(this.state, this.props.history);
       }
+      return true;
     }
 
     render() {
@@ -86,8 +89,10 @@ export class Signup extends Component {
             <article className="card">
               <form id="signupForm">
                 <h3>Sign Up</h3>
-                <p id="existingmsg" className="existing" />
+                {/* <LoadingBubble /> */}
                 <br />
+                {/* <img src={loader} alt="loader" /> */}
+                {this.props.userDetail.checkStatus.isLoading ? (<span className="loader"><img src={loader} alt="loader" /></span>) : '' }
                 <input type="text" id="name" name="name" placeholder="Name" onChange={this.handleChange} />
                 {
                   this.state.errors.name ? this.state.errors.name.map(error => <span className="validation-error" key={error}>{error}</span>) : ''
@@ -131,8 +136,15 @@ const mapStateToProps = state => ({
 
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  signUp,
+  signUpAction,
 }, dispatch);
+
+Signup.propTypes = {
+  userDetail: PropTypes.objectOf(PropTypes.object).isRequired,
+  signUpAction: PropTypes.func.isRequired,
+  history: PropTypes.func.isRequired,
+};
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signup);
 
