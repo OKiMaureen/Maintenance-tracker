@@ -20,7 +20,7 @@ export class Signup extends Component {
       errors: {},
     }
 
-    validate() {
+    validate = () => {
       const validations = new Validator(
         {
           name: this.state.name,
@@ -140,9 +140,12 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch);
 
 Signup.propTypes = {
-  userDetail: PropTypes.objectOf(PropTypes.object).isRequired,
+  userDetail: PropTypes.shape({
+    checkStatus: PropTypes.object,
+    error: PropTypes.string,
+  }).isRequired,
   signUpAction: PropTypes.func.isRequired,
-  history: PropTypes.func.isRequired,
+  history: PropTypes.objectOf(PropTypes.object).isRequired,
 };
 
 

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { SIGNUP_SUCCESS, SIGNUP_ERROR, LOADING_STATUS } from './types';
 
 
@@ -25,15 +24,13 @@ export const loadingStatus = () => ({
  */
 
 
-const signUpAction = (userData, history) => (dispatch) => {
+const signUpAction = (userData, history) => (dispatch, getState, http) => {
   dispatch(loadingStatus(LOADING_STATUS));
-  return axios
+  return http
     .post(baseUrl, userData)
     .then((res) => {
-      if (res.data.data.user.role) {
+      if (res.data.data.user.role === 'user') {
         history.push('/allrequests');
-      } else {
-        history.push('/adminrequests');
       }
       localStorage.setItem('auth', JSON.stringify(res.data.data.user));
       dispatch(signupUser(res.data.data));

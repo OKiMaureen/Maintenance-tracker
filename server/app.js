@@ -8,8 +8,7 @@ import routes from './routes/index';
 
 const app = new Express();
 
-
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(logger('development'));
 app.use(bodyParser.json());
@@ -28,6 +27,6 @@ if (!module.parent) {
 
 app.all('*', (req, res) => res.sendFile(path.resolve(__dirname, '..', 'client-dist', 'index.html')));
 
-winston.log(`server is running at http://localhost:${port}`);
+// winston.log(`server is running at http://localhost:${port}`);
 
 export default app;

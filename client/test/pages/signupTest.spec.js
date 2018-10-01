@@ -1,7 +1,7 @@
 import React from 'react';
-import { expect } from 'chai';
-import sinon from 'sinon';
+import { expect as e } from 'chai';
 import { shallow } from 'enzyme';
+import sinon from 'sinon';
 import { Signup } from '../../pages/Signup';
 
 
@@ -22,145 +22,196 @@ describe('<SignUp />', () => {
         error: false,
       },
     },
-
+    history: {},
+    error: '',
   };
 
 
   it('Should return number of input field on Signup page', () => {
     wrapper = shallow(<Signup {...props} />);
-    expect(wrapper.find('input')).to.have.length(4);
+    e(wrapper.find('input')).to.have.length(4);
+  });
+  it('stores a snapshot of the component', () => {
+    wrapper = shallow(<Signup {...props} />);
+   
+    expect(wrapper).toMatchSnapshot();
   });
   it('Should return number of button on Signup page', () => {
     wrapper = shallow(<Signup {...props} />);
-    expect(wrapper.find('button')).to.have.length(1);
+    e(wrapper.find('button')).to.have.length(1);
   });
   it('Should check if the wrapper contains instance of Signup page', () => {
     wrapper = shallow(<Signup {...props} />);
-    expect(wrapper.instance()).to.be.instanceof(Signup);
+    e(wrapper.instance()).to.be.instanceof(Signup);
   });
 
   it('Should check if name is supplied on successful signup', () => {
     wrapper = shallow(<Signup {...props} />);
     const initialState = wrapper.state();
     wrapper.setState({ ...initialState, name: 'maureen' });
-    expect(wrapper.state().name).to.be.equal('maureen');
+    e(wrapper.state().name).to.be.equal('maureen');
+  });
+
+  it('the validator function should return true when validation is successfull', () => {
+    wrapper = shallow(<Signup {...props} />);
+    wrapper.setState({
+      name: 'maureen',
+      email: 'maureen@mail.ru',
+      password: 'password',
+      password_confirmation: 'password',
+    });
+    const { validate } = wrapper.instance();
+    
+    const result = validate();
+
+    expect(result).toBe(true);
+  });
+  it('the handlechange function should clear the errors  when valid input is written', () => {
+    wrapper = shallow(<Signup {...props} />);
+    wrapper.setState({
+      name: 'maureen',
+      email: 'maureen@mail.com',
+      password: 'password',
+      password_confirmation: 'password',
+      errors: {
+        name: ['the name is required.'],
+      },
+    });
+    const { handleChange } = wrapper.instance();
+    handleChange({
+      target: {
+        value: 'maureen',
+        name: 'name',
+      },
+    });
+
+    expect(wrapper.state().errors.name).toBe('');
+  });
+
+  it('the handlesubmit function should return error if password and password confirmation do not match', () => {
+    wrapper = shallow(<Signup {...props} />);
+    wrapper.setState({
+      name: 'maureen',
+      email: 'maureen@mail.com',
+      password: 'password',
+      password_confirmation: 'Notpassword',
+      errors: {
+        password_confirmation: ['Password and password confirmation must be the same'],
+      },
+    });
+    const { handleSubmit } = wrapper.instance();
+    handleSubmit({ preventDefault: () => {} });
+
+    expect(wrapper.state().errors.password_confirmation).toEqual(['Password and password confirmation must be the same']);
   });
 
   it('Should check if email is supplied on successful signup', () => {
     wrapper = shallow(<Signup {...props} />);
     const initialState = wrapper.state();
     wrapper.setState({ ...initialState, email: 'maureen@gmail.com' });
-    expect(wrapper.state().email).to.be.equal('maureen@gmail.com');
+    e(wrapper.state().email).to.be.equal('maureen@gmail.com');
   });
   it('Should check if password is supplied on successful signup', () => {
     wrapper = shallow(<Signup {...props} />);
     const initialState = wrapper.state();
     wrapper.setState({ ...initialState, password: 'maureen' });
-    expect(wrapper.state().password).to.be.equal('maureen');
+    e(wrapper.state().password).to.be.equal('maureen');
   });
   it('Should check if password_confirmation is supplied on the Signup page', () => {
     wrapper = shallow(<Signup {...props} />);
     const initialState = wrapper.state();
     wrapper.setState({ ...initialState, password_confirmation: 'maureen' });
-    expect(wrapper.state().password_confirmation).to.be.equal('maureen');
+    e(wrapper.state().password_confirmation).to.be.equal('maureen');
   });
   it('Should check if password_confirmation is supplied on the Signup page', () => {
     wrapper = shallow(<Signup {...props} />);
     const initialState = wrapper.state();
     wrapper.setState({ ...initialState, errors: '{}' });
-    expect(wrapper.state().errors).to.be.equal('{}');
+    e(wrapper.state().errors).to.be.equal('{}');
+  });
+
+  it('should set user name to state when user types', () => {
+    wrapper = shallow(<Signup {...props} />);
+    const input = wrapper.find('input[name="name"]');
+    input.simulate('change', {
+      target: {
+        value: 'maureen',
+        name: 'name',
+      },
+    });
+
+    e(wrapper.state().name).to.equal('maureen');
   });
 
   it('Should handle and store user details', () => {
     wrapper = shallow(<Signup {...props} />);
-    expect(wrapper.instance().handleChange({ target: { value: 'name' } })).to.be.equal(true);
+    e(wrapper.instance().handleChange({ target: { value: 'name' } })).to.be.equal(true);
   });
 
   it('Should handle and store user details', () => {
     wrapper = shallow(<Signup {...props} />);
-    expect(wrapper.instance().handleChange({ target: { value: 'email' } })).to.be.equal(true);
+    e(wrapper.instance().handleChange({ target: { value: 'email' } })).to.be.equal(true);
   });
   it('Should handle and store user details', () => {
     wrapper = shallow(<Signup {...props} />);
-    expect(wrapper.instance().handleChange({ target: { value: 'password' } })).to.be.equal(true);
+    e(wrapper.instance().handleChange({ target: { value: 'password' } })).to.be.equal(true);
   });
 
   it('Should handle user details validation', () => {
     wrapper = shallow(<Signup {...props} />);
-    expect(wrapper.instance().validate()).to.be.equal(false);
+    e(wrapper.instance().validate()).to.be.equal(false);
   });
 
   it('Should handle signing up new user', () => {
     wrapper = shallow(<Signup {...props} />);
-    expect(wrapper.instance().handleSubmit({ preventDefault: () => {} })).to.be.equal(true);
+    e(wrapper.instance().handleSubmit({ preventDefault: () => {} })).to.be.equal(true);
   });
+  it('Should handle loading a loader', () => {
+    wrapper = shallow(<Signup
+      {...props}
+      userDetail={{
+      checkStatus: {
+        isLoading: true,
+      },
+    }}
+    />);
+    expect(wrapper.find('.loader').length).toBe(1);
+  });
+  it('Should handle loading a not loading on success or error', () => {
+    wrapper = shallow(<Signup
+      {...props}
+      userDetail={{
+      checkStatus: {
+        isLoading: false,
+      },
+    }}
+    />);
+    expect(wrapper.find('.loader').length).toBe(0);
+  });
+  it('Should handle loading the error message', () => {
+    wrapper = shallow(<Signup
+      {...props}
+      userDetail={{
+        checkStatus: {
+          isLoading: false,
+      },
 
-  // it('Should check password and confirm password field contains the value', () => {
-  //   wrapper = shallow(<Signup { ...props } />);
-  //   const OldState = wrapper.state().signUpDetails;
-  //   wrapper.setState({ signUpDetails: Object.assign(OldState, { password: 'admin', confirmPassword: 'admin' }) });
-  //   wrapper.instance().handleSignUpNewUser({ preventDefault: () => {} });
-  //   expect(wrapper.state().checkAdminStatus).to.be.equal(false);
-  // });
+      error: 'Email already exists',
+    }}
+    />);
+    expect(wrapper.find('.validation-error').length).toBe(1);
+  });
+  it('Should handle  not loading the error message on success or loading', () => {
+    wrapper = shallow(<Signup
+      {...props}
+      userDetail={{
+        checkStatus: {
+          isLoading: false,
+      },
 
-  // it('Should return the number of .container class ', () => {
-  //   wrapper = shallow(<Signup { ...props } />);
-  //   expect(wrapper.find('.container')).to.have.length(1);
-  // });
-
-  // it('Should return the number of form on signup page ', () => {
-  //   wrapper = shallow(<Signup { ...props } />);
-  //   expect(wrapper.find('form')).to.have.length(1);
-  // });
-
-  // it('Should return the number of form-group on signup page ', () => {
-  //   wrapper = shallow(<Signup { ...props } />);
-  //   expect(wrapper.find('.form-group')).to.have.length(5);
-  // });
-
-  // it('Should return the number of section-signUp class on signup page ', () => {
-  //   wrapper = shallow(<Signup { ...props } />);
-  //   expect(wrapper.find('.section-signUp')).to.have.length(1);
-  // });
-
-  // it('Should return the number of cover-section-signup on signup page ', () => {
-  //   wrapper = shallow(<Signup { ...props } />);
-  //   expect(wrapper.find('.cover-section-signup')).to.have.length(1);
-  // });
-
-  // it('Should return true when it spy on on handlelocation on signup component', () => {
-  //   const spy = sinon.spy(Signup.prototype, 'handleSignUpNewUser');
-  //   wrapper = shallow(<Signup {...props} />);
-  //   wrapper.setState({
-  //     signUpDetails: {
-  //       firstName: 'First nane',
-  //       lastName: 'last name',
-  //       email: 'you@example.com',
-  //       password: '12345',
-  //       confirmPassword: '12345',
-  //       isAdmin: false,
-  //     },
-  //   });
-  //   wrapper.find('.sigUpinnersection').simulate('submit', { preventDefault: () => {} });
-  //   expect(spy.called).to.be.equal(true);
-  //   spy.restore();
-  // });
-
-  // it('Should return true when it spy on on handlelocation on signuop component', () => {
-  //   const spy = sinon.spy(Signup.prototype, 'handleSignUpNewUser');
-  //   wrapper = shallow(<Signup {...props} />);
-  //   wrapper.setState({
-  //     signUpDetails: {
-  //       firstName: 'First nane',
-  //       lastName: 'last name',
-  //       email: 'you@example.com',
-  //       password: '12345',
-  //       confirmPassword: '123456',
-  //       isAdmin: false,
-  //     },
-  //   });
-  //   wrapper.find('.sigUpinnersection').simulate('submit', { preventDefault: () => {} });
-  //   expect(spy.called).to.be.equal(true);
-  //   spy.restore();
-  // });
+      error: '',
+    }}
+    />);
+    expect(wrapper.find('.validation-error').length).toBe(0);
+  });
 });
