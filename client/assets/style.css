@@ -1,6 +1,13 @@
 .validation-error {
   color: red;
   display: block;
+  text-align: center;
+}
+
+.loader {
+  display: block;
+  text-align: center;
+  font-size: 10px;
 }
 
 * {

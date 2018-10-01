@@ -75,6 +75,7 @@ export default class UserController {
     const { email, password } = req.body;
     const findUser = `SELECT * FROM users WHERE  email = '${email}'`;
     client.query(findUser)
+
       .then((foundUser) => {
         if (!foundUser.rows[0]) {
           return res.status(404)
@@ -106,7 +107,7 @@ export default class UserController {
             status: 'success',
           });
       }).catch((err) => {
-        res.status(500).send(err);
+        res.status(500).json(err);
       });
   }
 }
