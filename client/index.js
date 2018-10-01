@@ -1,11 +1,16 @@
 /* eslint:disable react/jsx-filename-extension */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './app';
-
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './store';
 import Routes from './router';
-
 import './assets/style.css';
 
-ReactDOM.render(<Routes />, document.getElementById('app'));
+
+const App = () => (
+  <Provider store={store}>
+    <Routes />
+  </Provider>
+);
+render(<App />, document.getElementById('app'));

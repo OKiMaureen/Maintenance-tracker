@@ -4,7 +4,9 @@
   "description": "a maintenance tracker app",
   "main": "app.js",
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-core": "^6.26.3",
+    "babel-eslint": "^9.0.0",
     "babel-loader": "^7.1.5",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
@@ -16,22 +18,33 @@
     "cors": "^2.8.4",
     "cross-env": "^5.1.6",
     "dotenv": "^5.0.1",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
     "eslint": "^4.19.1",
     "express": "^4.16.3",
+    "image-webpack-loader": "^4.3.1",
+    "img-loader": "^3.0.0",
+    "jest": "^23.6.0",
     "jsonwebtoken": "^8.2.1",
     "lodash.isempty": "^4.4.0",
     "mocha": "^5.2.0",
     "morgan": "^1.9.0",
+    "moxios": "^0.4.0",
     "nyc": "^11.8.0",
     "pg": "^7.4.3",
+    "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-redux": "^5.0.7",
     "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-mock-store": "^1.5.3",
     "redux-thunk": "^2.3.0",
     "save-dev": "^2.0.0",
+    "sinon": "^6.3.1",
+    "url-loader": "^1.1.1",
     "validator": "^10.2.0",
     "validatorjs": "^3.14.2",
     "webpack-dev-server": "^3.1.5",
@@ -60,16 +73,36 @@
   },
   "scripts": {
     "start": "babel-watch server/app.js",
-    "start:dev": "set NODE_ENV=development&& nodemon --watch server --exec babel-node server/app.js",
-    "migrate": "set NODE_ENV=development&& babel-node server/models/index.js",
+    "start:dev": "NODE_ENV=development nodemon --watch server --exec babel-node server/app.js",
+    "migrate": "NODE_ENV=development babel-node server/models/index.js",
     "db-migrate": "set NODE_ENV=test&&babel-node server/models/index.js",
     "heroku-postbuild": "npm run migrate --env production && npm run build",
     "build": "babel server -d dist",
-    "test": "set NODE_ENV=test&& babel-node server/models/index.js && nyc --reporter=html --reporter=text mocha --compilers js:babel-register ./server/tests/ --timeout 10000 --exit",
+    "test": "NODE_ENV=test babel-node server/models/index.js && NODE_ENV=test nyc --reporter=html --reporter=text mocha --compilers js:babel-register ./server/tests/ --timeout 300000 --exit",
+    "test:client": "jest ./client --coverage",
     "coveralls": "jscoverage lib && YOURPACKAGE_COVERAGE=1 nodeunit --reporter=lcov test | coveralls",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "build:client": "NODE_ENV=development  webpack --mode development",
     "start:client": "webpack-dev-server --mode development --open --hot"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/client/test/testSetup.js",
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/client/test/__mocks__/fileMock.js",
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    },
+    "modulePaths": [
+      "src"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "bower_components",
+      "shared"
+    ]
   },
   "repository": {
     "type": "git",

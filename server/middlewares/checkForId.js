@@ -15,8 +15,7 @@ const findRequestById = (req, res, next) => {
             status: 'fail',
           });
       }req.foundRequest = { foundRequest: foundRequest.rows[0] };
-      return next()
-  }).catch((err) => { res.status(500).send(err.message); });
-
+      return next();
+    }).catch((err) => { res.status(500).send(err.message); });
 };
 export default findRequestById;

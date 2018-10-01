@@ -3,6 +3,7 @@ import { Client } from 'pg';
 import configurations from '../config/config';
 import queries from './database';
 
+
 dotenv.config();
 let config;
 if (process.env.NODE_ENV === 'development') {
