@@ -1,14 +1,14 @@
 import { SIGNUP_SUCCESS, ERROR_MESSAGE, LOADING_STATUS } from './types';
 
 
-const baseUrl = 'https://maintenance-tracker-app.herokuapp.com/api/v1/auth/signup/';
+const baseUrl = 'https://maintenance-tracker-app.herokuapp.com/api/v1/auth/login/';
 
-export const signupUser = userData => ({
+export const signinUser = userData => ({
   type: SIGNUP_SUCCESS,
   user: userData,
 });
 
-export const signupUserError = userData => ({
+export const signinUserError = userData => ({
   type: ERROR_MESSAGE,
   error: userData,
 });
@@ -24,21 +24,19 @@ export const loadingStatus = () => ({
  */
 
 
-const signUpAction = (userData, history) => (dispatch, getState, http) => {
+const signInAction = (userData, history) => (dispatch, getState, http) => {
   dispatch(loadingStatus(LOADING_STATUS));
   return http
     .post(baseUrl, userData)
     .then((res) => {
       if (res.data.data.user.role === 'user') {
         history.push('/createrequest');
+      } else if (res.data.data.user.role === 'admin') {
+        history.push('/adminrequest');
       }
       localStorage.setItem('auth', JSON.stringify(res.data.data));
-      dispatch(signupUser(res.data.data));
+      dispatch(signinUser(res.data.data));
     })
-    .catch((error) => {
-      if (error.response.status === 409) {
-        dispatch(signupUserError('Email already exists'));
-      }
-    });
+    .catch(() => {});
 };
-export default signUpAction;
+export default signInAction;

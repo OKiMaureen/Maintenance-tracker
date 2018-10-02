@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import signUpAction from '../actions/signUpAction';
 import loader from '../assets/images/spinloader.gif';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export class Signup extends Component {
     /**
@@ -37,8 +39,6 @@ export class Signup extends Component {
         {
           'min.password': 'The :attribute must not be less than 9 characters.',
           'max.password': 'The :attribute must not be greater than 30 characters.',
-          'min.name': 'The :attribute must not be less than 4 characters.',
-          'max.name': 'The :attribute must not be greater than 15 characters.',
         },
       );
       if (validations.fails()) {
@@ -85,13 +85,12 @@ export class Signup extends Component {
       return (
         <div>
           {/* Signup Form  */}
+          <Header><Link to="/">Home</Link><Link to="/" /></Header>
           <section className="form">
             <article className="card">
               <form id="signupForm">
                 <h3>Sign Up</h3>
-                {/* <LoadingBubble /> */}
                 <br />
-                {/* <img src={loader} alt="loader" /> */}
                 {this.props.userDetail.checkStatus.isLoading ? (<span className="loader"><img src={loader} alt="loader" /></span>) : '' }
                 <input type="text" id="name" name="name" placeholder="Name" onChange={this.handleChange} />
                 {
@@ -124,6 +123,7 @@ export class Signup extends Component {
             </article>
           </section>
           {/* End signup form */}
+          <Footer />
         </div>
 
       );

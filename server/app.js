@@ -1,7 +1,6 @@
 import cors from 'cors';
 import path from 'path';
 import logger from 'morgan';
-import winston from 'winston';
 import bodyParser from 'body-parser';
 import Express from 'express';
 import routes from './routes/index';
@@ -19,13 +18,13 @@ app.use(bodyParser.urlencoded({
   extended: false,
 }));
 routes(app);
-app.use(Express.static(path.join(__dirname, '..', 'client-dist')));
+app.use(Express.static(path.join(__dirname, '../client-dist')));
 
 if (!module.parent) {
   app.listen(port, () => console.log(`Server running on port: ${port}`));
 }
 
-app.all('*', (req, res) => res.sendFile(path.resolve(__dirname, '..', 'client-dist', 'index.html')));
+app.all('*', (req, res) => res.sendFile(path.resolve(__dirname, '../client-dist', 'index.html')));
 
 // winston.log(`server is running at http://localhost:${port}`);
 

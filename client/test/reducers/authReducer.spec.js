@@ -61,7 +61,7 @@ describe('Test authReducers', () => {
   });
   it('Should return state of  signup error', () => {
     const actual = signUpReducer({}, {
-      type: 'SIGNUP_ERROR',
+      type: 'ERROR_MESSAGE',
       payload: userDataError,
     });
 

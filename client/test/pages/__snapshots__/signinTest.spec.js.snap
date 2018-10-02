@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SignUp /> stores a snapshot of the component 1`] = `
+exports[`<SignIn /> stores a snapshot of the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Signup
+  Symbol(enzyme.__unrendered__): <Signin
     error=""
     history={Object {}}
-    signUpAction={[Function]}
+    signInAction={[Function]}
     userDetail={
       Object {
         "authUser": Object {
@@ -59,19 +59,11 @@ ShallowWrapper {
               id="signupForm"
             >
               <h3>
-                Sign Up
+                Sign In
               </h3>
               <br />
               
-              <input
-                id="name"
-                name="name"
-                onChange={[Function]}
-                placeholder="Name"
-                type="text"
-              />
               
-              <br />
               <input
                 id="email"
                 name="email"
@@ -80,7 +72,6 @@ ShallowWrapper {
                 required={true}
                 type="text"
               />
-              
               
               <br />
               <input
@@ -93,31 +84,21 @@ ShallowWrapper {
               />
               
               <br />
-              <input
-                id="confirmPassword"
-                name="password_confirmation"
-                onChange={[Function]}
-                placeholder="Confirm Password"
-                required={true}
-                type="password"
-              />
-              
-              <br />
               <button
                 className="button"
                 id="signupBtn"
                 onClick={[Function]}
                 type="submit"
               >
-                Sign Up
+                Sign In
               </button>
               <p>
-                Already have an account?
+                Donot have an account?
                 <Link
                   replace={false}
-                  to="/signin"
+                  to="/signup"
                 >
-                  Sign In
+                  Sign Up
                 </Link>
               </p>
             </form>
@@ -188,19 +169,11 @@ ShallowWrapper {
               id="signupForm"
             >
               <h3>
-                Sign Up
+                Sign In
               </h3>
               <br />
               
-              <input
-                id="name"
-                name="name"
-                onChange={[Function]}
-                placeholder="Name"
-                type="text"
-              />
               
-              <br />
               <input
                 id="email"
                 name="email"
@@ -209,7 +182,6 @@ ShallowWrapper {
                 required={true}
                 type="text"
               />
-              
               
               <br />
               <input
@@ -222,31 +194,21 @@ ShallowWrapper {
               />
               
               <br />
-              <input
-                id="confirmPassword"
-                name="password_confirmation"
-                onChange={[Function]}
-                placeholder="Confirm Password"
-                required={true}
-                type="password"
-              />
-              
-              <br />
               <button
                 className="button"
                 id="signupBtn"
                 onClick={[Function]}
                 type="submit"
               >
-                Sign Up
+                Sign In
               </button>
               <p>
-                Already have an account?
+                Donot have an account?
                 <Link
                   replace={false}
-                  to="/signin"
+                  to="/signup"
                 >
-                  Sign In
+                  Sign Up
                 </Link>
               </p>
             </form>
@@ -263,19 +225,11 @@ ShallowWrapper {
               id="signupForm"
             >
               <h3>
-                Sign Up
+                Sign In
               </h3>
               <br />
               
-              <input
-                id="name"
-                name="name"
-                onChange={[Function]}
-                placeholder="Name"
-                type="text"
-              />
               
-              <br />
               <input
                 id="email"
                 name="email"
@@ -284,7 +238,6 @@ ShallowWrapper {
                 required={true}
                 type="text"
               />
-              
               
               <br />
               <input
@@ -297,31 +250,21 @@ ShallowWrapper {
               />
               
               <br />
-              <input
-                id="confirmPassword"
-                name="password_confirmation"
-                onChange={[Function]}
-                placeholder="Confirm Password"
-                required={true}
-                type="password"
-              />
-              
-              <br />
               <button
                 className="button"
                 id="signupBtn"
                 onClick={[Function]}
                 type="submit"
               >
-                Sign Up
+                Sign In
               </button>
               <p>
-                Already have an account?
+                Donot have an account?
                 <Link
                   replace={false}
-                  to="/signin"
+                  to="/signup"
                 >
-                  Sign In
+                  Sign Up
                 </Link>
               </p>
             </form>,
@@ -335,19 +278,11 @@ ShallowWrapper {
             "props": Object {
               "children": Array [
                 <h3>
-                  Sign Up
+                  Sign In
                 </h3>,
                 <br />,
                 "",
-                <input
-                  id="name"
-                  name="name"
-                  onChange={[Function]}
-                  placeholder="Name"
-                  type="text"
-                />,
                 "",
-                <br />,
                 <input
                   id="email"
                   name="email"
@@ -356,7 +291,6 @@ ShallowWrapper {
                   required={true}
                   type="text"
                 />,
-                "",
                 "",
                 <br />,
                 <input
@@ -369,31 +303,21 @@ ShallowWrapper {
                 />,
                 "",
                 <br />,
-                <input
-                  id="confirmPassword"
-                  name="password_confirmation"
-                  onChange={[Function]}
-                  placeholder="Confirm Password"
-                  required={true}
-                  type="password"
-                />,
-                "",
-                <br />,
                 <button
                   className="button"
                   id="signupBtn"
                   onClick={[Function]}
                   type="submit"
                 >
-                  Sign Up
+                  Sign In
                 </button>,
                 <p>
-                  Already have an account?
+                  Donot have an account?
                   <Link
                     replace={false}
-                    to="/signin"
+                    to="/signup"
                   >
-                    Sign In
+                    Sign Up
                   </Link>
                 </p>,
               ],
@@ -406,10 +330,10 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Sign Up",
+                  "children": "Sign In",
                 },
                 "ref": null,
-                "rendered": "Sign Up",
+                "rendered": "Sign In",
                 "type": "h3",
               },
               Object {
@@ -422,31 +346,7 @@ ShallowWrapper {
                 "type": "br",
               },
               "",
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "id": "name",
-                  "name": "name",
-                  "onChange": [Function],
-                  "placeholder": "Name",
-                  "type": "text",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": "input",
-              },
               "",
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {},
-                "ref": null,
-                "rendered": null,
-                "type": "br",
-              },
               Object {
                 "instance": null,
                 "key": undefined,
@@ -463,7 +363,6 @@ ShallowWrapper {
                 "rendered": null,
                 "type": "input",
               },
-              "",
               "",
               Object {
                 "instance": null,
@@ -505,40 +404,14 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "id": "confirmPassword",
-                  "name": "password_confirmation",
-                  "onChange": [Function],
-                  "placeholder": "Confirm Password",
-                  "required": true,
-                  "type": "password",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": "input",
-              },
-              "",
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {},
-                "ref": null,
-                "rendered": null,
-                "type": "br",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Sign Up",
+                  "children": "Sign In",
                   "className": "button",
                   "id": "signupBtn",
                   "onClick": [Function],
                   "type": "submit",
                 },
                 "ref": null,
-                "rendered": "Sign Up",
+                "rendered": "Sign In",
                 "type": "button",
               },
               Object {
@@ -547,29 +420,29 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": Array [
-                    "Already have an account?",
+                    "Donot have an account?",
                     <Link
                       replace={false}
-                      to="/signin"
+                      to="/signup"
                     >
-                      Sign In
+                      Sign Up
                     </Link>,
                   ],
                 },
                 "ref": null,
                 "rendered": Array [
-                  "Already have an account?",
+                  "Donot have an account?",
                   Object {
                     "instance": null,
                     "key": undefined,
                     "nodeType": "class",
                     "props": Object {
-                      "children": "Sign In",
+                      "children": "Sign Up",
                       "replace": false,
-                      "to": "/signin",
+                      "to": "/signup",
                     },
                     "ref": null,
-                    "rendered": "Sign In",
+                    "rendered": "Sign Up",
                     "type": [Function],
                   },
                 ],
@@ -623,19 +496,11 @@ ShallowWrapper {
                 id="signupForm"
               >
                 <h3>
-                  Sign Up
+                  Sign In
                 </h3>
                 <br />
                 
-                <input
-                  id="name"
-                  name="name"
-                  onChange={[Function]}
-                  placeholder="Name"
-                  type="text"
-                />
                 
-                <br />
                 <input
                   id="email"
                   name="email"
@@ -644,7 +509,6 @@ ShallowWrapper {
                   required={true}
                   type="text"
                 />
-                
                 
                 <br />
                 <input
@@ -657,31 +521,21 @@ ShallowWrapper {
                 />
                 
                 <br />
-                <input
-                  id="confirmPassword"
-                  name="password_confirmation"
-                  onChange={[Function]}
-                  placeholder="Confirm Password"
-                  required={true}
-                  type="password"
-                />
-                
-                <br />
                 <button
                   className="button"
                   id="signupBtn"
                   onClick={[Function]}
                   type="submit"
                 >
-                  Sign Up
+                  Sign In
                 </button>
                 <p>
-                  Already have an account?
+                  Donot have an account?
                   <Link
                     replace={false}
-                    to="/signin"
+                    to="/signup"
                   >
-                    Sign In
+                    Sign Up
                   </Link>
                 </p>
               </form>
@@ -752,19 +606,11 @@ ShallowWrapper {
                 id="signupForm"
               >
                 <h3>
-                  Sign Up
+                  Sign In
                 </h3>
                 <br />
                 
-                <input
-                  id="name"
-                  name="name"
-                  onChange={[Function]}
-                  placeholder="Name"
-                  type="text"
-                />
                 
-                <br />
                 <input
                   id="email"
                   name="email"
@@ -773,7 +619,6 @@ ShallowWrapper {
                   required={true}
                   type="text"
                 />
-                
                 
                 <br />
                 <input
@@ -786,31 +631,21 @@ ShallowWrapper {
                 />
                 
                 <br />
-                <input
-                  id="confirmPassword"
-                  name="password_confirmation"
-                  onChange={[Function]}
-                  placeholder="Confirm Password"
-                  required={true}
-                  type="password"
-                />
-                
-                <br />
                 <button
                   className="button"
                   id="signupBtn"
                   onClick={[Function]}
                   type="submit"
                 >
-                  Sign Up
+                  Sign In
                 </button>
                 <p>
-                  Already have an account?
+                  Donot have an account?
                   <Link
                     replace={false}
-                    to="/signin"
+                    to="/signup"
                   >
-                    Sign In
+                    Sign Up
                   </Link>
                 </p>
               </form>
@@ -827,19 +662,11 @@ ShallowWrapper {
                 id="signupForm"
               >
                 <h3>
-                  Sign Up
+                  Sign In
                 </h3>
                 <br />
                 
-                <input
-                  id="name"
-                  name="name"
-                  onChange={[Function]}
-                  placeholder="Name"
-                  type="text"
-                />
                 
-                <br />
                 <input
                   id="email"
                   name="email"
@@ -848,7 +675,6 @@ ShallowWrapper {
                   required={true}
                   type="text"
                 />
-                
                 
                 <br />
                 <input
@@ -861,31 +687,21 @@ ShallowWrapper {
                 />
                 
                 <br />
-                <input
-                  id="confirmPassword"
-                  name="password_confirmation"
-                  onChange={[Function]}
-                  placeholder="Confirm Password"
-                  required={true}
-                  type="password"
-                />
-                
-                <br />
                 <button
                   className="button"
                   id="signupBtn"
                   onClick={[Function]}
                   type="submit"
                 >
-                  Sign Up
+                  Sign In
                 </button>
                 <p>
-                  Already have an account?
+                  Donot have an account?
                   <Link
                     replace={false}
-                    to="/signin"
+                    to="/signup"
                   >
-                    Sign In
+                    Sign Up
                   </Link>
                 </p>
               </form>,
@@ -899,19 +715,11 @@ ShallowWrapper {
               "props": Object {
                 "children": Array [
                   <h3>
-                    Sign Up
+                    Sign In
                   </h3>,
                   <br />,
                   "",
-                  <input
-                    id="name"
-                    name="name"
-                    onChange={[Function]}
-                    placeholder="Name"
-                    type="text"
-                  />,
                   "",
-                  <br />,
                   <input
                     id="email"
                     name="email"
@@ -920,7 +728,6 @@ ShallowWrapper {
                     required={true}
                     type="text"
                   />,
-                  "",
                   "",
                   <br />,
                   <input
@@ -933,31 +740,21 @@ ShallowWrapper {
                   />,
                   "",
                   <br />,
-                  <input
-                    id="confirmPassword"
-                    name="password_confirmation"
-                    onChange={[Function]}
-                    placeholder="Confirm Password"
-                    required={true}
-                    type="password"
-                  />,
-                  "",
-                  <br />,
                   <button
                     className="button"
                     id="signupBtn"
                     onClick={[Function]}
                     type="submit"
                   >
-                    Sign Up
+                    Sign In
                   </button>,
                   <p>
-                    Already have an account?
+                    Donot have an account?
                     <Link
                       replace={false}
-                      to="/signin"
+                      to="/signup"
                     >
-                      Sign In
+                      Sign Up
                     </Link>
                   </p>,
                 ],
@@ -970,10 +767,10 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "Sign Up",
+                    "children": "Sign In",
                   },
                   "ref": null,
-                  "rendered": "Sign Up",
+                  "rendered": "Sign In",
                   "type": "h3",
                 },
                 Object {
@@ -986,31 +783,7 @@ ShallowWrapper {
                   "type": "br",
                 },
                 "",
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "id": "name",
-                    "name": "name",
-                    "onChange": [Function],
-                    "placeholder": "Name",
-                    "type": "text",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": "input",
-                },
                 "",
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {},
-                  "ref": null,
-                  "rendered": null,
-                  "type": "br",
-                },
                 Object {
                   "instance": null,
                   "key": undefined,
@@ -1027,7 +800,6 @@ ShallowWrapper {
                   "rendered": null,
                   "type": "input",
                 },
-                "",
                 "",
                 Object {
                   "instance": null,
@@ -1069,40 +841,14 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "id": "confirmPassword",
-                    "name": "password_confirmation",
-                    "onChange": [Function],
-                    "placeholder": "Confirm Password",
-                    "required": true,
-                    "type": "password",
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": "input",
-                },
-                "",
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {},
-                  "ref": null,
-                  "rendered": null,
-                  "type": "br",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "Sign Up",
+                    "children": "Sign In",
                     "className": "button",
                     "id": "signupBtn",
                     "onClick": [Function],
                     "type": "submit",
                   },
                   "ref": null,
-                  "rendered": "Sign Up",
+                  "rendered": "Sign In",
                   "type": "button",
                 },
                 Object {
@@ -1111,29 +857,29 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "children": Array [
-                      "Already have an account?",
+                      "Donot have an account?",
                       <Link
                         replace={false}
-                        to="/signin"
+                        to="/signup"
                       >
-                        Sign In
+                        Sign Up
                       </Link>,
                     ],
                   },
                   "ref": null,
                   "rendered": Array [
-                    "Already have an account?",
+                    "Donot have an account?",
                     Object {
                       "instance": null,
                       "key": undefined,
                       "nodeType": "class",
                       "props": Object {
-                        "children": "Sign In",
+                        "children": "Sign Up",
                         "replace": false,
-                        "to": "/signin",
+                        "to": "/signup",
                       },
                       "ref": null,
-                      "rendered": "Sign In",
+                      "rendered": "Sign Up",
                       "type": [Function],
                     },
                   ],

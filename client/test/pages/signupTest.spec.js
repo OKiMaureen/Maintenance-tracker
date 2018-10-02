@@ -1,7 +1,6 @@
 import React from 'react';
 import { expect as e } from 'chai';
 import { shallow } from 'enzyme';
-import sinon from 'sinon';
 import { Signup } from '../../pages/Signup';
 
 
@@ -33,7 +32,7 @@ describe('<SignUp />', () => {
   });
   it('stores a snapshot of the component', () => {
     wrapper = shallow(<Signup {...props} />);
-   
+
     expect(wrapper).toMatchSnapshot();
   });
   it('Should return number of button on Signup page', () => {
@@ -61,12 +60,12 @@ describe('<SignUp />', () => {
       password_confirmation: 'password',
     });
     const { validate } = wrapper.instance();
-    
+
     const result = validate();
 
     expect(result).toBe(true);
   });
-  it('the handlechange function should clear the errors  when valid input is written', () => {
+  it('should check that the handlechange function should clear the errors  when valid input is written', () => {
     wrapper = shallow(<Signup {...props} />);
     wrapper.setState({
       name: 'maureen',
