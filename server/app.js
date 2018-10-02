@@ -1,7 +1,6 @@
 import cors from 'cors';
 import path from 'path';
 import logger from 'morgan';
-import winston from 'winston';
 import bodyParser from 'body-parser';
 import Express from 'express';
 import routes from './routes/index';

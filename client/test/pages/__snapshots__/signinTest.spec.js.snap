@@ -1,0 +1,780 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SignIn /> stores a snapshot of the component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Signin
+    error=""
+    history={Object {}}
+    signInAction={[Function]}
+    userDetail={
+      Object {
+        "authUser": Object {
+          "email": "ccureen.eloho@gmail.com",
+          "id": 1,
+          "name": "maureen",
+          "role": "user",
+        },
+        "checkStatus": Object {
+          "error": false,
+          "isLoading": false,
+          "success": false,
+        },
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <section
+        className="form"
+      >
+        <article
+          className="card"
+        >
+          <form
+            id="signupForm"
+          >
+            <h3>
+              Sign In
+            </h3>
+            <br />
+            
+            
+            <input
+              id="email"
+              name="email"
+              onChange={[Function]}
+              placeholder="Email"
+              required={true}
+              type="text"
+            />
+            
+            <br />
+            <input
+              id="password"
+              name="password"
+              onChange={[Function]}
+              placeholder="Password"
+              required={true}
+              type="password"
+            />
+            
+            <br />
+            <button
+              className="button"
+              id="signupBtn"
+              onClick={[Function]}
+              type="submit"
+            >
+              Sign In
+            </button>
+            <p>
+              Donot have an account?
+              <Link
+                replace={false}
+                to="/signup"
+              >
+                Sign Up
+              </Link>
+            </p>
+          </form>
+        </article>
+      </section>,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <article
+          className="card"
+        >
+          <form
+            id="signupForm"
+          >
+            <h3>
+              Sign In
+            </h3>
+            <br />
+            
+            
+            <input
+              id="email"
+              name="email"
+              onChange={[Function]}
+              placeholder="Email"
+              required={true}
+              type="text"
+            />
+            
+            <br />
+            <input
+              id="password"
+              name="password"
+              onChange={[Function]}
+              placeholder="Password"
+              required={true}
+              type="password"
+            />
+            
+            <br />
+            <button
+              className="button"
+              id="signupBtn"
+              onClick={[Function]}
+              type="submit"
+            >
+              Sign In
+            </button>
+            <p>
+              Donot have an account?
+              <Link
+                replace={false}
+                to="/signup"
+              >
+                Sign Up
+              </Link>
+            </p>
+          </form>
+        </article>,
+        "className": "form",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <form
+            id="signupForm"
+          >
+            <h3>
+              Sign In
+            </h3>
+            <br />
+            
+            
+            <input
+              id="email"
+              name="email"
+              onChange={[Function]}
+              placeholder="Email"
+              required={true}
+              type="text"
+            />
+            
+            <br />
+            <input
+              id="password"
+              name="password"
+              onChange={[Function]}
+              placeholder="Password"
+              required={true}
+              type="password"
+            />
+            
+            <br />
+            <button
+              className="button"
+              id="signupBtn"
+              onClick={[Function]}
+              type="submit"
+            >
+              Sign In
+            </button>
+            <p>
+              Donot have an account?
+              <Link
+                replace={false}
+                to="/signup"
+              >
+                Sign Up
+              </Link>
+            </p>
+          </form>,
+          "className": "card",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h3>
+                Sign In
+              </h3>,
+              <br />,
+              "",
+              "",
+              <input
+                id="email"
+                name="email"
+                onChange={[Function]}
+                placeholder="Email"
+                required={true}
+                type="text"
+              />,
+              "",
+              <br />,
+              <input
+                id="password"
+                name="password"
+                onChange={[Function]}
+                placeholder="Password"
+                required={true}
+                type="password"
+              />,
+              "",
+              <br />,
+              <button
+                className="button"
+                id="signupBtn"
+                onClick={[Function]}
+                type="submit"
+              >
+                Sign In
+              </button>,
+              <p>
+                Donot have an account?
+                <Link
+                  replace={false}
+                  to="/signup"
+                >
+                  Sign Up
+                </Link>
+              </p>,
+            ],
+            "id": "signupForm",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Sign In",
+              },
+              "ref": null,
+              "rendered": "Sign In",
+              "type": "h3",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "br",
+            },
+            "",
+            "",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "id": "email",
+                "name": "email",
+                "onChange": [Function],
+                "placeholder": "Email",
+                "required": true,
+                "type": "text",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            "",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "br",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "id": "password",
+                "name": "password",
+                "onChange": [Function],
+                "placeholder": "Password",
+                "required": true,
+                "type": "password",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            "",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "br",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Sign In",
+                "className": "button",
+                "id": "signupBtn",
+                "onClick": [Function],
+                "type": "submit",
+              },
+              "ref": null,
+              "rendered": "Sign In",
+              "type": "button",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Donot have an account?",
+                  <Link
+                    replace={false}
+                    to="/signup"
+                  >
+                    Sign Up
+                  </Link>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Donot have an account?",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "Sign Up",
+                    "replace": false,
+                    "to": "/signup",
+                  },
+                  "ref": null,
+                  "rendered": "Sign Up",
+                  "type": [Function],
+                },
+              ],
+              "type": "p",
+            },
+          ],
+          "type": "form",
+        },
+        "type": "article",
+      },
+      "type": "section",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <section
+          className="form"
+        >
+          <article
+            className="card"
+          >
+            <form
+              id="signupForm"
+            >
+              <h3>
+                Sign In
+              </h3>
+              <br />
+              
+              
+              <input
+                id="email"
+                name="email"
+                onChange={[Function]}
+                placeholder="Email"
+                required={true}
+                type="text"
+              />
+              
+              <br />
+              <input
+                id="password"
+                name="password"
+                onChange={[Function]}
+                placeholder="Password"
+                required={true}
+                type="password"
+              />
+              
+              <br />
+              <button
+                className="button"
+                id="signupBtn"
+                onClick={[Function]}
+                type="submit"
+              >
+                Sign In
+              </button>
+              <p>
+                Donot have an account?
+                <Link
+                  replace={false}
+                  to="/signup"
+                >
+                  Sign Up
+                </Link>
+              </p>
+            </form>
+          </article>
+        </section>,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <article
+            className="card"
+          >
+            <form
+              id="signupForm"
+            >
+              <h3>
+                Sign In
+              </h3>
+              <br />
+              
+              
+              <input
+                id="email"
+                name="email"
+                onChange={[Function]}
+                placeholder="Email"
+                required={true}
+                type="text"
+              />
+              
+              <br />
+              <input
+                id="password"
+                name="password"
+                onChange={[Function]}
+                placeholder="Password"
+                required={true}
+                type="password"
+              />
+              
+              <br />
+              <button
+                className="button"
+                id="signupBtn"
+                onClick={[Function]}
+                type="submit"
+              >
+                Sign In
+              </button>
+              <p>
+                Donot have an account?
+                <Link
+                  replace={false}
+                  to="/signup"
+                >
+                  Sign Up
+                </Link>
+              </p>
+            </form>
+          </article>,
+          "className": "form",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <form
+              id="signupForm"
+            >
+              <h3>
+                Sign In
+              </h3>
+              <br />
+              
+              
+              <input
+                id="email"
+                name="email"
+                onChange={[Function]}
+                placeholder="Email"
+                required={true}
+                type="text"
+              />
+              
+              <br />
+              <input
+                id="password"
+                name="password"
+                onChange={[Function]}
+                placeholder="Password"
+                required={true}
+                type="password"
+              />
+              
+              <br />
+              <button
+                className="button"
+                id="signupBtn"
+                onClick={[Function]}
+                type="submit"
+              >
+                Sign In
+              </button>
+              <p>
+                Donot have an account?
+                <Link
+                  replace={false}
+                  to="/signup"
+                >
+                  Sign Up
+                </Link>
+              </p>
+            </form>,
+            "className": "card",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h3>
+                  Sign In
+                </h3>,
+                <br />,
+                "",
+                "",
+                <input
+                  id="email"
+                  name="email"
+                  onChange={[Function]}
+                  placeholder="Email"
+                  required={true}
+                  type="text"
+                />,
+                "",
+                <br />,
+                <input
+                  id="password"
+                  name="password"
+                  onChange={[Function]}
+                  placeholder="Password"
+                  required={true}
+                  type="password"
+                />,
+                "",
+                <br />,
+                <button
+                  className="button"
+                  id="signupBtn"
+                  onClick={[Function]}
+                  type="submit"
+                >
+                  Sign In
+                </button>,
+                <p>
+                  Donot have an account?
+                  <Link
+                    replace={false}
+                    to="/signup"
+                  >
+                    Sign Up
+                  </Link>
+                </p>,
+              ],
+              "id": "signupForm",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Sign In",
+                },
+                "ref": null,
+                "rendered": "Sign In",
+                "type": "h3",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": "br",
+              },
+              "",
+              "",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "id": "email",
+                  "name": "email",
+                  "onChange": [Function],
+                  "placeholder": "Email",
+                  "required": true,
+                  "type": "text",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "input",
+              },
+              "",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": "br",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "id": "password",
+                  "name": "password",
+                  "onChange": [Function],
+                  "placeholder": "Password",
+                  "required": true,
+                  "type": "password",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "input",
+              },
+              "",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": "br",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Sign In",
+                  "className": "button",
+                  "id": "signupBtn",
+                  "onClick": [Function],
+                  "type": "submit",
+                },
+                "ref": null,
+                "rendered": "Sign In",
+                "type": "button",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Donot have an account?",
+                    <Link
+                      replace={false}
+                      to="/signup"
+                    >
+                      Sign Up
+                    </Link>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Donot have an account?",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": "Sign Up",
+                      "replace": false,
+                      "to": "/signup",
+                    },
+                    "ref": null,
+                    "rendered": "Sign Up",
+                    "type": [Function],
+                  },
+                ],
+                "type": "p",
+              },
+            ],
+            "type": "form",
+          },
+          "type": "article",
+        },
+        "type": "section",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
+  },
+}
+`;
