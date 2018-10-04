@@ -65,7 +65,7 @@ describe('<SignUp />', () => {
 
     expect(result).toBe(true);
   });
-  it('the handlechange function should clear the errors  when valid input is written', () => {
+  it('should check that the handlechange function should clear the errors  when valid input is written', () => {
     wrapper = shallow(<Signup {...props} />);
     wrapper.setState({
       name: 'maureen',

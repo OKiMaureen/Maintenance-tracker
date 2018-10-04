@@ -18,14 +18,6 @@ module.exports = {
       exclude: /node_modules/,
       use: ['style-loader', 'css-loader'],
     },
-    // {
-    //   test: /\.(png|jpg|jpeg)$/,
-    //   loader: 'file-loader',
-    // },
-    // {
-    //   test: /\.(jpe?g|png|gif|svg)$/i,
-    //   use: ['url-loader?limit=5000000', 'img-loader'],
-    // },
     {
       test: /\.(gif|png|jpe?g|svg|jpg)$/i,
       use: [
@@ -41,7 +33,7 @@ module.exports = {
     ],
   },
   devServer: {
-    contentBase: path.join(__dirname, 'client/public'),
+    contentBase: path.join(__dirname, 'client-dist'),
     historyApiFallback: true,
   },
   plugins: [
