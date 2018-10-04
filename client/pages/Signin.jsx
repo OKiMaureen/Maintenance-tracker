@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import signInAction from '../actions/signInAction';
 import loader from '../assets/images/spinloader.gif';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export class Signin extends Component {
     /**
@@ -69,6 +71,7 @@ export class Signin extends Component {
     render() {
       return (
         <div>
+          <Header><Link to="/">Home</Link><Link to="/" /></Header>
           {/* Signup Form  */}
           <section className="form">
             <article className="card">
@@ -100,6 +103,7 @@ export class Signin extends Component {
             </article>
           </section>
           {/* End signup form */}
+          <Footer />
         </div>
 
       );

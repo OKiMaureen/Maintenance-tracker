@@ -1,10 +1,10 @@
-import { SIGNUP_ERROR, SIGNUP_SUCCESS, LOADING_STATUS } from '../actions/types';
+import { ERROR_MESSAGE, SIGNUP_SUCCESS, LOADING_STATUS } from '../actions/types';
 
 const auth = localStorage.getItem('auth');
 const getAuth = JSON.parse(auth);
 
 const initialState = {
-  authUser: getAuth,
+  getAuth,
   checkStatus: {
     isLoading: false,
     success: false,
@@ -32,7 +32,7 @@ const authReducer = (state = initialState, action) => {
           error: false,
         },
       };
-    case SIGNUP_ERROR:
+    case ERROR_MESSAGE:
       return {
         ...state,
         error: action.error,

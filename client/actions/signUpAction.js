@@ -1,4 +1,4 @@
-import { SIGNUP_SUCCESS, SIGNUP_ERROR, LOADING_STATUS } from './types';
+import { SIGNUP_SUCCESS, ERROR_MESSAGE, LOADING_STATUS } from './types';
 
 
 const baseUrl = 'https://maintenance-tracker-app.herokuapp.com/api/v1/auth/signup/';
@@ -9,7 +9,7 @@ export const signupUser = userData => ({
 });
 
 export const signupUserError = userData => ({
-  type: SIGNUP_ERROR,
+  type: ERROR_MESSAGE,
   error: userData,
 });
 
@@ -30,9 +30,9 @@ const signUpAction = (userData, history) => (dispatch, getState, http) => {
     .post(baseUrl, userData)
     .then((res) => {
       if (res.data.data.user.role === 'user') {
-        history.push('/allrequests');
+        history.push('/createrequest');
       }
-      localStorage.setItem('auth', JSON.stringify(res.data.data.user));
+      localStorage.setItem('auth', JSON.stringify(res.data.data));
       dispatch(signupUser(res.data.data));
     })
     .catch((error) => {

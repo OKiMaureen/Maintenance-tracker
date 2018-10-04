@@ -3,8 +3,8 @@ import configureMockStore from 'redux-mock-store';
 import signIn from '../../actions/signInAction';
 
 
-describe('signup Action', () => {
-  it('should sucessfully sign in users and redirect to /allrequests', () => {
+describe('signin Action', () => {
+  it('should sucessfully sign in users and redirect to /createrequest', () => {
     const middleware = [thunk.withExtraArgument({
       post: () => Promise.resolve({
         data: {
@@ -30,10 +30,10 @@ describe('signup Action', () => {
     const store = mockStore({});
 
     return store.dispatch(signIn(details, history)).then(() => {
-      expect(history.push).toHaveBeenCalledWith('/allrequests');
+      expect(history.push).toHaveBeenCalledWith('/createrequest');
     });
   });
-  it('should sucessfully sign in admin and redirect to /adminrequests', () => {
+  it('should sucessfully sign in admin and redirect to /adminrequest', () => {
     const middleware = [thunk.withExtraArgument({
       post: () => Promise.resolve({
         data: {
@@ -58,7 +58,7 @@ describe('signup Action', () => {
     };
     const store = mockStore({});
     return store.dispatch(signIn(details, history)).then(() => {
-      expect(history.push).toHaveBeenCalledWith('/adminrequests');
+      expect(history.push).toHaveBeenCalledWith('/adminrequest');
     });
   });
   it('should sucessfully show error if email or password is not correct', () => {
