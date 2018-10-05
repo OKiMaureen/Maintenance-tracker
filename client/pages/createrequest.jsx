@@ -89,42 +89,44 @@ export class CreateRequest extends Component {
         <div>
           <Header><Link to="/">Home</Link> <Link to="/allrequests">My request</Link><button className="header-btn" onClick={this.logout}>Logout</button></Header>
           <section className="request">
-            <form className="request-form">
-              <h3>Create Request</h3>
-              <br />
+            <article className="request-card">
+              <form className="request-form">
+                <h3>Create Request</h3>
+                <br />
 
-              <p>Fill the form below to indicate equipments in need of repair or maintenance</p>
-              <br />
-              {
+                <p>Fill the form below to indicate equipments in need of repair or maintenance</p>
+                <br />
+                {
                 this.props.requestDetail.error ? <span className="validation-error">{this.props.requestDetail.error}</span> : ''
               }
-              {this.props.userDetail.checkStatus.isLoading ? (<span className="loader"><img src={loader} alt="loader" /></span>) : '' }
-              <input type="text" name="department" id="department" placeholder="Department" onChange={this.handleChange} />
-              {
+                {this.props.userDetail.checkStatus.isLoading ? (<span className="loader"><img src={loader} alt="loader" /></span>) : '' }
+                <input type="text" name="department" id="department" placeholder="Department" onChange={this.handleChange} />
+                {
                 this.state.errors.department ? this.state.errors.department.map(error => <span className="validation-error" key={error}>{error}</span>) : ''
               }
-              <p className="message" id="departmentE" />
-              <br />
-              <input type="text" name="equipment" id="equipment" placeholder="Equipment" onChange={this.handleChange} />
-              {
+                <p className="message" id="departmentE" />
+                <br />
+                <input type="text" name="equipment" id="equipment" placeholder="Equipment" onChange={this.handleChange} />
+                {
                   this.state.errors.equipment ? this.state.errors.equipment.map(error => <span className="validation-error" key={error}>{error}</span>) : ''
                 }
-              <p className="message" id="equipmentE" />
-              <br />
-              <input type="text" name="title" id="requestTitle" placeholder="Request Title" onChange={this.handleChange} />
-              {
+                <p className="message" id="equipmentE" />
+                <br />
+                <input type="text" name="title" id="requestTitle" placeholder="Request Title" onChange={this.handleChange} />
+                {
               this.state.errors.title ? this.state.errors.title.map(error => <span className="validation-error" key={error}>{error}</span>) : ''
               }
-              <p className="message" id="titleE" />
-              <br />
-              <textarea name="description" id="requestDescription" cols="20" rows="5" placeholder="Request Description" onChange={this.handleChange} />
-              {
+                <p className="message" id="titleE" />
+                <br />
+                <textarea name="description" id="requestDescription" cols="20" rows="5" placeholder="Request Description" onChange={this.handleChange} />
+                {
                   this.state.errors.description ? this.state.errors.description.map(error => <span className="validation-error" key={error}>{error}</span>) : ''
                 }
-              <p className="message" id="descriptionE" />
-              <br />
-              <button type="submit" className="button" id="createRequest" onClick={this.handleSubmit}>Create Request</button>
-            </form>
+                <p className="message" id="descriptionE" />
+                <br />
+                <button type="submit" className="button" id="createRequest" onClick={this.handleSubmit}>Create Request</button>
+              </form>
+            </article>
           </section>
           <Footer />
         </div>

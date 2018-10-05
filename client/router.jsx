@@ -5,11 +5,11 @@ import Signin from './pages/Signin';
 import Signup from './pages/Signup';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import AllRequests from './pages/allrequests';
+import AllRequests from './pages/AllRequests';
 import CreateRequest from './pages/CreateRequest';
 import EditRequest from './pages/editrequest';
 import AdminRequests from './pages/adminrequests';
-import UserDetails from './pages/userdetails';
+import RequestDetails from './pages/requestdetails';
 
 
 const Routes = () => ((
@@ -22,7 +22,7 @@ const Routes = () => ((
       <Route path="/createrequest" component={CreateRequest} />
       <Route path="/editrequest" component={EditRequest} />
       <Route path="/adminrequests" component={AdminRequests} />
-      <Route path="/userdetails" component={UserDetails} />
+      <Route path="/requestdetails" component={RequestDetails} />
     </React.Fragment>
   </BrowserRouter>
 ));
