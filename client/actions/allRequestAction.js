@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ALL_REQUESTS, LOADING_STATUS, ERROR_MESSAGE } from './types';
+import { GET_ALL_REQUESTS, GET_ALL_ERROR } from './types';
 
 const url = 'https://maintenance-tracker-app.herokuapp.com/api/v1/users/requests';
 
@@ -8,12 +8,8 @@ export const getRequests = getaAllRequests => ({
   payload: getaAllRequests,
 });
 
-export const loadingStatus = () => ({
-  type: LOADING_STATUS,
-});
-
 export const errorMessage = userData => ({
-  type: ERROR_MESSAGE,
+  type: GET_ALL_ERROR,
   error: userData,
 });
 
@@ -21,8 +17,7 @@ const getAllRequestsAction = () => (dispatch, getstate, http) => {
   const state = getstate();
 
   const { token } = state.authUser.getAuth;
-  dispatch(loadingStatus(LOADING_STATUS));
-  axios.defaults.headers.common.token = token;
+  axios.defaults.headers.token = token;
   return http
     .get(url)
     .then((res) => {

@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import createRequestAction from '../actions/createRequestAction';
+import clearMessageAction from '../actions/clearMeassageAction';
+import logoutAction from '../actions/logoutAction';
 import loader from '../assets/images/spinloader.gif';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -70,6 +72,8 @@ export class CreateRequest extends Component {
         });
       }
       this.setState({ [e.target.name]: e.target.value });
+      const { clearMessage, requestDetail } = this.props;
+      if (requestDetail.error) clearMessage();
       return true;
     }
     handleSubmit = (event) => {
@@ -80,14 +84,16 @@ export class CreateRequest extends Component {
       return true;
     }
     logout = () => {
+      const { history, logout } = this.props;
+      logout();
       localStorage.clear();
-      this.props.history.push('/');
+      history.push('/');
       return true;
     }
     render() {
       return (
         <div>
-          <Header><Link to="/">Home</Link> <Link to="/allrequests">My request</Link><button className="header-btn" onClick={this.logout}>Logout</button></Header>
+          <Header><Link to="/">Home</Link><Link to="/createrequests" className="current">Create request</Link> <Link to="/allrequests">My request</Link><button className="header-btn" onClick={this.logout}>Logout</button></Header>
           <section className="request">
             <article className="request-card">
               <form className="request-form">
@@ -143,6 +149,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   createRequestAction,
+  clearMessage: clearMessageAction,
+  logout: logoutAction,
 }, dispatch);
 
 CreateRequest.propTypes = {
@@ -155,6 +163,8 @@ CreateRequest.propTypes = {
     error: PropTypes.string,
   }).isRequired,
   createRequestAction: PropTypes.func.isRequired,
+  clearMessage: PropTypes.func.isRequired,
+  logout: PropTypes.func.isRequired,
   history: PropTypes.objectOf(PropTypes.object).isRequired,
 };
 

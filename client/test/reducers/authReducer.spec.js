@@ -74,4 +74,19 @@ describe('Test authReducers', () => {
     };
     expect(actual).toEqual(expected);
   });
+  it('Should return state of logout', () => {
+    const actual = signUpReducer({}, {
+      type: 'LOG_OUT',
+    });
+
+    const expected = {
+      getAuth: {},
+      checkStatus: {
+        error: false,
+        isLoading: false,
+        success: false,
+      },
+    };
+    expect(actual).toEqual(expected);
+  });
 });

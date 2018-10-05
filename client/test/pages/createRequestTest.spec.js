@@ -1,13 +1,13 @@
 import React from 'react';
 import { expect as e } from 'chai';
 import { shallow } from 'enzyme';
-import { CreateRequest } from '../../pages/CreateRequest';
-
+import { CreateRequest } from '../../pages/createrequest';
 
 describe('<CreateRequest />', () => {
   let wrapper;
   const props = {
     createRequestAction: () => {},
+    logout: () => {},
     requestDetail: {
       checkStatus: {
         isLoading: false,

@@ -52,7 +52,7 @@ describe('create request Action', () => {
 
     store.dispatch(request(details, history)).then(() => {
       expect(store.getActions()[1].type).toEqual('CREATE_REQUEST');
-      expect(history.push).toHaveBeenCalledWith('/userdetails');
+      expect(history.push).toHaveBeenCalledWith('/requestdetails');
     });
   });
 
