@@ -37,6 +37,10 @@ const signInAction = (userData, history) => (dispatch, getState, http) => {
       localStorage.setItem('auth', JSON.stringify(res.data.data));
       dispatch(signinUser(res.data.data));
     })
-    .catch(() => {});
+    .catch((error) => {
+      if (error.response.status === 401) {
+        dispatch(signinUserError(error.response.data.message));
+      }
+    });
 };
 export default signInAction;

@@ -1,5 +1,5 @@
-import { CREATE_REQUEST, ERROR_MESSAGE, LOADING_STATUS } from './types';
 import axios from 'axios';
+import { CREATE_REQUEST, ERROR_MESSAGE, LOADING_STATUS } from './types';
 
 const baseUrl = 'https://maintenance-tracker-app.herokuapp.com/api/v1/users/requests/';
 
@@ -31,7 +31,6 @@ const createRequestAction = (request, history) => (dispatch, getstate, http) => 
       }
     })
     .catch((error) => {
-      console.log(error, '@@@@@@@@@@@@@@@');
       if (error.response.status === 409) {
         dispatch(errorMessage('The request is already created'));
       }
