@@ -7,7 +7,8 @@ import { AllRequests } from '../../pages/AllRequests';
 describe('<AllRequest />', () => {
   let wrapper;
   let props = {
-    allRequestAction: () => {},
+    allRequest: () => {},
+    logout: () => {},
     requests: [
       {
         id: 1,
@@ -40,13 +41,13 @@ describe('<AllRequest />', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
-  it('Should handle logout method', () => {
-    wrapper = shallow(<AllRequests {...props} />);
-    expect(wrapper.instance().logout()).toBe(true);
-  });
+  // it('Should handle logout method', () => {
+  //   wrapper = shallow(<AllRequests {...props} />);
+  //   expect(wrapper.instance().logout()).toBe(true);
+  // });
   it('Should display request title when request loads and it exists', () => {
     props = {
-      allRequestAction: () => {},
+      allRequest: () => {},
       requests: [
         {
           id: 1,
@@ -76,16 +77,27 @@ describe('<AllRequest />', () => {
   });
   it('Should display request title when request loads and it exists', () => {
     props = {
-      allRequestAction: () => {},
+      allRequest: () => {},
       requests: [],
     };
 
     wrapper = shallow(<AllRequests {...props} />);
     expect(wrapper.find('label').exists()).toBe(false);
   });
+  it('Should handle logout method', () => {
+    props = {
+      allRequest: () => {},
+      logout: () => {},
+      history: {
+        push: jest.fn(),
+      },
+    };
+    wrapper = shallow(<AllRequests {...props} />);
+    expect(wrapper.instance().logout()).toBe(true);
+  });
   it('Should display request title when request loads and it exists', () => {
     props = {
-      allRequestAction: () => {},
+      allRequest: () => {},
       requests: [
         { requeststatus: 'pending' },
       ],
@@ -96,7 +108,7 @@ describe('<AllRequest />', () => {
   });
   it('Should display request title when request loads and it exists', () => {
     props = {
-      allRequestAction: () => {},
+      allRequest: () => {},
       requests: [
         { requeststatus: 'approved' },
       ],
@@ -107,7 +119,7 @@ describe('<AllRequest />', () => {
   });
   it('Should display request title when request loads and it exists', () => {
     props = {
-      allRequestAction: () => {},
+      allRequest: () => {},
       requests: [
         { requeststatus: 'disapproved' },
       ],
@@ -118,7 +130,7 @@ describe('<AllRequest />', () => {
   });
   it('Should display request title when request loads and it exists', () => {
     props = {
-      allRequestAction: () => {},
+      allRequest: () => {},
       requests: [
         { requeststatus: 'resolved' },
       ],

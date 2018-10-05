@@ -34,11 +34,25 @@ describe('Test authReducers', () => {
       type: 'CREATE_REQUEST',
       request: requestDataSuccess,
     });
-    expect(actual).toEqual(requestDataSuccess);
+    const expected = {
+      checkStatus: {
+        error: false,
+        isLoading: false,
+        success: true,
+      },
+      request: {
+        department: 'something',
+        equipment: 'something',
+        serialnumber: '11111111',
+        title: 'something',
+        description: 'something',
+      },
+    };
+    expect(actual).toEqual(expected);
   });
   it('Should return state of loading request', () => {
     const actual = requestReducer({}, {
-      type: 'LOADING_STATUS',
+      type: 'CREATE_LOADING_STATUS',
       payload: requestDataLoading,
     });
 
@@ -51,15 +65,44 @@ describe('Test authReducers', () => {
     };
     expect(actual).toEqual(expected);
   });
-  it('Should return state of  signup error', () => {
+  it('Should return state of  request error', () => {
     const actual = requestReducer({}, {
-      type: 'ERROR_MESSAGE',
+      type: 'CREATE_ERROR',
       payload: requestDataError,
     });
 
     const expected = {
       checkStatus: {
         error: true,
+        isLoading: false,
+        success: false,
+      },
+    };
+    expect(actual).toEqual(expected);
+  });
+  it('Should return state of cleared message', () => {
+    const actual = requestReducer({}, {
+      type: 'CLEAR_MESSAGE',
+    });
+
+    const expected = {
+      error: '',
+      checkStatus: {
+        error: false,
+        isLoading: false,
+        success: false,
+      },
+    };
+    expect(actual).toEqual(expected);
+  });
+  it('Should return state of logout', () => {
+    const actual = requestReducer({}, {
+      type: 'LOG_OUT',
+    });
+
+    const expected = {
+      checkStatus: {
+        error: false,
         isLoading: false,
         success: false,
       },

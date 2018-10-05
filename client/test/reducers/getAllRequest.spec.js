@@ -37,17 +37,52 @@ describe('Test all request reducers', () => {
       type: 'GET_ALL_REQUESTS',
       payload: requestDataSuccess,
     });
-    expect(actual).toEqual(requestDataSuccess);
+    const expected = {
+      requests: [
+        {
+          id: 1,
+          user_id: 1,
+          title: 'repair computer',
+          department: 'technology',
+          equipment: 'computer',
+          requeststatus: 'pending',
+          description: 'repair laptop',
+          serialnumber: 111111111,
+        },
+        {
+          id: 2,
+          user_id: 2,
+          title: 'repair computer',
+          department: 'technology',
+          equipment: 'computer',
+          requeststatus: 'pending',
+          description: 'repair laptop',
+          serialnumber: 111111111,
+        },
+      ],
+    };
+    expect(actual).toEqual(expected);
   });
-  it('Should return state oferror', () => {
+  it('Should return state of error', () => {
     const actual = requestReducer({}, {
-      type: 'ERROR_MESSAGE',
+      type: 'GET_ALL_ERROR',
       error: requestDataError,
     });
     const expected = {
       error: {
         error: 'server error',
       },
+    };
+    expect(actual).toEqual(expected);
+  });
+  it('Should return state of logout', () => {
+    const actual = requestReducer({}, {
+      type: 'LOG_OUT',
+    });
+
+    const expected = {
+      requests: [],
+      error: {},
     };
     expect(actual).toEqual(expected);
   });

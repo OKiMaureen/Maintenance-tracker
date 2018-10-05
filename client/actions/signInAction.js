@@ -1,4 +1,4 @@
-import { SIGNUP_SUCCESS, ERROR_MESSAGE, LOADING_STATUS } from './types';
+import { SIGNUP_SUCCESS, AUTH_ERROR, AUTH_LOADING_STATUS } from './types';
 
 
 const baseUrl = 'https://maintenance-tracker-app.herokuapp.com/api/v1/auth/login/';
@@ -9,12 +9,12 @@ export const signinUser = userData => ({
 });
 
 export const signinUserError = userData => ({
-  type: ERROR_MESSAGE,
+  type: AUTH_ERROR,
   error: userData,
 });
 
 export const loadingStatus = () => ({
-  type: LOADING_STATUS,
+  type: AUTH_LOADING_STATUS,
 });
 /**
  * @description This method add new user to the database
@@ -25,7 +25,7 @@ export const loadingStatus = () => ({
 
 
 const signInAction = (userData, history) => (dispatch, getState, http) => {
-  dispatch(loadingStatus(LOADING_STATUS));
+  dispatch(loadingStatus(AUTH_LOADING_STATUS));
   return http
     .post(baseUrl, userData)
     .then((res) => {
@@ -34,8 +34,9 @@ const signInAction = (userData, history) => (dispatch, getState, http) => {
       } else if (res.data.data.user.role === 'admin') {
         history.push('/adminrequest');
       }
-      localStorage.setItem('auth', JSON.stringify(res.data.data));
-      dispatch(signinUser(res.data.data));
+      const user = res.data.data;
+      localStorage.setItem('auth', JSON.stringify(user));
+      dispatch(signinUser(user));
     })
     .catch((error) => {
       if (error.response.status === 401) {

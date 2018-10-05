@@ -1,18 +1,24 @@
-import { ERROR_MESSAGE, GET_ALL_REQUESTS } from '../actions/types';
+import { GET_ALL_ERROR, GET_ALL_REQUESTS, LOG_OUT } from '../actions/types';
 
-const requestReducer = (state = [], action) => {
+const initialState = {
+  requests: [],
+  error: {},
+};
+const requestReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL_REQUESTS:
-      return [
-        ...state,
-        ...action.payload,
-      ];
-    case ERROR_MESSAGE:
       return {
-
+        ...state,
+        requests: action.payload,
+      };
+    case GET_ALL_ERROR:
+      return {
+        ...state,
         error: action.error,
 
       };
+    case LOG_OUT:
+      return initialState;
     default:
       return state;
   }

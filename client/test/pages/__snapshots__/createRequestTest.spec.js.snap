@@ -11,6 +11,7 @@ ShallowWrapper {
         "push": [MockFunction],
       }
     }
+    logout={[Function]}
     requestDetail={
       Object {
         "checkStatus": Object {
@@ -50,6 +51,13 @@ ShallowWrapper {
             to="/"
           >
             Home
+          </Link>
+          <Link
+            className="current"
+            replace={false}
+            to="/createrequests"
+          >
+            Create request
           </Link>
            
           <Link
@@ -165,6 +173,13 @@ ShallowWrapper {
             >
               Home
             </Link>,
+            <Link
+              className="current"
+              replace={false}
+              to="/createrequests"
+            >
+              Create request
+            </Link>,
             " ",
             <Link
               replace={false}
@@ -193,6 +208,20 @@ ShallowWrapper {
             },
             "ref": null,
             "rendered": "Home",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Create request",
+              "className": "current",
+              "replace": false,
+              "to": "/createrequests",
+            },
+            "ref": null,
+            "rendered": "Create request",
             "type": [Function],
           },
           " ",
@@ -716,6 +745,13 @@ ShallowWrapper {
             >
               Home
             </Link>
+            <Link
+              className="current"
+              replace={false}
+              to="/createrequests"
+            >
+              Create request
+            </Link>
              
             <Link
               replace={false}
@@ -830,6 +866,13 @@ ShallowWrapper {
               >
                 Home
               </Link>,
+              <Link
+                className="current"
+                replace={false}
+                to="/createrequests"
+              >
+                Create request
+              </Link>,
               " ",
               <Link
                 replace={false}
@@ -858,6 +901,20 @@ ShallowWrapper {
               },
               "ref": null,
               "rendered": "Home",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Create request",
+                "className": "current",
+                "replace": false,
+                "to": "/createrequests",
+              },
+              "ref": null,
+              "rendered": "Create request",
               "type": [Function],
             },
             " ",

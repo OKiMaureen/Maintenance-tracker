@@ -1,11 +1,25 @@
-import { ERROR_MESSAGE, CREATE_REQUEST, LOADING_STATUS } from '../actions/types';
+import { CREATE_ERROR, CLEAR_MESSAGE, CREATE_REQUEST, CREATE_LOADING_STATUS, LOG_OUT } from '../actions/types';
 
-const createRequestReducer = (state = {}, action) => {
+const initialState = {
+  checkStatus: {
+    isLoading: false,
+    success: false,
+    error: false,
+  },
+};
+const createRequestReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_REQUEST:
-      return action.request;
-
-    case LOADING_STATUS:
+      return {
+        ...state,
+        request: action.request,
+        checkStatus: {
+          isLoading: false,
+          success: true,
+          error: false,
+        },
+      };
+    case CREATE_LOADING_STATUS:
       return {
         ...state,
         checkStatus: {
@@ -14,7 +28,7 @@ const createRequestReducer = (state = {}, action) => {
           error: false,
         },
       };
-    case ERROR_MESSAGE:
+    case CREATE_ERROR:
       return {
         ...state,
         error: action.error,
@@ -22,6 +36,24 @@ const createRequestReducer = (state = {}, action) => {
           isLoading: false,
           success: false,
           error: true,
+        },
+      };
+    case CLEAR_MESSAGE:
+      return {
+        ...state,
+        error: '',
+        checkStatus: {
+          isLoading: false,
+          success: false,
+          error: false,
+        },
+      };
+    case LOG_OUT:
+      return {
+        checkStatus: {
+          isLoading: false,
+          success: false,
+          error: false,
         },
       };
     default:

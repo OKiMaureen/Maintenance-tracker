@@ -1,4 +1,4 @@
-import { ERROR_MESSAGE, SIGNUP_SUCCESS, LOADING_STATUS } from '../actions/types';
+import { AUTH_ERROR, SIGNUP_SUCCESS, AUTH_LOADING_STATUS, LOG_OUT } from '../actions/types';
 
 const auth = localStorage.getItem('auth');
 const getAuth = JSON.parse(auth);
@@ -17,13 +17,14 @@ const authReducer = (state = initialState, action) => {
     case SIGNUP_SUCCESS:
       return {
         ...state,
+        getAuth: action.user,
         checkStatus: {
           isLoading: false,
           success: true,
           error: false,
         },
       };
-    case LOADING_STATUS:
+    case AUTH_LOADING_STATUS:
       return {
         ...state,
         checkStatus: {
@@ -32,7 +33,7 @@ const authReducer = (state = initialState, action) => {
           error: false,
         },
       };
-    case ERROR_MESSAGE:
+    case AUTH_ERROR:
       return {
         ...state,
         error: action.error,
@@ -40,6 +41,15 @@ const authReducer = (state = initialState, action) => {
           isLoading: false,
           success: false,
           error: true,
+        },
+      };
+    case LOG_OUT:
+      return {
+        getAuth: {},
+        checkStatus: {
+          isLoading: false,
+          success: false,
+          error: false,
         },
       };
     default:

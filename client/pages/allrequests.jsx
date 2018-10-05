@@ -5,37 +5,39 @@ import id from 'short-id';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import allRequestAction from '../actions/allRequestAction';
+import logoutAction from '../actions/logoutAction';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 export class AllRequests extends Component {
   componentDidMount() {
-    const { allRequestAction } = this.props;
-    allRequestAction();
+    const { allRequest } = this.props;
+    allRequest();
   }
   logout = () => {
-    localStorage.clear();
-    this.props.history.push('/');
+    const { history, logout } = this.props;
+    if (logout()) {
+      localStorage.clear();
+      history.push('/');
+    }
     return true;
   }
   render() {
-    const { requests } = this.props;
+    const { requests = [] } = this.props;
     return (
       <div>
         <Header>
           <Link to="/">Home</Link>
           <Link to="/createrequest">Create Request</Link>
-          <Link to="/allrequests">My request</Link>
+          <Link to="/allrequests" className="current">My requests</Link>
           <button className="header-btn" onClick={this.logout}>Logout</button>
         </Header>
 
         <section className="allrequests">
-
-
-          {requests !== [] ? requests.map(request =>
+          {requests && requests.length !== 0 ? requests.map(request =>
 
           (
-            <div className="requests-card" key={id.generate()}>
+            <div className="requests-card" key={id.generate}>
               <p>
                 <label>Title:</label>{request.title}
               </p>
@@ -52,15 +54,9 @@ export class AllRequests extends Component {
                   {request.requeststatus === 'disapproved' ? <label className="red">{request.requeststatus}</label> : ''}
                   {request.requeststatus === 'resolved' ? <label className="green">{request.requeststatus}</label> : ''}
                 </div>
-                <div className="status fixed ">
-                  <p>
-                    <Link to="/requestdetails"> More</Link>
-
-                  </p>
-                </div>
                 <div className="status flex-item ">
                   <p>
-                    {request.requeststatus === 'pending' ? <Link to="/editrequest">Edit</Link> : ''}
+                    <Link to="/requestdetails"> More</Link>
 
                   </p>
                 </div>
@@ -68,7 +64,7 @@ export class AllRequests extends Component {
             </div>)) :
           <div className="requests-card no-request" >
             <p>
-                 NO REQUESTS YET!!!
+              You do not have any requests yet!!!
             </p>
           </div>
           }
@@ -82,14 +78,16 @@ export class AllRequests extends Component {
 }
 
 const mapStateToProps = state => ({
-  requests: state.requests,
+  requests: state.requests.requests,
+  error: state.requests.error,
   userDetail: state.authUser,
 
 });
 
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  allRequestAction,
+  allRequest: allRequestAction,
+  logout: logoutAction,
 }, dispatch);
 
 AllRequests.propTypes = {
@@ -97,7 +95,8 @@ AllRequests.propTypes = {
     checkStatus: PropTypes.object,
     error: PropTypes.string,
   }).isRequired,
-  allRequestAction: PropTypes.func.isRequired,
+  allRequest: PropTypes.func.isRequired,
+  logout: PropTypes.func.isRequired,
   history: PropTypes.objectOf(PropTypes.object).isRequired,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(AllRequests);
