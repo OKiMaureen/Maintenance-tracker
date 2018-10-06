@@ -42,9 +42,6 @@ export class AllRequests extends Component {
                 <label>Title:</label>{request.title}
               </p>
               <p>
-                <label>Department:</label>{request.department}
-              </p>
-              <p>
                 <label>Equipment: </label>{request.equipment}
               </p>
               <div className="container">
@@ -56,15 +53,15 @@ export class AllRequests extends Component {
                 </div>
                 <div className="status flex-item ">
                   <p>
-                    <Link to="/requestdetails"> More</Link>
+                    { <Link to={`/singlerequest/${request.id}`}> More</Link>}
 
                   </p>
                 </div>
               </div>
             </div>)) :
           <div className="requests-card no-request" >
-            <p>
-              You do not have any requests yet!!!
+            <p className="message-centered">
+              You do not have any requests yet!!! Go ahead and create a request.
             </p>
           </div>
           }
