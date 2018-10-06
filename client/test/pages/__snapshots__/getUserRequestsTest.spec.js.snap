@@ -91,12 +91,6 @@ ShallowWrapper {
             </p>
             <p>
               <label>
-                Department:
-              </label>
-              technology
-            </p>
-            <p>
-              <label>
                 Equipment: 
               </label>
               computer
@@ -122,7 +116,7 @@ ShallowWrapper {
                 <p>
                   <Link
                     replace={false}
-                    to="/requestdetails"
+                    to="/singlerequest/1"
                   >
                      More
                   </Link>
@@ -141,12 +135,6 @@ ShallowWrapper {
             </p>
             <p>
               <label>
-                Department:
-              </label>
-              technology
-            </p>
-            <p>
-              <label>
                 Equipment: 
               </label>
               computer
@@ -172,7 +160,7 @@ ShallowWrapper {
                 <p>
                   <Link
                     replace={false}
-                    to="/requestdetails"
+                    to="/singlerequest/2"
                   >
                      More
                   </Link>
@@ -294,12 +282,6 @@ ShallowWrapper {
               </p>
               <p>
                 <label>
-                  Department:
-                </label>
-                technology
-              </p>
-              <p>
-                <label>
                   Equipment: 
                 </label>
                 computer
@@ -325,7 +307,7 @@ ShallowWrapper {
                   <p>
                     <Link
                       replace={false}
-                      to="/requestdetails"
+                      to="/singlerequest/1"
                     >
                        More
                     </Link>
@@ -344,12 +326,6 @@ ShallowWrapper {
               </p>
               <p>
                 <label>
-                  Department:
-                </label>
-                technology
-              </p>
-              <p>
-                <label>
                   Equipment: 
                 </label>
                 computer
@@ -375,7 +351,7 @@ ShallowWrapper {
                   <p>
                     <Link
                       replace={false}
-                      to="/requestdetails"
+                      to="/singlerequest/2"
                     >
                        More
                     </Link>
@@ -423,12 +399,6 @@ ShallowWrapper {
                 </p>,
                 <p>
                   <label>
-                    Department:
-                  </label>
-                  technology
-                </p>,
-                <p>
-                  <label>
                     Equipment: 
                   </label>
                   computer
@@ -454,7 +424,7 @@ ShallowWrapper {
                     <p>
                       <Link
                         replace={false}
-                        to="/requestdetails"
+                        to="/singlerequest/1"
                       >
                          More
                       </Link>
@@ -492,35 +462,6 @@ ShallowWrapper {
                     "type": "label",
                   },
                   "repair computer",
-                ],
-                "type": "p",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    <label>
-                      Department:
-                    </label>,
-                    "technology",
-                  ],
-                },
-                "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "Department:",
-                    },
-                    "ref": null,
-                    "rendered": "Department:",
-                    "type": "label",
-                  },
-                  "technology",
                 ],
                 "type": "p",
               },
@@ -577,7 +518,7 @@ ShallowWrapper {
                       <p>
                         <Link
                           replace={false}
-                          to="/requestdetails"
+                          to="/singlerequest/1"
                         >
                            More
                         </Link>
@@ -633,7 +574,7 @@ ShallowWrapper {
                       "children": <p>
                         <Link
                           replace={false}
-                          to="/requestdetails"
+                          to="/singlerequest/1"
                         >
                            More
                         </Link>
@@ -648,7 +589,7 @@ ShallowWrapper {
                       "props": Object {
                         "children": <Link
                           replace={false}
-                          to="/requestdetails"
+                          to="/singlerequest/1"
                         >
                            More
                         </Link>,
@@ -661,7 +602,7 @@ ShallowWrapper {
                         "props": Object {
                           "children": " More",
                           "replace": false,
-                          "to": "/requestdetails",
+                          "to": "/singlerequest/1",
                         },
                         "ref": null,
                         "rendered": " More",
@@ -712,12 +653,6 @@ ShallowWrapper {
                 </p>,
                 <p>
                   <label>
-                    Department:
-                  </label>
-                  technology
-                </p>,
-                <p>
-                  <label>
                     Equipment: 
                   </label>
                   computer
@@ -743,7 +678,7 @@ ShallowWrapper {
                     <p>
                       <Link
                         replace={false}
-                        to="/requestdetails"
+                        to="/singlerequest/2"
                       >
                          More
                       </Link>
@@ -781,35 +716,6 @@ ShallowWrapper {
                     "type": "label",
                   },
                   "repair computer",
-                ],
-                "type": "p",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    <label>
-                      Department:
-                    </label>,
-                    "technology",
-                  ],
-                },
-                "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "Department:",
-                    },
-                    "ref": null,
-                    "rendered": "Department:",
-                    "type": "label",
-                  },
-                  "technology",
                 ],
                 "type": "p",
               },
@@ -866,7 +772,7 @@ ShallowWrapper {
                       <p>
                         <Link
                           replace={false}
-                          to="/requestdetails"
+                          to="/singlerequest/2"
                         >
                            More
                         </Link>
@@ -922,7 +828,7 @@ ShallowWrapper {
                       "children": <p>
                         <Link
                           replace={false}
-                          to="/requestdetails"
+                          to="/singlerequest/2"
                         >
                            More
                         </Link>
@@ -937,7 +843,7 @@ ShallowWrapper {
                       "props": Object {
                         "children": <Link
                           replace={false}
-                          to="/requestdetails"
+                          to="/singlerequest/2"
                         >
                            More
                         </Link>,
@@ -950,7 +856,7 @@ ShallowWrapper {
                         "props": Object {
                           "children": " More",
                           "replace": false,
-                          "to": "/requestdetails",
+                          "to": "/singlerequest/2",
                         },
                         "ref": null,
                         "rendered": " More",
@@ -1029,12 +935,6 @@ ShallowWrapper {
               </p>
               <p>
                 <label>
-                  Department:
-                </label>
-                technology
-              </p>
-              <p>
-                <label>
                   Equipment: 
                 </label>
                 computer
@@ -1060,7 +960,7 @@ ShallowWrapper {
                   <p>
                     <Link
                       replace={false}
-                      to="/requestdetails"
+                      to="/singlerequest/1"
                     >
                        More
                     </Link>
@@ -1079,12 +979,6 @@ ShallowWrapper {
               </p>
               <p>
                 <label>
-                  Department:
-                </label>
-                technology
-              </p>
-              <p>
-                <label>
                   Equipment: 
                 </label>
                 computer
@@ -1110,7 +1004,7 @@ ShallowWrapper {
                   <p>
                     <Link
                       replace={false}
-                      to="/requestdetails"
+                      to="/singlerequest/2"
                     >
                        More
                     </Link>
@@ -1232,12 +1126,6 @@ ShallowWrapper {
                 </p>
                 <p>
                   <label>
-                    Department:
-                  </label>
-                  technology
-                </p>
-                <p>
-                  <label>
                     Equipment: 
                   </label>
                   computer
@@ -1263,7 +1151,7 @@ ShallowWrapper {
                     <p>
                       <Link
                         replace={false}
-                        to="/requestdetails"
+                        to="/singlerequest/1"
                       >
                          More
                       </Link>
@@ -1282,12 +1170,6 @@ ShallowWrapper {
                 </p>
                 <p>
                   <label>
-                    Department:
-                  </label>
-                  technology
-                </p>
-                <p>
-                  <label>
                     Equipment: 
                   </label>
                   computer
@@ -1313,7 +1195,7 @@ ShallowWrapper {
                     <p>
                       <Link
                         replace={false}
-                        to="/requestdetails"
+                        to="/singlerequest/2"
                       >
                          More
                       </Link>
@@ -1361,12 +1243,6 @@ ShallowWrapper {
                   </p>,
                   <p>
                     <label>
-                      Department:
-                    </label>
-                    technology
-                  </p>,
-                  <p>
-                    <label>
                       Equipment: 
                     </label>
                     computer
@@ -1392,7 +1268,7 @@ ShallowWrapper {
                       <p>
                         <Link
                           replace={false}
-                          to="/requestdetails"
+                          to="/singlerequest/1"
                         >
                            More
                         </Link>
@@ -1430,35 +1306,6 @@ ShallowWrapper {
                       "type": "label",
                     },
                     "repair computer",
-                  ],
-                  "type": "p",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": Array [
-                      <label>
-                        Department:
-                      </label>,
-                      "technology",
-                    ],
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": "Department:",
-                      },
-                      "ref": null,
-                      "rendered": "Department:",
-                      "type": "label",
-                    },
-                    "technology",
                   ],
                   "type": "p",
                 },
@@ -1515,7 +1362,7 @@ ShallowWrapper {
                         <p>
                           <Link
                             replace={false}
-                            to="/requestdetails"
+                            to="/singlerequest/1"
                           >
                              More
                           </Link>
@@ -1571,7 +1418,7 @@ ShallowWrapper {
                         "children": <p>
                           <Link
                             replace={false}
-                            to="/requestdetails"
+                            to="/singlerequest/1"
                           >
                              More
                           </Link>
@@ -1586,7 +1433,7 @@ ShallowWrapper {
                         "props": Object {
                           "children": <Link
                             replace={false}
-                            to="/requestdetails"
+                            to="/singlerequest/1"
                           >
                              More
                           </Link>,
@@ -1599,7 +1446,7 @@ ShallowWrapper {
                           "props": Object {
                             "children": " More",
                             "replace": false,
-                            "to": "/requestdetails",
+                            "to": "/singlerequest/1",
                           },
                           "ref": null,
                           "rendered": " More",
@@ -1650,12 +1497,6 @@ ShallowWrapper {
                   </p>,
                   <p>
                     <label>
-                      Department:
-                    </label>
-                    technology
-                  </p>,
-                  <p>
-                    <label>
                       Equipment: 
                     </label>
                     computer
@@ -1681,7 +1522,7 @@ ShallowWrapper {
                       <p>
                         <Link
                           replace={false}
-                          to="/requestdetails"
+                          to="/singlerequest/2"
                         >
                            More
                         </Link>
@@ -1719,35 +1560,6 @@ ShallowWrapper {
                       "type": "label",
                     },
                     "repair computer",
-                  ],
-                  "type": "p",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": Array [
-                      <label>
-                        Department:
-                      </label>,
-                      "technology",
-                    ],
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": "Department:",
-                      },
-                      "ref": null,
-                      "rendered": "Department:",
-                      "type": "label",
-                    },
-                    "technology",
                   ],
                   "type": "p",
                 },
@@ -1804,7 +1616,7 @@ ShallowWrapper {
                         <p>
                           <Link
                             replace={false}
-                            to="/requestdetails"
+                            to="/singlerequest/2"
                           >
                              More
                           </Link>
@@ -1860,7 +1672,7 @@ ShallowWrapper {
                         "children": <p>
                           <Link
                             replace={false}
-                            to="/requestdetails"
+                            to="/singlerequest/2"
                           >
                              More
                           </Link>
@@ -1875,7 +1687,7 @@ ShallowWrapper {
                         "props": Object {
                           "children": <Link
                             replace={false}
-                            to="/requestdetails"
+                            to="/singlerequest/2"
                           >
                              More
                           </Link>,
@@ -1888,7 +1700,7 @@ ShallowWrapper {
                           "props": Object {
                             "children": " More",
                             "replace": false,
-                            "to": "/requestdetails",
+                            "to": "/singlerequest/2",
                           },
                           "ref": null,
                           "rendered": " More",
