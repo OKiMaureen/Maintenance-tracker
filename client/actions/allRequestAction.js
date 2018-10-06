@@ -1,4 +1,4 @@
-import axios from 'axios';
+
 import { GET_ALL_REQUESTS, GET_ALL_ERROR } from './types';
 
 const url = 'https://maintenance-tracker-app.herokuapp.com/api/v1/users/requests';
@@ -15,11 +15,17 @@ export const errorMessage = userData => ({
 
 const getAllRequestsAction = () => (dispatch, getstate, http) => {
   const state = getstate();
-
   const { token } = state.authUser.getAuth;
-  axios.defaults.headers.token = token;
   return http
-    .get(url)
+    .get(
+      url,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          token,
+        },
+      },
+    )
     .then((res) => {
       dispatch(getRequests(res.data.data.request));
     })

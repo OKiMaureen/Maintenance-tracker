@@ -26,7 +26,8 @@ const createRequestAction = (request, history) => (dispatch, getstate, http) => 
     .post(baseUrl, request)
     .then((res) => {
       if (res.status === 201) {
-        history.push('/requestdetials');
+        const { id } = res.data.data.request;
+        history.push(`/singlerequest/${id}`);
         localStorage.setItem('request', JSON.stringify(res.data.data.request));
         dispatch(createRequest(res.data.data.request));
       }

@@ -10,6 +10,7 @@ import CreateRequest from './pages/CreateRequest';
 import EditRequest from './pages/editrequest';
 import AdminRequests from './pages/adminrequests';
 import RequestDetails from './pages/requestdetails';
+import SingleRequest  from './pages/SingleRequest';
 
 
 const Routes = () => ((
@@ -23,6 +24,7 @@ const Routes = () => ((
       <Route path="/editrequest" component={EditRequest} />
       <Route path="/adminrequests" component={AdminRequests} />
       <Route path="/requestdetails" component={RequestDetails} />
+      <Route path="/singlerequest/:id" component={SingleRequest} />
     </React.Fragment>
   </BrowserRouter>
 ));

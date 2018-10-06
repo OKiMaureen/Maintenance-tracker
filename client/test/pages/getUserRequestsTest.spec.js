@@ -1,5 +1,4 @@
 import React from 'react';
-// import { expect as e } from 'chai';
 import { shallow } from 'enzyme';
 import { AllRequests } from '../../pages/AllRequests';
 
@@ -41,11 +40,7 @@ describe('<AllRequest />', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
-  // it('Should handle logout method', () => {
-  //   wrapper = shallow(<AllRequests {...props} />);
-  //   expect(wrapper.instance().logout()).toBe(true);
-  // });
-  it('Should display request title when request loads and it exists', () => {
+  it('Should display request card when request loads and it exists', () => {
     props = {
       allRequest: () => {},
       requests: [
@@ -75,7 +70,7 @@ describe('<AllRequest />', () => {
     wrapper = shallow(<AllRequests {...props} />);
     expect(wrapper.find('label').exists()).toBe(true);
   });
-  it('Should display request title when request loads and it exists', () => {
+  it('Should not display request card when request does not exists', () => {
     props = {
       allRequest: () => {},
       requests: [],
@@ -95,7 +90,7 @@ describe('<AllRequest />', () => {
     wrapper = shallow(<AllRequests {...props} />);
     expect(wrapper.instance().logout()).toBe(true);
   });
-  it('Should display request title when request loads and it exists', () => {
+  it('Should display request label as yellow when status is pending', () => {
     props = {
       allRequest: () => {},
       requests: [
@@ -106,7 +101,7 @@ describe('<AllRequest />', () => {
     wrapper = shallow(<AllRequests {...props} />);
     expect(wrapper.find('.yellow').exists()).toBe(true);
   });
-  it('Should display request title when request loads and it exists', () => {
+  it('Should display request label as green when status is approved', () => {
     props = {
       allRequest: () => {},
       requests: [
@@ -117,7 +112,7 @@ describe('<AllRequest />', () => {
     wrapper = shallow(<AllRequests {...props} />);
     expect(wrapper.find('.green').exists()).toBe(true);
   });
-  it('Should display request title when request loads and it exists', () => {
+  it('Should display request label as red when status is disapproved', () => {
     props = {
       allRequest: () => {},
       requests: [
@@ -128,7 +123,7 @@ describe('<AllRequest />', () => {
     wrapper = shallow(<AllRequests {...props} />);
     expect(wrapper.find('.red').exists()).toBe(true);
   });
-  it('Should display request title when request loads and it exists', () => {
+  it('Should display request label as green when status is resolved', () => {
     props = {
       allRequest: () => {},
       requests: [
