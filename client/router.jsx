@@ -21,7 +21,7 @@ const Routes = () => ((
       <Route path="/signup" component={Signup} />
       <Route path="/allrequests" component={AllRequests} />
       <Route path="/createrequest" component={CreateRequest} />
-      <Route path="/editrequest" component={EditRequest} />
+      <Route path="/editrequest/:id" component={EditRequest} />
       <Route path="/adminrequests" component={AdminRequests} />
       <Route path="/requestdetails" component={RequestDetails} />
       <Route path="/singlerequest/:id" component={SingleRequest} />

@@ -5,6 +5,7 @@ import i from 'short-id';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import getARequestAction from '../actions/singleRequestAction';
+import logoutAction from '../actions/logoutAction';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -58,7 +59,7 @@ export class SingleRequest extends Component {
                 </div>
                 <div className="status fixed ">
                   <p>
-                    {oneRequest.requeststatus === 'pending' ? <Link to="/editrequest">Edit</Link> : ''}
+                    {oneRequest.requeststatus === 'pending' ? <Link to={`/editrequest/${oneRequest.id}`}>Edit</Link> : ''}
 
                   </p>
                 </div>
@@ -82,6 +83,7 @@ export class SingleRequest extends Component {
 const mapStateToProps = state => ({
   oneRequest: state.singleRequest.request,
   userDetail: state.authUser,
+  logout: logoutAction,
 
 });
 const mapDispatchToProps = dispatch => bindActionCreators({

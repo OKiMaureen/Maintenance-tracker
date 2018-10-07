@@ -1,15 +1,12 @@
 import PropTypes from 'prop-types';
 import Validator from 'validatorjs';
-import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import createRequestAction from '../actions/createRequestAction';
 import clearMessageAction from '../actions/clearMeassageAction';
 import logoutAction from '../actions/logoutAction';
-import loader from '../assets/images/spinloader.gif';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Request from '../components/Request';
 
 export class CreateRequest extends Component {
     /**
@@ -91,52 +88,25 @@ export class CreateRequest extends Component {
       return true;
     }
     render() {
+      const { requestDetail, userDetail } = this.props;
+      const {
+        title, description, equipment, errors, department,
+      } = this.state;
       return (
-        <div>
-          <Header><Link to="/">Home</Link><Link to="/createrequests" className="current">Create request</Link> <Link to="/allrequests">My request</Link><button className="header-btn" onClick={this.logout}>Logout</button></Header>
-          <section className="request">
-            <article className="request-card">
-              <form className="request-form">
-                <h3>Create Request</h3>
-                <br />
-
-                <p>Fill the form below to indicate equipments in need of repair or maintenance</p>
-                <br />
-                {
-                this.props.requestDetail.error ? <span className="validation-error">{this.props.requestDetail.error}</span> : ''
-              }
-                {this.props.userDetail.checkStatus.isLoading ? (<span className="loader"><img src={loader} alt="loader" /></span>) : '' }
-                <input type="text" name="department" id="department" placeholder="Department" onChange={this.handleChange} />
-                {
-                this.state.errors.department ? this.state.errors.department.map(error => <span className="validation-error" key={error}>{error}</span>) : ''
-              }
-                <p className="message" id="departmentE" />
-                <br />
-                <input type="text" name="equipment" id="equipment" placeholder="Equipment" onChange={this.handleChange} />
-                {
-                  this.state.errors.equipment ? this.state.errors.equipment.map(error => <span className="validation-error" key={error}>{error}</span>) : ''
-                }
-                <p className="message" id="equipmentE" />
-                <br />
-                <input type="text" name="title" id="requestTitle" placeholder="Request Title" onChange={this.handleChange} />
-                {
-              this.state.errors.title ? this.state.errors.title.map(error => <span className="validation-error" key={error}>{error}</span>) : ''
-              }
-                <p className="message" id="titleE" />
-                <br />
-                <textarea name="description" id="requestDescription" cols="20" rows="5" placeholder="Request Description" onChange={this.handleChange} />
-                {
-                  this.state.errors.description ? this.state.errors.description.map(error => <span className="validation-error" key={error}>{error}</span>) : ''
-                }
-                <p className="message" id="descriptionE" />
-                <br />
-                <button type="submit" className="button" id="createRequest" onClick={this.handleSubmit}>Create Request</button>
-              </form>
-            </article>
-          </section>
-          <Footer />
-        </div>
-
+        <Request
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          title={title}
+          description={description}
+          equipment={equipment}
+          logout={this.logout}
+          requestDetail={requestDetail}
+          userDetail={userDetail}
+          errors={errors}
+          department={department}
+          titleText="Create Article"
+          buttonText="Create Article"
+        />
       );
     }
 }

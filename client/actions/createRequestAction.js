@@ -34,7 +34,7 @@ const createRequestAction = (request, history) => (dispatch, getstate, http) => 
     })
     .catch((error) => {
       if (error.response.status === 409) {
-        dispatch(errorMessage('The request has already been created, please create another.'));
+        dispatch(errorMessage('This request has already been created, please create another.'));
       }
     });
 };
