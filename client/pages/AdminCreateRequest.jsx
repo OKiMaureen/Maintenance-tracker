@@ -1,11 +1,11 @@
-import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Validator from 'validatorjs';
 import { bindActionCreators } from 'redux';
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import Header from '../components/Header';
+import { connect } from 'react-redux';
 import createRequestAction from '../actions/createRequestAction';
+import Header from '../components/Header';
 import clearMessageAction from '../actions/clearMeassageAction';
 import logoutAction from '../actions/logoutAction';
 import Request from '../components/Request';
@@ -103,7 +103,6 @@ export class CreateRequest extends Component {
             title={title}
             description={description}
             equipment={equipment}
-            logout={this.logout}
             requestDetail={requestDetail}
             userDetail={userDetail}
             errors={errors}

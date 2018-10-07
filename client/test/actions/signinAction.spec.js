@@ -58,7 +58,7 @@ describe('signin Action', () => {
     };
     const store = mockStore({});
     return store.dispatch(signIn(details, history)).then(() => {
-      expect(history.push).toHaveBeenCalledWith('/adminrequest');
+      expect(history.push).toHaveBeenCalledWith('/admincreaterequest');
     });
   });
   it('should sucessfully show error if email or password is not correct', () => {

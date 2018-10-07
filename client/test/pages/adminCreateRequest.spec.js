@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect as e } from 'chai';
 import { shallow } from 'enzyme';
-import { CreateRequest } from '../../pages/createrequest';
+import { CreateRequest } from '../../pages/AdminCreateRequest';
 
 describe('<CreateRequest />', () => {
   let wrapper;

@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AllRequest /> stores a snapshot of the component 1`] = `
+exports[`<Admin Requests /> stores a snapshot of the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <AllRequests
-    allRequest={[Function]}
+  Symbol(enzyme.__unrendered__): <AdminRequests
+    adminRequests={[Function]}
     history={
       Object {
         "push": [MockFunction],
@@ -78,8 +78,8 @@ ShallowWrapper {
           </button>
         </Header>,
         <AllRequestsComponent
-          linkRoute="/allrequests"
-          linkText="My Requests"
+          linkRoute="/adminrequests"
+          linkText="All Requests"
           logout={[Function]}
           requests={
             Array [
@@ -206,8 +206,8 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "linkRoute": "/allrequests",
-          "linkText": "My Requests",
+          "linkRoute": "/adminrequests",
+          "linkText": "All Requests",
           "logout": [Function],
           "requests": Array [
             Object {
@@ -274,8 +274,8 @@ ShallowWrapper {
             </button>
           </Header>,
           <AllRequestsComponent
-            linkRoute="/allrequests"
-            linkText="My Requests"
+            linkRoute="/adminrequests"
+            linkText="All Requests"
             logout={[Function]}
             requests={
               Array [
@@ -402,8 +402,8 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "linkRoute": "/allrequests",
-            "linkText": "My Requests",
+            "linkRoute": "/adminrequests",
+            "linkText": "All Requests",
             "logout": [Function],
             "requests": Array [
               Object {

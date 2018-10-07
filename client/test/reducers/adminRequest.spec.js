@@ -1,4 +1,4 @@
-import requestReducer from '../../reducers/getAllRequestsReducer';
+import requestReducer from '../../reducers/adminRequestsReducer';
 
 
 describe('Test all request reducers', () => {
@@ -34,11 +34,11 @@ describe('Test all request reducers', () => {
 
   it('Should return state of sucessful request gotten', () => {
     const actual = requestReducer({}, {
-      type: 'GET_ALL_REQUESTS',
+      type: 'GET_ADMIN_REQUESTS',
       payload: requestDataSuccess,
     });
     const expected = {
-      requests: [
+      adminRequests: [
         {
           id: 1,
           user_id: 1,
@@ -65,7 +65,7 @@ describe('Test all request reducers', () => {
   });
   it('Should return state of error', () => {
     const actual = requestReducer({}, {
-      type: 'GET_ALL_ERROR',
+      type: 'GET_ADMIN_ERROR',
       error: requestDataError,
     });
     const expected = {

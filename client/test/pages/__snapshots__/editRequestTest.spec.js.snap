@@ -1,0 +1,164 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EditRequest /> stores a snapshot of the component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <EditRequest
+    EditRequestAction={[Function]}
+    editRequest={
+      Object {
+        "checkStatus": Object {
+          "error": false,
+          "isLoading": false,
+          "success": false,
+        },
+      }
+    }
+    error=""
+    history={
+      Object {
+        "push": [MockFunction],
+      }
+    }
+    logout={[Function]}
+    request={
+      Object {
+        "checkStatus": Object {
+          "error": false,
+          "isLoading": false,
+          "success": false,
+        },
+      }
+    }
+    requestDetail={
+      Object {
+        "checkStatus": Object {
+          "error": false,
+          "isLoading": false,
+          "success": false,
+        },
+      }
+    }
+    userDetail={
+      Object {
+        "checkStatus": Object {
+          "error": false,
+          "isLoading": false,
+          "success": false,
+        },
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "buttonText": "Submit",
+      "department": "",
+      "description": "",
+      "editRequest": Object {
+        "checkStatus": Object {
+          "error": false,
+          "isLoading": false,
+          "success": false,
+        },
+      },
+      "equipment": "",
+      "errors": Object {},
+      "handleChange": [Function],
+      "handleSubmit": [Function],
+      "logout": [Function],
+      "requestDetail": Object {
+        "checkStatus": Object {
+          "error": false,
+          "isLoading": false,
+          "success": false,
+        },
+      },
+      "title": "",
+      "titleText": "Edit Article",
+      "userDetail": Object {
+        "checkStatus": Object {
+          "error": false,
+          "isLoading": false,
+          "success": false,
+        },
+      },
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "buttonText": "Submit",
+        "department": "",
+        "description": "",
+        "editRequest": Object {
+          "checkStatus": Object {
+            "error": false,
+            "isLoading": false,
+            "success": false,
+          },
+        },
+        "equipment": "",
+        "errors": Object {},
+        "handleChange": [Function],
+        "handleSubmit": [Function],
+        "logout": [Function],
+        "requestDetail": Object {
+          "checkStatus": Object {
+            "error": false,
+            "isLoading": false,
+            "success": false,
+          },
+        },
+        "title": "",
+        "titleText": "Edit Article",
+        "userDetail": Object {
+          "checkStatus": Object {
+            "error": false,
+            "isLoading": false,
+            "success": false,
+          },
+        },
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
+  },
+}
+`;

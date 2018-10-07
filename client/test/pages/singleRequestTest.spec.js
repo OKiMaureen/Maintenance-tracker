@@ -29,11 +29,6 @@ describe('<SingleRequest />', () => {
     },
 
   };
-  it('stores a snapshot of the component', () => {
-    wrapper = shallow(<SingleRequest {...props} match={match} />);
-
-    expect(wrapper).toMatchSnapshot();
-  });
   it('Should display request card when request loads and it exists', () => {
     props = {
       aRequest: () => {},

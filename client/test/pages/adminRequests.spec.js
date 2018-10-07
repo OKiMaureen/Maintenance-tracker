@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { AllRequests } from '../../pages/AllRequests';
+import { AdminRequests } from '../../pages/AdminRequests';
 
 
-describe('<AllRequest />', () => {
+describe('<Admin Requests />', () => {
   let wrapper;
   let props = {
-    allRequest: () => {},
+    adminRequests: () => {},
     logout: () => {},
     requests: [
       {
@@ -36,28 +36,28 @@ describe('<AllRequest />', () => {
   };
 
   it('stores a snapshot of the component', () => {
-    wrapper = shallow(<AllRequests {...props} />);
+    wrapper = shallow(<AdminRequests {...props} />);
 
     expect(wrapper).toMatchSnapshot();
   });
   it('Should not display request card when request does not exists', () => {
     props = {
-      allRequest: () => {},
+      adminRequests: () => {},
       requests: [],
     };
 
-    wrapper = shallow(<AllRequests {...props} />);
+    wrapper = shallow(<AdminRequests {...props} />);
     expect(wrapper.find('label').exists()).toBe(false);
   });
   it('Should handle logout method', () => {
     props = {
-      allRequest: () => {},
+      adminRequests: () => {},
       logout: () => {},
       history: {
         push: jest.fn(),
       },
     };
-    wrapper = shallow(<AllRequests {...props} />);
+    wrapper = shallow(<AdminRequests {...props} />);
     expect(wrapper.instance().logout()).toBe(true);
   });
 });

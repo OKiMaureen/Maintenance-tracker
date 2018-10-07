@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import AllRequests from './pages/AllRequests';
 import CreateRequest from './pages/CreateRequest';
 import EditRequest from './pages/editrequest';
-import AdminRequests from './pages/adminrequests';
+import AdminRequests from './pages/AdminRequests';
 import RequestDetails from './pages/requestdetails';
 import SingleRequest  from './pages/SingleRequest';
 
@@ -21,7 +21,8 @@ const Routes = () => ((
       <Route path="/signup" component={Signup} />
       <Route path="/allrequests" component={AllRequests} />
       <Route path="/createrequest" component={CreateRequest} />
-      <Route path="/editrequest" component={EditRequest} />
+      <Route path="/admincreaterequest" component={CreateRequest} />
+      <Route path="/editrequest/:id" component={EditRequest} />
       <Route path="/adminrequests" component={AdminRequests} />
       <Route path="/requestdetails" component={RequestDetails} />
       <Route path="/singlerequest/:id" component={SingleRequest} />
