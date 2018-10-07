@@ -1,17 +1,17 @@
 
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import request from '../../actions/createRequestAction';
+import request from '../../actions/editRequestAction';
 
 
 describe('create request Action', () => {
   it('should sucessfully create request and redirect to /userdetail', () => {
     const middleware = [thunk.withExtraArgument({
-      post: () => Promise.resolve({
-        status: 201,
+      put: () => Promise.resolve({
+        status: 200,
         data: {
           data: {
-            request: {
+            updatedRequest: {
               department: 'technical',
               title: 'bad laptop',
               description: 'a bad computer',
@@ -32,9 +32,26 @@ describe('create request Action', () => {
           token: 'justamocktoken',
         },
       },
+      editRequest: {
+        checkStatus: {
+          isLoading: false,
+          success: true,
+          error: false,
+        },
+        request: {
+          department: 'technical',
+          title: 'bad laptop',
+          description: 'a bad computer',
+          equipment: 'laptop',
+          requeststatus: 'pending',
+          serialnumber: '11111111',
+          id: 11,
+          user_id: 94,
+        },
+      },
     };
     const mockStore = configureMockStore(middleware);
-    const details = {
+    const singleRequest = {
       edepartment: 'technical',
       title: 'bad laptop',
       description: 'a bad computer',
@@ -47,12 +64,10 @@ describe('create request Action', () => {
     const history = {
       push: jest.fn(),
     };
-
     const store = mockStore(state);
-
-    store.dispatch(request(details, history)).then(() => {
-      expect(store.getActions()[1].type).toEqual('CREATE_REQUEST');
-      expect(history.push).toHaveBeenCalledWith('/singlerequest');
+    store.dispatch(request(singleRequest, history)).then(() => {
+      expect(store.getActions()[1].type).toEqual('EDIT_REQUEST');
+      expect(history.push).toHaveBeenCalledWith('/singleRequest/');
     });
   });
 
@@ -63,7 +78,7 @@ describe('create request Action', () => {
       },
     };
     const middleware = [thunk.withExtraArgument({
-      post: () => Promise.reject(error),
+      put: () => Promise.reject(error),
     })];
     const state = {
       authUser: {

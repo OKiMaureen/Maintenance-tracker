@@ -1,10 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CreateRequest /> stores a snapshot of the component 1`] = `
+exports[`<EditRequest /> stores a snapshot of the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <CreateRequest
-    createRequestAction={[Function]}
+  Symbol(enzyme.__unrendered__): <EditRequest
+    EditRequestAction={[Function]}
+    editRequest={
+      Object {
+        "checkStatus": Object {
+          "error": false,
+          "isLoading": false,
+          "success": false,
+        },
+      }
+    }
     error=""
     history={
       Object {
@@ -12,6 +21,15 @@ ShallowWrapper {
       }
     }
     logout={[Function]}
+    request={
+      Object {
+        "checkStatus": Object {
+          "error": false,
+          "isLoading": false,
+          "success": false,
+        },
+      }
+    }
     requestDetail={
       Object {
         "checkStatus": Object {
@@ -44,10 +62,16 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "function",
     "props": Object {
-      "buttonText": "Create Article",
+      "buttonText": "Submit",
       "department": "",
       "description": "",
-      "editRequest": [Function],
+      "editRequest": Object {
+        "checkStatus": Object {
+          "error": false,
+          "isLoading": false,
+          "success": false,
+        },
+      },
       "equipment": "",
       "errors": Object {},
       "handleChange": [Function],
@@ -61,7 +85,7 @@ ShallowWrapper {
         },
       },
       "title": "",
-      "titleText": "Create Article",
+      "titleText": "Edit Article",
       "userDetail": Object {
         "checkStatus": Object {
           "error": false,
@@ -80,10 +104,16 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
-        "buttonText": "Create Article",
+        "buttonText": "Submit",
         "department": "",
         "description": "",
-        "editRequest": [Function],
+        "editRequest": Object {
+          "checkStatus": Object {
+            "error": false,
+            "isLoading": false,
+            "success": false,
+          },
+        },
         "equipment": "",
         "errors": Object {},
         "handleChange": [Function],
@@ -97,7 +127,7 @@ ShallowWrapper {
           },
         },
         "title": "",
-        "titleText": "Create Article",
+        "titleText": "Edit Article",
         "userDetail": Object {
           "checkStatus": Object {
             "error": false,
