@@ -392,7 +392,7 @@ footer p {
 /* form section */
 .form {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(images/head-background.jpeg)center center/cover fixed no-repeat;
-  min-height: 80vh;
+  min-height: 85vh;
   background-color: #f8f7f5;
   display: flex;
   justify-content: center;

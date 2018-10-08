@@ -28,7 +28,7 @@ export class AdminRequests extends Component {
           <Link to="/">Home</Link>
           <Link to="admincreaterequest">Create Request</Link>
           <Link className="current" to="adminrequest">All Request</Link>
-          <button className="header-btn" onClick={this.logout}>Logout</button>
+          <li><button className="header-btn" onClick={this.logout}>Logout</button></li>
         </Header>
 
         <AllRequestsComponent
@@ -36,6 +36,7 @@ export class AdminRequests extends Component {
           logout={this.logout}
           linkRoute="/adminrequests"
           linkText="All Requests"
+          route="/requestdetails/"
         />
       </div>
 

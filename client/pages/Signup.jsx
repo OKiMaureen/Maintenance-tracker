@@ -85,7 +85,7 @@ export class Signup extends Component {
       return (
         <div>
           {/* Signup Form  */}
-          <Header><Link to="/">Home</Link><Link to="/" /></Header>
+          <Header><Link to="/">Home</Link><Link to="/signin">Sign In</Link></Header>
           <section className="form">
             <article className="card">
               <form id="signupForm">

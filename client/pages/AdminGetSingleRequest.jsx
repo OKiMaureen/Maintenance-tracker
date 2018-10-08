@@ -4,15 +4,15 @@ import { bindActionCreators } from 'redux';
 import i from 'short-id';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import getARequestAction from '../actions/singleRequestAction';
+import adminGetSingleRequestAction, { updateReq, disapproveRequest, resolveRequest } from '../actions/adminSingleRequestAction';
 import logoutAction from '../actions/logoutAction';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-export class SingleRequest extends Component {
+export class AdminSingleRequest extends Component {
   componentDidMount() {
-    const { aRequest, match } = this.props;
-    aRequest(match.params.id);
+    const { adminSingleRequest, match } = this.props;
+    adminSingleRequest(match.params.id);
   }
   logout = () => {
     const { history, logout } = this.props;
@@ -21,22 +21,40 @@ export class SingleRequest extends Component {
     history.push('/');
     return true;
   }
+  updateRequest = (e) => {
+    const status = e.target.id;
+    const { update, oneRequest } = this.props;
+    update(oneRequest.id, status);
+    return true;
+  }
+
   render() {
-    const { oneRequest } = this.props;
+    const {
+      oneRequest,
+    } = this.props;
     return (
       <div>
         <Header>
           <Link to="/">Home</Link>
           <Link to="/createrequest">Create Request</Link>
-          <Link to="/allrequests">My request</Link>
+          <Link to="/adminrequests">All requests</Link>
           <li><button className="header-btn" onClick={this.logout}>Logout</button></li>
         </Header>
 
         <section className="allrequests">
-
-
           {oneRequest ?
             <div className="detailsrequest-card" key={i.generate()}>
+              <div className="status">
+                {oneRequest.requeststatus === 'approved' || oneRequest.requeststatus === 'resolved' ?
+                  <button id="approve" className="disabled" disabled onClick={this.updateRequest}>Approve</button> :
+                  <button className="green" id="approve" onClick={this.updateRequest}>Approve</button>}
+                {oneRequest.requeststatus === 'disapproved' || oneRequest.requeststatus === 'resolved' ?
+                  <button id="disapprove" className="disabled" disabled onClick={this.updateRequest}>Disapprove</button> :
+                  <button className="red" id="disapprove" onClick={this.updateRequest}>Disapprove</button>}
+                {oneRequest.requeststatus === 'disapproved' || oneRequest.requeststatus === 'resolved' || oneRequest.requeststatus === 'pending' ?
+                  <button id="resolved" className="disabled" disabled onClick={this.updateRequest}>Resolve</button> :
+                  <button className="green" id="resolve" onClick={this.updateRequest}>Resolve</button>}
+              </div>
               <p>
                 <label>Title:</label>{oneRequest.title}
               </p>
@@ -56,20 +74,8 @@ export class SingleRequest extends Component {
                   {oneRequest.requeststatus === 'disapproved' ? <label className="red">{oneRequest.requeststatus}</label> : ''}
                   {oneRequest.requeststatus === 'resolved' ? <label className="green">{oneRequest.requeststatus}</label> : ''}
                 </div>
-                <div className="status fixed ">
-                  <p>
-                    {oneRequest.requeststatus === 'pending' ? <Link to={`/editrequest/${oneRequest.id}`}>Edit</Link> : ''}
-
-                  </p>
-                </div>
               </div>
-            </div> :
-            <div className="requests-card no-request" >
-              <p className="message-centered">
-              You do not have any requests yet!!! Go ahead and create a request.
-              </p>
-            </div>
-          }
+            </div> : '' }
 
         </section>
         <Footer />
@@ -80,23 +86,28 @@ export class SingleRequest extends Component {
 }
 
 const mapStateToProps = state => ({
-  oneRequest: state.singleRequest.request,
+  oneRequest: state.adminSingleRequest.request,
   userDetail: state.authUser,
   logout: logoutAction,
 
 });
 const mapDispatchToProps = dispatch => bindActionCreators({
-  aRequest: getARequestAction,
+  adminSingleRequest: adminGetSingleRequestAction,
+  update: updateReq,
+  disapprove: disapproveRequest,
+  resolve: resolveRequest,
+
 }, dispatch);
 
-SingleRequest.propTypes = {
+AdminSingleRequest.propTypes = {
   oneRequest: PropTypes.shape({
     checkStatus: PropTypes.object,
     error: PropTypes.string,
   }).isRequired,
-  aRequest: PropTypes.func.isRequired,
+  adminSingleRequest: PropTypes.func.isRequired,
+  update: PropTypes.func.isRequired,
   logout: PropTypes.func.isRequired,
   match: PropTypes.func.isRequired,
   history: PropTypes.objectOf(PropTypes.object).isRequired,
 };
-export default connect(mapStateToProps, mapDispatchToProps)(SingleRequest);
+export default connect(mapStateToProps, mapDispatchToProps)(AdminSingleRequest);
