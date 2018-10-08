@@ -27,8 +27,8 @@ export class AdminRequests extends Component {
         <Header>
           <Link to="/">Home</Link>
           <Link to="admincreaterequest">Create Request</Link>
-          <Link className="current" to="adminrequest">All Request</Link>
-          <li><button className="header-btn" onClick={this.logout}>Logout</button></li>
+          <Link className="current" to="adminrequests">All Requests</Link>
+          <button className="header-btn" onClick={this.logout}>Logout</button>
         </Header>
 
         <AllRequestsComponent

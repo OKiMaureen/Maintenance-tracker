@@ -37,8 +37,8 @@ export class AdminSingleRequest extends Component {
         <Header>
           <Link to="/">Home</Link>
           <Link to="/createrequest">Create Request</Link>
-          <Link to="/adminrequests">All requests</Link>
-          <li><button className="header-btn" onClick={this.logout}>Logout</button></li>
+          <Link to="/adminrequests">All Requests</Link>
+          <button className="header-btn" onClick={this.logout}>Logout</button>
         </Header>
 
         <section className="allrequests">

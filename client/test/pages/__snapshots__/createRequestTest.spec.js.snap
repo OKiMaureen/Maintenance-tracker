@@ -54,7 +54,7 @@ ShallowWrapper {
           </Link>
           <Link
             replace={false}
-            to="/admincreaterequest"
+            to="/createrequest"
           >
             Create request
           </Link>
@@ -66,17 +66,15 @@ ShallowWrapper {
             My requests
           </Link>
            
-          <li>
-            <button
-              className="header-btn"
-              onClick={[Function]}
-            >
-              Logout
-            </button>
-          </li>
+          <button
+            className="header-btn"
+            onClick={[Function]}
+          >
+            Logout
+          </button>
         </Header>,
         <CreateRequest
-          buttonText="Create Article"
+          buttonText="Create Request"
           department=""
           description=""
           editRequest={[Function]}
@@ -95,7 +93,7 @@ ShallowWrapper {
             }
           }
           title=""
-          titleText="Create Article"
+          titleText="Create Request"
           userDetail={
             Object {
               "checkStatus": Object {
@@ -124,7 +122,7 @@ ShallowWrapper {
             </Link>,
             <Link
               replace={false}
-              to="/admincreaterequest"
+              to="/createrequest"
             >
               Create request
             </Link>,
@@ -136,14 +134,12 @@ ShallowWrapper {
               My requests
             </Link>,
             " ",
-            <li>
-              <button
-                className="header-btn"
-                onClick={[Function]}
-              >
-                Logout
-              </button>
-            </li>,
+            <button
+              className="header-btn"
+              onClick={[Function]}
+            >
+              Logout
+            </button>,
           ],
         },
         "ref": null,
@@ -168,7 +164,7 @@ ShallowWrapper {
             "props": Object {
               "children": "Create request",
               "replace": false,
-              "to": "/admincreaterequest",
+              "to": "/createrequest",
             },
             "ref": null,
             "rendered": "Create request",
@@ -194,28 +190,13 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <button
-                className="header-btn"
-                onClick={[Function]}
-              >
-                Logout
-              </button>,
+              "children": "Logout",
+              "className": "header-btn",
+              "onClick": [Function],
             },
             "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Logout",
-                "className": "header-btn",
-                "onClick": [Function],
-              },
-              "ref": null,
-              "rendered": "Logout",
-              "type": "button",
-            },
-            "type": "li",
+            "rendered": "Logout",
+            "type": "button",
           },
         ],
         "type": [Function],
@@ -225,7 +206,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "buttonText": "Create Article",
+          "buttonText": "Create Request",
           "department": "",
           "description": "",
           "editRequest": [Function],
@@ -242,7 +223,7 @@ ShallowWrapper {
             },
           },
           "title": "",
-          "titleText": "Create Article",
+          "titleText": "Create Request",
           "userDetail": Object {
             "checkStatus": Object {
               "error": false,
@@ -274,7 +255,7 @@ ShallowWrapper {
             </Link>
             <Link
               replace={false}
-              to="/admincreaterequest"
+              to="/createrequest"
             >
               Create request
             </Link>
@@ -286,17 +267,15 @@ ShallowWrapper {
               My requests
             </Link>
              
-            <li>
-              <button
-                className="header-btn"
-                onClick={[Function]}
-              >
-                Logout
-              </button>
-            </li>
+            <button
+              className="header-btn"
+              onClick={[Function]}
+            >
+              Logout
+            </button>
           </Header>,
           <CreateRequest
-            buttonText="Create Article"
+            buttonText="Create Request"
             department=""
             description=""
             editRequest={[Function]}
@@ -315,7 +294,7 @@ ShallowWrapper {
               }
             }
             title=""
-            titleText="Create Article"
+            titleText="Create Request"
             userDetail={
               Object {
                 "checkStatus": Object {
@@ -344,7 +323,7 @@ ShallowWrapper {
               </Link>,
               <Link
                 replace={false}
-                to="/admincreaterequest"
+                to="/createrequest"
               >
                 Create request
               </Link>,
@@ -356,14 +335,12 @@ ShallowWrapper {
                 My requests
               </Link>,
               " ",
-              <li>
-                <button
-                  className="header-btn"
-                  onClick={[Function]}
-                >
-                  Logout
-                </button>
-              </li>,
+              <button
+                className="header-btn"
+                onClick={[Function]}
+              >
+                Logout
+              </button>,
             ],
           },
           "ref": null,
@@ -388,7 +365,7 @@ ShallowWrapper {
               "props": Object {
                 "children": "Create request",
                 "replace": false,
-                "to": "/admincreaterequest",
+                "to": "/createrequest",
               },
               "ref": null,
               "rendered": "Create request",
@@ -414,28 +391,13 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <button
-                  className="header-btn"
-                  onClick={[Function]}
-                >
-                  Logout
-                </button>,
+                "children": "Logout",
+                "className": "header-btn",
+                "onClick": [Function],
               },
               "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Logout",
-                  "className": "header-btn",
-                  "onClick": [Function],
-                },
-                "ref": null,
-                "rendered": "Logout",
-                "type": "button",
-              },
-              "type": "li",
+              "rendered": "Logout",
+              "type": "button",
             },
           ],
           "type": [Function],
@@ -445,7 +407,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "buttonText": "Create Article",
+            "buttonText": "Create Request",
             "department": "",
             "description": "",
             "editRequest": [Function],
@@ -462,7 +424,7 @@ ShallowWrapper {
               },
             },
             "title": "",
-            "titleText": "Create Article",
+            "titleText": "Create Request",
             "userDetail": Object {
               "checkStatus": Object {
                 "error": false,

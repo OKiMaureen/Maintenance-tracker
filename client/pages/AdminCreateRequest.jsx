@@ -10,7 +10,7 @@ import clearMessageAction from '../actions/clearMeassageAction';
 import logoutAction from '../actions/logoutAction';
 import Request from '../components/Request';
 
-export class CreateRequest extends Component {
+export class AdminCreateRequest extends Component {
     /**
      * @constructor
      * @param {*} props
@@ -96,7 +96,12 @@ export class CreateRequest extends Component {
       } = this.state;
       return (
         <div>
-          <Header><Link to="/">Home</Link><Link to="/admincreaterequest">Create request</Link> <Link to="/adminrequests">All requests</Link><li><button className="header-btn" onClick={this.logout}>Logout</button></li></Header>
+          <Header>
+            <Link to="/">Home</Link>
+            <Link to="admincreaterequest">Create Request</Link>
+            <Link className="current" to="adminrequests">All Requests</Link>
+            <button className="header-btn" onClick={this.logout}>Logout</button>
+          </Header>
           <Request
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
@@ -127,7 +132,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   logout: logoutAction,
 }, dispatch);
 
-CreateRequest.propTypes = {
+AdminCreateRequest.propTypes = {
   requestDetail: PropTypes.shape({
     checkStatus: PropTypes.object,
     error: PropTypes.string,
@@ -143,5 +148,5 @@ CreateRequest.propTypes = {
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateRequest);
+export default connect(mapStateToProps, mapDispatchToProps)(AdminCreateRequest);
 

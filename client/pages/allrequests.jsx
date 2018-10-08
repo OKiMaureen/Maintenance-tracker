@@ -26,9 +26,9 @@ export class AllRequests extends Component {
       <div>
         <Header>
           <Link to="/">Home</Link>
-          <Link to="admincreaterequest">Create Request</Link>
-          <Link className="current" to="adminrequest">All Request</Link>
-          <li><button className="header-btn" onClick={this.logout}>Logout</button></li>
+          <Link to="createrequest">Create Request</Link>
+          <Link className="current" to="allrequests">My Requests</Link>
+          <button className="header-btn" onClick={this.logout}>Logout</button>
         </Header>
         <AllRequestsComponent
           requests={requests}

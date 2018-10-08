@@ -8,6 +8,9 @@
 React Test Coverage
 <a href="https://codeclimate.com/github/OKiMaureen/Maintenance-tracker/test_coverage"><img src="https://api.codeclimate.com/v1/badges/225b5d371a7731f835b7/test_coverage" /></a>
 
+React Test Coverage
+<a href="https://codeclimate.com/github/OKiMaureen/Maintenance-tracker/test_coverage"><img src="https://api.codeclimate.com/v1/badges/225b5d371a7731f835b7/test_coverage" /></a>
+
 
 ## Maintenance Tracker
 Maintenance Tracker App is an application that provides users with the ability to reach out to  operations or repairs department regarding repair or maintenance requests and monitor the  status of their request. 
