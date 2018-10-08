@@ -28,13 +28,14 @@ export class AllRequests extends Component {
           <Link to="/">Home</Link>
           <Link to="admincreaterequest">Create Request</Link>
           <Link className="current" to="adminrequest">All Request</Link>
-          <button className="header-btn" onClick={this.logout}>Logout</button>
+          <li><button className="header-btn" onClick={this.logout}>Logout</button></li>
         </Header>
         <AllRequestsComponent
           requests={requests}
           logout={this.logout}
           linkRoute="/allrequests"
           linkText="My Requests"
+          route="/singlerequest/"
         />
       </div>
 

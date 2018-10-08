@@ -5,6 +5,7 @@ import adminRequestsReducer from './adminRequestsReducer';
 import createRequestReducer from './createRequestReducer';
 import editRequestReducer from './editRequestReducer';
 import singleRequestReducer from './singleRequestReducer';
+import adminSingleRequestReducer from './adminGetSingleRequest';
 
 
 const rootReducer = combineReducers({
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   createRequest: createRequestReducer,
   editRequest: editRequestReducer,
   singleRequest: singleRequestReducer,
+  adminSingleRequest: adminSingleRequestReducer,
 });
 
 export default rootReducer;

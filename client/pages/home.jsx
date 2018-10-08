@@ -1,41 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
 
 
 const Home = () => ((
   <div>
     {/* header-section-begin */}
     <header className="header">
-      <nav>
-        <div className="nav-container">
-          <div className="btn">
-            <div className="bar" />
-            <div className="bar" />
-            <div className="bar" />
-          </div>
-        </div>
-        <ul>
-          <li className="logo">
-            <Link to="#">Maintenance Tracker</Link>
-          </li>
-          <li>
-            <Link to="#">Home</Link>
-          </li>
-          <li>
-            <Link to="/signin">Sign in</Link>
-          </li>
-          <li>
-            <Link to="/signup">Sign up</Link>
-          </li>
-        </ul>
-      </nav>
+      <Header>
+        <Link to="/">Home</Link>
+        <Link to="signin">Sign in</Link>
+        <Link to="signup">Sign Up</Link>
+      </Header>
       <div className="banner">
         <div className="banner-center">
           <h1>Maintenance Tracker</h1>
           <h3>Repairing one day at a time</h3>
           <div>
-          <Link to="/signin" className="button">Sign in</Link>
-          <Link to="/signup" className="button">Sign up</Link>
+            <Link to="/signin" className="button">Sign in</Link>
+            <Link to="/signup" className="button">Sign up</Link>
           </div>
         </div>
       </div>

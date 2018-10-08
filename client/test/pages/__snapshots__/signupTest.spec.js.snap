@@ -46,8 +46,10 @@ ShallowWrapper {
           </Link>
           <Link
             replace={false}
-            to="/"
-          />
+            to="/signin"
+          >
+            Sign In
+          </Link>
         </Header>,
         <section
           className="form"
@@ -131,7 +133,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
           "children": Array [
             <Link
@@ -142,8 +144,10 @@ ShallowWrapper {
             </Link>,
             <Link
               replace={false}
-              to="/"
-            />,
+              to="/signin"
+            >
+              Sign In
+            </Link>,
           ],
         },
         "ref": null,
@@ -166,11 +170,12 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "children": "Sign In",
               "replace": false,
-              "to": "/",
+              "to": "/signin",
             },
             "ref": null,
-            "rendered": null,
+            "rendered": "Sign In",
             "type": [Function],
           },
         ],
@@ -610,8 +615,10 @@ ShallowWrapper {
             </Link>
             <Link
               replace={false}
-              to="/"
-            />
+              to="/signin"
+            >
+              Sign In
+            </Link>
           </Header>,
           <section
             className="form"
@@ -695,7 +702,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
             "children": Array [
               <Link
@@ -706,8 +713,10 @@ ShallowWrapper {
               </Link>,
               <Link
                 replace={false}
-                to="/"
-              />,
+                to="/signin"
+              >
+                Sign In
+              </Link>,
             ],
           },
           "ref": null,
@@ -730,11 +739,12 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
+                "children": "Sign In",
                 "replace": false,
-                "to": "/",
+                "to": "/signin",
               },
               "ref": null,
-              "rendered": null,
+              "rendered": "Sign In",
               "type": [Function],
             },
           ],

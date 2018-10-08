@@ -29,7 +29,7 @@ export class SingleRequest extends Component {
           <Link to="/">Home</Link>
           <Link to="/createrequest">Create Request</Link>
           <Link to="/allrequests">My request</Link>
-          <button className="header-btn" onClick={this.logout}>Logout</button>
+          <li><button className="header-btn" onClick={this.logout}>Logout</button></li>
         </Header>
 
         <section className="allrequests">

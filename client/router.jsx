@@ -7,10 +7,11 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import AllRequests from './pages/AllRequests';
 import CreateRequest from './pages/CreateRequest';
+import AdminCreateRequest from './pages/AdminCreateRequest';
 import EditRequest from './pages/editrequest';
 import AdminRequests from './pages/AdminRequests';
-import RequestDetails from './pages/requestdetails';
 import SingleRequest  from './pages/SingleRequest';
+import AdminSingleRequest  from './pages/AdminGetSingleRequest';
 
 
 const Routes = () => ((
@@ -21,11 +22,11 @@ const Routes = () => ((
       <Route path="/signup" component={Signup} />
       <Route path="/allrequests" component={AllRequests} />
       <Route path="/createrequest" component={CreateRequest} />
-      <Route path="/admincreaterequest" component={CreateRequest} />
+      <Route path="/admincreaterequest" component={AdminCreateRequest} />
       <Route path="/editrequest/:id" component={EditRequest} />
       <Route path="/adminrequests" component={AdminRequests} />
-      <Route path="/requestdetails" component={RequestDetails} />
       <Route path="/singlerequest/:id" component={SingleRequest} />
+      <Route path="/requestdetails/:id" component={AdminSingleRequest} />
     </React.Fragment>
   </BrowserRouter>
 ));
