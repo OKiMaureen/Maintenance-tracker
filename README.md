@@ -3,6 +3,7 @@
 <a href="https://codeclimate.com/github/OKiMaureen/Maintenance-tracker/maintainability"><img src="https://api.codeclimate.com/v1/badges/225b5d371a7731f835b7/maintainability" /></a>
 <a href="https://codeclimate.com/github/OKiMaureen/Maintenance-tracker/test_coverage"><img src="https://api.codeclimate.com/v1/badges/225b5d371a7731f835b7/test_coverage" /></a>
 [![Coverage Status](https://coveralls.io/repos/github/OKiMaureen/Maintenance-tracker/badge.svg?branch=ft-signup-157973703)](https://coveralls.io/github/OKiMaureen/Maintenance-tracker?branch=ft-signup-157973703)
+<a href="https://codeclimate.com/github/OKiMaureen/Maintenance-tracker/test_coverage"><img src="https://api.codeclimate.com/v1/badges/225b5d371a7731f835b7/test_coverage" /></a>
 
 
 ## Maintenance Tracker

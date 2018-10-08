@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 
 
 const AllRequestsComponent = ({
-  requests,
+  requests, route,
 
 
 }) => (
@@ -31,7 +31,8 @@ const AllRequestsComponent = ({
                 </div>
                 <div className="status flex-item ">
                   <p>
-                    { <Link to={`/singlerequest/${request.id}`}> More</Link>}
+                    {request && request.id ? <Link to={`${route}${request.id}`}> More</Link> :
+                    <Link to={`${route}${request.requestid}`}> More</Link>}
 
                   </p>
                 </div>
@@ -61,6 +62,7 @@ AllRequestsComponent.propTypes = {
       requeststatus: PropTypes.bool,
     },
   ]).isRequired,
+  route: PropTypes.string.isRequired,
 };
 
 export default AllRequestsComponent;

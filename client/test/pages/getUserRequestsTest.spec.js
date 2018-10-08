@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { AllRequests } from '../../pages/AllRequests';
+import { AllRequests } from '../../pages/allrequests';
 
 
 describe('<AllRequest />', () => {

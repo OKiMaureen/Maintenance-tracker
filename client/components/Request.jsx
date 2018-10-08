@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import Header from './Header';
 import loader from '../assets/images/spinloader.gif';
 import Footer from './Footer';
 
@@ -10,6 +12,7 @@ const CreateRequest = ({
   description,
   department,
   equipment,
+  logout,
   requestDetail,
   userDetail,
   errors,
@@ -18,6 +21,7 @@ const CreateRequest = ({
   editRequest,
 }) => (
   <div>
+    <Header><Link to="/">Home</Link><Link to="/createrequest">Create request</Link> <Link to="/allrequests">My requests</Link> <li><button className="header-btn" onClick={logout}>Logout</button></li></Header>
     <section className="request">
       <article className="request-card">
         <form className="request-form">
@@ -65,6 +69,7 @@ CreateRequest.propTypes = {
     checkStatus: PropTypes.object,
     error: PropTypes.string,
   }),
+  logout: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   errors: PropTypes.shape({}).isRequired,

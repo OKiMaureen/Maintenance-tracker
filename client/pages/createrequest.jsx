@@ -96,7 +96,7 @@ export class CreateRequest extends Component {
       } = this.state;
       return (
         <div>
-          <Header><Link to="/">Home</Link><Link to="/admincreaterequest">Create request</Link> <Link to="/adminrequests">All requests</Link><button className="header-btn" onClick={this.logout}>Logout</button></Header>
+          <Header><Link to="/">Home</Link><Link to="/admincreaterequest">Create request</Link> <Link to="/allrequests">My requests</Link> <li><button className="header-btn" onClick={this.logout}>Logout</button></li></Header>
           <Request
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}

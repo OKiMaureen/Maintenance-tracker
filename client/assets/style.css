@@ -2,7 +2,7 @@
   color: red;
   display: block;
   text-align: center;
-  font-size: 15px;
+  font-size: 12px;
 }
 .container {
   display: flex;
@@ -59,8 +59,24 @@
     list-style-type: none;
     display: none;
   }
-  
+
+  nav ul.show {
+    list-style-type: none;
+    display: flex !important;
+    flex-direction: column;
+  }
+
   nav ul a {
+    display: block;
+    background:rgb(0, 0, 0, 0.8);
+    padding: 10px;
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fdf2f2;
+    transition: color 1s ease, background 1s ease, padding 1s ease;
+  }
+  nav ul li {
     display: block;
     background:rgb(0, 0, 0, 0.8);
     padding: 10px;
@@ -108,6 +124,7 @@
     width: 20px;
     height: 3px;
     margin: 5px;
+    color: #000000;
     background: #fdf2f2;
   }
   
@@ -213,6 +230,7 @@
       justify-content: center;
       height: 80px;
       background: #000000;
+      flex-direction: row;
     }
     nav ul li{
       justify-content:space-around;
@@ -435,7 +453,7 @@
   /* form section */
   .form {
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(images/head-background.jpeg)center center/cover fixed no-repeat;
-    min-height: 80vh;
+    min-height: 92vh;
     background-color: #f8f7f5;
     display: flex;
     justify-content: center;
@@ -487,6 +505,12 @@
       justify-content: center;
       align-items: center;
     }
+    validation-error {
+      color: red;
+      display: block;
+      text-align: center;
+      font-size: 15px;
+    }
     .card {
       flex: 0 0 35%;
       padding: 15px;
@@ -531,7 +555,7 @@
   }
   /* create-requeust-section */
   .request{
-    min-height: 80vh;
+    min-height: 85vh;
     padding: 100px;
     background: linear-gradient(rgba(216, 10, 10, 0.2), rgba(252, 251, 251, 0.2)), url(images/backgroundwood.jpeg)center/cover fixed no-repeat;
     display: flex;
@@ -586,6 +610,12 @@
       padding: 40px;
       justify-content: center;
       align-items: center;
+    }
+    .validation-error {
+      color: red;
+      display: block;
+      text-align: center;
+      font-size: 12px;
     }
     .request-card {
       flex: 0 0 50%;
@@ -673,7 +703,19 @@
     color: #a51b26;
   }
   .red {
-    background-color:#a51b26;
+    background-color:#757677;
+    color: white;
+    padding: 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 10px 2px;
+    border-radius: 5px;
+  }
+  .disabled {
+    background-color: #c7c8c9;
     color: white;
     padding: 4px;
     text-align: center;

@@ -71,7 +71,7 @@ export class Signin extends Component {
     render() {
       return (
         <div>
-          <Header><Link to="/">Home</Link><Link to="/" /></Header>
+          <Header><Link to="/">Home</Link><Link to="/signup">Sign Up</Link></Header>
           {/* Signup Form  */}
           <section className="form">
             <article className="card">
