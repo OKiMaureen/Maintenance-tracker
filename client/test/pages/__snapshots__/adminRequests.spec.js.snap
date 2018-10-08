@@ -66,18 +66,16 @@ ShallowWrapper {
           <Link
             className="current"
             replace={false}
-            to="adminrequest"
+            to="adminrequests"
           >
-            All Request
+            All Requests
           </Link>
-          <li>
-            <button
-              className="header-btn"
-              onClick={[Function]}
-            >
-              Logout
-            </button>
-          </li>
+          <button
+            className="header-btn"
+            onClick={[Function]}
+          >
+            Logout
+          </button>
         </Header>,
         <AllRequestsComponent
           linkRoute="/adminrequests"
@@ -134,18 +132,16 @@ ShallowWrapper {
             <Link
               className="current"
               replace={false}
-              to="adminrequest"
+              to="adminrequests"
             >
-              All Request
+              All Requests
             </Link>,
-            <li>
-              <button
-                className="header-btn"
-                onClick={[Function]}
-              >
-                Logout
-              </button>
-            </li>,
+            <button
+              className="header-btn"
+              onClick={[Function]}
+            >
+              Logout
+            </button>,
           ],
         },
         "ref": null,
@@ -181,13 +177,13 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "children": "All Request",
+              "children": "All Requests",
               "className": "current",
               "replace": false,
-              "to": "adminrequest",
+              "to": "adminrequests",
             },
             "ref": null,
-            "rendered": "All Request",
+            "rendered": "All Requests",
             "type": [Function],
           },
           Object {
@@ -195,28 +191,13 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <button
-                className="header-btn"
-                onClick={[Function]}
-              >
-                Logout
-              </button>,
+              "children": "Logout",
+              "className": "header-btn",
+              "onClick": [Function],
             },
             "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Logout",
-                "className": "header-btn",
-                "onClick": [Function],
-              },
-              "ref": null,
-              "rendered": "Logout",
-              "type": "button",
-            },
-            "type": "li",
+            "rendered": "Logout",
+            "type": "button",
           },
         ],
         "type": [Function],
@@ -283,18 +264,16 @@ ShallowWrapper {
             <Link
               className="current"
               replace={false}
-              to="adminrequest"
+              to="adminrequests"
             >
-              All Request
+              All Requests
             </Link>
-            <li>
-              <button
-                className="header-btn"
-                onClick={[Function]}
-              >
-                Logout
-              </button>
-            </li>
+            <button
+              className="header-btn"
+              onClick={[Function]}
+            >
+              Logout
+            </button>
           </Header>,
           <AllRequestsComponent
             linkRoute="/adminrequests"
@@ -351,18 +330,16 @@ ShallowWrapper {
               <Link
                 className="current"
                 replace={false}
-                to="adminrequest"
+                to="adminrequests"
               >
-                All Request
+                All Requests
               </Link>,
-              <li>
-                <button
-                  className="header-btn"
-                  onClick={[Function]}
-                >
-                  Logout
-                </button>
-              </li>,
+              <button
+                className="header-btn"
+                onClick={[Function]}
+              >
+                Logout
+              </button>,
             ],
           },
           "ref": null,
@@ -398,13 +375,13 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "children": "All Request",
+                "children": "All Requests",
                 "className": "current",
                 "replace": false,
-                "to": "adminrequest",
+                "to": "adminrequests",
               },
               "ref": null,
-              "rendered": "All Request",
+              "rendered": "All Requests",
               "type": [Function],
             },
             Object {
@@ -412,28 +389,13 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <button
-                  className="header-btn"
-                  onClick={[Function]}
-                >
-                  Logout
-                </button>,
+                "children": "Logout",
+                "className": "header-btn",
+                "onClick": [Function],
               },
               "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Logout",
-                  "className": "header-btn",
-                  "onClick": [Function],
-                },
-                "ref": null,
-                "rendered": "Logout",
-                "type": "button",
-              },
-              "type": "li",
+              "rendered": "Logout",
+              "type": "button",
             },
           ],
           "type": [Function],

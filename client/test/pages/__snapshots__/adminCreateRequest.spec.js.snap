@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CreateRequest /> stores a snapshot of the component 1`] = `
+exports[`<AdminCreateRequest /> stores a snapshot of the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <CreateRequest
+  Symbol(enzyme.__unrendered__): <AdminCreateRequest
     createRequestAction={[Function]}
     error=""
     history={
@@ -54,25 +54,23 @@ ShallowWrapper {
           </Link>
           <Link
             replace={false}
-            to="/admincreaterequest"
+            to="admincreaterequest"
           >
-            Create request
+            Create Request
           </Link>
-           
           <Link
+            className="current"
             replace={false}
-            to="/adminrequests"
+            to="adminrequests"
           >
-            All requests
+            All Requests
           </Link>
-          <li>
-            <button
-              className="header-btn"
-              onClick={[Function]}
-            >
-              Logout
-            </button>
-          </li>
+          <button
+            className="header-btn"
+            onClick={[Function]}
+          >
+            Logout
+          </button>
         </Header>,
         <CreateRequest
           buttonText="Create Request"
@@ -122,25 +120,23 @@ ShallowWrapper {
             </Link>,
             <Link
               replace={false}
-              to="/admincreaterequest"
+              to="admincreaterequest"
             >
-              Create request
+              Create Request
             </Link>,
-            " ",
             <Link
+              className="current"
               replace={false}
-              to="/adminrequests"
+              to="adminrequests"
             >
-              All requests
+              All Requests
             </Link>,
-            <li>
-              <button
-                className="header-btn"
-                onClick={[Function]}
-              >
-                Logout
-              </button>
-            </li>,
+            <button
+              className="header-btn"
+              onClick={[Function]}
+            >
+              Logout
+            </button>,
           ],
         },
         "ref": null,
@@ -163,26 +159,26 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "children": "Create request",
+              "children": "Create Request",
               "replace": false,
-              "to": "/admincreaterequest",
+              "to": "admincreaterequest",
             },
             "ref": null,
-            "rendered": "Create request",
+            "rendered": "Create Request",
             "type": [Function],
           },
-          " ",
           Object {
             "instance": null,
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "children": "All requests",
+              "children": "All Requests",
+              "className": "current",
               "replace": false,
-              "to": "/adminrequests",
+              "to": "adminrequests",
             },
             "ref": null,
-            "rendered": "All requests",
+            "rendered": "All Requests",
             "type": [Function],
           },
           Object {
@@ -190,28 +186,13 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <button
-                className="header-btn"
-                onClick={[Function]}
-              >
-                Logout
-              </button>,
+              "children": "Logout",
+              "className": "header-btn",
+              "onClick": [Function],
             },
             "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Logout",
-                "className": "header-btn",
-                "onClick": [Function],
-              },
-              "ref": null,
-              "rendered": "Logout",
-              "type": "button",
-            },
-            "type": "li",
+            "rendered": "Logout",
+            "type": "button",
           },
         ],
         "type": [Function],
@@ -269,25 +250,23 @@ ShallowWrapper {
             </Link>
             <Link
               replace={false}
-              to="/admincreaterequest"
+              to="admincreaterequest"
             >
-              Create request
+              Create Request
             </Link>
-             
             <Link
+              className="current"
               replace={false}
-              to="/adminrequests"
+              to="adminrequests"
             >
-              All requests
+              All Requests
             </Link>
-            <li>
-              <button
-                className="header-btn"
-                onClick={[Function]}
-              >
-                Logout
-              </button>
-            </li>
+            <button
+              className="header-btn"
+              onClick={[Function]}
+            >
+              Logout
+            </button>
           </Header>,
           <CreateRequest
             buttonText="Create Request"
@@ -337,25 +316,23 @@ ShallowWrapper {
               </Link>,
               <Link
                 replace={false}
-                to="/admincreaterequest"
+                to="admincreaterequest"
               >
-                Create request
+                Create Request
               </Link>,
-              " ",
               <Link
+                className="current"
                 replace={false}
-                to="/adminrequests"
+                to="adminrequests"
               >
-                All requests
+                All Requests
               </Link>,
-              <li>
-                <button
-                  className="header-btn"
-                  onClick={[Function]}
-                >
-                  Logout
-                </button>
-              </li>,
+              <button
+                className="header-btn"
+                onClick={[Function]}
+              >
+                Logout
+              </button>,
             ],
           },
           "ref": null,
@@ -378,26 +355,26 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "children": "Create request",
+                "children": "Create Request",
                 "replace": false,
-                "to": "/admincreaterequest",
+                "to": "admincreaterequest",
               },
               "ref": null,
-              "rendered": "Create request",
+              "rendered": "Create Request",
               "type": [Function],
             },
-            " ",
             Object {
               "instance": null,
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "children": "All requests",
+                "children": "All Requests",
+                "className": "current",
                 "replace": false,
-                "to": "/adminrequests",
+                "to": "adminrequests",
               },
               "ref": null,
-              "rendered": "All requests",
+              "rendered": "All Requests",
               "type": [Function],
             },
             Object {
@@ -405,28 +382,13 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <button
-                  className="header-btn"
-                  onClick={[Function]}
-                >
-                  Logout
-                </button>,
+                "children": "Logout",
+                "className": "header-btn",
+                "onClick": [Function],
               },
               "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Logout",
-                  "className": "header-btn",
-                  "onClick": [Function],
-                },
-                "ref": null,
-                "rendered": "Logout",
-                "type": "button",
-              },
-              "type": "li",
+              "rendered": "Logout",
+              "type": "button",
             },
           ],
           "type": [Function],
