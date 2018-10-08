@@ -1,8 +1,11 @@
 # Maintenance-tracker
 [![Build Status](https://travis-ci.org/OKiMaureen/Maintenance-tracker.svg?branch=develop)](https://travis-ci.org/OKiMaureen/Maintenance-tracker)
 <a href="https://codeclimate.com/github/OKiMaureen/Maintenance-tracker/maintainability"><img src="https://api.codeclimate.com/v1/badges/225b5d371a7731f835b7/maintainability" /></a>
-<a href="https://codeclimate.com/github/OKiMaureen/Maintenance-tracker/test_coverage"><img src="https://api.codeclimate.com/v1/badges/225b5d371a7731f835b7/test_coverage" /></a>
+
 [![Coverage Status](https://coveralls.io/repos/github/OKiMaureen/Maintenance-tracker/badge.svg?branch=ft-signup-157973703)](https://coveralls.io/github/OKiMaureen/Maintenance-tracker?branch=ft-signup-157973703)
+<a href="https://codeclimate.com/github/OKiMaureen/Maintenance-tracker/test_coverage"><img src="https://api.codeclimate.com/v1/badges/225b5d371a7731f835b7/test_coverage" /></a>
+
+React Test Coverage
 <a href="https://codeclimate.com/github/OKiMaureen/Maintenance-tracker/test_coverage"><img src="https://api.codeclimate.com/v1/badges/225b5d371a7731f835b7/test_coverage" /></a>
 
 
@@ -12,13 +15,15 @@ Maintenance Tracker App is an application that provides users with the ability t
 ## UI hosted on gh pages
 https://okimaureen.github.io/Maintenance-tracker/ui
 
-## Client sid ehosted on Heroku
+## Client side hosted on Heroku
 https://maintenance-tracker-ui.herokuapp.com/client/
 
 
 ## Client side hosted on Heroku
 https://maintenance-tracker-ui.herokuapp.com/client/
 
+## Link to React application hosted on Heroku
+https://maintenance-tracker-ui.herokuapp.com/
 
 ## Table of Content
  * [Getting Started](#getting-started)
