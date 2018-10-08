@@ -32,11 +32,11 @@ const signInAction = (userData, history) => (dispatch, getState, http) => {
       if (res.data.data.user.role === 'user') {
         history.push('/createrequest');
       } else if (res.data.data.user.role === 'admin') {
-        history.push('/adminrequest');
+        history.push('/admincreaterequest');
       }
-      const user = res.data.data;
-      localStorage.setItem('auth', JSON.stringify(user));
-      dispatch(signinUser(user));
+      localStorage.setItem('auth', JSON.stringify(res.data.data));
+      localStorage.setItem('token', JSON.stringify(res.data.data.token));
+      dispatch(signinUser(res.data.data));
     })
     .catch((error) => {
       if (error.response.status === 401) {

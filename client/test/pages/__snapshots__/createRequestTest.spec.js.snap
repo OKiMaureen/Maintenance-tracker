@@ -42,73 +42,397 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "function",
+    "nodeType": "host",
     "props": Object {
-      "buttonText": "Create Article",
-      "department": "",
-      "description": "",
-      "editRequest": [Function],
-      "equipment": "",
-      "errors": Object {},
-      "handleChange": [Function],
-      "handleSubmit": [Function],
-      "logout": [Function],
-      "requestDetail": Object {
-        "checkStatus": Object {
-          "error": false,
-          "isLoading": false,
-          "success": false,
-        },
-      },
-      "title": "",
-      "titleText": "Create Article",
-      "userDetail": Object {
-        "checkStatus": Object {
-          "error": false,
-          "isLoading": false,
-          "success": false,
-        },
-      },
+      "children": Array [
+        <Header>
+          <Link
+            replace={false}
+            to="/"
+          >
+            Home
+          </Link>
+          <Link
+            replace={false}
+            to="/admincreaterequest"
+          >
+            Create request
+          </Link>
+           
+          <Link
+            replace={false}
+            to="/adminrequests"
+          >
+            All requests
+          </Link>
+          <button
+            className="header-btn"
+            onClick={[Function]}
+          >
+            Logout
+          </button>
+        </Header>,
+        <CreateRequest
+          buttonText="Create Article"
+          department=""
+          description=""
+          editRequest={[Function]}
+          equipment=""
+          errors={Object {}}
+          handleChange={[Function]}
+          handleSubmit={[Function]}
+          logout={[Function]}
+          requestDetail={
+            Object {
+              "checkStatus": Object {
+                "error": false,
+                "isLoading": false,
+                "success": false,
+              },
+            }
+          }
+          title=""
+          titleText="Create Article"
+          userDetail={
+            Object {
+              "checkStatus": Object {
+                "error": false,
+                "isLoading": false,
+                "success": false,
+              },
+            }
+          }
+        />,
+      ],
     },
     "ref": null,
-    "rendered": null,
-    "type": [Function],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <Link
+              replace={false}
+              to="/"
+            >
+              Home
+            </Link>,
+            <Link
+              replace={false}
+              to="/admincreaterequest"
+            >
+              Create request
+            </Link>,
+            " ",
+            <Link
+              replace={false}
+              to="/adminrequests"
+            >
+              All requests
+            </Link>,
+            <button
+              className="header-btn"
+              onClick={[Function]}
+            >
+              Logout
+            </button>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Home",
+              "replace": false,
+              "to": "/",
+            },
+            "ref": null,
+            "rendered": "Home",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Create request",
+              "replace": false,
+              "to": "/admincreaterequest",
+            },
+            "ref": null,
+            "rendered": "Create request",
+            "type": [Function],
+          },
+          " ",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "All requests",
+              "replace": false,
+              "to": "/adminrequests",
+            },
+            "ref": null,
+            "rendered": "All requests",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Logout",
+              "className": "header-btn",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Logout",
+            "type": "button",
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "buttonText": "Create Article",
+          "department": "",
+          "description": "",
+          "editRequest": [Function],
+          "equipment": "",
+          "errors": Object {},
+          "handleChange": [Function],
+          "handleSubmit": [Function],
+          "logout": [Function],
+          "requestDetail": Object {
+            "checkStatus": Object {
+              "error": false,
+              "isLoading": false,
+              "success": false,
+            },
+          },
+          "title": "",
+          "titleText": "Create Article",
+          "userDetail": Object {
+            "checkStatus": Object {
+              "error": false,
+              "isLoading": false,
+              "success": false,
+            },
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "function",
+      "nodeType": "host",
       "props": Object {
-        "buttonText": "Create Article",
-        "department": "",
-        "description": "",
-        "editRequest": [Function],
-        "equipment": "",
-        "errors": Object {},
-        "handleChange": [Function],
-        "handleSubmit": [Function],
-        "logout": [Function],
-        "requestDetail": Object {
-          "checkStatus": Object {
-            "error": false,
-            "isLoading": false,
-            "success": false,
-          },
-        },
-        "title": "",
-        "titleText": "Create Article",
-        "userDetail": Object {
-          "checkStatus": Object {
-            "error": false,
-            "isLoading": false,
-            "success": false,
-          },
-        },
+        "children": Array [
+          <Header>
+            <Link
+              replace={false}
+              to="/"
+            >
+              Home
+            </Link>
+            <Link
+              replace={false}
+              to="/admincreaterequest"
+            >
+              Create request
+            </Link>
+             
+            <Link
+              replace={false}
+              to="/adminrequests"
+            >
+              All requests
+            </Link>
+            <button
+              className="header-btn"
+              onClick={[Function]}
+            >
+              Logout
+            </button>
+          </Header>,
+          <CreateRequest
+            buttonText="Create Article"
+            department=""
+            description=""
+            editRequest={[Function]}
+            equipment=""
+            errors={Object {}}
+            handleChange={[Function]}
+            handleSubmit={[Function]}
+            logout={[Function]}
+            requestDetail={
+              Object {
+                "checkStatus": Object {
+                  "error": false,
+                  "isLoading": false,
+                  "success": false,
+                },
+              }
+            }
+            title=""
+            titleText="Create Article"
+            userDetail={
+              Object {
+                "checkStatus": Object {
+                  "error": false,
+                  "isLoading": false,
+                  "success": false,
+                },
+              }
+            }
+          />,
+        ],
       },
       "ref": null,
-      "rendered": null,
-      "type": [Function],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <Link
+                replace={false}
+                to="/"
+              >
+                Home
+              </Link>,
+              <Link
+                replace={false}
+                to="/admincreaterequest"
+              >
+                Create request
+              </Link>,
+              " ",
+              <Link
+                replace={false}
+                to="/adminrequests"
+              >
+                All requests
+              </Link>,
+              <button
+                className="header-btn"
+                onClick={[Function]}
+              >
+                Logout
+              </button>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Home",
+                "replace": false,
+                "to": "/",
+              },
+              "ref": null,
+              "rendered": "Home",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Create request",
+                "replace": false,
+                "to": "/admincreaterequest",
+              },
+              "ref": null,
+              "rendered": "Create request",
+              "type": [Function],
+            },
+            " ",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "All requests",
+                "replace": false,
+                "to": "/adminrequests",
+              },
+              "ref": null,
+              "rendered": "All requests",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Logout",
+                "className": "header-btn",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Logout",
+              "type": "button",
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "buttonText": "Create Article",
+            "department": "",
+            "description": "",
+            "editRequest": [Function],
+            "equipment": "",
+            "errors": Object {},
+            "handleChange": [Function],
+            "handleSubmit": [Function],
+            "logout": [Function],
+            "requestDetail": Object {
+              "checkStatus": Object {
+                "error": false,
+                "isLoading": false,
+                "success": false,
+              },
+            },
+            "title": "",
+            "titleText": "Create Article",
+            "userDetail": Object {
+              "checkStatus": Object {
+                "error": false,
+                "isLoading": false,
+                "success": false,
+              },
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {

@@ -1,39 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AllRequest /> stores a snapshot of the component 1`] = `
+exports[`<CreateRequest /> stores a snapshot of the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <AllRequests
-    allRequest={[Function]}
+  Symbol(enzyme.__unrendered__): <CreateRequest
+    createRequestAction={[Function]}
+    error=""
     history={
       Object {
         "push": [MockFunction],
       }
     }
     logout={[Function]}
-    requests={
-      Array [
-        Object {
-          "department": "technology",
-          "description": "repair laptop",
-          "equipment": "computer",
-          "id": 1,
-          "requeststatus": "pending",
-          "serialnumber": 111111111,
-          "title": "repair computer",
-          "user_id": 1,
+    requestDetail={
+      Object {
+        "checkStatus": Object {
+          "error": false,
+          "isLoading": false,
+          "success": false,
         },
-        Object {
-          "department": "technology",
-          "description": "repair laptop",
-          "equipment": "computer",
-          "id": 2,
-          "requeststatus": "pending",
-          "serialnumber": 111111111,
-          "title": "repair computer",
-          "user_id": 2,
+      }
+    }
+    userDetail={
+      Object {
+        "checkStatus": Object {
+          "error": false,
+          "isLoading": false,
+          "success": false,
         },
-      ]
+      }
     }
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -59,16 +54,16 @@ ShallowWrapper {
           </Link>
           <Link
             replace={false}
-            to="admincreaterequest"
+            to="/admincreaterequest"
           >
-            Create Request
+            Create request
           </Link>
+           
           <Link
-            className="current"
             replace={false}
-            to="adminrequest"
+            to="/adminrequests"
           >
-            All Request
+            All requests
           </Link>
           <button
             className="header-btn"
@@ -77,33 +72,34 @@ ShallowWrapper {
             Logout
           </button>
         </Header>,
-        <AllRequestsComponent
-          linkRoute="/allrequests"
-          linkText="My Requests"
-          logout={[Function]}
-          requests={
-            Array [
-              Object {
-                "department": "technology",
-                "description": "repair laptop",
-                "equipment": "computer",
-                "id": 1,
-                "requeststatus": "pending",
-                "serialnumber": 111111111,
-                "title": "repair computer",
-                "user_id": 1,
+        <CreateRequest
+          buttonText="Create Article"
+          department=""
+          description=""
+          editRequest={[Function]}
+          equipment=""
+          errors={Object {}}
+          handleChange={[Function]}
+          handleSubmit={[Function]}
+          requestDetail={
+            Object {
+              "checkStatus": Object {
+                "error": false,
+                "isLoading": false,
+                "success": false,
               },
-              Object {
-                "department": "technology",
-                "description": "repair laptop",
-                "equipment": "computer",
-                "id": 2,
-                "requeststatus": "pending",
-                "serialnumber": 111111111,
-                "title": "repair computer",
-                "user_id": 2,
+            }
+          }
+          title=""
+          titleText="Create Article"
+          userDetail={
+            Object {
+              "checkStatus": Object {
+                "error": false,
+                "isLoading": false,
+                "success": false,
               },
-            ]
+            }
           }
         />,
       ],
@@ -124,16 +120,16 @@ ShallowWrapper {
             </Link>,
             <Link
               replace={false}
-              to="admincreaterequest"
+              to="/admincreaterequest"
             >
-              Create Request
+              Create request
             </Link>,
+            " ",
             <Link
-              className="current"
               replace={false}
-              to="adminrequest"
+              to="/adminrequests"
             >
-              All Request
+              All requests
             </Link>,
             <button
               className="header-btn"
@@ -163,26 +159,26 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "children": "Create Request",
+              "children": "Create request",
               "replace": false,
-              "to": "admincreaterequest",
+              "to": "/admincreaterequest",
             },
             "ref": null,
-            "rendered": "Create Request",
+            "rendered": "Create request",
             "type": [Function],
           },
+          " ",
           Object {
             "instance": null,
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "children": "All Request",
-              "className": "current",
+              "children": "All requests",
               "replace": false,
-              "to": "adminrequest",
+              "to": "/adminrequests",
             },
             "ref": null,
-            "rendered": "All Request",
+            "rendered": "All requests",
             "type": [Function],
           },
           Object {
@@ -206,31 +202,30 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "linkRoute": "/allrequests",
-          "linkText": "My Requests",
-          "logout": [Function],
-          "requests": Array [
-            Object {
-              "department": "technology",
-              "description": "repair laptop",
-              "equipment": "computer",
-              "id": 1,
-              "requeststatus": "pending",
-              "serialnumber": 111111111,
-              "title": "repair computer",
-              "user_id": 1,
+          "buttonText": "Create Article",
+          "department": "",
+          "description": "",
+          "editRequest": [Function],
+          "equipment": "",
+          "errors": Object {},
+          "handleChange": [Function],
+          "handleSubmit": [Function],
+          "requestDetail": Object {
+            "checkStatus": Object {
+              "error": false,
+              "isLoading": false,
+              "success": false,
             },
-            Object {
-              "department": "technology",
-              "description": "repair laptop",
-              "equipment": "computer",
-              "id": 2,
-              "requeststatus": "pending",
-              "serialnumber": 111111111,
-              "title": "repair computer",
-              "user_id": 2,
+          },
+          "title": "",
+          "titleText": "Create Article",
+          "userDetail": Object {
+            "checkStatus": Object {
+              "error": false,
+              "isLoading": false,
+              "success": false,
             },
-          ],
+          },
         },
         "ref": null,
         "rendered": null,
@@ -255,16 +250,16 @@ ShallowWrapper {
             </Link>
             <Link
               replace={false}
-              to="admincreaterequest"
+              to="/admincreaterequest"
             >
-              Create Request
+              Create request
             </Link>
+             
             <Link
-              className="current"
               replace={false}
-              to="adminrequest"
+              to="/adminrequests"
             >
-              All Request
+              All requests
             </Link>
             <button
               className="header-btn"
@@ -273,33 +268,34 @@ ShallowWrapper {
               Logout
             </button>
           </Header>,
-          <AllRequestsComponent
-            linkRoute="/allrequests"
-            linkText="My Requests"
-            logout={[Function]}
-            requests={
-              Array [
-                Object {
-                  "department": "technology",
-                  "description": "repair laptop",
-                  "equipment": "computer",
-                  "id": 1,
-                  "requeststatus": "pending",
-                  "serialnumber": 111111111,
-                  "title": "repair computer",
-                  "user_id": 1,
+          <CreateRequest
+            buttonText="Create Article"
+            department=""
+            description=""
+            editRequest={[Function]}
+            equipment=""
+            errors={Object {}}
+            handleChange={[Function]}
+            handleSubmit={[Function]}
+            requestDetail={
+              Object {
+                "checkStatus": Object {
+                  "error": false,
+                  "isLoading": false,
+                  "success": false,
                 },
-                Object {
-                  "department": "technology",
-                  "description": "repair laptop",
-                  "equipment": "computer",
-                  "id": 2,
-                  "requeststatus": "pending",
-                  "serialnumber": 111111111,
-                  "title": "repair computer",
-                  "user_id": 2,
+              }
+            }
+            title=""
+            titleText="Create Article"
+            userDetail={
+              Object {
+                "checkStatus": Object {
+                  "error": false,
+                  "isLoading": false,
+                  "success": false,
                 },
-              ]
+              }
             }
           />,
         ],
@@ -320,16 +316,16 @@ ShallowWrapper {
               </Link>,
               <Link
                 replace={false}
-                to="admincreaterequest"
+                to="/admincreaterequest"
               >
-                Create Request
+                Create request
               </Link>,
+              " ",
               <Link
-                className="current"
                 replace={false}
-                to="adminrequest"
+                to="/adminrequests"
               >
-                All Request
+                All requests
               </Link>,
               <button
                 className="header-btn"
@@ -359,26 +355,26 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "children": "Create Request",
+                "children": "Create request",
                 "replace": false,
-                "to": "admincreaterequest",
+                "to": "/admincreaterequest",
               },
               "ref": null,
-              "rendered": "Create Request",
+              "rendered": "Create request",
               "type": [Function],
             },
+            " ",
             Object {
               "instance": null,
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "children": "All Request",
-                "className": "current",
+                "children": "All requests",
                 "replace": false,
-                "to": "adminrequest",
+                "to": "/adminrequests",
               },
               "ref": null,
-              "rendered": "All Request",
+              "rendered": "All requests",
               "type": [Function],
             },
             Object {
@@ -402,31 +398,30 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "linkRoute": "/allrequests",
-            "linkText": "My Requests",
-            "logout": [Function],
-            "requests": Array [
-              Object {
-                "department": "technology",
-                "description": "repair laptop",
-                "equipment": "computer",
-                "id": 1,
-                "requeststatus": "pending",
-                "serialnumber": 111111111,
-                "title": "repair computer",
-                "user_id": 1,
+            "buttonText": "Create Article",
+            "department": "",
+            "description": "",
+            "editRequest": [Function],
+            "equipment": "",
+            "errors": Object {},
+            "handleChange": [Function],
+            "handleSubmit": [Function],
+            "requestDetail": Object {
+              "checkStatus": Object {
+                "error": false,
+                "isLoading": false,
+                "success": false,
               },
-              Object {
-                "department": "technology",
-                "description": "repair laptop",
-                "equipment": "computer",
-                "id": 2,
-                "requeststatus": "pending",
-                "serialnumber": 111111111,
-                "title": "repair computer",
-                "user_id": 2,
+            },
+            "title": "",
+            "titleText": "Create Article",
+            "userDetail": Object {
+              "checkStatus": Object {
+                "error": false,
+                "isLoading": false,
+                "success": false,
               },
-            ],
+            },
           },
           "ref": null,
           "rendered": null,

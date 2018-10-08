@@ -16,10 +16,9 @@ export class SingleRequest extends Component {
   }
   logout = () => {
     const { history, logout } = this.props;
-    if (logout()) {
-      localStorage.clear();
-      history.push('/');
-    }
+    logout();
+    localStorage.clear();
+    history.push('/');
     return true;
   }
   render() {

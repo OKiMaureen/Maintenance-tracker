@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { bindActionCreators } from 'redux';
-import id from 'short-id';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import allRequestAction from '../actions/allRequestAction';
-import logoutAction from '../actions/logoutAction';
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
+import allRequestAction from '../actions/allRequestAction';
+import AllRequestsComponent from '../components/AllRequests';
+import logoutAction from '../actions/logoutAction';
 
 export class AllRequests extends Component {
   componentDidMount() {
@@ -16,10 +15,9 @@ export class AllRequests extends Component {
   }
   logout = () => {
     const { history, logout } = this.props;
-    if (logout()) {
-      localStorage.clear();
-      history.push('/');
-    }
+    logout();
+    localStorage.clear();
+    history.push('/');
     return true;
   }
   render() {
@@ -28,46 +26,16 @@ export class AllRequests extends Component {
       <div>
         <Header>
           <Link to="/">Home</Link>
-          <Link to="/createrequest">Create Request</Link>
-          <Link to="/allrequests" className="current">My requests</Link>
+          <Link to="admincreaterequest">Create Request</Link>
+          <Link className="current" to="adminrequest">All Request</Link>
           <button className="header-btn" onClick={this.logout}>Logout</button>
         </Header>
-
-        <section className="allrequests">
-          {requests && requests.length !== 0 ? requests.map(request =>
-
-          (
-            <div className="requests-card" key={id.generate}>
-              <p>
-                <label>Title:</label>{request.title}
-              </p>
-              <p>
-                <label>Equipment: </label>{request.equipment}
-              </p>
-              <div className="container">
-                <div className="status fixed">
-                  {request.requeststatus === 'pending' ? <label className="yellow">{request.requeststatus}</label> : ''}
-                  {request.requeststatus === 'approved' ? <label className="green">{request.requeststatus}</label> : ''}
-                  {request.requeststatus === 'disapproved' ? <label className="red">{request.requeststatus}</label> : ''}
-                  {request.requeststatus === 'resolved' ? <label className="green">{request.requeststatus}</label> : ''}
-                </div>
-                <div className="status flex-item ">
-                  <p>
-                    { <Link to={`/singlerequest/${request.id}`}> More</Link>}
-
-                  </p>
-                </div>
-              </div>
-            </div>)) :
-          <div className="requests-card no-request" >
-            <p className="message-centered">
-              You do not have any requests yet!!! Go ahead and create a request.
-            </p>
-          </div>
-          }
-
-        </section>
-        <Footer />
+        <AllRequestsComponent
+          requests={requests}
+          logout={this.logout}
+          linkRoute="/allrequests"
+          linkText="My Requests"
+        />
       </div>
 
     );
