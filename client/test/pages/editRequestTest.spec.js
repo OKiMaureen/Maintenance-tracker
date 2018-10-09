@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect as e } from 'chai';
 import { shallow } from 'enzyme';
-import { EditRequest } from '../../pages/editrequest';
+import { EditRequest } from '../../pages/EditRequest';
 
 describe('<EditRequest />', () => {
   let wrapper;

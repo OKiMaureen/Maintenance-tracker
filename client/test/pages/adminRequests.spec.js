@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { AdminRequests } from '../../pages/adminrequests';
+import { AdminRequests } from '../../pages/AdminRequests';
 
 
 describe('<Admin Requests />', () => {
