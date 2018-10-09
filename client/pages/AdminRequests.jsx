@@ -24,7 +24,7 @@ export class AdminRequests extends Component {
     const { requests = [] } = this.props;
     return (
       <div>
-        <Header>
+        <Header >
           <Link to="/">Home</Link>
           <Link to="admincreaterequest">Create Request</Link>
           <Link className="current" to="adminrequests">All Requests</Link>

@@ -99,10 +99,23 @@ describe('Create  all requests component test', () => {
       allRequest: () => {},
       requests: [
         { requeststatus: 'resolved' },
+        { requeststatus: 'pending' },
       ],
     };
 
     const wrapper = shallow(<AllRequests {...props} />);
     expect(wrapper.find('.green').exists()).toBe(true);
+  });
+  it('Should handle filter request method', () => {
+    const wrapper = shallow(<AllRequests {...props} />);
+    wrapper.instance().filterRequest({ target: { value: 'pending' } });
+    const actual = wrapper.state('filteredRequest');
+    expect(actual).toEqual([{ requeststatus: 'pending' }]);
+  });
+  it('Should handle filter request method for akk', () => {
+    const wrapper = shallow(<AllRequests {...props} />);
+    wrapper.instance().filterRequest({ target: { value: 'all' } });
+    const actual = wrapper.state('filteredRequest');
+    expect(actual).toEqual([{ requeststatus: 'resolved' }, { requeststatus: 'pending' }]);
   });
 });

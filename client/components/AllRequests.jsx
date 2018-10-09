@@ -1,18 +1,44 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import id from 'short-id';
 import PropTypes from 'prop-types';
 import Footer from '../components/Footer';
 
 
-const AllRequestsComponent = ({
-  requests, route,
+class AllRequestsComponent extends Component {
+  state = {
+    filteredRequest: [],
+  }
 
+filterRequest = (event) => {
+  const { requests } = this.props;
+  let request = [];
+  if (event.target.value === 'all') {
+    return this.setState({ filteredRequest: requests });
+  }
+  request = requests.filter(req => req.requeststatus === event.target.value);
+  return this.setState({ filteredRequest: request });
+}
 
-}) => (
-  <div>
-    <section className="allrequests">
-      {requests && requests.length !== 0 ? requests.map(request =>
+render() {
+  const { route, requests: allRequests } = this.props;
+  const { filteredRequest } = this.state;
+  const requests = filteredRequest.length === 0 ? allRequests : filteredRequest;
+  return (
+    <div>
+      <section className="allrequests">
+        {}
+        <div className="dropdown">
+          <select className="dropbtn" id="filter" onChange={this.filterRequest}>
+            <option value>Filter By:</option>
+            <option value="all">All</option>
+            <option value="pending">Pending</option>
+            <option value="approved">Approved</option>
+            <option value="disapproved">Disapproved</option>
+            <option value="resolved">Resolved</option>
+          </select>
+        </div>
+        {requests && requests.length !== 0 ? requests.map(request =>
 
           (
             <div className="requests-card" key={id.generate}>
@@ -38,16 +64,19 @@ const AllRequestsComponent = ({
                 </div>
               </div>
             </div>)) :
-      <div className="requests-card no-request" >
-        <p className="message-centered">
+        <div className="requests-card no-request" >
+          <p className="message-centered">
               You do not have any requests to yet!!!
-        </p>
-      </div>
+          </p>
+        </div>
           }
-    </section>
-    <Footer />
-  </div>
-);
+      </section>
+
+      <Footer />
+    </div>
+  );
+}
+}
 
 AllRequestsComponent.propTypes = {
   requests: PropTypes.shape([

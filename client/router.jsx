@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Home from './pages/home';
+import Home from './pages/Home';
 import Signin from './pages/Signin';
 import Signup from './pages/Signup';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import AllRequests from './pages/allrequests';
-import CreateRequest from './pages/createrequest';
+import AllRequests from './pages/AllRequests';
+import CreateRequest from './pages/CreateRequest';
 import AdminCreateReq from './pages/AdminCreateRequest';
-import EditRequest from './pages/editrequest';
-import AdminRequests from './pages/adminrequests';
+import EditRequest from './pages/EditRequest';
+import AdminRequests from './pages/AdminRequests';
 import SingleRequest from './pages/SingleRequest';
 import AdminSingleRequest from './pages/AdminGetSingleRequest';
 
