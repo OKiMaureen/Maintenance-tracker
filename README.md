@@ -51,7 +51,7 @@ https://okimaureen.github.io/Maintenance-tracker/ui
 ## Installation
 1. Clone this repository into your local machine:
 ```
-git clone https://github.com/OKiMaureen/Book-A-Meal
+git clone https://github.com/OKiMaureen/Maintenance-tracker
 ```
 2. Install dependencies
 ```
